@@ -6,7 +6,8 @@ import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
 import { calculeazaScor, recomandaLocuri, recomandaTehnici, estimateWaterTemp } from "@/lib/recomandari";
 
-export const revalidate = 1800; // 30 min cache
+export const dynamic = "force-dynamic";
+export const revalidate = 1800;
 
 // Mila 23 — punctul de referință pentru Delta
 const REF_LAT = 45.211;
