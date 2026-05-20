@@ -32,6 +32,24 @@ export default function Home() {
         </p>
       </section>
 
+      {/* Live banner */}
+      <section className="mb-8">
+        <Link
+          href="/azi"
+          className="block card rounded-xl p-6 hover:scale-[1.01] transition-transform"
+          style={{ background: "linear-gradient(135deg, rgba(212,166,87,0.15), rgba(107,163,104,0.1))" }}
+        >
+          <div className="flex items-baseline justify-between flex-wrap gap-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">azi în Deltă</p>
+              <h3 className="text-2xl font-display text-fog">Condiții live + recomandări pe specie</h3>
+              <p className="text-sm text-fog/70 mt-1">Cota Tulcea + vremea Mila 23 + faza lunii → scor pe fiecare specie + locuri și tehnici pentru ziua de azi</p>
+            </div>
+            <span className="text-amber-glow text-2xl">→</span>
+          </div>
+        </Link>
+      </section>
+
       {/* Quick cards */}
       <section className="grid md:grid-cols-2 gap-4 mb-12">
         <Link
