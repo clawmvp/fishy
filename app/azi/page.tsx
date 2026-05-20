@@ -17,10 +17,13 @@ async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | n
   try {
     const station = DANUBE_STATIONS.find((s) => s.slug === stationSlug);
     if (!station) return null;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
     const res = await fetch("https://danubealert.com/en/Romania", {
       headers: { "User-Agent": "fishy.n01.app", Accept: "text/html" },
       next: { revalidate: 3600 },
-    });
+      signal: controller.signal,
+    }).finally(() => clearTimeout(timeoutId));
     if (!res.ok) return null;
     const html = await res.text();
     // Parse simplificat — căutăm rândul cu numele stației
