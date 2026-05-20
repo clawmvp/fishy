@@ -34,6 +34,18 @@ export const DANUBE_STATIONS: WaterLevelStation[] = [
   { city: "Giurgiu",     slug: "giurgiu",      rkm: 493,  lat: 43.897, lon: 25.972, ldc: 80,  hdc: 700 },
 ];
 
+export const HIDRO_IDS: Record<string, number> = {
+  sulina: 9149,
+  tulcea: 42057,
+  isaccea: 42050,
+  galati: 42052,
+  braila: 42051,
+  harsova: 42045,
+  cernavoda: 42043,
+  calarasi: 42040,
+  giurgiu: 42022,
+};
+
 function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;

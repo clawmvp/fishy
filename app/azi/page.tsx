@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { fetchWeather, getWeatherIcon, getWindDirection, formatDate } from "@/lib/weather";
 import { getMoonPhase } from "@/lib/moon";
-import { DANUBE_STATIONS, classifyLevel, getLevelLabel, getLevelFishingImpact } from "@/lib/water-level";
+import { DANUBE_STATIONS, HIDRO_IDS, classifyLevel, getLevelLabel, getLevelFishingImpact } from "@/lib/water-level";
 import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
 import { calculeazaScor, recomandaLocuri, recomandaTehnici, estimateWaterTemp } from "@/lib/recomandari";
@@ -13,46 +13,94 @@ export const revalidate = 1800;
 const REF_LAT = 45.211;
 const REF_LON = 29.131;
 
-async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | null> {
+let hidroCache: { html: string; expires: number } | null = null;
+
+async function fetchHidroHtml(): Promise<string | null> {
+  if (hidroCache && hidroCache.expires > Date.now()) return hidroCache.html;
   try {
-    const station = DANUBE_STATIONS.find((s) => s.slug === stationSlug);
-    if (!station) return null;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 8000);
-    const res = await fetch("https://danubealert.com/en/Romania", {
-      headers: { "User-Agent": "fishy.n01.app", Accept: "text/html" },
+    const res = await fetch("https://www.hidro.ro/", {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; fishy.n01.app/1.0)" },
       next: { revalidate: 3600 },
       signal: controller.signal,
     }).finally(() => clearTimeout(timeoutId));
     if (!res.ok) return null;
     const html = await res.text();
-    // Parse simplificat — căutăm rândul cu numele stației
-    const rowRegex = /<tr[^>]*>\s*<td[^>]*>(?:<a[^>]*>)?([^<]+)(?:<\/a>)?<\/td>\s*<td[^>]*>(\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>([\d.]+|)<\/td>\s*<td[^>]*>([^<]+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>\s*<td[^>]*>(-?\d+)<\/td>/g;
-    let match;
-    while ((match = rowRegex.exec(html)) !== null) {
-      const city = match[1].trim().toLowerCase();
-      if (city.includes(station.city.toLowerCase()) || station.city.toLowerCase().includes(city)) {
-        const level = parseInt(match[3]);
-        const variation = parseInt(match[4]);
-        const tempStr = match[5];
-        const trend: "rising" | "falling" | "stable" = variation > 2 ? "rising" : variation < -2 ? "falling" : "stable";
-        const relativeLevel = classifyLevel(level, station);
-        return {
-          station,
-          level,
-          variation,
-          waterTemp: tempStr ? parseFloat(tempStr) : null,
-          date: match[6].trim(),
-          forecast24h: parseInt(match[7]) || null,
-          forecast48h: parseInt(match[8]) || null,
-          forecast72h: parseInt(match[9]) || null,
-          trend,
-          relativeLevel,
-          fishingImpact: getLevelFishingImpact(relativeLevel),
-        };
+    hidroCache = { html, expires: Date.now() + 30 * 60 * 1000 };
+    return html;
+  } catch {
+    return null;
+  }
+}
+
+async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | null> {
+  try {
+    const station = DANUBE_STATIONS.find((s) => s.slug === stationSlug);
+    const hidroId = HIDRO_IDS[stationSlug];
+    if (!station || !hidroId) return null;
+
+    const html = await fetchHidroHtml();
+    if (!html) return null;
+
+    // Extract entry by ID
+    const idStr = String(hidroId);
+    const idx = html.indexOf(`"${idStr}":{`);
+    if (idx === -1) return null;
+
+    // Read the JSON object starting after the colon
+    const start = html.indexOf("{", idx);
+    let depth = 0;
+    let end = start;
+    for (let i = start; i < html.length; i++) {
+      if (html[i] === "{") depth++;
+      else if (html[i] === "}") {
+        depth--;
+        if (depth === 0) {
+          end = i + 1;
+          break;
+        }
       }
     }
-    return null;
+    const jsonStr = html.slice(start, end);
+    let data: Record<string, unknown>;
+    try {
+      data = JSON.parse(jsonStr);
+    } catch {
+      return null;
+    }
+
+    // TEXT1 = "H= 77 cm" — extract number
+    const text1 = String(data.TEXT1 || "");
+    const levelMatch = text1.match(/H=\s*(-?\d+)/);
+    if (!levelMatch) return null;
+    const level = parseInt(levelMatch[1]);
+
+    // TEXT2 = "Variatie zilnica nivel = -1 cm"
+    const text2 = String(data.TEXT2 || "");
+    const varMatch = text2.match(/=\s*(-?\d+)/);
+    const variation = varMatch ? parseInt(varMatch[1]) : 0;
+
+    // DATA = "2026-05-19 06:00:00"
+    const date = String(data.DATA || "").split(" ")[0] || "";
+
+    const trend: "rising" | "falling" | "stable" =
+      variation > 2 ? "rising" : variation < -2 ? "falling" : "stable";
+    const relativeLevel = classifyLevel(level, station);
+
+    return {
+      station,
+      level,
+      variation,
+      waterTemp: null,
+      date,
+      forecast24h: null,
+      forecast48h: null,
+      forecast72h: null,
+      trend,
+      relativeLevel,
+      fishingImpact: getLevelFishingImpact(relativeLevel),
+    };
   } catch {
     return null;
   }
