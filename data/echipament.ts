@@ -4,8 +4,8 @@ export type Item = {
   specific?: string;
   pret?: string;
   prioritate: "must" | "nice" | "expert";
-  pentru: ("stiuca" | "salau" | "avat" | "crap")[];
-  categoria: "lanseta" | "mulineta" | "fir" | "naluca" | "boilies" | "nada" | "montura" | "carlige" | "accesorii";
+  pentru: ("stiuca" | "salau" | "avat" | "crap" | "biban" | "somn")[];
+  categoria: "lanseta" | "mulineta" | "fir" | "naluca" | "boilies" | "nada" | "montura" | "carlige" | "accesorii" | "somn-specific";
   note?: string;
 };
 
@@ -628,6 +628,119 @@ export const echipament: Item[] = [
     note: "Marcaj locuri nadate pe vegetația deasă (noaptea).",
   },
 ];
+
+// Echipament suplimentar din batch 2 (28 videouri analizate)
+echipament.push(
+  // === LANSETE SPINNING DE CONCURS ===
+  { nume: "A.Sava Custom ASAVA72HF", marca: "A.Sava", specific: "7-40 g (blanc MHX + vârf fibră sticlă)", prioritate: "expert", pentru: ["avat", "salau"], categoria: "lanseta", note: "'Regina lansetelor' — exclusivă Marele Pescar. Vârful absoarbe atacul violent al avatului." },
+  { nume: "Rapture Acrux Concept R Racing Magworm XF", marca: "Rapture", specific: "2.15 m / 7-28 g (blanc Toray Japonia)", prioritate: "expert", pentru: ["stiuca"], categoria: "lanseta", note: "Pentru concursuri Delta Spinning Challenge." },
+  { nume: "Rapala Countdown spinning rod", marca: "Rapala", specific: "2.13 m / 5-21 g", prioritate: "nice", pentru: ["stiuca", "salau", "avat"], categoria: "lanseta", note: "Lansetă universală moale, baza Gigant Fish pentru spinning Deltă." },
+  { nume: "Daiwa SZ 728", marca: "Daiwa", specific: "extra-fast, de șalău", prioritate: "expert", pentru: ["stiuca"], categoria: "lanseta", note: "Folosită deturnat pentru slidere de știucă pe lacuri Mila 23." },
+  { nume: "Rapture Furon XF L", marca: "Rapture", specific: "2.18 m / 0.8-10 g", prioritate: "must", pentru: ["biban"], categoria: "lanseta", note: "Pentru biban pe Dunărea Veche cu microjig." },
+  { nume: "Rapture Edge Master Solid", marca: "Rapture", specific: "1.95 m / 1-7 g (ultra-light, vârf solid)", prioritate: "expert", pentru: ["biban"], categoria: "lanseta" },
+  { nume: "Daiwa Basti", marca: "Daiwa", specific: "7-28 g", prioritate: "nice", pentru: ["avat", "salau"], categoria: "lanseta" },
+
+  // === LANSETE CRAP BUGET ===
+  { nume: "FL Power Stick", marca: "FL", specific: "2.70 m / 250 g (~158 RON)", prioritate: "must", pentru: ["crap"], categoria: "lanseta", note: "Recomandare buget Baltacul — combo cu Okuma Dyna Drag + Claumar Inviziline = ~448 RON total." },
+  { nume: "Penn Squadron Boat Sensitive gen. 4", marca: "Penn", specific: "2.70 m cu vârf rezervă medium/heavy", prioritate: "expert", pentru: ["crap"], categoria: "lanseta", note: "Recomandare medium Baltacul — ~500 RON. Vârf rezervă schimbabil." },
+  { nume: "Trabuco Epica Adric Extreme", marca: "Trabuco", specific: "2.70 m feeder, inele mici", prioritate: "expert", pentru: ["crap"], categoria: "lanseta", note: "Folosită pe Sulina la digul de piatră (ghidul GDA A-Z)." },
+
+  // === LANSETE SOMN ===
+  { nume: "Ugly Stik Silurus Clonk", marca: "Ugly Stik", specific: "1.95 m / 80-200 g", prioritate: "must", pentru: ["somn"], categoria: "lanseta", note: "Lansetă de clonc, combo cu Penn Slammer 560." },
+  { nume: "MadCat Full Force", marca: "MadCat", specific: "vertical bait casting, până 250 g", prioritate: "expert", pentru: ["somn"], categoria: "lanseta", note: "Rigid, pentru clonc cu plumb mare." },
+  { nume: "MadCat Black Spin", marca: "MadCat", specific: "2.40 m / 40-150 g", prioritate: "must", pentru: ["somn"], categoria: "lanseta", note: "Pentru staționar. Combo cu mono Madcat 0.40 = TOATE trăsăturile productive (testat vs textil)." },
+  { nume: "Unichet (somn)", marca: "Unichet", specific: "500-1000 g", prioritate: "expert", pentru: ["somn"], categoria: "lanseta", note: "Pentru somn mare pe groapă cu textil 0.40." },
+
+  // === MULINETE ===
+  { nume: "Shimano Stella 2500", marca: "Shimano", prioritate: "expert", pentru: ["stiuca", "salau", "avat", "biban"], categoria: "mulineta", note: "Top tier spinning." },
+  { nume: "Shimano Stradic 2500", marca: "Shimano", prioritate: "must", pentru: ["stiuca", "salau", "avat"], categoria: "mulineta", note: "Sub-Stella, raport calitate-preț bun." },
+  { nume: "Okuma Inspira 2500", marca: "Okuma", prioritate: "nice", pentru: ["stiuca"], categoria: "mulineta" },
+  { nume: "Trabuco Helium 1000", marca: "Trabuco", specific: "carbon", prioritate: "expert", pentru: ["biban"], categoria: "mulineta", note: "Mulinetă carbon ultra-light pentru microjig la biban." },
+  { nume: "Okuma Custom Carp CC 7000", marca: "Okuma", prioritate: "expert", pentru: ["crap"], categoria: "mulineta", note: "Identică Custom Black + robustețe. Tambur metal + tambur plastic rezervă. Recomandare medium Baltacul." },
+  { nume: "Okuma Dyna Drag XP", marca: "Okuma", specific: "cu baitrunner, tambur 150m/0.45, 4 rulmenți (~200 RON)", prioritate: "must", pentru: ["crap"], categoria: "mulineta", note: "Recomandare buget Baltacul." },
+  { nume: "Penn Vantage XT 7000", marca: "Penn", prioritate: "expert", pentru: ["crap"], categoria: "mulineta", note: "Identică cu Penn Tidal XT 7000 (doar culoare diferită). <500 g, 1 an folosință fără joc." },
+  { nume: "Penn Slammer 560", marca: "Penn", prioritate: "must", pentru: ["somn"], categoria: "mulineta", note: "Combo standard pentru clonc și staționar pe somn." },
+  { nume: "Penn Hidal XT 8000", marca: "Penn", prioritate: "expert", pentru: ["crap"], categoria: "mulineta", note: "Pentru lansete plantate cu navomodelul pe lac (Corbu)." },
+
+  // === FIRE ===
+  { nume: "YGK X-Braid Upgrade X8 Light Green", marca: "YGK", specific: "22 lb", prioritate: "expert", pentru: ["stiuca", "salau", "avat"], categoria: "fir", note: "Fir împletit premium pentru spinning." },
+  { nume: "Momoi Tacumi Zigline", marca: "Momoi", specific: "0.05 mm", prioritate: "expert", pentru: ["biban"], categoria: "fir", note: "Subțire real, scufundător, NU absoarbe apă. Pentru microjig." },
+  { nume: "Momoi Ryujin", marca: "Momoi", specific: "0.06-0.20 mm", prioritate: "expert", pentru: ["stiuca", "biban"], categoria: "fir" },
+  { nume: "Sufix 131", marca: "Sufix", specific: "9 lb", prioritate: "nice", pentru: ["stiuca"], categoria: "fir" },
+  { nume: "Korda Subline", marca: "Korda", specific: "0.43 mm", prioritate: "must", pentru: ["crap"], categoria: "fir", note: "Echivalent PB Control 95%. ~140-150 RON / 1000 m." },
+  { nume: "Trabucco TFC Carp Enduro", marca: "Trabucco", specific: "~200+ RON / 1000 m", prioritate: "expert", pentru: ["crap"], categoria: "fir", note: "Rezistență top dar memorie ridicată. Recomandare Baltacul premium." },
+  { nume: "Sunset ARS Competition", marca: "Sunset", specific: "portocaliu fluo", prioritate: "expert", pentru: ["crap"], categoria: "fir", note: "Mențiune onorabilă Baltacul. Alternativă la Trabucco Enduro." },
+  { nume: "Claumar Inviziline", marca: "Claumar", specific: "0.45 mm (~90 RON / 1140 m)", prioritate: "must", pentru: ["crap"], categoria: "fir", note: "Recomandare buget Baltacul." },
+  { nume: "MadCat mono", marca: "MadCat", specific: "0.40 mm", prioritate: "must", pentru: ["somn"], categoria: "fir", note: "TESTAT vs textil 0.40 — mai multe trăsături la somn până în 10 kg pe mono. Textilul = doar pt somn mare pe groapă." },
+
+  // === NALUCI STIUCA ===
+  { nume: "Slider Salmo 7", marca: "Salmo", specific: "floating 17 g / sinking 21 g", prioritate: "must", pentru: ["stiuca"], categoria: "naluca", note: "Culori MarelePescar: galben-negru, portocaliu-galben-negru. Sliderul jercat din vârf bate lingurița pentru știuci mai mari." },
+  { nume: "Rapture vobler cu bile", marca: "Rapture", prioritate: "nice", pentru: ["stiuca"], categoria: "naluca", note: "Zgomot — atrage știuca de 65 cm într-un episod cu Gigi Moroiu." },
+  { nume: "Rublex 'Irlandeza' originale", marca: "Rublex", specific: "12, 15, 18, 21, 24, 30 g (argint/aur/cupru)", prioritate: "expert", pentru: ["stiuca"], categoria: "naluca", note: "Fabricate ca bijuterii — premium." },
+  { nume: "Lingurițe Berti", marca: "Berti", specific: "10 g", prioritate: "nice", pentru: ["stiuca"], categoria: "naluca", note: "Pentru apă 0.5 m cu iarbă — recuperare lentă fără agățare." },
+  { nume: "Lingurițe Leira 'irlandeze'", marca: "Leira", prioritate: "nice", pentru: ["stiuca"], categoria: "naluca" },
+  { nume: "Gume Lambe Sandra", marca: "Lambe", specific: "9 cm și 12 cm (alb cu cap roșu)", prioritate: "nice", pentru: ["stiuca"], categoria: "naluca", note: "Pe jighead 3-5 g, animate ca la șalău." },
+  { nume: "Fast Strike shad", marca: "Fast Strike", specific: "alb cu cap roșu", prioritate: "must", pentru: ["stiuca"], categoria: "naluca" },
+
+  // === NALUCI AVAT ===
+  { nume: "Duo Realis", marca: "Duo", specific: "14.5 g și 21 g (natural cu spate negru)", prioritate: "must", pentru: ["avat"], categoria: "naluca", note: "Avat 49-50 cm pe epi-uri Sulina." },
+  { nume: "Rapala Countdown Elite", marca: "Rapala", specific: "verde-cap roșu", prioritate: "must", pentru: ["avat"], categoria: "naluca" },
+  { nume: "Fast Strike Hunter Big River", marca: "Fast Strike", specific: "21 g", prioritate: "must", pentru: ["avat", "salau"], categoria: "naluca" },
+  { nume: "Cicade Lazer Tactic Fishing", marca: "Ticu Fishing", specific: "18-22 g", prioritate: "nice", pentru: ["avat"], categoria: "naluca" },
+  { nume: "Rapture Under Silent", marca: "Rapture", specific: "vobler ieftin <30 RON", prioritate: "must", pentru: ["avat", "salau"], categoria: "naluca", note: "Raport preț-eficiență excelent." },
+
+  // === NALUCI SALAU ===
+  { nume: "Storm Largo Shad 'Houdini'", marca: "Storm", specific: "culoare rozaliu", prioritate: "must", pentru: ["salau"], categoria: "naluca", note: "Primul șalău în partida de iarnă pe Sulina." },
+  { nume: "Micado shad galben-roșu cu puncte negre", marca: "Micado", prioritate: "nice", pentru: ["salau"], categoria: "naluca" },
+  { nume: "Fish Up shad maro cu gliter roșu", marca: "Fish Up", prioritate: "nice", pentru: ["salau"], categoria: "naluca", note: "Bun pe cădere." },
+  { nume: "Fox Rage Zander Pro Shad", marca: "Fox Rage", specific: "culoare 'secretă'", prioritate: "expert", pentru: ["salau"], categoria: "naluca", note: "Funcționează la pescarii buni — nu e pentru oricine, depinde de animație." },
+
+  // === NALUCI BIBAN ===
+  { nume: "Fast Strike gumă 'Motoroil'", marca: "Fast Strike", prioritate: "must", pentru: ["biban"], categoria: "naluca", note: "Culoare preferată — Dunărea Veche noiembrie." },
+  { nume: "Bass Assassin Electric Chicken", marca: "Bass Assassin", specific: "gumă cu coadă curly", prioritate: "must", pentru: ["biban"], categoria: "naluca" },
+  { nume: "Rapture 4 cm cu coadă mai mare", marca: "Rapture", prioritate: "nice", pentru: ["biban"], categoria: "naluca", note: "Pe jighead BKK 7 g #1/0 pentru selectarea bibanilor mari." },
+
+  // === STRUNA ===
+  { nume: "Traco titan 7 fire", marca: "Traco", prioritate: "expert", pentru: ["stiuca", "salau"], categoria: "montura", note: "Revine la forma inițială după mototolire — flexibilitate maximă." },
+
+  // === BOILIES / NADA ===
+  { nume: "GDA Cireașa pe tort 20 mm căpșună", marca: "GDA Fishing", specific: "20 mm pe cârlig", prioritate: "must", pentru: ["crap"], categoria: "boilies", note: "Bilă pentru day session pe Sulina." },
+  { nume: "GDA Delta Secret biletari", marca: "GDA Fishing", specific: "24 mm tari, rezistente 4-5 ore", prioritate: "must", pentru: ["crap"], categoria: "boilies", note: "Mihai Manea — pentru pești mari pe adâncime." },
+  { nume: "GDA Delta Activ semisolubilă", marca: "GDA Fishing", specific: "24 mm semisolubilă", prioritate: "must", pentru: ["crap"], categoria: "boilies", note: "Produs nou GDA (2025). Crap 11 kg pe Sulina sfârșit octombrie." },
+  { nume: "GDA 'Minciunele' wafter moi", marca: "GDA Fishing", specific: "8 mm și 15 mm, foarte moi", prioritate: "expert", pentru: ["crap"], categoria: "boilies", note: "Pentru pești apatici iarna. Se ridică ele singure fără să ridice cârligul. Pescuit din curiozitate." },
+  { nume: "GDA Dumble-uri solubile", marca: "GDA Fishing", prioritate: "expert", pentru: ["crap"], categoria: "boilies", note: "Topite în 30-40 min. Tăiate cu cutter în dreptunghi/pătrat pentru activare instant. Strategia 'Bate Norocul'." },
+  { nume: "Pelete fish meal 32% proteină", marca: "GDA Fishing", specific: "5 mm", prioritate: "must", pentru: ["crap"], categoria: "nada", note: "Produs nou GDA — pentru momitor." },
+  { nume: "Dynamite Sweet Tiger & Corn", marca: "Dynamite Baits", specific: "20 mm", prioritate: "must", pentru: ["crap"], categoria: "boilies" },
+  { nume: "Dynamite Carptek Scopex & Vanilla", marca: "Dynamite Baits", specific: "20 mm", prioritate: "nice", pentru: ["crap"], categoria: "boilies" },
+  { nume: "Mr Dudy Bites kicker", marca: "Mr Dudy", specific: "caramele kicker", prioritate: "expert", pentru: ["crap"], categoria: "boilies", note: "Pentru wafter bi-color cu agresivitate. Folosit pe Lacul Corbu când boilies-ul nu mai mergea." },
+  { nume: "Dudy Complete Spod Mix", marca: "Mr Dudy", prioritate: "nice", pentru: ["crap"], categoria: "nada", note: "Mix pentru spomb cu boilies + porumb + spărtură alună + pelete." },
+
+  // === MOMEALA SOMN ===
+  { nume: "Vier de salcie", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "CÂȘTIGĂTOR ABSOLUT pe somn (testat vs râme negre + mațe macrou = ZERO). Cumpărat de la piața din Tulcea. CIUPEȘTE — bagă cu PATENT pe cârlig." },
+  { nume: "Coropișniță", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Combinată cu vier de salcie pe cârlig = cea mai bună momeală pentru somn. Tulcea, piață." },
+  { nume: "Râme proaspete", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Pentru clonc. Păstrate în geantă termo MadCat + sac rafie pentru umezeală. Fluctuațiile de temperatură le deteriorează rapid." },
+
+  // === CLONC ===
+  { nume: "B.B. Clonc TR / TNZ convex", marca: "B.B. Clonc", specific: "Bogdan Munteanu, pastilă convexă", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Pentru începători — intră ușor în apă. Disponibil la Marele Pescar." },
+  { nume: "Les MadCat 'țigaretă'", marca: "MadCat", specific: "200 g", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Se scufundă, taie curentul." },
+  { nume: "Ancoră BKK Viper 4/0 + cârlig 7/0", marca: "BKK", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Combinația 'păcălici' pentru clonc — ancora cu râme în masă + cârlig 7/0 doar acoperit (somnul pune gura pe păcălici)." },
+  { nume: "Teaser MadCat Adjust", marca: "MadCat", specific: "caracatiță cu tentacule + bile", prioritate: "expert", pentru: ["somn"], categoria: "somn-specific", note: "Pentru vibrație suplimentară când peștii nu răspund. Modificat cu plumb 250 g + montura clasică." },
+  { nume: "Opritor MadCat sectionat", marca: "MadCat", prioritate: "nice", pentru: ["somn"], categoria: "somn-specific", note: "Pentru ajustat distanța plumb-cârlig (scurt = vibrație, lung 40-50 cm = pește suspicios)." },
+
+  // === SONARE / NAVOMODELE / ACCESORII ===
+  { nume: "Garmin GPSMAP 923 XSV", marca: "Garmin", specific: "9 inch, Down + Side Imaging", prioritate: "expert", pentru: ["crap", "somn"], categoria: "accesorii", note: "Preferat față de Finval/Humminbird/Lowrance. Identifică crapii după mărimea 'buburuzelor' pe Down — mari = crap, mici = caras." },
+  { nume: "Garmin Live Scope 841 + LVS34", marca: "Garmin", specific: "live sonar", prioritate: "expert", pentru: ["biban", "stiuca", "salau"], categoria: "accesorii", note: "Localizare bancuri în timp real." },
+  { nume: "Lowrance HDS Pro 16 + Active Target 2", marca: "Lowrance", specific: "live sonar", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "Afișează silueta naturală a somnului. Permite apropierea monturii fără a speria peștele. 2D-ul comprimă semnal — Active Target = upgrade major." },
+  { nume: "Deeper Quest navomodel", marca: "Deeper", specific: "rază 400 m, sonar integrat, auto-pilot", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Conuri 47°/20°/7°, sensibilitate 70% (echilibru). Pentru poziționare PRECISĂ pe structuri, nu doar distanță." },
+  { nume: "Rod-pod Prologic Tri-Sky", marca: "Prologic", specific: "4 posturi", prioritate: "nice", pentru: ["crap"], categoria: "accesorii" },
+  { nume: "Avertizoare Prologic Cies", marca: "Prologic", prioritate: "nice", pentru: ["crap"], categoria: "accesorii", note: "Lumină + indicator pentru lanseta cu trăsătură." },
+  { nume: "Cleștele plantat Ridge Monkey", marca: "Ridge Monkey", prioritate: "nice", pentru: ["crap"], categoria: "accesorii" },
+  { nume: "Lanternă albastră Formax", marca: "Formax", prioritate: "nice", pentru: ["crap"], categoria: "accesorii", note: "Vede firul fluo în drill noaptea." },
+  { nume: "Barcă Mary Fisher 695", marca: "Mary Fisher", specific: "695", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Barca Gigant Fish pentru pescuit pe canalele Mila 23." },
+  { nume: "Finval 595", marca: "Finval", specific: "595", prioritate: "expert", pentru: ["salau", "crap"], categoria: "accesorii", note: "Pentru Sulina. Combo cu motor electric Quest + Live Scope pe baterie LiFePO4 36V/100Ah." },
+  { nume: "Stație gătit Fox multifuncțională", marca: "Fox", specific: "grătar fontă + placă + tigaie + butelie Flamex", prioritate: "nice", pentru: ["crap", "somn"], categoria: "accesorii", note: "Pentru gătit pe barcă în partide lungi." },
+  { nume: "Geantă termo MadCat pentru râme", marca: "MadCat", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Plus sac de rafie pentru umezeală. Fluctuațiile de temperatură deteriorează râmele rapid." }
+);
 
 export function pentruSpecie(specie: Item["pentru"][0]) {
   return echipament.filter((e) => e.pentru.includes(specie));

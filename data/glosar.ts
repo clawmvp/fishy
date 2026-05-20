@@ -69,6 +69,29 @@ export const glosar: Termen[] = [
   { termen: "Drill", categorie: "general", definitie: "Lupta cu peștele de la cârlig până la minciog. Drill prost = pește pierdut." },
   { termen: "Prohibiție", categorie: "general", definitie: "Perioada legală în care pescuitul răpitorilor (sau crapului) este interzis pentru depunere. România: ~24 aprilie - 24 mai pentru majoritatea speciilor; variabil pe zone." },
   { termen: "Sondaj cu dipper", categorie: "general", definitie: "Dispozitiv portabil pentru măsurat adâncimea + temperatura — alternativă la sonar." },
+
+  // === TERMENI NOI BATCH 2 ===
+  { termen: "Clonc / Cloncănit", categorie: "tehnica", definitie: "Tehnică de chemare a somnului — un instrument de lemn cu pastilă lovește apa, creând o vibrație care imită hrănirea / împerecherea. Pastila concavă, convexă sau dreaptă; mișcarea din degete + încheietură." },
+  { termen: "Pastilă de clonc", categorie: "echipament", definitie: "Capul de lemn al cloncului. Convex pentru începători (intră ușor în apă), concav sau drept pentru avansați. Dimensiuni: 36-38 mm la 6-10 m apă, 40-42 mm la 10-15 m, mai mari peste 20 m." },
+  { termen: "Păcălici (la somn)", categorie: "montura", definitie: "Cârligul de jos pe montura de clonc (7/0), doar acoperit cu râmă (NU înfundat). Ancora 4/0 BKK ține masa de râme; păcăliciul = surpriză când somnul pune gura." },
+  { termen: "Teaser", categorie: "echipament", definitie: "Atractor mecanic — caracatiță cu tentacule + bile (MadCat Adjust) care vibrează pe lângă cârlig pentru somn suspicios." },
+  { termen: "Live sonar / Active Target", categorie: "echipament", definitie: "Sonar care arată peștele și năluca în TIMP REAL pe o linie de imagine (Lowrance Active Target, Garmin LiveScope). Vezi cum se apropie peștele de cârlig. Vs 2D care comprimă și arată acolade." },
+  { termen: "Down Imaging / Side Imaging", categorie: "echipament", definitie: "Tehnologii sonar — Down vede direct sub barcă (substrat detaliu), Side vede lateral pe 50-100 m. Crapii apar ca 'buburuze' pe Down — mari = crap, mici = caras / roșioare." },
+  { termen: "Navomodel", categorie: "echipament", definitie: "Bărcuță telecomandată care plantează momeli + monturi pe puncte salvate. Deeper Quest are sonar integrat + rază 400 m + auto-pilot. Pentru poziționare precisă pe structuri, nu doar distanță maximă." },
+  { termen: "PVA (pungă PVA)", categorie: "montura", definitie: "Pungă solubilă în apă care conține boilies/pelete în jurul cârligului. La contactul cu apa, pungă se dizolvă și creează nucleu de momeală. Plumb minim 90 g (mai gros pe curent)." },
+  { termen: "Wafter", categorie: "general", definitie: "Boilie neutră (NICI nu plutește, NICI nu se scufundă). Imită mai natural o boilie naturală în gura crapului. Variantele MOI ('minciunele' GDA) — 8-15 mm — pentru pești apatici iarna." },
+  { termen: "Minciunele", categorie: "general", definitie: "Wafter foarte moi (GDA Fishing) — 8 mm și 15 mm. Mecanism: peștele apatic nu mănâncă din foame, ci din CURIOZITATE pe dâra de nadă. Se ridică ele singure fără să ridice cârligul." },
+  { termen: "Cireașa pe tort", categorie: "general", definitie: "Tehnica de a băga peletul/dumble SUPERFICIAL deasupra cârligului în nada momitorului — NU îngropat. Atrage peștele să mănânce ce e la suprafață mai întâi." },
+  { termen: "Epi (dig de piatră)", categorie: "locuri", definitie: "Dig de piatră perpendicular pe mal — construit pentru a controla colmatarea sau pentru cărărea șenalului. Pe Sulina între Gorgova-Crișan, anaforul din spatele epiului = avat 45-50 cm noiembrie." },
+  { termen: "Dâră de nadă", categorie: "tehnica", definitie: "Curentul de apă duce particulele de nadă în aval de momitor — peștele găsește cârligul pe dâră. Pescuitul CONTRA curentului = dâra perfectă (momitorul stă, particulele curg)." },
+  { termen: "Toană (la somn)", categorie: "locuri", definitie: "Traseul somnului — succesiune de gropi, pomi scufundați, praguri pe care somnul le frecventează regulat. Scanezi cu sonar până găsești 'toană' fierbinte, ancorezi, cloncuieși." },
+  { termen: "Vier de salcie", categorie: "general", definitie: "Larvă albă de gândac din scoarța sălciilor. Cea mai bună momeală pentru somn (testat vs râme + mațe macrou = câștigă clar). Cumpărat de la Tulcea (piață). CIUPEȘTE — bagă cu PATENT pe cârlig." },
+  { termen: "Coropișniță", categorie: "general", definitie: "Insectă subterană (Gryllotalpa) — momeală excelentă pentru somn, combinată cu vier de salcie. Tulcea, piață." },
+  { termen: "Spomb", categorie: "echipament", definitie: "Rachetă plutitoare pentru nadă — se aruncă cu lanseta la distanță, se deschide pe apă și eliberează nada. Folosit pe lacuri mari (ex: Corbu)." },
+  { termen: "Som / Somn", categorie: "pesti", definitie: "Silurus glanis. Cel mai mare răpitor european. Atacă de jos în sus (mandibula inferioară proeminentă). Aude prin vezica înotătoare ca prin difuzor. Pescuit cu clonc (chemare prin vibrație) sau staționar." },
+  { termen: "Cotă Tulcea", categorie: "locuri", definitie: "Înălțimea apei Dunării la Tulcea. Clasificare Vișoianu: 150-200 = optim crap pe canale; sub 45 = doar ciortani; 270-300 = ape mari, crapul în lacuri; pe Iacub 150-170 cotă ideală." },
+  { termen: "Rest stopper", categorie: "montura", definitie: "Opritor de cauciuc sub shrink tube pe linia principală. Esențial când vântul + valurile scufundă firul, pentru a evita ca plumbul să cadă cu totul." },
+  { termen: "Vezica înotătoare", categorie: "pesti", definitie: "Organ al peștelui care servește la flotabilitate + AMPLIFICARE A SUNETULUI ca o membrană de difuzor. De aceea crapul + somnul aud foarte bine vibrații (spomb, motor, atv pe mal)." },
 ];
 
 export const categorii = [

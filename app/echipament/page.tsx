@@ -9,6 +9,7 @@ const categoriiOrdine: Item["categoria"][] = [
   "boilies",
   "nada",
   "montura",
+  "somn-specific",
   "accesorii",
 ];
 
@@ -21,6 +22,7 @@ const catLabel: Record<Item["categoria"], string> = {
   boilies: "Boilies",
   nada: "Nadă",
   montura: "Monturi",
+  "somn-specific": "Somn — momeli & echipament specific",
   accesorii: "Accesorii",
 };
 

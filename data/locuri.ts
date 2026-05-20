@@ -4,7 +4,7 @@ export type Loc = {
   tip: "brat" | "canal" | "lac" | "rau" | "balastiera";
   scurt: string;
   sezon: string[];
-  specii: string[];
+  specii: Array<"crap" | "stiuca" | "salau" | "avat" | "biban" | "somn" | "caras">;
   caracteristici: string[];
   pericole: string[];
   sfaturi: string[];
@@ -67,7 +67,7 @@ export const locuri: Loc[] = [
     tip: "brat",
     scurt: "Brațul sudic, apă adâncă 10-14 m cu cioate. Tradițional pentru pești mari — record cunoscut 27 kg.",
     sezon: ["iunie", "iulie", "august", "septembrie"],
-    specii: ["crap", "som"],
+    specii: ["crap", "somn"],
     caracteristici: [
       "Cote variabile 20 cm (extrem scăzut) → 60 cm la Tulcea",
       "Adâncimi mixte 6-14 m + platouri cu cioate",
@@ -330,6 +330,204 @@ export const locuri: Loc[] = [
     sursa: ["W-XdKuMZWXo"],
   },
 ];
+
+// Locuri noi adăugate din batch 2 (28 videouri analizate)
+locuri.push(
+  {
+    slug: "canalul-iacub",
+    nume: "Canalul Iacub",
+    tip: "canal",
+    scurt: "Singurul canal izolat din zona Sf. Gheorghe / Uzlina cu palmares de crapi 10-15+ kg primăvara. Necesită condiții stricte.",
+    sezon: ["martie", "aprilie", "mai"],
+    specii: ["crap"],
+    caracteristici: [
+      "Canal de legătură între Dunăre și lacul Iacub",
+      "Apă tipic 6-7°C primăvara devreme; ideal >8°C",
+      "Trafic redus de bărci (mult mai liniștit ca Litcov/Tătaru)",
+      "Acces din Dunavățu de Jos prin Pensiunea Timona (Nelu)",
+    ],
+    pericole: [
+      "Braconaj puternic cu curent electric",
+      "Cotă Tulcea peste 200 = apă murdară de la Dunăre intră în lac, crapii nu ies",
+      "Frunze căzute pe fire (toamna), păienjeni pe mal",
+    ],
+    sfaturi: [
+      "Cotă optimă Tulcea: 150-170 (NU 240+)",
+      "Apă minimum 8°C — sub asta peștii nu sunt activi",
+      "Curent canal↔lac echilibrat = cheia (curentul invers e cel productiv)",
+      "Stopper Leucoplast / bandă izolieră la 40-50 cm deasupra plumbului — frunze căzute se opresc acolo, nu alunecă pe forfac (pont Costel Velicu)",
+    ],
+    sursa: ["AMB17xHU8YE"],
+  },
+  {
+    slug: "lacul-corbu",
+    nume: "Lacul Corbu",
+    tip: "lac",
+    scurt: "Lac mare cu crapi 17-21 kg foarte nervoși ('șui', alungiți). Tehnică PVA + plantare cu navomodel. Substrat nisipos-mâlos.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap"],
+    caracteristici: [
+      "Mal cu stuf / peninsule, substrat nisipos-mâlos",
+      "Crapi 'șui' — alungiți, foarte nervoși la drill, intră în stuf",
+      "Vânt frecvent puternic cu valuri",
+      "Crapii vin în VALURI — nu liniar",
+    ],
+    pericole: [
+      "Peștii intră în stufăriș la drill — pierderi frecvente",
+      "Vânt puternic scufundă firul cu rest stopper sub shrink tube",
+    ],
+    sfaturi: [
+      "VERSUS: 2 lansete PVA la 95-110 m + 2 lansete plantate cu navomodel Deeper Quest",
+      "Întreținere zonă cu spomb la fiecare oră (2 mâini boilies + porumb + spărtură alună + pelete)",
+      "Switch de la boilies la wafter bi-color cu kicker când nu mai mănâncă (Mr. Dudy Bites)",
+      "Repoziționare lansete la 2-3 ore fără trăsături",
+    ],
+    sursa: ["UrrliATUh9o"],
+  },
+  {
+    slug: "canalul-litcov",
+    nume: "Canalul Litcov",
+    tip: "canal",
+    scurt: "Canal primit din lacurile Isac/Isăcel + Sf. Gheorghe — apă mai caldă și curată ca pe Îngusta. Critic iarna.",
+    sezon: ["noiembrie", "decembrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Apă vine din lacuri interioare = mai caldă și mai curată decât pe Îngusta",
+      "Iarna face diferența vitală — același sezon dă 7-8 kg vs 0 pe Îngusta",
+      "Cioate scufundate care adăpostesc crapii apatici",
+    ],
+    pericole: [
+      "Mizerie / frunze tocate pe fire (decembrie)",
+      "Pești cantonați dar nu mereu se hrănesc",
+    ],
+    sfaturi: [
+      "Pe iarnă, alege Litcov FAȚĂ DE Îngusta (apa mai caldă din lacuri)",
+      "Vorbește cu localnici — Luci, Mihai Manea, Costeluș — pentru info zilnice",
+      "Pescuit lângă cioată căzută, ancorat aproape; dă chiar sub barcă cu wafter solubil",
+      "Folosește 'minciunele' (wafter moi GDA 8-15 mm) — peștele apatic mușcă din curiozitate, nu foame",
+    ],
+    sursa: ["VkkAhdBEtaE"],
+  },
+  {
+    slug: "epiuri-sulina-gorgova-crisan",
+    nume: "Epi-uri Sulina (Gorgova - Crișan)",
+    tip: "brat",
+    scurt: "Diguri de piatră perpendiculare pe Brațul Sulina între Gorgova și Crișan. Avat în anaforul din spate, mai ales noiembrie.",
+    sezon: ["noiembrie"],
+    specii: ["avat"],
+    caracteristici: [
+      "Diguri artificiale perpendiculare pe mal (epiuri)",
+      "Anafor în spatele epiului — locul productiv",
+      "Avat 45-50 cm (record document 49-50 cm pe Duo Realis 14.5 g)",
+    ],
+    pericole: [
+      "NU fiecare epi produce — variabilitate zilnică",
+      "Curent puternic + adâncime mare după epi = doar pești mici",
+    ],
+    sfaturi: [
+      "Caută zone cu curent puternic + adâncime MICĂ (2-3 m max) după epi",
+      "Pe vreme rece avatul se mută din curent pe platouri 2 m mai liniștite",
+      "Năluci: Duo Realis 14.5/21 g (natural cu spate negru), Rapala Countdown Elite (verde-cap roșu), Fast Strike Hunter Big River 21 g, cicade Lazer Tactic 18-22 g",
+    ],
+    sursa: ["cW-oEqrDpdI"],
+  },
+  {
+    slug: "dunarea-veche-mila23-lopatna",
+    nume: "Confluența Dunărea Veche - Canalul Lopatna (Mila 23)",
+    tip: "brat",
+    scurt: "Spot pentru biban noiembrie când lacurile/canalele sunt cristale. 'În curtea școlii' la Mila 23.",
+    sezon: ["noiembrie"],
+    specii: ["biban"],
+    caracteristici: [
+      "Bibani 24-30 cm pe mal cu piatră",
+      "Sezon: 1-15 noiembrie când apa crește în lacuri și restul devine cristal",
+      "Bibanii MARI LIPIȚI de malul cu piatră; cei MICI în larg sub barcă",
+    ],
+    pericole: [
+      "Piatra agață jighead-urile mai grele",
+      "Bibanul se mută de pe o zi pe alta în sezon târziu",
+    ],
+    sfaturi: [
+      "Jighead 5 g (nu 7-10 g — agață piatra)",
+      "Gume preferate: Fast Strike 'Motoroil', Bass Assassin Electric Chicken",
+      "Fir Momoi Tacumi Zigline 0.05 mm — subțire real, scufundător, nu absoarbe apă",
+      "Live Scope Garmin 841 + LiveScope 34 = localizare bancuri",
+    ],
+    sursa: ["hkWNmG-BfgI"],
+  },
+  {
+    slug: "lacuri-mila23-nord",
+    nume: "Lacurile din nord de Mila 23",
+    tip: "lac",
+    scurt: "Lacuri interconectate cu Dunărea Veche. Știucă cu slider Salmo 7 în septembrie pe apă în scădere.",
+    sezon: ["septembrie", "octombrie", "noiembrie"],
+    specii: ["stiuca", "biban"],
+    caracteristici: [
+      "Apă în scădere toamna, vegetație multă",
+      "Capturi: știucă până la 60 cm pe slider; bibani 28-30 cm grupați",
+      "Apa ideală: nici cristal, nici tulbure cu miros",
+    ],
+    pericole: [
+      "Furtuni bruște — mută-te între lacuri",
+      "Iarba (mătasea broaștei) umple firele în 15 min după depunere de algă",
+    ],
+    sfaturi: [
+      "Caută zona MICĂ de apă LIMPEDE în lacul tulbure — acolo stă știuca",
+      "Sliderul atrage știuca chiar din Dunărea Veche (vine la portocaliu)",
+      "Lingurițe 10 g (NU 16-17) pe apă 0.5 m cu iarbă — recuperare lentă fără agățare",
+      "La biban: jighead 7 g mai mare ca să selectezi cei mari din bancurile cu mici",
+    ],
+    sursa: ["7fu16D7vADs", "i3zmwLUI3FQ"],
+  },
+  {
+    slug: "sulina-maliuc-vulturul",
+    nume: "Sulina între Tulcea și Maliuc (Vulturul, Dana 1 Mai)",
+    tip: "brat",
+    scurt: "Spot iconic pentru șalău cu Finval — Dana 1 Mai, Vulturul, Maliuc. Februarie greu pe ger.",
+    sezon: ["februarie", "iulie"],
+    specii: ["salau", "avat"],
+    caracteristici: [
+      "Praguri cu talweg 15 m, ancorare la 6-7 m",
+      "Pelicanii vânează șalău aici — cicatrice clare pe pești = indicator",
+      "Vara: și somn la cicadă; șalău la jig pe prag",
+    ],
+    pericole: [
+      "Post-ger profund (-7°C 2 săptămâni) → curent ciudat de scădere, jigul cade direct pe fund",
+      "Curent puternic cere upgrade gramaj jighead (21 g → 28-35 g)",
+    ],
+    sfaturi: [
+      "Jighead 28-35 g iarna pe Sulina după ger (NU 21 g standard)",
+      "Vara: șalău cu vobler în mal DOAR la apus — în timpul zilei doar jig pe prag",
+      "Năluci câștigătoare șalău: Storm Largo Shad (Houdini rozaliu), Micado galben-roșu, Fish Up maro+gliter",
+      "Setup serios: Finval 595 + motor electric Quest + Live Scope pe baterie LiFePO4 36V/100Ah",
+    ],
+    sursa: ["mf4ssbBtBe8", "qF2duTpS9Cg"],
+  },
+  {
+    slug: "chilia-veche-pragul-22m",
+    nume: "Chilia Veche — Pragul de 22 m",
+    tip: "brat",
+    scurt: "Apă adâncă pe brațul Chilia, lângă Chilia Veche. Somn cu viermi de salcie + coropișniță.",
+    sezon: ["octombrie", "noiembrie"],
+    specii: ["somn"],
+    caracteristici: [
+      "Praguri 16-17 m și 22 m",
+      "Dimineața somnii pe 16-17 m, după ora 12 se mută pe 22 m",
+      "Scoici tăietoare pe pragul de 22 m",
+    ],
+    pericole: [
+      "Scoică taie firul pe pragul de 22 m",
+      "Trebuie mutare cu barca după pește",
+    ],
+    sfaturi: [
+      "Vier de salcie + coropișniță = câștigătoare CLARĂ pe somn (testat vs râme negre + mațe macrou = ZERO trăsături)",
+      "Cumpără viermi de salcie + coropișniță de la Tulcea, piață",
+      "Vier de salcie CIUPEȘTE — bagă cu patent",
+      "Fir principal MONO 0.40 (Madcat) > textil 0.40 pentru somni până în 10 kg",
+    ],
+    sursa: ["p3C-k5EANv4", "BvKHcDft9Gc"],
+  }
+);
 
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);

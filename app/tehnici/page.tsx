@@ -5,15 +5,19 @@ const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
   salau: "Șalău",
   avat: "Avat",
+  biban: "Biban",
   crap: "Crap",
+  somn: "Somn",
 };
 
 export default function TehniciPage() {
-  const speciiOrdine: Array<"stiuca" | "salau" | "avat" | "crap"> = [
+  const speciiOrdine: Array<"stiuca" | "salau" | "avat" | "biban" | "crap" | "somn"> = [
     "stiuca",
     "salau",
     "avat",
+    "biban",
     "crap",
+    "somn",
   ];
 
   return (
@@ -34,16 +38,16 @@ export default function TehniciPage() {
       {speciiOrdine.map((sp) => {
         const items = tehnici.filter((t) => t.specie === sp);
         if (!items.length) return null;
-        const isStatic = sp === "crap";
+        const hasStatic = items.some((t) => t.metoda === "static");
+        const hasSpinning = items.some((t) => t.metoda === "spinning");
         return (
           <section key={sp} className="mb-12">
             <div className="flex items-baseline gap-3 mb-5">
               <h2 className="text-2xl font-display text-amber-glow">
                 {specieLabel[sp]}
               </h2>
-              <span className="tag">
-                {isStatic ? "static" : "spinning"}
-              </span>
+              {hasSpinning && <span className="tag">spinning</span>}
+              {hasStatic && <span className="tag">static</span>}
             </div>
             <div className="grid gap-3">
               {items.map((t) => (

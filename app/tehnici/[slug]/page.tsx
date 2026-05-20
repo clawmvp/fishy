@@ -10,7 +10,9 @@ const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
   salau: "Șalău",
   avat: "Avat",
+  biban: "Biban",
   crap: "Crap",
+  somn: "Somn",
 };
 
 export default async function TehnicaPage({
