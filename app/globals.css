@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-reed: #1a2b1f;
+  --color-reed-2: #2a3d2e;
+  --color-water: #0f2027;
+  --color-water-2: #1a3845;
+  --color-amber-glow: #d4a657;
+  --color-amber-soft: #b8924a;
+  --color-moss: #6ba368;
+  --color-moss-deep: #4a7d4a;
+  --color-fog: #c9d6c4;
+  --color-paper: #e8e0c8;
+  --font-display: var(--font-display, ui-serif, Georgia);
+  --font-body: var(--font-body, ui-sans-serif, system-ui);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: linear-gradient(180deg, #0d1b1e 0%, #0a1518 100%);
+  color: var(--color-fog);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.fish-grain {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(212,166,87,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(107,163,104,0.05) 0%, transparent 50%);
+}
+
+.card {
+  background: rgba(26, 56, 69, 0.35);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(212, 166, 87, 0.15);
+}
+
+.card:hover {
+  border-color: rgba(212, 166, 87, 0.4);
+  background: rgba(26, 56, 69, 0.55);
+  transition: all 200ms ease;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(107, 163, 104, 0.15);
+  color: var(--color-moss);
+  border: 1px solid rgba(107, 163, 104, 0.25);
+}
+
+.tag-amber {
+  background: rgba(212, 166, 87, 0.12);
+  color: var(--color-amber-glow);
+  border-color: rgba(212, 166, 87, 0.3);
+}
+
+.tag-red {
+  background: rgba(189, 78, 65, 0.12);
+  color: #d97864;
+  border-color: rgba(189, 78, 65, 0.3);
+}
+
+.prose-fishy h2 { color: var(--color-amber-glow); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose-fishy h3 { color: var(--color-moss); font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose-fishy p { margin-bottom: 0.75rem; line-height: 1.7; }
+.prose-fishy ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 0.75rem; }
+.prose-fishy ul li { margin-bottom: 0.3rem; line-height: 1.6; }
+.prose-fishy blockquote { border-left: 3px solid var(--color-amber-glow); padding-left: 1rem; font-style: italic; color: var(--color-paper); margin: 1rem 0; }
+.prose-fishy strong { color: var(--color-paper); }
+.prose-fishy code { background: rgba(0,0,0,0.4); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; color: var(--color-amber-soft); }
