@@ -824,6 +824,160 @@ locuri.push(
   },
 );
 
+// Locuri noi batch 5 (DPD + PCS, 90 video analizate cu 6 agenți paraleli)
+locuri.push(
+  {
+    slug: "canal-apa-calda-cernavoda",
+    nume: "Canalul cu apă caldă Cernavodă (CNE)",
+    tip: "canal",
+    scurt: "Canalul de evacuare CNE Cernavodă. Pescuit ALL-YEAR — în ianuarie are 15°C apă, peștele e activ când restul Dunării e înghețat.",
+    sezon: ["ianuarie", "februarie", "martie", "noiembrie", "decembrie"],
+    specii: ["crap", "salau", "caras"],
+    caracteristici: [
+      "Apă caldă constantă (15°C ianuarie) — peștele activ tot anul",
+      "Activitate DOAR ZIUA (noaptea NU se prinde — confirmat de multiple partide)",
+      "Mal cu Seimeni (vis-à-vis de perne) — spot 'la salcia clasică'",
+      "Mal cu Cernavodă — la ruptura unde apa intră în pădure (pom căzut blochează trecerea)",
+      "Multe perne / agățători — pierdere monturi frecventă",
+      "Crapi 1-1.7 kg comuni, până la 10+ kg",
+    ],
+    pericole: [
+      "Spumă albă de la reactor = peștele inactiv (rufele spălate cu detergent)",
+      "Foarte aglomerat în weekend — sosește devreme",
+      "Apă crescută peste 2m + vânt = imposibil de pescuit",
+    ],
+    sfaturi: [
+      "Method feeder cu cârlige fine (VMC Mystic Match nr. 12-14) — domină 95% capturi",
+      "Vierme ROȘU > vierme alb iarna (combinația 2 viermi roșii câștigătoare)",
+      "Papanele Total Fishing 'Sweet Corn & Tiger Nut' — TOP pentru caraș/crap iarnă",
+      "Nadă Greenham Pro proteică pentru iarnă",
+      "Tehnica 'Bădia' — 3 cârlige pe lungimi diferite + mămăligă moale la teracotă",
+      "Pe crap mare: Method de finețe 60g + textil 0.10 + VMC Mystic Match nr. 14 + wafter ananas 8mm (rezultat record 10.68 kg)",
+      "Cărășei vii din magazin București pentru șalău",
+    ],
+    sursa: ["iGsxRDfrRIc", "AouwH2bX0-s", "9jMYxEYZ0l0", "Dh4F32C9mNw", "V9jr81RI-fE"],
+  },
+  {
+    slug: "insula-albina-calarasi",
+    nume: "Insula Albina (Călărași)",
+    tip: "rau",
+    scurt: "Insulă pe Dunăre lângă sat bulgăresc pescari. Vârful insulei = apă mică, ideal pentru somn + crap la deschidere de sezon.",
+    sezon: ["iunie"],
+    specii: ["somn", "crap"],
+    caracteristici: [
+      "Vârf insulă cu apă <1m între insulă și bucățică nisipoasă",
+      "Deschidere sezon iunie — puf de plop pe fire face pescuitul de pe mal imposibil",
+      "Somotei 1-2 kg la clonc; recorduri personale crap la metod 9 kg",
+      "Somni MARI estimat 20-30 kg s-au ridicat dar n-au mușcat",
+    ],
+    pericole: [
+      "Țânțari devastatori 21-22:30",
+      "Puful de plop blochează firul în zilele 1-2 după deschidere",
+    ],
+    sfaturi: [
+      "Clonc din aluminiu (~70-80 g) cu dublu teaser — rezonează diferit ca lemnul",
+      "Două cârlige pe lansetă clonc: sus râme negre/lipitori, jos râme roșii",
+      "Pelete Wild Carp Feeder Fix + Dynamite Baits pentru metod",
+      "Acces: drum/barcă din Călărași",
+    ],
+    sursa: ["5Iu8MndKXCw"],
+  },
+  {
+    slug: "ostrovul-nebuna-dolj",
+    nume: "Ostrovul Nebuna (Dolj — frontieră Bulgaria)",
+    tip: "rau",
+    scurt: "Între Piscu Vechi și Desa, lângă Porțile de Fier. Festivalul scrumbiei la sfârșit mai — în PROHIBIȚIE pe restul Dunării.",
+    sezon: ["mai"],
+    specii: ["caras"],
+    caracteristici: [
+      "Scrumbia URCĂ dar nu mai trece de Porțile de Fier — se învârte în zonă",
+      "Frontieră Bulgaria — ferestre legale unice",
+      "Vremea: 3 anotimpuri/zi, frig dimineața 5-7°C, vânt",
+      "~10 kg scrumbie (rizeafcă mică + scrumbie 250-300g) / 2 zile",
+    ],
+    pericole: [
+      "În prohibiție pe restul Dunării — verifică legalitatea exactă",
+      "~100 bărci pe șenal seara — aglomerat",
+    ],
+    sfaturi: [
+      "DIMINEAȚA — în mal lângă copaci scufundați, max 20m (cu albastru)",
+      "SEARA — în șenal cu ancură pe curent puternic (cu verde)",
+      "Țaparine Profi Blinker + Hayabusa de la Total Fishing",
+      "Plumbi lunguieți 110-180g, plumbul să cadă pe substrat — scrumbia simte trepidația",
+      "La Giurgiu/Călărași doar la întoarcerea spre mare (nu la urcare)",
+    ],
+    sursa: ["m9WENYO2E10"],
+  },
+  {
+    slug: "groapa-cu-caramizi-calarasi",
+    nume: "Groapa cu cărămizi (Călărași)",
+    tip: "rau",
+    scurt: "Groapă perfect rotundă pe Dunăre — formată din bombă WWII după localnici. 8m adâncime cu prag.",
+    sezon: ["aprilie", "mai"],
+    specii: ["somn"],
+    caracteristici: [
+      "Formă perfect circulară (origine WWII)",
+      "Adâncime 8m + prag",
+      "Somnii apar pe sonar dar refuză frecvent",
+    ],
+    pericole: [
+      "Inconsistent — multe partide gherlă",
+    ],
+    sfaturi: [
+      "Râme de ploaie (Cristi, din Arad) + râme negre",
+      "Clonc cu teaser negru Tec 200g + Leader Carp Spirit 100kg + VMC 3/0",
+      "REGULĂ râme: după buchet, băgați un vierme care să țină râmele",
+    ],
+    sursa: ["k_IHfnUpoEs"],
+  },
+  {
+    slug: "gostinu-giurgiu-canal",
+    nume: "Gostinu (Giurgiu) — canal direct Dunăre",
+    tip: "rau",
+    scurt: "Canal care pleacă direct din Dunăre. Mal abrupt cu cioate. Șalău staționar iarnă + feeder mreană toamnă.",
+    sezon: ["februarie", "octombrie", "noiembrie"],
+    specii: ["salau", "caras"],
+    caracteristici: [
+      "Mal abrupt cu cioate scufundate",
+      "Apă rece în februarie (3.6-3.8°C testat)",
+      "Plaja Gostineștii cu terasă Trică = destinație familie",
+    ],
+    pericole: [
+      "Sub 4°C apă = pescuit dificil, prima ieșire de an doar 'ieșirea contează'",
+    ],
+    sfaturi: [
+      "Plumb culsiant 60-70g (NU peste — chiar pe curent)",
+      "Forfac fluorocarbon Sufix Advance 0.28 + VMC 2/0",
+      "Magazin Total Fishing — 10 min de centrul Bucureștiului, 700 m²",
+    ],
+    sursa: ["DQGZRstNB7A", "v7fXI9MnT_A"],
+  },
+  {
+    slug: "musura-frontiera-ucraina",
+    nume: "Golful Musura / Canalul Musura (frontieră Ucraina)",
+    tip: "canal",
+    scurt: "La granița cu Ucraina, în Deltă. Ferestre de pescuit legale + pescuit cu cortul în barcă (interzis pe mal).",
+    sezon: ["mai", "iunie", "septembrie"],
+    specii: ["crap", "somn", "caras"],
+    caracteristici: [
+      "Granița cu Ucraina — bruiaj GSM/4G (drone se pierd)",
+      "Cortul interzis pe mal Deltă — DOAR în barcă",
+      "Apă tulbure după viituri Siret/Prut",
+    ],
+    pericole: [
+      "Camparea pe mal = amendă ARBDD 5000 RON (1500 plătit în 15 zile)",
+      "Țânțari critici 20:30-22:00",
+      "Bruiaj de comunicații în zonă",
+    ],
+    sfaturi: [
+      "Permise ARBDD online: pescuit 0 RON + acces turist 3/7/30 RON",
+      "Coropișnița trage somnul instant pe apă tulbure",
+      "Cort barcă Husky Bizam 2 Plus (~580 RON, 2 ieșiri prova+pupa)",
+    ],
+    sursa: ["3a0kg5JRiMU", "ZjHwU6e-elA", "DTsbxDs6lWM"],
+  },
+);
+
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);
 }
