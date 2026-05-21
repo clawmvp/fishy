@@ -1,7 +1,7 @@
 export type Tehnica = {
   slug: string;
   specie: "stiuca" | "salau" | "avat" | "crap" | "biban" | "somn";
-  metoda: "spinning" | "static";
+  metoda: "spinning" | "static" | "feeder";
   titlu: string;
   scurt: string;
   perioada: string;
