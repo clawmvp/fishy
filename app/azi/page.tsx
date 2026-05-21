@@ -145,15 +145,18 @@ export default async function PartidaPage({
       </header>
 
       {/* SELECTOR ZIUA — scroll horizontal pe mobile, grid pe desktop */}
-      <section className="mb-8">
-        <div className="md:hidden h-scroll flex gap-2 pb-2 -mx-4 px-4">
+      <section className="mb-8" aria-label="Selectează ziua">
+        <div className="md:hidden h-scroll-wrap">
+          <div className="h-scroll flex gap-2 pb-2 -mx-4 px-4">
           {ziue.map((z) => {
             const isActive = z.idx === ziuaIdx;
             return (
               <Link
                 key={z.idx}
                 href={`/azi?ziua=${z.idx}`}
-                className={`card rounded-lg p-3 text-center flex-shrink-0 w-[88px] transition-all ${
+                aria-current={isActive ? "page" : undefined}
+                aria-label={`${z.label} ${z.data}${z.forecast ? `, ${z.forecast.tempMax} grade, vânt ${z.forecast.windMax} km/h` : ""}`}
+                className={`card rounded-lg p-3 text-center flex-shrink-0 w-[88px] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-glow ${
                   isActive ? "border-amber-glow/60 bg-water-2/70" : ""
                 }`}
               >
@@ -175,7 +178,9 @@ export default async function PartidaPage({
               </Link>
             );
           })}
+          </div>
         </div>
+        <p className="md:hidden text-[10px] text-fog/50 mt-0.5 italic">→ glisează lateral pentru toate cele 14 zile</p>
         <div className="hidden md:grid md:grid-cols-7 gap-2">
           {ziue.map((z) => {
             const isActive = z.idx === ziuaIdx;

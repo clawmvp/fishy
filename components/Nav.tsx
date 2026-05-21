@@ -70,13 +70,13 @@ export default function Nav() {
       {/* Mobile drawer */}
       {open && (
         <div className="lg:hidden border-t border-amber-glow/15 bg-water/95 backdrop-blur-sm">
-          <nav className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-2">
+          <nav aria-label="Navigare principală" className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-2">
             {nav.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-md text-fog/85 hover:text-amber-glow hover:bg-water-2/50 border border-amber-glow/15 text-base transition-all"
+                className="px-4 py-3 rounded-md text-fog/85 hover:text-amber-glow hover:bg-water-2/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-glow border border-amber-glow/15 text-base transition-all"
               >
                 {n.label}
               </Link>

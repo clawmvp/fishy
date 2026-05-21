@@ -21,9 +21,15 @@ export default function RootLayout({
   return (
     <html lang="ro">
       <body className="fish-grain">
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-amber-glow focus:text-water focus:outline-none focus:ring-2 focus:ring-amber-glow"
+        >
+          Sări la conținut
+        </a>
         <Nav />
 
-        <main className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-10">{children}</main>
+        <main id="content" className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-10">{children}</main>
 
         <footer className="border-t border-amber-glow/10 mt-12 md:mt-20">
           <div className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-8 text-sm text-fog/40 flex flex-col md:flex-row justify-between gap-2">
