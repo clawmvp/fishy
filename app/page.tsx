@@ -41,9 +41,9 @@ export default function Home() {
         >
           <div className="flex items-baseline justify-between flex-wrap gap-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">azi în Deltă</p>
-              <h3 className="text-2xl font-display text-fog">Condiții live + recomandări pe specie</h3>
-              <p className="text-sm text-fog/70 mt-1">Cota Tulcea + vremea Mila 23 + faza lunii → scor pe fiecare specie + locuri și tehnici pentru ziua de azi</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">planifică partida</p>
+              <h3 className="text-2xl font-display text-fog">Prognoză 4 zile + recomandări pe specie</h3>
+              <p className="text-sm text-fog/70 mt-1">Cota Tulcea + vremea Mila 23 + faza lunii → scor pe fiecare zi pentru fiecare specie + locuri, tehnici și monturi gata de citit</p>
             </div>
             <span className="text-amber-glow text-2xl">→</span>
           </div>

@@ -1,15 +1,16 @@
 import Link from "next/link";
-import { fetchWeather, getWeatherIcon, getWindDirection, formatDate } from "@/lib/weather";
+import { fetchWeather, getWeatherIcon, getWindDirection } from "@/lib/weather";
+import type { DailyForecast } from "@/lib/weather";
 import { getMoonPhase } from "@/lib/moon";
 import { DANUBE_STATIONS, HIDRO_IDS, classifyLevel, getLevelLabel, getLevelFishingImpact } from "@/lib/water-level";
 import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
 import { calculeazaScor, recomandaLocuri, recomandaTehnici, estimateWaterTemp } from "@/lib/recomandari";
+import { monturiPentru } from "@/data/monturi";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
 
-// Mila 23 — punctul de referință pentru Delta
 const REF_LAT = 45.211;
 const REF_LON = 29.131;
 
@@ -39,16 +40,11 @@ async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | n
     const station = DANUBE_STATIONS.find((s) => s.slug === stationSlug);
     const hidroId = HIDRO_IDS[stationSlug];
     if (!station || !hidroId) return null;
-
     const html = await fetchHidroHtml();
     if (!html) return null;
-
-    // Extract entry by ID
     const idStr = String(hidroId);
     const idx = html.indexOf(`"${idStr}":{`);
     if (idx === -1) return null;
-
-    // Read the JSON object starting after the colon
     const start = html.indexOf("{", idx);
     let depth = 0;
     let end = start;
@@ -56,103 +52,132 @@ async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | n
       if (html[i] === "{") depth++;
       else if (html[i] === "}") {
         depth--;
-        if (depth === 0) {
-          end = i + 1;
-          break;
-        }
+        if (depth === 0) { end = i + 1; break; }
       }
     }
     const jsonStr = html.slice(start, end);
     let data: Record<string, unknown>;
-    try {
-      data = JSON.parse(jsonStr);
-    } catch {
-      return null;
-    }
-
-    // TEXT1 = "H= 77 cm" — extract number
+    try { data = JSON.parse(jsonStr); } catch { return null; }
     const text1 = String(data.TEXT1 || "");
     const levelMatch = text1.match(/H=\s*(-?\d+)/);
     if (!levelMatch) return null;
     const level = parseInt(levelMatch[1]);
-
-    // TEXT2 = "Variatie zilnica nivel = -1 cm"
     const text2 = String(data.TEXT2 || "");
     const varMatch = text2.match(/=\s*(-?\d+)/);
     const variation = varMatch ? parseInt(varMatch[1]) : 0;
-
-    // DATA = "2026-05-19 06:00:00"
     const date = String(data.DATA || "").split(" ")[0] || "";
-
-    const trend: "rising" | "falling" | "stable" =
-      variation > 2 ? "rising" : variation < -2 ? "falling" : "stable";
+    const trend: "rising" | "falling" | "stable" = variation > 2 ? "rising" : variation < -2 ? "falling" : "stable";
     const relativeLevel = classifyLevel(level, station);
-
     return {
-      station,
-      level,
-      variation,
-      waterTemp: null,
-      date,
-      forecast24h: null,
-      forecast48h: null,
-      forecast72h: null,
-      trend,
-      relativeLevel,
+      station, level, variation, waterTemp: null, date,
+      forecast24h: null, forecast48h: null, forecast72h: null,
+      trend, relativeLevel,
       fishingImpact: getLevelFishingImpact(relativeLevel),
     };
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
 
-export default async function AziPage() {
-  const date = new Date();
-  const moon = getMoonPhase(date);
+export default async function PartidaPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ziua?: string }>;
+}) {
+  const params = await searchParams;
+  const ziuaIdx = Math.max(0, Math.min(3, parseInt(params.ziua || "0", 10) || 0));
 
-  let forecasts: Awaited<ReturnType<typeof fetchWeather>> = [];
+  const baseDate = new Date();
+  const targetDate = new Date(baseDate);
+  targetDate.setDate(baseDate.getDate() + ziuaIdx);
+
+  const moon = getMoonPhase(targetDate);
+
+  let forecasts: DailyForecast[] = [];
   try {
     forecasts = await fetchWeather(REF_LAT, REF_LON);
   } catch {
     forecasts = [];
   }
-  const today = forecasts[0];
+  const todaysForecast = forecasts[ziuaIdx];
 
   const [waterTulcea, waterSulina] = await Promise.all([
     getWaterLevel("tulcea"),
     getWaterLevel("sulina"),
   ]);
 
-  const scoruriSpecii = today
+  const scoruriSpecii = todaysForecast
     ? specii.map((sp) => ({
         specie: sp,
-        scor: calculeazaScor(sp, today, moon, waterTulcea, date),
-        locuri: recomandaLocuri(sp, date),
-        tehnici: recomandaTehnici(sp, date),
-        inProhibitie: isInProhibitie(sp, date),
-        zileDeschidere: isInProhibitie(sp, date) ? zileLaDeschidere(sp, date) : 0,
+        scor: calculeazaScor(sp, todaysForecast, moon, waterTulcea, targetDate),
+        locuri: recomandaLocuri(sp, targetDate),
+        tehnici: recomandaTehnici(sp, targetDate),
+        monturi: monturiPentru(sp.id),
+        inProhibitie: isInProhibitie(sp, targetDate),
+        zileDeschidere: isInProhibitie(sp, targetDate) ? zileLaDeschidere(sp, targetDate) : 0,
       }))
     : [];
-
-  // Sort: cele MAI BUNE specii pentru azi sus
   const speciiActive = scoruriSpecii.filter((s) => !s.inProhibitie).sort((a, b) => b.scor.total - a.scor.total);
   const speciiProhibite = scoruriSpecii.filter((s) => s.inProhibitie);
 
   const luniRO = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
   const ziuaRO = ["Duminică","Luni","Marți","Miercuri","Joi","Vineri","Sâmbătă"];
-  const dataLunga = `${ziuaRO[date.getDay()]}, ${date.getDate()} ${luniRO[date.getMonth()]} ${date.getFullYear()}`;
+  const dataLunga = `${ziuaRO[targetDate.getDay()]}, ${targetDate.getDate()} ${luniRO[targetDate.getMonth()]} ${targetDate.getFullYear()}`;
+
+  // Cele 4 zile pentru selector
+  const ziue = [0, 1, 2, 3].map((offset) => {
+    const d = new Date(baseDate);
+    d.setDate(baseDate.getDate() + offset);
+    return {
+      idx: offset,
+      label: offset === 0 ? "Azi" : offset === 1 ? "Mâine" : ziuaRO[d.getDay()].slice(0, 3),
+      data: `${d.getDate()} ${luniRO[d.getMonth()].slice(0, 3)}`,
+      forecast: forecasts[offset],
+    };
+  });
 
   return (
     <div>
-      <header className="mb-8">
-        <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">azi în Deltă</p>
-        <h1 className="text-4xl font-display text-fog mb-2">{dataLunga}</h1>
-        <p className="text-fog/60 text-sm">Condiții live + recomandări pe specie. Date Open-Meteo + danubealert.com + faze lunare calculate.</p>
+      <header className="mb-6">
+        <p className="text-xs uppercase tracking-[0.3em] text-moss mb-2">partidă în Deltă</p>
+        <h1 className="text-3xl md:text-4xl font-display text-fog mb-1">{dataLunga}</h1>
+        <p className="text-fog/60 text-sm">Prognoză 4 zile (perioadă tipică de partidă) — alege ziua pentru recomandări.</p>
       </header>
+
+      {/* SELECTOR ZIUA */}
+      <section className="mb-8">
+        <div className="grid grid-cols-4 gap-2">
+          {ziue.map((z) => {
+            const isActive = z.idx === ziuaIdx;
+            return (
+              <Link
+                key={z.idx}
+                href={`/azi?ziua=${z.idx}`}
+                className={`card rounded-lg p-3 text-center transition-all ${
+                  isActive ? "border-amber-glow/60 bg-water-2/70 scale-[1.02]" : "hover:border-amber-glow/40"
+                }`}
+              >
+                <p className={`text-xs uppercase tracking-wider ${isActive ? "text-amber-glow" : "text-moss"}`}>
+                  {z.label}
+                </p>
+                <p className="text-xs text-fog/50 mb-1">{z.data}</p>
+                {z.forecast && (
+                  <>
+                    <p className="text-2xl mt-1">{getWeatherIcon(z.forecast.weatherCode)}</p>
+                    <p className="text-sm text-fog font-light">
+                      {z.forecast.tempMax}°<span className="text-fog/40">/{z.forecast.tempMin}°</span>
+                    </p>
+                    <p className="text-xs text-fog/50 mt-1">
+                      {z.forecast.windMax} km/h
+                    </p>
+                  </>
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      </section>
 
       {/* CONDIȚII LIVE */}
       <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
-        {/* Cota Tulcea */}
         {waterTulcea && (
           <div className="card rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Tulcea</p>
@@ -160,17 +185,13 @@ export default async function AziPage() {
               {waterTulcea.level}<span className="text-sm text-fog/50 ml-1">cm</span>
             </p>
             <p className="text-xs text-fog/60">
-              {waterTulcea.variation > 0 ? "↑" : waterTulcea.variation < 0 ? "↓" : "→"} {Math.abs(waterTulcea.variation)} cm •{" "}
+              {waterTulcea.variation > 0 ? "↑" : waterTulcea.variation < 0 ? "↓" : "→"}{" "}
+              {Math.abs(waterTulcea.variation)} cm •{" "}
               {waterTulcea.trend === "rising" ? "în creștere" : waterTulcea.trend === "falling" ? "în scădere" : "stabilă"}
             </p>
             <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterTulcea.relativeLevel)}</p>
-            {waterTulcea.waterTemp && (
-              <p className="text-xs text-fog/50 mt-1">Apă: {waterTulcea.waterTemp}°C</p>
-            )}
           </div>
         )}
-
-        {/* Cota Sulina */}
         {waterSulina && (
           <div className="card rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Sulina</p>
@@ -183,24 +204,21 @@ export default async function AziPage() {
             <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterSulina.relativeLevel)}</p>
           </div>
         )}
-
-        {/* Vremea */}
-        {today && (
+        {todaysForecast && (
           <div className="card rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Vremea Mila 23</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
-              {today.tempMax}°<span className="text-sm text-fog/50 ml-1">/ {today.tempMin}°</span>
+              {todaysForecast.tempMax}°<span className="text-sm text-fog/50 ml-1">/ {todaysForecast.tempMin}°</span>
             </p>
             <p className="text-xs text-fog/60">
-              Vânt {today.windMax} km/h {getWindDirection(today.windDirection)}
+              Vânt {todaysForecast.windMax} km/h {getWindDirection(todaysForecast.windDirection)}
             </p>
             <p className="text-xs text-amber-soft mt-1.5">
-              {today.pressure} hPa • {today.pressureTrend === "rising" ? "în creștere" : today.pressureTrend === "falling" ? "în scădere" : "stabilă"}
+              {todaysForecast.pressure} hPa •{" "}
+              {todaysForecast.pressureTrend === "rising" ? "în creștere" : todaysForecast.pressureTrend === "falling" ? "în scădere" : "stabilă"}
             </p>
           </div>
         )}
-
-        {/* Luna */}
         <div className="card rounded-xl p-4">
           <p className="text-xs uppercase tracking-widest text-moss mb-1">Luna</p>
           <p className="text-3xl font-light text-amber-glow mb-1">
@@ -208,7 +226,11 @@ export default async function AziPage() {
           </p>
           <p className="text-xs text-fog/60">{moon.phase}</p>
           <p className="text-xs text-amber-soft mt-1.5">
-            {moon.illumination < 15 || moon.illumination > 85 ? "Activitate maximă" : moon.illumination < 40 || moon.illumination > 60 ? "Activitate bună" : "Pătrar (atenție)"}
+            {moon.illumination < 15 || moon.illumination > 85
+              ? "Activitate maximă"
+              : moon.illumination < 40 || moon.illumination > 60
+                ? "Activitate bună"
+                : "Pătrar — atenție"}
           </p>
         </div>
       </section>
@@ -216,12 +238,12 @@ export default async function AziPage() {
       {/* RECOMANDĂRI PE SPECIE */}
       <section className="mb-12">
         <div className="flex items-baseline justify-between mb-5">
-          <h2 className="text-2xl font-display text-amber-glow">Recomandări pe specie azi</h2>
+          <h2 className="text-2xl font-display text-amber-glow">Recomandări pe specie</h2>
           <p className="text-xs text-fog/40">sortate după scor</p>
         </div>
 
         <div className="space-y-4">
-          {speciiActive.map(({ specie, scor, locuri: locuriRec, tehnici: tehniciRec }) => (
+          {speciiActive.map(({ specie, scor, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec }) => (
             <div key={specie.id} className="card rounded-xl p-5">
               <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                 <div>
@@ -234,7 +256,6 @@ export default async function AziPage() {
                 </div>
               </div>
 
-              {/* Motivele scorului */}
               <ul className="space-y-1 mb-4">
                 {scor.reasons.map((r, i) => (
                   <li key={i} className="text-sm flex gap-2">
@@ -248,17 +269,12 @@ export default async function AziPage() {
                 <strong className="text-fog/70">Ore optime:</strong> {specie.optimalConditions.bestTimeOfDay}
               </p>
 
-              {/* Locuri recomandate */}
               {locuriRec.length > 0 && (
                 <div className="mb-3">
-                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Locuri recomandate luna asta</p>
+                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Locuri recomandate</p>
                   <div className="flex flex-wrap gap-2">
                     {locuriRec.map((l) => (
-                      <Link
-                        key={l.slug}
-                        href={`/locuri/${l.slug}`}
-                        className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-amber-glow/20 text-fog hover:border-amber-glow/50"
-                      >
+                      <Link key={l.slug} href={`/locuri/${l.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-amber-glow/20 text-fog hover:border-amber-glow/50">
                         {l.nume} →
                       </Link>
                     ))}
@@ -266,18 +282,26 @@ export default async function AziPage() {
                 </div>
               )}
 
-              {/* Tehnici recomandate */}
               {tehniciRec.length > 0 && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Tehnici pentru perioada asta</p>
+                <div className="mb-3">
+                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Tehnici</p>
                   <div className="flex flex-wrap gap-2">
                     {tehniciRec.map((t) => (
-                      <Link
-                        key={t.slug}
-                        href={`/tehnici/${t.slug}`}
-                        className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-moss/30 text-fog hover:border-moss/60"
-                      >
+                      <Link key={t.slug} href={`/tehnici/${t.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-moss/30 text-fog hover:border-moss/60">
                         {t.titlu} →
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {monturiRec.length > 0 && (
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Monturi</p>
+                  <div className="flex flex-wrap gap-2">
+                    {monturiRec.map((m) => (
+                      <Link key={m.slug} href={`/monturi/${m.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-amber-soft/40 text-fog hover:border-amber-soft/70">
+                        {m.nume} →
                       </Link>
                     ))}
                   </div>
@@ -286,7 +310,9 @@ export default async function AziPage() {
 
               {locuriRec.length === 0 && tehniciRec.length === 0 && (
                 <p className="text-xs text-fog/40 italic">
-                  Nu am date specifice pentru luna asta pe {specie.nume}. Consultă <Link href="/tehnici" className="text-moss hover:text-amber-glow">tehnicile</Link> sau <Link href="/locuri" className="text-moss hover:text-amber-glow">locurile</Link>.
+                  Nu am date specifice pe {specie.nume} pentru perioada asta. Consultă{" "}
+                  <Link href="/tehnici" className="text-moss hover:text-amber-glow">tehnicile</Link> sau{" "}
+                  <Link href="/locuri" className="text-moss hover:text-amber-glow">locurile</Link>.
                 </p>
               )}
             </div>
@@ -294,10 +320,9 @@ export default async function AziPage() {
         </div>
       </section>
 
-      {/* Prohibiții */}
       {speciiProhibite.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-xl font-display text-red-400 mb-3">În prohibiție azi</h2>
+          <h2 className="text-xl font-display text-red-400 mb-3">În prohibiție</h2>
           <div className="grid md:grid-cols-2 gap-3">
             {speciiProhibite.map(({ specie, zileDeschidere }) => (
               <div key={specie.id} className="card rounded-lg p-4 border-red-400/20">
@@ -309,36 +334,45 @@ export default async function AziPage() {
         </section>
       )}
 
-      {/* Forecast 6 zile */}
-      {forecasts.length > 1 && (
+      {todaysForecast && (
         <section className="mb-10">
-          <h2 className="text-xl font-display text-amber-glow mb-3">Următoarele 6 zile</h2>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-            {forecasts.slice(1, 7).map((f, i) => {
-              const waterT = estimateWaterTemp(f, new Date().getMonth() + 1);
-              return (
-                <div key={i} className="card rounded-lg p-3 text-center text-sm">
-                  <p className="text-xs uppercase tracking-wider text-moss">{f.dayName}</p>
-                  <p className="text-2xl mt-1">{getWeatherIcon(f.weatherCode)}</p>
-                  <p className="text-fog mt-1">{f.tempMax}° / {f.tempMin}°</p>
-                  <p className="text-xs text-fog/50 mt-1">{f.windMax} km/h {getWindDirection(f.windDirection)}</p>
-                  <p className="text-xs text-amber-soft mt-1">~{waterT}°C apă</p>
-                </div>
-              );
-            })}
+          <h2 className="text-xl font-display text-amber-glow mb-3">Detalii vreme ({dataLunga.split(",")[0]})</h2>
+          <div className="card rounded-lg p-5">
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-moss mb-1">Apa estimată</p>
+                <p className="text-2xl text-amber-glow font-light">~{estimateWaterTemp(todaysForecast, targetDate.getMonth() + 1)}°C</p>
+                <p className="text-xs text-fog/50">(temperatura aer + sezonalitate)</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-moss mb-1">Precipitații</p>
+                <p className="text-2xl text-amber-glow font-light">{todaysForecast.precipitation.toFixed(1)} mm</p>
+                <p className="text-xs text-fog/50">Probabilitate {todaysForecast.precipProbability}%</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-moss mb-1">Cer</p>
+                <p className="text-2xl text-amber-glow font-light">{todaysForecast.cloudCover}%</p>
+                <p className="text-xs text-fog/50">acoperit</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-moss mb-1">Umiditate</p>
+                <p className="text-2xl text-amber-glow font-light">{todaysForecast.humidity}%</p>
+              </div>
+            </div>
           </div>
         </section>
       )}
 
-      {/* Surse + disclaimer */}
       <section className="mt-10 pt-6 border-t border-amber-glow/15">
         <p className="text-xs text-fog/40">
           <strong className="text-fog/60">Surse:</strong>{" "}
-          <a href="https://open-meteo.com" target="_blank" rel="noopener" className="hover:text-amber-glow">Open-Meteo</a> (vreme, presiune, vânt),{" "}
-          <a href="https://danubealert.com/en/Romania" target="_blank" rel="noopener" className="hover:text-amber-glow">DanubeAlert</a> (cota Dunării). Faza lunii calculată local. Datele se actualizează la 30 minute.
+          <a href="https://open-meteo.com" target="_blank" rel="noopener" className="hover:text-amber-glow">Open-Meteo</a>{" "}
+          (vreme),{" "}
+          <a href="https://www.hidro.ro/" target="_blank" rel="noopener" className="hover:text-amber-glow">hidro.ro</a>{" "}
+          (cota Dunării — oficial RO). Faza lunii calculată local. Cache 30 min.
         </p>
         <p className="text-xs text-fog/40 mt-2">
-          Recomandările sunt indicative. Verifică prohibițiile oficiale la{" "}
+          Verifică prohibițiile oficiale la{" "}
           <a href="https://anpa.ro" target="_blank" rel="noopener" className="hover:text-amber-glow">ANPA</a>.
         </p>
       </section>
