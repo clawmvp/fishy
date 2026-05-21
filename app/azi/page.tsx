@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SpeciesIcon from "@/components/SpeciesIcon";
 import { fetchWeather, getWeatherIcon, getWindDirection } from "@/lib/weather";
 import type { DailyForecast } from "@/lib/weather";
 import { getMoonPhase } from "@/lib/moon";
@@ -216,7 +217,7 @@ export default async function PartidaPage({
       {/* CONDIȚII LIVE */}
       <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
         {waterTulcea && (
-          <div className="card rounded-xl p-4">
+          <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Tulcea</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
               {waterTulcea.level}<span className="text-sm text-fog/50 ml-1">cm</span>
@@ -230,7 +231,7 @@ export default async function PartidaPage({
           </div>
         )}
         {waterSulina && (
-          <div className="card rounded-xl p-4">
+          <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Sulina</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
               {waterSulina.level}<span className="text-sm text-fog/50 ml-1">cm</span>
@@ -242,7 +243,7 @@ export default async function PartidaPage({
           </div>
         )}
         {todaysForecast && (
-          <div className="card rounded-xl p-4">
+          <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Vremea Mila 23</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
               {todaysForecast.tempMax}°<span className="text-sm text-fog/50 ml-1">/ {todaysForecast.tempMin}°</span>
@@ -256,7 +257,7 @@ export default async function PartidaPage({
             </p>
           </div>
         )}
-        <div className="card rounded-xl p-4">
+        <div className="card-hero rounded-xl p-4">
           <p className="text-xs uppercase tracking-widest text-moss mb-1">Luna</p>
           <p className="text-3xl font-light text-amber-glow mb-1">
             {moon.illumination}<span className="text-sm text-fog/50 ml-1">% iluminată</span>
@@ -283,9 +284,14 @@ export default async function PartidaPage({
           {speciiActive.map(({ specie, scor, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec }) => (
             <div key={specie.id} className="card rounded-xl p-5">
               <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
-                <div>
-                  <h3 className="text-xl font-display text-fog">{specie.nume}</h3>
-                  <p className="text-xs text-fog/40">{specie.latin} • {specie.metoda}</p>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-amber-soft mt-1">
+                    <SpeciesIcon specie={specie.id} size={28} />
+                  </span>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-display text-fog">{specie.nume}</h3>
+                    <p className="text-xs text-fog/40">{specie.latin} • {specie.metoda}</p>
+                  </div>
                 </div>
                 <div className="text-right">
                   <p className={`text-2xl font-light ${scor.cssColor}`}>{scor.total}<span className="text-sm text-fog/40">/100</span></p>

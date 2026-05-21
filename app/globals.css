@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
 @theme {
   --color-reed: #1a2b1f;
   --color-reed-2: #2a3d2e;
@@ -11,8 +13,8 @@
   --color-moss-deep: #4a7d4a;
   --color-fog: #c9d6c4;
   --color-paper: #e8e0c8;
-  --font-display: var(--font-display, ui-serif, Georgia);
-  --font-body: var(--font-body, ui-sans-serif, system-ui);
+  --font-display: 'EB Garamond', Georgia, ui-serif, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -24,6 +26,32 @@ html, body {
   color: var(--color-fog);
   font-family: var(--font-body);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Texture wash subtilă — paper grain peste tot site-ul */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.83 0 0 0 0 0.65 0 0 0 0 0.34 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Display font cu personalitate */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "liga", "kern", "dlig";
+  letter-spacing: -0.01em;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -43,6 +71,46 @@ a { color: inherit; text-decoration: none; }
 .card:hover {
   border-color: rgba(212, 166, 87, 0.4);
   background: rgba(26, 56, 69, 0.55);
+  transition: all 200ms ease;
+}
+
+/* Hero card variant — pentru pagini cu accent (banner /azi, condiții live, premium content) */
+.card-hero {
+  background: linear-gradient(145deg, rgba(212, 166, 87, 0.10), rgba(26, 56, 69, 0.55) 60%);
+  border: 1px solid rgba(212, 166, 87, 0.35);
+  box-shadow:
+    0 8px 32px -12px rgba(212, 166, 87, 0.18),
+    inset 0 1px 0 rgba(232, 224, 200, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(212, 166, 87, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.card-hero:hover {
+  border-color: rgba(212, 166, 87, 0.55);
+  box-shadow:
+    0 12px 40px -10px rgba(212, 166, 87, 0.25),
+    inset 0 1px 0 rgba(232, 224, 200, 0.10);
+  transition: all 200ms ease;
+}
+
+/* Compact card — pentru liste dense (ex. echipament, glosar) */
+.card-compact {
+  background: rgba(26, 56, 69, 0.25);
+  border: 1px solid rgba(212, 166, 87, 0.10);
+}
+
+.card-compact:hover {
+  border-color: rgba(212, 166, 87, 0.30);
+  background: rgba(26, 56, 69, 0.40);
   transition: all 200ms ease;
 }
 
@@ -70,14 +138,97 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(189, 78, 65, 0.3);
 }
 
-.prose-fishy h2 { color: var(--color-amber-glow); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
-.prose-fishy h3 { color: var(--color-moss); font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-.prose-fishy p { margin-bottom: 0.75rem; line-height: 1.7; }
-.prose-fishy ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 0.75rem; }
-.prose-fishy ul li { margin-bottom: 0.3rem; line-height: 1.6; }
-.prose-fishy blockquote { border-left: 3px solid var(--color-amber-glow); padding-left: 1rem; font-style: italic; color: var(--color-paper); margin: 1rem 0; }
-.prose-fishy strong { color: var(--color-paper); }
-.prose-fishy code { background: rgba(0,0,0,0.4); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; color: var(--color-amber-soft); }
+.prose-fishy h2 {
+  color: var(--color-amber-glow);
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+.prose-fishy h3 {
+  color: var(--color-moss);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.005em;
+}
+.prose-fishy p { margin-bottom: 0.85rem; line-height: 1.75; }
+.prose-fishy ul { list-style: none; padding-left: 0; margin-bottom: 0.85rem; }
+.prose-fishy ul li {
+  margin-bottom: 0.45rem;
+  line-height: 1.65;
+  padding-left: 1.4rem;
+  position: relative;
+}
+.prose-fishy ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-amber-soft);
+  font-size: 0.85em;
+  line-height: 1.85;
+}
+.prose-fishy blockquote {
+  border-left: 3px solid var(--color-amber-glow);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 1.05em;
+  color: var(--color-paper);
+  margin: 1.25rem 0;
+  position: relative;
+  background: rgba(212, 166, 87, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+.prose-fishy blockquote::before {
+  content: "„";
+  position: absolute;
+  left: 0.45rem;
+  top: -0.2rem;
+  font-size: 2.2em;
+  color: var(--color-amber-glow);
+  opacity: 0.35;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.prose-fishy strong { color: var(--color-paper); font-weight: 600; }
+.prose-fishy em { color: var(--color-fog); }
+.prose-fishy code {
+  background: rgba(0,0,0,0.4);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: var(--color-amber-soft);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Divider decorativ tip "scale" — pentru a separa secțiuni mari */
+.divider-scale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+  height: 24px;
+}
+.divider-scale::before, .divider-scale::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 166, 87, 0.25), transparent);
+}
+.divider-scale span {
+  padding: 0 1.5rem;
+  color: var(--color-amber-soft);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
 
 /* ============ MOBILE-FRIENDLY ============ */
 

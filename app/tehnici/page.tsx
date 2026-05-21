@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { tehnici } from "@/data/tehnici";
+import SpeciesIcon from "@/components/SpeciesIcon";
 
 const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
@@ -43,7 +44,10 @@ export default function TehniciPage() {
         return (
           <section key={sp} className="mb-12">
             <div className="flex items-baseline gap-3 mb-5">
-              <h2 className="text-2xl font-display text-amber-glow">
+              <span className="text-amber-soft">
+                <SpeciesIcon specie={sp} size={32} />
+              </span>
+              <h2 className="text-2xl md:text-3xl font-display text-amber-glow">
                 {specieLabel[sp]}
               </h2>
               {hasSpinning && <span className="tag">spinning</span>}

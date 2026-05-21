@@ -4,6 +4,7 @@ import { tehnici } from "@/data/tehnici";
 import { articole } from "@/data/articole";
 import { echipament } from "@/data/echipament";
 import { glosar } from "@/data/glosar";
+import SpeciesIcon from "@/components/SpeciesIcon";
 
 export default function Home() {
   const stats = {
@@ -36,14 +37,13 @@ export default function Home() {
       <section className="mb-8">
         <Link
           href="/azi"
-          className="block card rounded-xl p-6 hover:scale-[1.01] transition-transform"
-          style={{ background: "linear-gradient(135deg, rgba(212,166,87,0.15), rgba(107,163,104,0.1))" }}
+          className="block card-hero rounded-xl p-6 hover:scale-[1.005] transition-transform"
         >
           <div className="flex items-baseline justify-between flex-wrap gap-2">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">planifică partida</p>
-              <h3 className="text-2xl font-display text-fog">Prognoză 14 zile + ferestre recomandate</h3>
-              <p className="text-sm text-fog/70 mt-1">Detectăm automat ferestrele de 2-3 zile consecutive cu condiții bune. Plus prognoză 4 zile detaliată cu recomandări de locuri, tehnici și monturi pentru fiecare specie.</p>
+              <h3 className="text-2xl md:text-3xl font-display text-fog">Prognoză 14 zile + ferestre recomandate</h3>
+              <p className="text-sm text-fog/70 mt-1">Detectăm automat ferestrele de 2-3 zile consecutive cu condiții bune. Plus recomandări de locuri, tehnici și monturi pentru fiecare specie, pe ziua aleasă.</p>
             </div>
             <span className="text-amber-glow text-2xl">→</span>
           </div>
@@ -53,13 +53,20 @@ export default function Home() {
       {/* Quick cards */}
       <section className="grid md:grid-cols-2 gap-4 mb-12">
         <Link
-          href="/tehnici?metoda=spinning"
+          href="/tehnici"
           className="card rounded-xl p-6 group"
         >
-          <p className="text-xs uppercase tracking-widest text-moss mb-2">
-            spinning
-          </p>
-          <h3 className="text-2xl font-display text-amber-glow mb-2">
+          <div className="flex items-start justify-between mb-2">
+            <p className="text-xs uppercase tracking-widest text-moss">
+              spinning
+            </p>
+            <div className="flex gap-1 text-amber-soft/60">
+              <SpeciesIcon specie="stiuca" size={22} />
+              <SpeciesIcon specie="salau" size={22} />
+              <SpeciesIcon specie="avat" size={22} />
+            </div>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-display text-amber-glow mb-2">
             Știucă · Șalău · Avat
           </h3>
           <p className="text-fog/70 text-sm">
@@ -69,18 +76,25 @@ export default function Home() {
         </Link>
 
         <Link
-          href="/tehnici?metoda=static"
+          href="/tehnici"
           className="card rounded-xl p-6 group"
         >
-          <p className="text-xs uppercase tracking-widest text-moss mb-2">
-            crap
-          </p>
-          <h3 className="text-2xl font-display text-amber-glow mb-2">
-            Crap pe brațe & canale
+          <div className="flex items-start justify-between mb-2">
+            <p className="text-xs uppercase tracking-widest text-moss">
+              static
+            </p>
+            <div className="flex gap-1 text-amber-soft/60">
+              <SpeciesIcon specie="crap" size={22} />
+              <SpeciesIcon specie="somn" size={22} />
+              <SpeciesIcon specie="biban" size={22} />
+            </div>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-display text-amber-glow mb-2">
+            Crap · Somn · Biban
           </h3>
           <p className="text-fog/70 text-sm">
-            Boilies, momitor, plumb pierdut, prag de iarnă. Filozofia Vișoianu
-            pentru partide lungi.
+            Boilies, momitor, clonc, plumb pierdut, prag de iarnă. Filozofia
+            Vișoianu pentru partide lungi.
           </p>
         </Link>
       </section>

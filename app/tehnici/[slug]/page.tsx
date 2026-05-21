@@ -1,6 +1,7 @@
 import { tehnici, getTehnica } from "@/data/tehnici";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SpeciesIcon from "@/components/SpeciesIcon";
 
 export function generateStaticParams() {
   return tehnici.map((t) => ({ slug: t.slug }));
@@ -32,6 +33,9 @@ export default async function TehnicaPage({
 
       <header className="mb-8 mt-4">
         <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="text-amber-soft">
+            <SpeciesIcon specie={t.specie === "biban" || t.specie === "somn" || t.specie === "stiuca" || t.specie === "salau" || t.specie === "avat" || t.specie === "crap" ? t.specie : "crap"} size={26} />
+          </span>
           <p className="text-xs uppercase tracking-[0.3em] text-moss">
             {specieLabel[t.specie]} · {t.metoda}
           </p>
