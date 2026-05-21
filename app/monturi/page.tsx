@@ -22,15 +22,30 @@ export default function MonturiPage() {
 
   return (
     <div>
-      <header className="mb-10">
+      <header className="mb-8">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">monturi</p>
         <h1 className="text-4xl font-display text-fog mb-3">Cum legi linia, pe ce specie</h1>
         <p className="text-fog/70 max-w-2xl">
-          {monturi.length} monturi explicate cu componente, diagramă ASCII și pași de
-          montaj. Fiecare e validată într-un video YouTube. Citează lecții de teren
-          (Vișoianu, Anelin Enache, Baltacul, MarelePescar).
+          {monturi.length} rețete de monturi cu diagrame ASCII, componente și pași de
+          montaj. Fiecare validată într-un video YouTube.
         </p>
       </header>
+
+      {/* Banner spre Tipuri */}
+      <Link
+        href="/monturi/tipuri"
+        className="block card rounded-xl p-5 mb-10 hover:scale-[1.005] transition-transform"
+        style={{ background: "linear-gradient(135deg, rgba(212,166,87,0.12), rgba(107,163,104,0.08))" }}
+      >
+        <div className="flex items-baseline justify-between flex-wrap gap-2">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">nu știi de unde să începi?</p>
+            <h3 className="text-xl font-display text-fog">Ghid — tipuri de monturi: când și unde</h3>
+            <p className="text-sm text-fog/70 mt-1">14 tipuri principale (inline, plumb pierdut, helicopter, method-feeder, hairrig, PVA, jighead, dropshot, topwater, fluorocarbon leader, oțel...) explicate cu capcane și recomandări.</p>
+          </div>
+          <span className="text-amber-glow text-2xl">→</span>
+        </div>
+      </Link>
 
       {ordine.map((sp) => {
         const items = grupate[sp];

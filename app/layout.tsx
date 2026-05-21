@@ -14,6 +14,7 @@ const nav = [
   { href: "/locuri", label: "locuri" },
   { href: "/tehnici", label: "tehnici" },
   { href: "/monturi", label: "monturi" },
+  { href: "/prohibitie", label: "prohibiție" },
   { href: "/echipament", label: "echipament" },
   { href: "/articole", label: "articole" },
   { href: "/glosar", label: "glosar" },

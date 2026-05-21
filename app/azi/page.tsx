@@ -322,7 +322,12 @@ export default async function PartidaPage({
 
       {speciiProhibite.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-xl font-display text-red-400 mb-3">În prohibiție</h2>
+          <div className="flex items-baseline justify-between mb-3">
+            <h2 className="text-xl font-display text-red-400">În prohibiție</h2>
+            <Link href="/prohibitie" className="text-xs text-moss hover:text-amber-glow">
+              calendar complet →
+            </Link>
+          </div>
           <div className="grid md:grid-cols-2 gap-3">
             {speciiProhibite.map(({ specie, zileDeschidere }) => (
               <div key={specie.id} className="card rounded-lg p-4 border-red-400/20">
