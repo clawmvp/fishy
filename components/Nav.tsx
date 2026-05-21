@@ -25,7 +25,7 @@ export default function Nav() {
           <span className="text-xl font-semibold tracking-tight text-amber-glow group-hover:text-amber-soft transition-colors">
             fishy
           </span>
-          <span className="hidden sm:inline text-xs text-fog/50 uppercase tracking-widest">
+          <span className="hidden sm:inline text-xs text-fog/55 uppercase tracking-widest">
             delta dunării
           </span>
         </Link>
@@ -36,7 +36,7 @@ export default function Nav() {
             <Link
               key={n.href}
               href={n.href}
-              className="px-3 py-2 rounded-md text-fog/70 hover:text-amber-glow hover:bg-water-2/40 transition-all"
+              className="px-3 py-2 rounded-md text-fog/75 hover:text-amber-glow hover:bg-water-2/40 transition-all"
             >
               {n.label}
             </Link>
@@ -76,7 +76,7 @@ export default function Nav() {
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-md text-fog/85 hover:text-amber-glow hover:bg-water-2/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-glow border border-amber-glow/15 text-base transition-all"
+                className="px-4 py-3 rounded-md text-fog hover:text-amber-glow hover:bg-water-2/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-glow border border-amber-glow/15 text-base transition-all"
               >
                 {n.label}
               </Link>

@@ -7,10 +7,10 @@ export default function GlosarPage() {
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">
           glosar
         </p>
-        <h1 className="text-4xl font-display text-fog mb-3">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">
           Termeni de pescuit
         </h1>
-        <p className="text-fog/70 max-w-2xl">
+        <p className="text-fog/75 max-w-2xl">
           {glosar.length} termeni — de la jigging și hairrig la cota Tulcea și
           buturi lipovenești. Tot ce auzi în filmele de YouTube și nu știi.
         </p>
@@ -22,10 +22,10 @@ export default function GlosarPage() {
         return (
           <section key={cat.id} className="mb-12">
             <div className="mb-4">
-              <h2 className="text-2xl font-display text-amber-glow inline-block">
+              <h2 className="text-2xl md:text-3xl font-display text-amber-glow inline-block">
                 {cat.nume}
               </h2>
-              <p className="text-sm text-fog/50 mt-1">{cat.desc}</p>
+              <p className="text-sm text-fog/55 mt-1">{cat.desc}</p>
             </div>
             <dl className="space-y-3">
               {items.map((t, i) => (

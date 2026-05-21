@@ -25,7 +25,7 @@ export default async function ArticolPage({
       </Link>
 
       <header className="mb-10 mt-4">
-        <h1 className="text-4xl font-display text-amber-glow mb-3 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-display text-amber-glow mb-3 leading-tight">
           {a.titlu}
         </h1>
         <p className="text-lg text-fog/80 mb-4">{a.scurt}</p>
@@ -39,7 +39,7 @@ export default async function ArticolPage({
       </header>
 
       <div
-        className="prose-fishy text-fog/90"
+        className="prose-fishy text-fog"
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

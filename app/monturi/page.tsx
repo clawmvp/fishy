@@ -24,8 +24,8 @@ export default function MonturiPage() {
     <div>
       <header className="mb-8">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">monturi</p>
-        <h1 className="text-4xl font-display text-fog mb-3">Cum legi linia, pe ce specie</h1>
-        <p className="text-fog/70 max-w-2xl">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Cum legi linia, pe ce specie</h1>
+        <p className="text-fog/75 max-w-2xl">
           {monturi.length} rețete de monturi cu diagrame ASCII, componente și pași de
           montaj. Fiecare validată într-un video YouTube.
         </p>
@@ -40,8 +40,8 @@ export default function MonturiPage() {
         <div className="flex items-baseline justify-between flex-wrap gap-2">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">nu știi de unde să începi?</p>
-            <h3 className="text-xl font-display text-fog">Ghid — tipuri de monturi: când și unde</h3>
-            <p className="text-sm text-fog/70 mt-1">14 tipuri principale (inline, plumb pierdut, helicopter, method-feeder, hairrig, PVA, jighead, dropshot, topwater, fluorocarbon leader, oțel...) explicate cu capcane și recomandări.</p>
+            <h3 className="text-xl md:text-2xl font-display text-fog">Ghid — tipuri de monturi: când și unde</h3>
+            <p className="text-sm text-fog/75 mt-1">14 tipuri principale (inline, plumb pierdut, helicopter, method-feeder, hairrig, PVA, jighead, dropshot, topwater, fluorocarbon leader, oțel...) explicate cu capcane și recomandări.</p>
           </div>
           <span className="text-amber-glow text-2xl">→</span>
         </div>
@@ -52,7 +52,7 @@ export default function MonturiPage() {
         if (!items?.length) return null;
         return (
           <section key={sp} className="mb-10">
-            <h2 className="text-2xl font-display text-amber-glow mb-4">
+            <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">
               {specieLabel[sp]}
               <span className="text-fog/40 text-base ml-2">({items.length})</span>
             </h2>
@@ -64,7 +64,7 @@ export default function MonturiPage() {
                   className="card rounded-lg p-5"
                 >
                   <h3 className="text-base font-display text-fog mb-1">{m.nume}</h3>
-                  <p className="text-sm text-fog/65 mb-3 leading-relaxed">{m.scop}</p>
+                  <p className="text-sm text-fog/75 mb-3 leading-relaxed">{m.scop}</p>
                   <p className="text-xs text-amber-soft uppercase tracking-wider">{m.cand}</p>
                 </Link>
               ))}

@@ -180,8 +180,8 @@ export default async function PrognozaPage() {
     <div>
       <header className="mb-8">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">prognoză 14 zile</p>
-        <h1 className="text-4xl font-display text-fog mb-3">Când să mergi în Deltă</h1>
-        <p className="text-fog/70 max-w-3xl">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Când să mergi în Deltă</h1>
+        <p className="text-fog/75 max-w-3xl">
           Următoarele {zile.length} zile evaluate per specie. Scor bazat pe vreme + presiune + vânt + cotă Tulcea + faza lunii.
           Detectăm automat <strong className="text-amber-glow">ferestrele de 2-3 zile</strong> cu condiții consecutive bune — perioadele tipice de partidă.
         </p>
@@ -190,7 +190,7 @@ export default async function PrognozaPage() {
       {/* FERESTRE RECOMANDATE */}
       {ferestre.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-2xl font-display text-amber-glow mb-4">
+          <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">
             Ferestre recomandate
             <span className="text-fog/40 text-base ml-2">({ferestre.length})</span>
           </h2>
@@ -204,7 +204,7 @@ export default async function PrognozaPage() {
                       <p className="text-xs uppercase tracking-widest text-amber-glow mb-1">
                         {f.lungime} zile consecutive
                       </p>
-                      <h3 className="text-xl font-display text-fog">
+                      <h3 className="text-xl md:text-2xl font-display text-fog">
                         {dataScurta(slice[0].date)} → {dataScurta(slice[slice.length - 1].date)}
                       </h3>
                     </div>
@@ -231,7 +231,7 @@ export default async function PrognozaPage() {
                         key={j}
                         className={`flex-1 text-center rounded-md p-2 ${scoreBg(zi.scorMaxim)}`}
                       >
-                        <p className="text-xs text-fog/70">{dataScurta(zi.date)}</p>
+                        <p className="text-xs text-fog/75">{dataScurta(zi.date)}</p>
                         <p className={`text-lg font-light ${scoreColor(zi.scorMaxim)}`}>{zi.scorMaxim}</p>
                       </div>
                     ))}
@@ -245,7 +245,7 @@ export default async function PrognozaPage() {
 
       {/* PROGNOZA ZI CU ZI */}
       <section className="mb-10">
-        <h2 className="text-2xl font-display text-amber-glow mb-4">Zi cu zi — următoarele 14 zile</h2>
+        <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">Zi cu zi — următoarele 14 zile</h2>
         <div className="space-y-2">
           {zile.map((zi, idx) => {
             const ziLink = idx <= 13 ? `/azi?ziua=${idx}` : null;
@@ -260,7 +260,7 @@ export default async function PrognozaPage() {
                   <div className="flex items-baseline justify-between">
                     <div>
                       <p className="text-sm text-fog font-display">{ziuaRO[zi.date.getDay()]} {zi.date.getDate()} {luniRO[zi.date.getMonth()]}</p>
-                      <p className="text-xs text-fog/50">{zi.forecast.pressure} hPa · {zi.moon.illumination}% lună</p>
+                      <p className="text-xs text-fog/55">{zi.forecast.pressure} hPa · {zi.moon.illumination}% lună</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-2xl">{getWeatherIcon(zi.forecast.weatherCode)}</span>
@@ -268,12 +268,12 @@ export default async function PrognozaPage() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between gap-2 text-xs">
-                    <span className="text-fog/70">
+                    <span className="text-fog/75">
                       {zi.forecast.tempMax}°/{zi.forecast.tempMin}° · {zi.forecast.windMax} km/h {getWindDirection(zi.forecast.windDirection)}
                     </span>
                     {zi.topSpecie && (
                       <span>
-                        <span className="text-fog/50">Top:</span>{" "}
+                        <span className="text-fog/55">Top:</span>{" "}
                         <span className="text-amber-glow font-medium">{zi.topSpecie.nume}</span>
                       </span>
                     )}
@@ -299,7 +299,7 @@ export default async function PrognozaPage() {
                 <div className="hidden md:flex items-center gap-4 flex-wrap">
                   <div className="min-w-[80px]">
                     <p className="text-sm text-fog font-display">{ziuaRO[zi.date.getDay()]}</p>
-                    <p className="text-xs text-fog/50 font-mono">
+                    <p className="text-xs text-fog/55 font-mono">
                       {zi.date.getDate()} {luniRO[zi.date.getMonth()]}
                     </p>
                   </div>
@@ -308,18 +308,18 @@ export default async function PrognozaPage() {
                     <p className="text-sm text-fog">
                       {zi.forecast.tempMax}°<span className="text-fog/40">/{zi.forecast.tempMin}°</span>
                     </p>
-                    <p className="text-xs text-fog/50">
+                    <p className="text-xs text-fog/55">
                       {zi.forecast.windMax} km/h {getWindDirection(zi.forecast.windDirection)}
                     </p>
                   </div>
                   <div className="min-w-[80px]">
-                    <p className="text-xs text-fog/50">{zi.forecast.pressure} hPa</p>
+                    <p className="text-xs text-fog/55">{zi.forecast.pressure} hPa</p>
                     <p className="text-xs text-fog/40">{zi.moon.illumination}% lună</p>
                   </div>
                   <div className="flex-1 min-w-[200px]">
                     {zi.topSpecie ? (
                       <p className="text-sm">
-                        <span className="text-fog/50">Top:</span>{" "}
+                        <span className="text-fog/55">Top:</span>{" "}
                         <span className="text-amber-glow font-medium">{zi.topSpecie.nume}</span>{" "}
                         <span className={`text-xs ${scoreColor(zi.topSpecie.scor)}`}>({zi.topSpecie.scor})</span>
                       </p>

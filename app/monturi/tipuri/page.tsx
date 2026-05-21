@@ -11,8 +11,8 @@ export default function TipuriMonturiPage() {
 
       <header className="mb-10 mt-4">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">tipuri de monturi</p>
-        <h1 className="text-4xl font-display text-fog mb-3">Ghid — când și unde folosești fiecare tip</h1>
-        <p className="text-fog/70 max-w-3xl">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Ghid — când și unde folosești fiecare tip</h1>
+        <p className="text-fog/75 max-w-3xl">
           {tipuriMonturi.length} tipuri principale de monturi explicate: <strong>când le folosești</strong>,{" "}
           <strong>unde funcționează</strong>, ce avantaje și capcane au. Fiecare tip linkează la <Link href="/monturi" className="text-amber-glow hover:underline">rețete concrete</Link> validate pe teren.
         </p>
@@ -23,7 +23,7 @@ export default function TipuriMonturiPage() {
         if (!items.length) return null;
         return (
           <section key={cat} className="mb-12">
-            <h2 className="text-2xl font-display text-amber-glow mb-4">
+            <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">
               {CAT_LABELS[cat]}
               <span className="text-fog/40 text-base ml-2">({items.length})</span>
             </h2>
@@ -99,7 +99,7 @@ export default function TipuriMonturiPage() {
 
                     <div className="card rounded-md p-3 mb-4" style={{ background: "rgba(189,78,65,0.05)", borderColor: "rgba(189,78,65,0.2)" }}>
                       <p className="text-xs uppercase tracking-widest text-red-400/80 mb-1">De evitat</p>
-                      <p className="text-sm text-fog/85 italic">{t.evitati}</p>
+                      <p className="text-sm text-fog italic">{t.evitati}</p>
                     </div>
 
                     {monturiAsociate.length > 0 && (

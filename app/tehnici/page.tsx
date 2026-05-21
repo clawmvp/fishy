@@ -27,10 +27,10 @@ export default function TehniciPage() {
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">
           tehnici de pescuit
         </p>
-        <h1 className="text-4xl font-display text-fog mb-3">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">
           Spinning și crap, pe specie
         </h1>
-        <p className="text-fog/70 max-w-2xl">
+        <p className="text-fog/75 max-w-2xl">
           Fiecare tehnică e descompusă: pași, năluci sau monturi, echipament și
           sfaturi specifice. Sursa: pescari care le-au testat pe teren.
         </p>
@@ -63,7 +63,7 @@ export default function TehniciPage() {
                   <h3 className="text-lg font-display text-fog mb-1.5">
                     {t.titlu}
                   </h3>
-                  <p className="text-sm text-fog/65 mb-2 leading-relaxed">
+                  <p className="text-sm text-fog/75 mb-2 leading-relaxed">
                     {t.scurt}
                   </p>
                   <p className="text-xs text-amber-soft uppercase tracking-wider">

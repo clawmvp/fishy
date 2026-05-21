@@ -142,7 +142,7 @@ export default async function PartidaPage({
       <header className="mb-6">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-2">partidă în Deltă</p>
         <h1 className="text-3xl md:text-4xl font-display text-fog mb-1">{dataLunga}</h1>
-        <p className="text-fog/60 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>.</p>
+        <p className="text-fog/55 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>.</p>
       </header>
 
       {/* SELECTOR ZIUA — scroll horizontal pe mobile, grid pe desktop */}
@@ -164,14 +164,14 @@ export default async function PartidaPage({
                 <p className={`text-xs uppercase tracking-wider ${isActive ? "text-amber-glow" : "text-moss"}`}>
                   {z.label}
                 </p>
-                <p className="text-xs text-fog/50 mb-1">{z.data}</p>
+                <p className="text-xs text-fog/55 mb-1">{z.data}</p>
                 {z.forecast && (
                   <>
                     <p className="text-xl mt-1">{getWeatherIcon(z.forecast.weatherCode)}</p>
                     <p className="text-sm text-fog font-light">
                       {z.forecast.tempMax}°<span className="text-fog/40">/{z.forecast.tempMin}°</span>
                     </p>
-                    <p className="text-[10px] text-fog/50 mt-1">
+                    <p className="text-[10px] text-fog/55 mt-1">
                       {z.forecast.windMax} km/h
                     </p>
                   </>
@@ -181,7 +181,7 @@ export default async function PartidaPage({
           })}
           </div>
         </div>
-        <p className="md:hidden text-[10px] text-fog/50 mt-0.5 italic">→ glisează lateral pentru toate cele 14 zile</p>
+        <p className="md:hidden text-[10px] text-fog/55 mt-0.5 italic">→ glisează lateral pentru toate cele 14 zile</p>
         <div className="hidden md:grid md:grid-cols-7 gap-2">
           {ziue.map((z) => {
             const isActive = z.idx === ziuaIdx;
@@ -196,14 +196,14 @@ export default async function PartidaPage({
                 <p className={`text-xs uppercase tracking-wider ${isActive ? "text-amber-glow" : "text-moss"}`}>
                   {z.label}
                 </p>
-                <p className="text-xs text-fog/50 mb-1">{z.data}</p>
+                <p className="text-xs text-fog/55 mb-1">{z.data}</p>
                 {z.forecast && (
                   <>
                     <p className="text-2xl mt-1">{getWeatherIcon(z.forecast.weatherCode)}</p>
                     <p className="text-sm text-fog font-light">
                       {z.forecast.tempMax}°<span className="text-fog/40">/{z.forecast.tempMin}°</span>
                     </p>
-                    <p className="text-xs text-fog/50 mt-1">
+                    <p className="text-xs text-fog/55 mt-1">
                       {z.forecast.windMax} km/h
                     </p>
                   </>
@@ -220,9 +220,9 @@ export default async function PartidaPage({
           <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Tulcea</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
-              {waterTulcea.level}<span className="text-sm text-fog/50 ml-1">cm</span>
+              {waterTulcea.level}<span className="text-sm text-fog/55 ml-1">cm</span>
             </p>
-            <p className="text-xs text-fog/60">
+            <p className="text-xs text-fog/55">
               {waterTulcea.variation > 0 ? "↑" : waterTulcea.variation < 0 ? "↓" : "→"}{" "}
               {Math.abs(waterTulcea.variation)} cm •{" "}
               {waterTulcea.trend === "rising" ? "în creștere" : waterTulcea.trend === "falling" ? "în scădere" : "stabilă"}
@@ -234,9 +234,9 @@ export default async function PartidaPage({
           <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Sulina</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
-              {waterSulina.level}<span className="text-sm text-fog/50 ml-1">cm</span>
+              {waterSulina.level}<span className="text-sm text-fog/55 ml-1">cm</span>
             </p>
-            <p className="text-xs text-fog/60">
+            <p className="text-xs text-fog/55">
               {waterSulina.variation > 0 ? "↑" : waterSulina.variation < 0 ? "↓" : "→"} {Math.abs(waterSulina.variation)} cm
             </p>
             <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterSulina.relativeLevel)}</p>
@@ -246,9 +246,9 @@ export default async function PartidaPage({
           <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Vremea Mila 23</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
-              {todaysForecast.tempMax}°<span className="text-sm text-fog/50 ml-1">/ {todaysForecast.tempMin}°</span>
+              {todaysForecast.tempMax}°<span className="text-sm text-fog/55 ml-1">/ {todaysForecast.tempMin}°</span>
             </p>
-            <p className="text-xs text-fog/60">
+            <p className="text-xs text-fog/55">
               Vânt {todaysForecast.windMax} km/h {getWindDirection(todaysForecast.windDirection)}
             </p>
             <p className="text-xs text-amber-soft mt-1.5">
@@ -260,9 +260,9 @@ export default async function PartidaPage({
         <div className="card-hero rounded-xl p-4">
           <p className="text-xs uppercase tracking-widest text-moss mb-1">Luna</p>
           <p className="text-3xl font-light text-amber-glow mb-1">
-            {moon.illumination}<span className="text-sm text-fog/50 ml-1">% iluminată</span>
+            {moon.illumination}<span className="text-sm text-fog/55 ml-1">% iluminată</span>
           </p>
-          <p className="text-xs text-fog/60">{moon.phase}</p>
+          <p className="text-xs text-fog/55">{moon.phase}</p>
           <p className="text-xs text-amber-soft mt-1.5">
             {moon.illumination < 15 || moon.illumination > 85
               ? "Activitate maximă"
@@ -276,7 +276,7 @@ export default async function PartidaPage({
       {/* RECOMANDĂRI PE SPECIE */}
       <section className="mb-12">
         <div className="flex items-baseline justify-between mb-5">
-          <h2 className="text-2xl font-display text-amber-glow">Recomandări pe specie</h2>
+          <h2 className="text-2xl md:text-3xl font-display text-amber-glow">Recomandări pe specie</h2>
           <p className="text-xs text-fog/40">sortate după scor</p>
         </div>
 
@@ -308,8 +308,8 @@ export default async function PartidaPage({
                 ))}
               </ul>
 
-              <p className="text-xs text-fog/50 mb-3">
-                <strong className="text-fog/70">Ore optime:</strong> {specie.optimalConditions.bestTimeOfDay}
+              <p className="text-xs text-fog/55 mb-3">
+                <strong className="text-fog/75">Ore optime:</strong> {specie.optimalConditions.bestTimeOfDay}
               </p>
 
               {locuriRec.length > 0 && (
@@ -390,17 +390,17 @@ export default async function PartidaPage({
               <div>
                 <p className="text-xs uppercase tracking-widest text-moss mb-1">Apa estimată</p>
                 <p className="text-2xl text-amber-glow font-light">~{estimateWaterTemp(todaysForecast, targetDate.getMonth() + 1)}°C</p>
-                <p className="text-xs text-fog/50">(temperatura aer + sezonalitate)</p>
+                <p className="text-xs text-fog/55">(temperatura aer + sezonalitate)</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-moss mb-1">Precipitații</p>
                 <p className="text-2xl text-amber-glow font-light">{todaysForecast.precipitation.toFixed(1)} mm</p>
-                <p className="text-xs text-fog/50">Probabilitate {todaysForecast.precipProbability}%</p>
+                <p className="text-xs text-fog/55">Probabilitate {todaysForecast.precipProbability}%</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-moss mb-1">Cer</p>
                 <p className="text-2xl text-amber-glow font-light">{todaysForecast.cloudCover}%</p>
-                <p className="text-xs text-fog/50">acoperit</p>
+                <p className="text-xs text-fog/55">acoperit</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-moss mb-1">Umiditate</p>
@@ -413,7 +413,7 @@ export default async function PartidaPage({
 
       <section className="mt-10 pt-6 border-t border-amber-glow/15">
         <p className="text-xs text-fog/40">
-          <strong className="text-fog/60">Surse:</strong>{" "}
+          <strong className="text-fog/55">Surse:</strong>{" "}
           <a href="https://open-meteo.com" target="_blank" rel="noopener" className="hover:text-amber-glow">Open-Meteo</a>{" "}
           (vreme),{" "}
           <a href="https://www.hidro.ro/" target="_blank" rel="noopener" className="hover:text-amber-glow">hidro.ro</a>{" "}

@@ -50,7 +50,7 @@ export default async function MonturaPage({
       <section className="mb-8">
         <h2 className="text-xl font-display text-amber-glow mb-3">Diagrama</h2>
         <div className="scroll-x-wrap card rounded-lg p-4 md:p-5">
-          <pre className="text-xs md:text-sm text-fog/90 font-mono leading-tight whitespace-pre min-w-fit">
+          <pre className="text-xs md:text-sm text-fog font-mono leading-tight whitespace-pre min-w-fit">
 {m.diagrama}
           </pre>
         </div>
@@ -67,7 +67,7 @@ export default async function MonturaPage({
                 <p className="text-fog font-medium">{c.item}</p>
                 <p className="text-amber-soft font-mono text-sm">{c.spec}</p>
               </div>
-              {c.nota && <p className="text-sm text-fog/60 italic">{c.nota}</p>}
+              {c.nota && <p className="text-sm text-fog/55 italic">{c.nota}</p>}
             </div>
           ))}
         </div>
@@ -78,7 +78,7 @@ export default async function MonturaPage({
         <h2 className="text-xl font-display text-amber-glow mb-3">Pași de montaj</h2>
         <ol className="space-y-2.5">
           {m.pasi.map((p, i) => (
-            <li key={i} className="flex gap-3 text-fog/85 leading-relaxed">
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
               <span className="text-amber-glow flex-shrink-0 font-mono text-sm pt-0.5">
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -93,7 +93,7 @@ export default async function MonturaPage({
         <h2 className="text-xl font-display text-amber-glow mb-3">Sfaturi</h2>
         <ul className="space-y-2">
           {m.sfaturi.map((s, i) => (
-            <li key={i} className="flex gap-3 text-fog/85 leading-relaxed">
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
               <span className="text-amber-glow flex-shrink-0">→</span>
               <span>{s}</span>
             </li>
@@ -117,7 +117,7 @@ export default async function MonturaPage({
 
       {/* Surse */}
       <section className="mt-12 pt-6 border-t border-amber-glow/15">
-        <p className="text-xs uppercase tracking-widest text-fog/50 mb-2">
+        <p className="text-xs uppercase tracking-widest text-fog/55 mb-2">
           surse video
         </p>
         <div className="flex flex-wrap gap-2">

@@ -45,10 +45,10 @@ export default function EchipamentPage() {
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">
           echipament
         </p>
-        <h1 className="text-4xl font-display text-fog mb-3">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">
           Ce să cumperi, ce să eviți
         </h1>
-        <p className="text-fog/70 max-w-2xl">
+        <p className="text-fog/75 max-w-2xl">
           Mărci concrete, modele specifice, prețuri orientative. Categoria{" "}
           <span className="tag tag-amber">must-have</span> = de bază. Categoria{" "}
           <span className="tag tag-red">expert</span> = pentru pescari avansați
@@ -65,7 +65,7 @@ export default function EchipamentPage() {
 
         return (
           <section key={cat} className="mb-12">
-            <h2 className="text-2xl font-display text-amber-glow mb-4">
+            <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">
               {catLabel[cat]}
               <span className="text-fog/40 text-base ml-2">
                 ({items.length})
@@ -95,7 +95,7 @@ export default function EchipamentPage() {
                     </p>
                   )}
                   {e.note && (
-                    <p className="text-sm text-fog/70 leading-relaxed mb-2">
+                    <p className="text-sm text-fog/75 leading-relaxed mb-2">
                       {e.note}
                     </p>
                   )}

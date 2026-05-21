@@ -55,8 +55,8 @@ export default function ProhibitionPage() {
     <div>
       <header className="mb-10">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">prohibiție</p>
-        <h1 className="text-4xl font-display text-fog mb-3">Când pescuiești ce</h1>
-        <p className="text-fog/70 max-w-2xl">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Când pescuiești ce</h1>
+        <p className="text-fog/75 max-w-2xl">
           Calendar pe specie cu perioadele de prohibiție. Status LIVE pentru ziua de azi
           ({today.getDate()} {luniLungi[currentMonth]} {year}). Verifică oficial la{" "}
           <a href="https://anpa.ro" target="_blank" rel="noopener" className="text-amber-glow hover:underline">ANPA</a>.
@@ -66,7 +66,7 @@ export default function ProhibitionPage() {
       {/* Specii libere */}
       {libere.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-2xl font-display text-emerald-400 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display text-emerald-400 mb-4">
             Liber la pescuit
             <span className="text-fog/40 text-base ml-2">({libere.length})</span>
           </h2>
@@ -75,12 +75,12 @@ export default function ProhibitionPage() {
               <div key={sp.id} className="card rounded-xl p-5">
                 <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                   <div>
-                    <h3 className="text-xl font-display text-fog">{sp.nume}</h3>
+                    <h3 className="text-xl md:text-2xl font-display text-fog">{sp.nume}</h3>
                     <p className="text-xs text-fog/40">{sp.latin}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs uppercase tracking-widest text-emerald-400">deschis acum</p>
-                    <p className="text-xs text-fog/50 mt-1">min. {sp.marimeMinima} cm</p>
+                    <p className="text-xs text-fog/55 mt-1">min. {sp.marimeMinima} cm</p>
                   </div>
                 </div>
 
@@ -106,7 +106,7 @@ export default function ProhibitionPage() {
                   ))}
                 </div>
 
-                <p className="text-xs text-fog/60">
+                <p className="text-xs text-fog/55">
                   Prohibiție anuală: {formatDataPro(sp.prohibitie.start.m, sp.prohibitie.start.d)} → {formatDataPro(sp.prohibitie.end.m, sp.prohibitie.end.d)}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export default function ProhibitionPage() {
       {/* Specii în prohibiție */}
       {inchise.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-2xl font-display text-red-400 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display text-red-400 mb-4">
             În prohibiție
             <span className="text-fog/40 text-base ml-2">({inchise.length})</span>
           </h2>
@@ -127,7 +127,7 @@ export default function ProhibitionPage() {
               <div key={sp.id} className="card rounded-xl p-5 border-red-400/20">
                 <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                   <div>
-                    <h3 className="text-xl font-display text-fog">{sp.nume}</h3>
+                    <h3 className="text-xl md:text-2xl font-display text-fog">{sp.nume}</h3>
                     <p className="text-xs text-fog/40">{sp.latin}</p>
                   </div>
                   <div className="text-right">
@@ -157,7 +157,7 @@ export default function ProhibitionPage() {
                   ))}
                 </div>
 
-                <p className="text-xs text-fog/60">
+                <p className="text-xs text-fog/55">
                   Prohibiție: {formatDataPro(sp.prohibitie.start.m, sp.prohibitie.start.d)} → {formatDataPro(sp.prohibitie.end.m, sp.prohibitie.end.d)} • min. {sp.marimeMinima} cm
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function ProhibitionPage() {
                 <tr key={sp.id} className="border-b border-amber-glow/5">
                   <td className="py-2 text-fog">{sp.nume}</td>
                   <td className="py-2 text-amber-soft font-mono">{sp.marimeMinima} cm</td>
-                  <td className="py-2 text-fog/60 text-xs">
+                  <td className="py-2 text-fog/55 text-xs">
                     {sp.id === "crap" && "Crap = 40 cm fără coadă (regulă 2025)"}
                     {sp.id === "stiuca" && "Femele >70 cm = trofeu, eliberează"}
                     {sp.id === "salau" && "Sub 45 cm = obligatoriu eliberat"}
@@ -199,7 +199,7 @@ export default function ProhibitionPage() {
       {/* Reguli speciale Delta */}
       <section className="mb-10">
         <h2 className="text-xl font-display text-amber-glow mb-4">Reguli speciale Delta + zone frontieră</h2>
-        <div className="card rounded-lg p-5 space-y-3 text-sm text-fog/85">
+        <div className="card rounded-lg p-5 space-y-3 text-sm text-fog">
           <p>
             <strong className="text-fog">Max 4 lansete per pescar</strong> — regulă universală pe Dunăre / Deltă.
           </p>

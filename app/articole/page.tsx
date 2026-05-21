@@ -8,10 +8,10 @@ export default function ArticolePage() {
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">
           articole
         </p>
-        <h1 className="text-4xl font-display text-fog mb-3">
+        <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">
           Lecții și principii
         </h1>
-        <p className="text-fog/70 max-w-2xl">
+        <p className="text-fog/75 max-w-2xl">
           Sinteze din partidele documentate — filozofia Vișoianu, săptămâna magică
           de primăvară, capcane comune. Lecturi de 5-10 minute fiecare.
         </p>
@@ -25,7 +25,7 @@ export default function ArticolePage() {
             className="card rounded-lg p-5"
           >
             <h2 className="text-xl font-display text-fog mb-1.5">{a.titlu}</h2>
-            <p className="text-fog/65 mb-3 leading-relaxed">{a.scurt}</p>
+            <p className="text-fog/75 mb-3 leading-relaxed">{a.scurt}</p>
             <div className="flex flex-wrap gap-1.5">
               {a.tags.map((t) => (
                 <span key={t} className="tag">

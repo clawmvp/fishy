@@ -26,7 +26,7 @@ export default function Home() {
           Pescuit în <span className="text-amber-glow">Delta Dunării</span>,
           extras din 28 de partide reale.
         </h1>
-        <p className="text-lg text-fog/70 max-w-2xl leading-relaxed">
+        <p className="text-lg text-fog/75 max-w-2xl leading-relaxed">
           Locuri, tehnici, monturi, mărci de boilies și năluci — din transcrierile
           videourilor pescarilor români. Spinning la știucă, șalău, avat. Crap
           static pe brațe și canale. Filozofia lui Călin Vișoianu.
@@ -43,7 +43,7 @@ export default function Home() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">planifică partida</p>
               <h3 className="text-2xl md:text-3xl font-display text-fog">Prognoză 14 zile + ferestre recomandate</h3>
-              <p className="text-sm text-fog/70 mt-1">Detectăm automat ferestrele de 2-3 zile consecutive cu condiții bune. Plus recomandări de locuri, tehnici și monturi pentru fiecare specie, pe ziua aleasă.</p>
+              <p className="text-sm text-fog/75 mt-1">Detectăm automat ferestrele de 2-3 zile consecutive cu condiții bune. Plus recomandări de locuri, tehnici și monturi pentru fiecare specie, pe ziua aleasă.</p>
             </div>
             <span className="text-amber-glow text-2xl">→</span>
           </div>
@@ -69,7 +69,7 @@ export default function Home() {
           <h3 className="text-2xl md:text-3xl font-display text-amber-glow mb-2">
             Știucă · Șalău · Avat
           </h3>
-          <p className="text-fog/70 text-sm">
+          <p className="text-fog/75 text-sm">
             Tehnici, năluci, monturi pe specie — din Neajlov până la Stația 11
             în Deltă.
           </p>
@@ -92,7 +92,7 @@ export default function Home() {
           <h3 className="text-2xl md:text-3xl font-display text-amber-glow mb-2">
             Crap · Somn · Biban
           </h3>
-          <p className="text-fog/70 text-sm">
+          <p className="text-fog/75 text-sm">
             Boilies, momitor, clonc, plumb pierdut, prag de iarnă. Filozofia
             Vișoianu pentru partide lungi.
           </p>
@@ -114,7 +114,7 @@ export default function Home() {
             className="card rounded-lg p-4 text-center hover:scale-105 transition-transform"
           >
             <div className="text-3xl font-light text-amber-glow">{s.n}</div>
-            <div className="text-xs uppercase tracking-wider text-fog/50 mt-1">
+            <div className="text-xs uppercase tracking-wider text-fog/55 mt-1">
               {s.l}
             </div>
           </Link>
@@ -124,7 +124,7 @@ export default function Home() {
       {/* Recent articole */}
       <section className="mb-16">
         <div className="flex items-baseline justify-between mb-5">
-          <h2 className="text-2xl font-display text-amber-glow">
+          <h2 className="text-2xl md:text-3xl font-display text-amber-glow">
             articole de citit
           </h2>
           <Link
@@ -142,7 +142,7 @@ export default function Home() {
               className="card rounded-lg p-5"
             >
               <h3 className="text-lg font-display text-fog mb-1">{a.titlu}</h3>
-              <p className="text-sm text-fog/60 mb-3 leading-relaxed">
+              <p className="text-sm text-fog/55 mb-3 leading-relaxed">
                 {a.scurt}
               </p>
               <div className="flex flex-wrap gap-1.5">
@@ -160,7 +160,7 @@ export default function Home() {
       {/* Top locuri */}
       <section>
         <div className="flex items-baseline justify-between mb-5">
-          <h2 className="text-2xl font-display text-amber-glow">
+          <h2 className="text-2xl md:text-3xl font-display text-amber-glow">
             locuri celebre
           </h2>
           <Link href="/locuri" className="text-sm text-moss hover:text-amber-glow">
@@ -178,7 +178,7 @@ export default function Home() {
                 {l.tip}
               </p>
               <h3 className="text-base font-display text-fog mb-2">{l.nume}</h3>
-              <p className="text-sm text-fog/60 leading-snug">{l.scurt}</p>
+              <p className="text-sm text-fog/55 leading-snug">{l.scurt}</p>
             </Link>
           ))}
         </div>

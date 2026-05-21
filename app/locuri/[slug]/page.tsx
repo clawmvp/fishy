@@ -25,7 +25,7 @@ export default async function LocPage({
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">
           {loc.tip}
         </p>
-        <h1 className="text-4xl font-display text-amber-glow mb-3">
+        <h1 className="text-4xl md:text-5xl font-display text-amber-glow mb-3">
           {loc.nume}
         </h1>
         <p className="text-lg text-fog/80 leading-relaxed">{loc.scurt}</p>
@@ -58,7 +58,7 @@ export default async function LocPage({
         </h2>
         <ul className="space-y-2">
           {loc.caracteristici.map((c, i) => (
-            <li key={i} className="flex gap-3 text-fog/85 leading-relaxed">
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
               <span className="text-moss flex-shrink-0">•</span>
               <span>{c}</span>
             </li>
@@ -70,7 +70,7 @@ export default async function LocPage({
         <h2 className="text-xl font-display text-amber-glow mb-3">Sfaturi</h2>
         <ul className="space-y-2">
           {loc.sfaturi.map((s, i) => (
-            <li key={i} className="flex gap-3 text-fog/85 leading-relaxed">
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
               <span className="text-amber-glow flex-shrink-0">→</span>
               <span>{s}</span>
             </li>
@@ -82,7 +82,7 @@ export default async function LocPage({
         <h2 className="text-xl font-display text-amber-glow mb-3">Pericole</h2>
         <ul className="space-y-2">
           {loc.pericole.map((p, i) => (
-            <li key={i} className="flex gap-3 text-fog/85 leading-relaxed">
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
               <span className="text-red-400 flex-shrink-0">!</span>
               <span>{p}</span>
             </li>
@@ -91,7 +91,7 @@ export default async function LocPage({
       </section>
 
       <section className="mt-12 pt-6 border-t border-amber-glow/15">
-        <p className="text-xs uppercase tracking-widest text-fog/50 mb-2">
+        <p className="text-xs uppercase tracking-widest text-fog/55 mb-2">
           surse video
         </p>
         <div className="flex flex-wrap gap-2">
