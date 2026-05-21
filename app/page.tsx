@@ -42,8 +42,8 @@ export default function Home() {
           <div className="flex items-baseline justify-between flex-wrap gap-2">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-amber-glow mb-1">planifică partida</p>
-              <h3 className="text-2xl font-display text-fog">Prognoză 4 zile + recomandări pe specie</h3>
-              <p className="text-sm text-fog/70 mt-1">Cota Tulcea + vremea Mila 23 + faza lunii → scor pe fiecare zi pentru fiecare specie + locuri, tehnici și monturi gata de citit</p>
+              <h3 className="text-2xl font-display text-fog">Prognoză 14 zile + ferestre recomandate</h3>
+              <p className="text-sm text-fog/70 mt-1">Detectăm automat ferestrele de 2-3 zile consecutive cu condiții bune. Plus prognoză 4 zile detaliată cu recomandări de locuri, tehnici și monturi pentru fiecare specie.</p>
             </div>
             <span className="text-amber-glow text-2xl">→</span>
           </div>

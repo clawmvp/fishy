@@ -16,7 +16,8 @@ export interface DailyForecast {
 
 export async function fetchWeather(
   latitude: number,
-  longitude: number
+  longitude: number,
+  forecastDays: number = 7
 ): Promise<DailyForecast[]> {
   const url = new URL("https://api.open-meteo.com/v1/forecast");
   url.searchParams.set("latitude", latitude.toString());
@@ -30,7 +31,7 @@ export async function fetchWeather(
     "relative_humidity_2m,surface_pressure,cloud_cover"
   );
   url.searchParams.set("timezone", "auto");
-  url.searchParams.set("forecast_days", "7");
+  url.searchParams.set("forecast_days", String(forecastDays));
 
   const response = await fetch(url.toString());
   if (!response.ok) {
