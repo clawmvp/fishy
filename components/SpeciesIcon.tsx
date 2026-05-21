@@ -1,8 +1,12 @@
 type Specie = "crap" | "stiuca" | "salau" | "avat" | "biban" | "somn";
 
+// Dimensiuni standard: sm=20 (liste compacte), md=28 (titluri secțiuni — default), lg=40 (hero)
+type IconSize = "sm" | "md" | "lg" | number;
+const SIZES: Record<Exclude<IconSize, number>, number> = { sm: 20, md: 28, lg: 40 };
+
 interface Props {
   specie: Specie;
-  size?: number;
+  size?: IconSize;
   className?: string;
 }
 
@@ -21,12 +25,13 @@ const PATHS: Record<Specie, string> = {
   somn: "M6 20 Q10 12 26 12 Q44 12 60 15 L60 25 Q44 28 26 28 Q10 28 6 20 Z M14 12 Q10 8 4 7 M14 28 Q10 32 4 33 M16 14 Q14 11 10 10 M16 26 Q14 29 10 30 M50 18 Q52 20 50 22",
 };
 
-export default function SpeciesIcon({ specie, size = 28, className = "" }: Props) {
+export default function SpeciesIcon({ specie, size = "md", className = "" }: Props) {
   const d = PATHS[specie];
+  const px = typeof size === "number" ? size : SIZES[size];
   return (
     <svg
-      width={size}
-      height={size * 0.625}
+      width={px}
+      height={px * 0.625}
       viewBox="0 0 64 40"
       fill="none"
       stroke="currentColor"

@@ -15,6 +15,12 @@
   --color-paper: #e8e0c8;
   --font-display: 'EB Garamond', Georgia, ui-serif, serif;
   --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* RGB tuples pentru rgba inline */
+  --rgb-water-2: 26 56 69;
+  --rgb-amber-glow: 212 166 87;
+  --rgb-moss: 107 163 104;
+  --rgb-fog: 201 214 196;
 }
 
 :root {
@@ -62,27 +68,33 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(circle at 80% 70%, rgba(107,163,104,0.05) 0%, transparent 50%);
 }
 
+/* Card variants — clear semantic:
+   .card          → standard, list items (default p-5)
+   .card-hero     → accent, condiții live, banners (p-6 md:p-8)
+   .card-compact  → dense lists (echipament, glosar) (p-3 md:p-4) */
 .card {
-  background: rgba(26, 56, 69, 0.35);
+  background: rgb(var(--rgb-water-2) / 0.35);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(212, 166, 87, 0.15);
+  border: 1px solid rgb(var(--rgb-amber-glow) / 0.15);
+  border-radius: 8px;
+  transition: border-color 200ms ease, background-color 200ms ease;
 }
 
 .card:hover {
-  border-color: rgba(212, 166, 87, 0.4);
-  background: rgba(26, 56, 69, 0.55);
-  transition: all 200ms ease;
+  border-color: rgb(var(--rgb-amber-glow) / 0.4);
+  background: rgb(var(--rgb-water-2) / 0.55);
 }
 
-/* Hero card variant — pentru pagini cu accent (banner /azi, condiții live, premium content) */
 .card-hero {
-  background: linear-gradient(145deg, rgba(212, 166, 87, 0.10), rgba(26, 56, 69, 0.55) 60%);
-  border: 1px solid rgba(212, 166, 87, 0.35);
+  background: linear-gradient(145deg, rgb(var(--rgb-amber-glow) / 0.10), rgb(var(--rgb-water-2) / 0.55) 60%);
+  border: 1px solid rgb(var(--rgb-amber-glow) / 0.35);
+  border-radius: 12px;
   box-shadow:
-    0 8px 32px -12px rgba(212, 166, 87, 0.18),
-    inset 0 1px 0 rgba(232, 224, 200, 0.08);
+    0 8px 32px -12px rgb(var(--rgb-amber-glow) / 0.18),
+    inset 0 1px 0 rgb(232 224 200 / 0.08);
   position: relative;
   overflow: hidden;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
 .card-hero::before {
@@ -90,30 +102,41 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   top: 0; right: 0;
   width: 120px; height: 120px;
-  background: radial-gradient(circle, rgba(212, 166, 87, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgb(var(--rgb-amber-glow) / 0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .card-hero:hover {
-  border-color: rgba(212, 166, 87, 0.55);
+  border-color: rgb(var(--rgb-amber-glow) / 0.55);
   box-shadow:
-    0 12px 40px -10px rgba(212, 166, 87, 0.25),
-    inset 0 1px 0 rgba(232, 224, 200, 0.10);
-  transition: all 200ms ease;
+    0 12px 40px -10px rgb(var(--rgb-amber-glow) / 0.25),
+    inset 0 1px 0 rgb(232 224 200 / 0.10);
 }
 
-/* Compact card — pentru liste dense (ex. echipament, glosar) */
 .card-compact {
-  background: rgba(26, 56, 69, 0.25);
-  border: 1px solid rgba(212, 166, 87, 0.10);
+  background: rgb(var(--rgb-water-2) / 0.25);
+  border: 1px solid rgb(var(--rgb-amber-glow) / 0.10);
+  border-radius: 6px;
+  transition: border-color 200ms ease, background-color 200ms ease;
 }
 
 .card-compact:hover {
-  border-color: rgba(212, 166, 87, 0.30);
-  background: rgba(26, 56, 69, 0.40);
-  transition: all 200ms ease;
+  border-color: rgb(var(--rgb-amber-glow) / 0.30);
+  background: rgb(var(--rgb-water-2) / 0.40);
 }
 
+/* Touch target utility — WCAG 2.1 AAA */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Tag system — semantic clear:
+   .tag          → specie / categorie (verde-moss)
+   .tag-amber    → perioadă / sezon (chihlimbar)
+   .tag-red      → restricție / warning (roșu)
+   .tag-priority → must-have / important (auriu strong)
+   .tag-neutral  → dificultate / metadata (gri) */
 .tag {
   display: inline-block;
   padding: 2px 8px;
@@ -121,21 +144,34 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(107, 163, 104, 0.15);
+  background: rgb(var(--rgb-moss) / 0.15);
   color: var(--color-moss);
-  border: 1px solid rgba(107, 163, 104, 0.25);
+  border: 1px solid rgb(var(--rgb-moss) / 0.25);
 }
 
 .tag-amber {
-  background: rgba(212, 166, 87, 0.12);
+  background: rgb(var(--rgb-amber-glow) / 0.12);
   color: var(--color-amber-glow);
-  border-color: rgba(212, 166, 87, 0.3);
+  border-color: rgb(var(--rgb-amber-glow) / 0.3);
 }
 
 .tag-red {
   background: rgba(189, 78, 65, 0.12);
   color: #d97864;
   border-color: rgba(189, 78, 65, 0.3);
+}
+
+.tag-priority {
+  background: rgb(var(--rgb-amber-glow) / 0.22);
+  color: var(--color-paper);
+  border-color: rgb(var(--rgb-amber-glow) / 0.5);
+  font-weight: 500;
+}
+
+.tag-neutral {
+  background: rgb(var(--rgb-fog) / 0.08);
+  color: rgb(var(--rgb-fog) / 0.7);
+  border-color: rgb(var(--rgb-fog) / 0.15);
 }
 
 .prose-fishy h2 {
