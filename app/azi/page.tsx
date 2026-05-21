@@ -77,13 +77,15 @@ async function getWaterLevel(stationSlug: string): Promise<WaterLevelReading | n
   } catch { return null; }
 }
 
+const ORIZONT_ZILE = 14;
+
 export default async function PartidaPage({
   searchParams,
 }: {
   searchParams: Promise<{ ziua?: string }>;
 }) {
   const params = await searchParams;
-  const ziuaIdx = Math.max(0, Math.min(3, parseInt(params.ziua || "0", 10) || 0));
+  const ziuaIdx = Math.max(0, Math.min(ORIZONT_ZILE - 1, parseInt(params.ziua || "0", 10) || 0));
 
   const baseDate = new Date();
   const targetDate = new Date(baseDate);
@@ -93,7 +95,7 @@ export default async function PartidaPage({
 
   let forecasts: DailyForecast[] = [];
   try {
-    forecasts = await fetchWeather(REF_LAT, REF_LON);
+    forecasts = await fetchWeather(REF_LAT, REF_LON, ORIZONT_ZILE);
   } catch {
     forecasts = [];
   }
@@ -122,8 +124,8 @@ export default async function PartidaPage({
   const ziuaRO = ["Duminică","Luni","Marți","Miercuri","Joi","Vineri","Sâmbătă"];
   const dataLunga = `${ziuaRO[targetDate.getDay()]}, ${targetDate.getDate()} ${luniRO[targetDate.getMonth()]} ${targetDate.getFullYear()}`;
 
-  // Cele 4 zile pentru selector
-  const ziue = [0, 1, 2, 3].map((offset) => {
+  // Cele 14 zile pentru selector
+  const ziue = Array.from({ length: ORIZONT_ZILE }, (_, offset) => {
     const d = new Date(baseDate);
     d.setDate(baseDate.getDate() + offset);
     return {
@@ -139,12 +141,12 @@ export default async function PartidaPage({
       <header className="mb-6">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-2">partidă în Deltă</p>
         <h1 className="text-3xl md:text-4xl font-display text-fog mb-1">{dataLunga}</h1>
-        <p className="text-fog/60 text-sm">Prognoză 4 zile (perioadă tipică de partidă) — alege ziua pentru recomandări.</p>
+        <p className="text-fog/60 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>.</p>
       </header>
 
       {/* SELECTOR ZIUA */}
       <section className="mb-8">
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-4 md:grid-cols-7 gap-2">
           {ziue.map((z) => {
             const isActive = z.idx === ziuaIdx;
             return (
