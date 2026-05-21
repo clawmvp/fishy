@@ -663,6 +663,199 @@ Dimineața somnii sunt pe 16-17 m. **După ora 12 se mută pe 22 m** — trebuie
   }
 );
 
+// Articole noi din batch 3
+articole.push(
+  {
+    slug: "sonar-2d-vs-livescope",
+    titlu: "Sonar 2D vs LiveScope — descoperirea care schimbă regulile",
+    scurt: "Pe 2D ce vedeai era 'somnul la momeală'. Pe LiveScope se vede că oprește la 3-4 m. Rata reală de atac e ~90%, nu 10%.",
+    tags: ["somn", "sonar", "tehnica"],
+    body: `## Mit-ul vechi (perspectiva 2D)
+
+Toți pescarii de somn cu cloncul aveau aceeași observație frustrantă: "Din 100 de somni ridicați, doar 10 atacă". Pe ecranul sonarului 2D, vedeai liniile somnului urcând spre montura ta, se uneau cu linia plumbului... și nimic.
+
+Concluzia logică: somnul vine, "miroase" momeala, dar din motiv inexplicabil refuză.
+
+## Ce arată LiveScope
+
+Garmin Panoptix **LVS34** + GPSMAP 8412 a schimbat tot. **Pe live sonar**, vezi exact unde e somnul în timp real, ca o silueta naturală — nu ca o linie abstractă pe 2D.
+
+Și descoperirea care a schimbat regulile:
+
+> "Spuneam că din 100 de somni dacă se ridică 10 atacă. De fapt nu este așa. De când folosesc LiveScope, cam tot ce ajunge LÂNGĂ momeală atacă."
+
+Pe 2D, când liniile par să se "împreună" cu linia monturii, **somnul de fapt oprește la 3-4 m DEPARTE** de momeală. Nu o vede sau o evită din curent / unghi greșit. Nu este o problemă de "vrea sau nu vrea să atace" — e o problemă de **poziționare**.
+
+## Soluția practică
+
+1. **Sonda live cu rotator electronic** (Smart Vision motorizat) — telecomandat din mână
+2. Când vezi somnul ridicându-se dar oprindu-se la distanță → **mută motorul electric** și repoziționează barca / sonda
+3. Pune momeala **FIX în fața botului somnului** — la 30-50 cm
+4. Atacul vine în următoarele secunde
+
+## Trăsătura "invizibilă"
+
+Lecția secundară: somnul nu trage întotdeauna pe vârful lansetei.
+
+- Apucă montura
+- Urcă cu ea în coloana apei (NU lateral)
+- Pe lanseta clasică = niciun semnal
+- Pe LiveScope = vezi montura urcând brusc
+
+**Țeapa se dă pe baza sonarului, nu a vârfului.**
+
+## Montura optimizată cu live sonar
+
+Pe LiveScope se vede că ancora 4/0 BKK mare + 1 cârlig "păcălici" PUTE peștii care vin la inspecție. Trecere la:
+
+- **Două ancorițe Owner nr. 2** (mici)
+- Buchet 3 râme negre pe fiecare
+- Atractant somn pulverizat
+- Plumb 150 g
+
+Rezultat: **frecvența trăsăturilor crește mult** — somnul aspiră toată montura, nu mai are timp să o "studieze".
+
+## Atenție la accident
+
+Cu ancorițe duble libere, riscul de accident la decroșat e MARE. Marian Mincu (GFT) și-a băgat o ancoriță prin mână (subvenă → exterior) când scotea un somn. De atunci:
+
+> "Nu îmi mai bag mâna în gură, scot cu patentul."
+
+## Cloncuri recomandate
+
+- **Bogdan Munteanu "Satan 3"** (preferat — "zgomot înfundat foarte puternic, se bate foarte ușor")
+- Ebro 2 / Ebro 3
+- Profi Blinker (personalizat)
+
+Toate la magazinul Marele Pescar.
+
+## Echipamentul complet GFT pentru clonc
+
+| Componentă | Recomandare |
+|---|---|
+| Lansetă | Black Cat sau MadCat |
+| Mulinetă | Penn Slammer Classic 560 |
+| Fir principal | 0.50 mm Sufix Matrix Pro |
+| Sonar 2D | Humminbird Apex 13 / Solix 12 |
+| Live sonar | Garmin GPSMAP 8412 + Panoptix LVS34 |
+| Rotator sondă | Smart Vision motorizat |
+| Clonc | Satan 3 Bogdan Munteanu |
+| Cârlige | 2 ancorițe Owner nr. 2 |
+| Plumb | 150 g |
+| Momeală | Buchet 3 râme negre/ancoriță + atractant somn |
+
+> "Dacă n-aveam sonda live astăzi veneam degeaba. Pe 2D nu vezi exact când e aproape de montură. Practic, am salvat o partidă cu LiveScope."
+
+## Setări concrete Humminbird Solix 12 (pentru 2D, fără LVS)
+
+Pentru cei care nu au buget de LiveScope, optimizează 2D-ul:
+
+| Setare | Valoare |
+|---|---|
+| Sensibilitate (gain) | 9 (din -10 la +20) |
+| Contrast | 17 (din 1-40) |
+| Speed | 7 |
+| Frecvență | **150/200 kHz chirp** (NU 83/200) |
+| Mode | Clear |
+
+Citirea ridicării somnului:
+- **Linii paralele uniforme** spre montură = bun, mănâncă
+- **Traseu rachetă / zig-zag** = NU mănâncă (sare obișnuit, nu pentru hrană)
+- **Culoarea roșie intensă** = somnul perpendicular pe sondă (NU dimensiune!)
+
+Aceste setări sunt rezultatul a 5 ani de testare pe Sulina + Chilia. Setările din fabrică sunt prea conservative.
+`,
+  },
+  {
+    slug: "experiment-momitor-vs-plumb-primavara",
+    titlu: "Experiment GFT: Momitor cu porumb 7-1 vs Plumb cu boilies primăvara",
+    scurt: "2 zile de test paralel cu 4 lansete identice. Verdict matematic: momitorul câștigă 7-1.",
+    tags: ["crap", "primavara", "tehnica", "experiment"],
+    body: `## Setup-ul experimentului
+
+Mila 23, aprilie 2024. Pe un canal cu cotă scăzută și apa la 4 m groapă + 1 m întinsură.
+
+**Setup paralel — 4 lansete identice pe ACELAȘI loc:**
+- 2× momitor TTX + porumb pe fir de păr
+- 2× plumb culsant + boilies Decathlon (jupuit, redus de la 20 mm la 14 mm pentru paritate)
+
+Toate aruncate la 7-8 m de barcă, către prag. Aceeași momeală pe momitor (TTX Cuc + Oil Carp + sirop porumb). Aceleași cârlige. Aceleași fire.
+
+## Verdictul
+
+**2 zile de testare, 7-8 crapi prinși totali:**
+
+| Setup | Capturi |
+|---|---|
+| **Momitor + porumb** | **7 crapi** (3-5 kg fiecare, în buza de jos) |
+| Plumb + boilies | **1 crap** |
+
+**7-1**. Identic-de-paralel, același loc, aceeași zonă, același timp. Singura diferență = momeala.
+
+## De ce funcționează momitorul primăvara, dar nu vara
+
+Primăvara, pe apă rece (sub 17°C):
+- Plătica, roșioara, caracuda **NU sunt active**
+- Doar crapul circulă (în tranzit spre lacurile interioare pentru reproducere)
+- TTX-ul emite **praf + aromă** care atrage crapul fără să atragă albitura
+- Boilies-ul rămâne static, fără emisie suficientă pe apă rece
+
+Vara, pe apă caldă (24°C+):
+- Albitura este la fel de activă ca crapul
+- Momitorul atrage TOT — caras, plătică, roșioara
+- Boilies-ul devine selectiv pentru crap
+- **Treci pe boilies pe Sulina, ține momitorul pe canale RECI**
+
+## Mizeria — preț de plată
+
+TTX-ul nu este pentru "curat":
+- Praful te plictisește pe haine
+- Mâinile mereu lipicioase
+- Barca se umple de pete
+- Sirop de porumb peste tot
+
+Dar... 7-1 e 7-1. Acceptă mizeria primăvara, plus că vara nu mai e nevoie.
+
+## Boilies-ul Decathlon — verdict
+
+Lipi (autorul canalului) a observat că boilies-ul Decathlon "se lărgește în gaură" — adică opritorul silicon de pe fir nu mai oprește boilia, ea joacă pe păr. Recomandare: **Boilies Profi** (pungă personalizată) sau homemade fishmeal Mihai Manea.
+
+## Setup-ul exact câștigător
+
+**Pe fir de păr:**
+- 2 boabe **porumb dulce Cuc cu miere** (semi-umed)
+- Varniș curbat pe cârlig (împiedică rotirea părului)
+- Cârlig **Carp Spirit BBP nr. 6** (mic intenționat — multe trăsături + mai multe ratări)
+- **Forfac PB Products Strong 0.18 / 22 kg, lungime 15 cm**
+
+**Momitorul:**
+- Cocă cu **TTX Cuc** + **Oil Carp** + sirop porumb pentru legare
+- Comprimat pe cage feeder cu arc 80-100 g
+- Foarte aproape de cârlig (rig "method" scurt 7-8 cm)
+
+**Lansetă:**
+- Trabucco Vanadia / Astore ISO Hunter 2.40 m / 250 g
+- Shimano Ultegra 5500 XSD
+- Fir Shimano Technium Invisitec 0.30 mm
+
+## Atenție la trăsături
+
+Pe apă rece, te-ai aștepta la trăsături anemice. Cu momitorul + porumb, sunt **VIOLENTE** — slăbește frâna sau baitrunnerul, altfel se rupe combo-ul. Crapii se înțepăncesc în mal sau cioate.
+
+> "Momitor cu porumb primăvara NU este mit, este realitate." — Marian Mincu, GFT
+
+## Lecție transferabilă
+
+Regula simplă pentru sezonul crapului în Deltă:
+- **Apa < 17°C** → MOMITOR + TTX + porumb
+- **Apa 17-23°C** → tranziție, ambele funcționează
+- **Apa > 23°C** → BOILIES pure (plumb pierdut pe Chilia/Sulina)
+
+Această regulă a fost validată pe partide pe canale interioare (Mila 23, Crișan-Îngusta) și pe brațe (Sulina, Chilia). Nu există excepții documentate.
+`,
+  }
+);
+
 export function getArticol(slug: string) {
   return articole.find((a) => a.slug === slug);
 }

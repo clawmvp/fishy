@@ -752,6 +752,148 @@ tehnici.push(
   }
 );
 
+// Tehnici noi din batch 3 (canalul GFT)
+tehnici.push(
+  {
+    slug: "somn-erenciuc-primavara",
+    specie: "somn",
+    metoda: "static",
+    titlu: "Somn primăvara la gura canalului Erenciuc",
+    scurt: "Aprilie pe Sf. Gheorghe — lipitori groase + coropișnițe pe prag 8-14 m. Mută-te după activitate.",
+    perioada: "Aprilie - mai",
+    pasi: [
+      "Acces 2h din Mila 23 prin Lacul Puiul",
+      "Ancorat cu botul în mal la gura canalului",
+      "4 lansete staționar, plumb culisant 200 g",
+      "Lansaje în prag (8-14 m), trăsăturile vin din mal nu din larg",
+      "Mută-te de 2-3 ori/zi după activitate",
+    ],
+    naluci: [],
+    echipament: [
+      "Lansetă Madcat Black Series Spin 2.40 m / 40-150 g",
+      "Mulinetă Penn Slammer Classic 560",
+      "Fir Sufix Matrix Pro 0.4 — 135 m bobină",
+      "Forfac Zeck 0.8 mm",
+      "Cârlige Zeck",
+    ],
+    monturi: [
+      "Plumb culisant 200 g (NU greu — primăvara somnul nu vrea greutate excesivă)",
+      "Forfac textil 0.8 mm × 50 cm",
+      "Cârlig mare pentru lipitori",
+    ],
+    sfaturi: [
+      "Lipitori GROASE > lipitori subțiri (rezistă mai bine la mărunțiș)",
+      "Coropișnițe în buchet — 2 pe cârlig, una 'ca regina' + coadă",
+      "Când mărunțișul tocă lipitorile → switch pe râme negre (ultima opțiune)",
+      "Activitate maximă spre seară 17:00+",
+      "Apa Dunării deasupra mai tulbure = bună (peștii vin la sediment)",
+    ],
+    citate: ["La pomul lăudat — gura canalului Erenciuc, mereu loc productiv"],
+  },
+  {
+    slug: "crap-follow-the-sonar-mila23",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Follow the sonar — crap primăvara pe canale Mila 23",
+    scurt: "Localizarea = 90% din succes. Crapii STAU pe prag lângă mal, NU pe mijloc. Mută-te după 2-3 capturi.",
+    perioada: "Martie - aprilie",
+    pasi: [
+      "Pornește sonarul ÎNAINTE de a arunca",
+      "Identifică crapul pe prag (5-8 m de barcă, lângă cioate)",
+      "Aruncă lansetele la 3-5 m de barcă, către mal — NU pe mijloc",
+      "Max 3 lansete/loc (din lipsă spațiu)",
+      "După 1-2 capturi pe un loc → sonar 'gol' → mută-te",
+      "Mătălmești codița în momitor (se desprinde la cădere)",
+    ],
+    naluci: [],
+    echipament: [
+      "Lansete Trabucco Vanadia / Astore ISO Hunter 2.40 m / 250 g",
+      "Mulinete Shimano Ultegra 5500 XTD",
+      "Sonar Humminbird (Solix sau Apex)",
+    ],
+    monturi: [
+      "Momitor TTX Cuc + Oil Carp + sirop porumb (legare)",
+      "Pe fir de păr: 2 boabe porumb semi-umed Cuc cu miere",
+      "Cârlig Carp Spirit BBP nr. 6 (mic, primăvara) — mai multe trăsături + mai multe ratări",
+      "Fir Shimano Technium Invisitec 0.30-0.35 mm",
+    ],
+    sfaturi: [
+      "Crapul migrează din Dunăre spre Lacul Fortuna pentru reproducere — îl prinzi pe ruta de tranzit",
+      "Cârlige mici nr. 6 = mai multe trăsături pe peste anemic; cârlige mari = trăsături puține",
+      "Trăsăturile primăvara sunt ANEMICE (apă rece) — nu te aștepți la șocuri",
+      "Crapul vine literalmente SUB barcă — repoziționează lansetele",
+    ],
+    citate: ["Crapul stă DOAR pe prag, NICIODATĂ pe mijloc"],
+  },
+  {
+    slug: "experiment-momitor-vs-plumb",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Experiment: Momitor cu porumb VS Plumb cu boilies — primăvara",
+    scurt: "Test 2 zile cu 4 lansete identice pe același loc. Verdict: momitor 7-1 vs boilies.",
+    perioada: "Martie - aprilie",
+    pasi: [
+      "Setup paralel: 2 lansete cu momitor TTX + porumb pe fir de păr",
+      "2 lansete cu plumb culisant + boilies Decathlon (jupuit, redus)",
+      "Toate aruncate în ACELAȘI loc pentru paritate",
+      "Verifică sonarul — repoziționează spre prag dacă crapul e acolo",
+    ],
+    naluci: [],
+    echipament: [],
+    monturi: [
+      "Momitor TTX: coc cu TTX Cuc + Oil Carp + sirop porumb + 2 boabe pe păr",
+      "Plumb culisant: 80-100 g + boilie Decathlon de 20 mm jupuit la 14 mm",
+    ],
+    sfaturi: [
+      "VERDICT: Momitor cu porumb a câștigat 7-1 (din 7-8 crapi, 1 singur pe boilies)",
+      "DE CE: primăvara, plătica/roșioara/caracuda nu sunt active → NU ciugulesc momitorul → doar crapii",
+      "Vara NU MERGE — momitorul atrage albitură. Treci pe boilies vara",
+      "TTX = mizerie pe haine/barcă/mâini, dar inevitabil primăvara",
+      "Trăsături VIOLENTE — slăbește frâna/baitrunner; setup standard se rupe",
+    ],
+    citate: [
+      "Momitor cu porumb primăvara NU este mit, este realitate — Marian Mincu",
+    ],
+  },
+  {
+    slug: "clonc-sonar-citire",
+    specie: "somn",
+    metoda: "static",
+    titlu: "Cititul somnului pe sonar — 2D vs LiveScope",
+    scurt: "Revelație: pe 2D somnul pare la momeală, pe LiveScope se vede că oprește la 3-4 m. Rata reală de atac e ~90%.",
+    perioada: "Iunie - septembrie",
+    pasi: [
+      "Pe 2D — interpretare linii: paralele uniforme spre montură = bun; rachetă/zig-zag = NU mănâncă",
+      "Pe 2D, culoarea = unghi perpendicular pe sondă, NU dimensiune",
+      "Pe LiveScope — vezi exact unde oprește somnul",
+      "Dacă oprește la 3-4 m de momeală → mută motorul electric + pune momeala FIX în fața botului",
+      "Trăsătura poate fi INVIZIBILĂ pe vârful lansetei (somnul urcă cu montura) — semnal DOAR pe sonar",
+    ],
+    naluci: [],
+    echipament: [
+      "Humminbird Apex 13 sau Solix 12 (2D + DownImaging)",
+      "Garmin GPSMAP 8412 + Panoptix LiveScope LVS34 (live sonar)",
+      "Smart Vision rotator electronic motorizat (telecomandă, memorie)",
+    ],
+    monturi: [
+      "Două ancorițe Owner nr. 2 (mici!) — frecvență trăsături MULT mai mare decât ancora 4/0",
+      "Plumb 150 g",
+      "Râme negre — buchet pe fiecare ancoriță (câte 3)",
+      "Atractant somn pulverizat pe râme",
+    ],
+    sfaturi: [
+      "Lasă montura la 1 m / 0.5 m deasupra somnului — NU pune fix pe el (se sperie)",
+      "Țeapa se dă pe BAZA sonarului (montura urcă brusc), NU pe baza vârfului lansetei",
+      "Setări concrete Humminbird Solix: Sens 9, Contrast 17, Speed 7, 150/200 kHz chirp",
+      "Patentul pentru scos ancorițele — NU mâna (risc accident grav)",
+      "Cloncuri recomandate: Satan 3 Bogdan Munteanu, Ebro 2/3, Profi Blinker",
+    ],
+    citate: [
+      "Spuneam că din 100 de somni dacă se ridică 10 atacă. De fapt nu este așa. De când folosesc LiveScope, cam tot ce ajunge LÂNGĂ momeală atacă.",
+    ],
+  }
+);
+
 export function getTehnica(slug: string) {
   return tehnici.find((t) => t.slug === slug);
 }

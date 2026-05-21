@@ -529,6 +529,89 @@ locuri.push(
   }
 );
 
+// Locuri noi din batch 3 (canalul GigantFishTeam — 10 videouri extra)
+locuri.push(
+  {
+    slug: "gura-canalului-erenciuc",
+    nume: "Gura canalului Erenciuc — Sf. Gheorghe",
+    tip: "canal",
+    scurt: "Locul vărsării canalului Erenciuc în brațul Sfântu Gheorghe. Somn de primăvară pe prag 8-14 m cu lipitori groase și coropișnițe.",
+    sezon: ["aprilie", "mai"],
+    specii: ["somn"],
+    caracteristici: [
+      "Prag care urcă din 10 m, plin de copaci scufundați și cioate",
+      "Apă: 8-14 m, ancorat cu botul în mal",
+      "Trăsăturile vin predominant din mal/prag, nu din larg",
+      "Apa Dunării mai tulbure deasupra preferată — peștii vin la curenții cu sediment",
+    ],
+    pericole: [
+      "Cioate scufundate — risc de blocaj",
+      "Mărunțișul tocă lipitorile rapid",
+      "Acces: 2h cu barca din Mila 23 prin Lacul Puiul",
+    ],
+    sfaturi: [
+      "Lipitori groase > lipitori subțiri (mai rezistente la mărunțiș)",
+      "Coropișnițe — 2 pe cârlig 'ca regina + coada'",
+      "Plumb culisant 200 g + forfac Zeck 0.8 + cârlige Zeck",
+      "Mută-te după activitate (de 3 ori pe zi e normal)",
+      "Activitate maximă spre seară (17:00+)",
+    ],
+    sursa: ["JGubUnLIqQ0"],
+  },
+  {
+    slug: "lacul-babina",
+    nume: "Lacul Babina (Mila 23)",
+    tip: "lac",
+    scurt: "Lac accesat prin canalul Lopatna. Pentru știucă — NU vara la caniculă (apa verde = condiții slabe). Recomandat toamna.",
+    sezon: ["septembrie", "octombrie", "noiembrie"],
+    specii: ["stiuca", "biban"],
+    caracteristici: [
+      "Acces din Mila 23 prin canalul Lopatna",
+      "Golfuleț pe malul opus = spotul productiv",
+      "La caniculă apa devine verde — știuca atacă dar NU înghite",
+      "Lacurile Matița și Merhei (vecine) — testate negativ vara",
+    ],
+    pericole: [
+      "Caniculă = condiții slabe pentru știucă; alegi alt sezon",
+      "Ceață densă dimineața vara (plecare târzie obligatoriu)",
+    ],
+    sfaturi: [
+      "Voblere Sebile (Magic Swimmer / Stick Shadd) când lingurițele nu produc",
+      "Animație în vârful lansetei = imită pește rănit",
+      "Motor electric obligatoriu (motorul termic sperie știuca)",
+      "Pentru caniculă — alege Bibanul pe Mila 23 în loc",
+    ],
+    sursa: ["3YxHQjulsls"],
+  },
+  {
+    slug: "chilia-deasupra-veche",
+    nume: "Brațul Chilia, deasupra Chilia Veche",
+    tip: "brat",
+    scurt: "Loc capital pentru crap + somn. Salcie în mal, apă 12 m abruptă, scoică pe prag. Andrei Chirciu a prins 12-13-14 kg într-o zi.",
+    sezon: ["august", "septembrie", "octombrie"],
+    specii: ["crap", "somn"],
+    caracteristici: [
+      "Salcie în mal ca reper",
+      "Apă 12 m cu prag abrupt 6→12 m (scoică pe perete)",
+      "Acces: barca-shuttle de la Pensiunea Gigant Fish (Mila 23) sau de la Chilia Veche",
+      "Cu cotă scăzută Dunăre → crapul stă în adânc (12 m), nu pe platou",
+    ],
+    pericole: [
+      "Scoică pe perete = risc tăiere fir la drill",
+      "Alarme militare audibile noaptea (frontiera Ucraina)",
+      "Pe prag, peștele intră în cioată — așteaptă 1 minut, iese singur",
+    ],
+    sfaturi: [
+      "Forțează MINIM în drill — lasă peștele să iasă din cioată",
+      "Boilies Burfood = activare instantă (prima zi); Fishmeal = activare lentă (1-2 zile), atrage crap mare",
+      "Coropișnițe (2 buchet) pentru somn capital",
+      "Filozofia 'o zi mănâncă, o zi bea apă' — nu te muta după o zi proastă",
+      "Sonar live = crap mare apare ca 'arc înalt' pe întinsură",
+    ],
+    sursa: ["i7IjD49j25w"],
+  }
+);
+
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);
 }

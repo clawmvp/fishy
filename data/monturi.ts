@@ -666,6 +666,118 @@ export const monturi: Montura[] = [
   },
 ];
 
+// Monturi noi din batch 3 (GFT)
+monturi.push(
+  {
+    slug: "forfac-universal-gft",
+    nume: "Forfac UNIVERSAL crap (GFT) — funcționează de la caraș 200g la crap 15 kg",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Singura rețetă de forfac pe care GFT o folosește pe TOATE locurile — Sulina, Dunărea Veche, Mila 23, Chilia. Universalitate testată ani la rând.",
+    cand: "Tot anul, pe orice apă din Deltă",
+    luni: [],
+    components: [
+      { item: "Fir forfac", spec: "PB Products Strong 0.18 mm / 22 kg", nota: "Perfect rotund, mătăsos, foarte moale" },
+      { item: "Cârlig pentru Sulina", spec: "Gamakatsu G-Carp A1 PTFE Pop-Up nr. 4" },
+      { item: "Cârlig pentru lacuri / Dunărea Veche", spec: "Gamakatsu G-Carp A1 PTFE Pop-Up nr. 6", nota: "Caraș 200g → crap 15 kg merg toate cu nr. 6" },
+      { item: "Opritor V boilie", spec: "lungimi diferite după lungimea părului dorit" },
+      { item: "Opritor silicon (bila)", spec: "sub boilie", nota: "La Decathlon boiliesul se lărgește în gaură; aici nu" },
+      { item: "Tub varniș ghidaj", spec: "luat din tuburi pentru ghidaje de lansetă", nota: "Mai bun decât anti-tangle clasic" },
+      { item: "Vârtej", spec: "calitate, mărimea standard" },
+      { item: "Lungime totală forfac", spec: "~15 cm de la cârlig la vârtej" },
+    ],
+    diagrama: `
+[Fir principal]
+        │
+        ⊕  ← Vârtej (nod fără-nod matisat 5x)
+        │
+   ━━━━━━━  ← PB Strong 0.18 mm / 22 kg
+        │      Total 15 cm
+        ║
+   〰〰〰〰  ← Tub varniș ghidaj
+        │
+        ●  ← Opritor V (reglează lungime păr)
+        │
+        ┘  ← Gamakatsu G-Carp A1 nr. 4 (Sulina) / nr. 6 (lacuri)
+        │
+      ●●●  ← Boilie pe păr + bilă silicon
+`,
+    pasi: [
+      "Bagă opritor silicon pe fir, apoi tub varniș, apoi cârlig prin varniș",
+      "Treci firul prin spatele cârligului",
+      "Așază opritorul V pentru lungimea părului dorită",
+      "MATISARE 7-8 ORI peste tija cârligului",
+      "ATENȚIE direcția matisării — la Gamakatsu A1 cu vârf închis spre stânga = matisare din SPATE",
+      "Cu vârful închis spre dreapta = matisare din FAȚĂ",
+      "Tot prin matisare se face nodul la celălalt capăt al vârtejului (5 ture, 2 bucle)",
+      "NICIUN nod clasic — totul matisat = nu cedează",
+    ],
+    sfaturi: [
+      "PB Products Strong 0.18 mm — singurul diametru pe care GFT îl folosește (testat de la caraș 200g la crap 15 kg)",
+      "Direcția matisării contează: greșit = cârligul nu se răsucește corect la trăsătură",
+      "Cu matisarea corectă: cârligul se rotește și se prinde în BUZA DE JOS",
+      "Capul firului matisat — ars cu bricheta pentru nod de siguranță",
+    ],
+    citate: [
+      "Forfacul meu nu are niciun nod — totul prin matisare. Nu are de unde să cedeze. — Marian Mincu",
+    ],
+    surse: ["9gjeC-CUm4g", "z4i2C_igafs"],
+  },
+  {
+    slug: "clonc-ancori-owner",
+    nume: "Montură clonc — 2 ancorițe Owner nr. 2 (NU ancora 4/0 BKK)",
+    pentru: ["somn"],
+    metoda: "static",
+    scop: "Varianta GFT — ancorițe mici Owner cu buchet de râme negre. Frecvență trăsături MULT mai mare decât cu ancora 4/0 + păcălici.",
+    cand: "Vara (iunie-septembrie) pe Chilia, Sf. Gheorghe",
+    luni: [6, 7, 8, 9],
+    components: [
+      { item: "Două ancorițe Owner", spec: "nr. 2 (mici)", nota: "Frecvență trăsături MULT mai mare decât ancora 4/0 mare" },
+      { item: "Plumb culisant", spec: "150 g" },
+      { item: "Râme negre", spec: "buchet pe FIECARE ancoriță (câte 3 pe fiecare)" },
+      { item: "Atractant somn", spec: "pulverizat pe râme", nota: "Crește frecvența trăsăturilor" },
+      { item: "Lansetă", spec: "Black Cat sau MadCat" },
+      { item: "Mulinetă", spec: "Penn Slammer Classic" },
+      { item: "Fir principal", spec: "0.50 mm" },
+    ],
+    diagrama: `
+[Fir principal 0.50 mm]
+        │
+   ╔════╗
+   ║▓▓▓ ║  ← Plumb culisant 150 g
+   ╚════╝
+        │
+        ⊕  ← Vârtej
+        │
+   ━━━━━━━  ← Forfac textil
+        │
+       /\\\\  ← Ancoriță Owner nr. 2 (3 râme negre)
+        │
+       /\\\\  ← A doua ancoriță Owner nr. 2 (3 râme negre)
+              + atractant somn pulverizat
+`,
+    pasi: [
+      "Plumb culisant pe fir principal",
+      "Vârtej la capăt",
+      "Forfac textil",
+      "PRIMA ancoriță Owner nr. 2 cu 3 râme negre înfipte (cap acoperit)",
+      "A DOUA ancoriță Owner nr. 2 cu 3 râme + atractant somn",
+      "Distanța între ancorițe ~15-20 cm",
+    ],
+    sfaturi: [
+      "Două ancorițe mici > ancora mare 4/0 cu păcălici — testat în partide concrete pe Sulina",
+      "PATENT obligatoriu pentru scos ancorițele din pește (NU mâna — risc accident grav cu ancoriță în mână)",
+      "Setări sonar Humminbird pentru clonc: Sens 9, Contrast 17, Speed 7, 150/200 chirp",
+      "Cu LiveScope (Garmin LVS34) vezi că somnul oprește la 3-4 m de momeală — repoziționează cu motorul electric ca să fie LA momeală",
+      "Renunță la varianta cu cârlige simple — ancorițele sunt clar mai eficiente",
+    ],
+    citate: [
+      "Două ancorițe Owner nr. 2 = frecvența trăsăturilor mult mai mare decât ancora mare",
+    ],
+    surse: ["AyW0_SqZSoU", "xwKfjceN6tA"],
+  }
+);
+
 export function getMontura(slug: string) {
   return monturi.find((m) => m.slug === slug);
 }

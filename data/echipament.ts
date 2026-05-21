@@ -742,6 +742,62 @@ echipament.push(
   { nume: "Geantă termo MadCat pentru râme", marca: "MadCat", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Plus sac de rafie pentru umezeală. Fluctuațiile de temperatură deteriorează râmele rapid." }
 );
 
+// Echipament nou din batch 3 (GFT)
+echipament.push(
+  // LANSETE SPINNING SALAU NOU
+  { nume: "Zenaq Spirado Dragar", marca: "Zenaq", specific: "declarat 3.5-14 g, dar lucrează cu jiguri până la 200 g", prioritate: "expert", pentru: ["salau"], categoria: "lanseta", note: "Preferata lui Marian Mincu pentru șalău. Combinată cu Shimano Stradic + fir Igie 16 lbs." },
+  { nume: "Daiwa Steez", marca: "Daiwa", specific: "7-28 g", prioritate: "expert", pentru: ["salau"], categoria: "lanseta", note: "Combinată cu Shimano Stradic 2500 + Sufix 832 0.14 mm." },
+  { nume: "Sportex Kidra", marca: "Sportex", specific: "19-71 g (hranitoare/feeder)", prioritate: "nice", pentru: ["salau", "somn"], categoria: "lanseta", note: "Mulinetă Shimano Ultegra 4000, fir Sufix 25 lbs. Bună și pt somn vertical + vobler mari." },
+  { nume: "Madcat Black Series Spin", marca: "Madcat", specific: "2.40 m / 40-150 g", prioritate: "must", pentru: ["somn"], categoria: "lanseta", note: "Setup somn LIGHT pentru primăvara (Erenciuc). Frecvență trăsături mult mai mare decât textil 0.40 — testat. Combo Penn Slammer 560 + Sufix Matrix Pro 0.4." },
+
+  // SONARE NOI
+  { nume: "Humminbird Apex 13", marca: "Humminbird", specific: "sonar 2D + DownImaging", prioritate: "expert", pentru: ["somn", "crap"], categoria: "accesorii", note: "Folosit de GFT pe Chilia. Detalii fundului + linia de cădere a peștelui." },
+  { nume: "Humminbird Solix 12", marca: "Humminbird", specific: "2D — Sens 9, Contrast 17, Speed 7, 150/200 kHz chirp", prioritate: "expert", pentru: ["somn", "crap"], categoria: "accesorii", note: "Setări concrete GFT pentru clonc. NU 83/200 kHz." },
+  { nume: "Garmin Panoptix LiveScope LVS34", marca: "Garmin", specific: "live sonar (combinat cu GPSMAP 8412)", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "DESCOPERIRE: pe 2D părea că somnul ajunge la momeală — pe LVS34 se vede că oprește la 3-4 m. Rata reală atac ~90%." },
+  { nume: "Smart Vision rotator electronic", specific: "motorizat cu telecomandă + memorie pentru LVS34", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "Esențial cu LiveScope — orientezi sonda pe orice direcție fără să muți barca." },
+
+  // CARLIGE NOI
+  { nume: "Gamakatsu G-Carp A1 PTFE Pop-Up nr. 4", marca: "Gamakatsu", specific: "nr. 4 pentru Sulina / curent puternic", prioritate: "must", pentru: ["crap"], categoria: "carlige", note: "Vârf închis dictează direcția matisării. Carl ig favorit GFT." },
+  { nume: "Gamakatsu G-Carp A1 PTFE Pop-Up nr. 6", marca: "Gamakatsu", specific: "nr. 6 pentru lacuri / Dunărea Veche", prioritate: "must", pentru: ["crap"], categoria: "carlige", note: "Funcționează de la caraș 200g la crap 15 kg cu același nr. 6." },
+  { nume: "Ancorițe Owner nr. 2", marca: "Owner", specific: "două pe montura de clonc", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Frecvență trăsături MULT mai mare decât ancora 4/0 mare. Buchet de 3 râme negre pe fiecare + atractant somn." },
+  { nume: "Cârlige Zeck (somn)", marca: "Zeck", prioritate: "nice", pentru: ["somn"], categoria: "somn-specific", note: "Pentru montura cu lipitori la Erenciuc primăvara." },
+
+  // CLONCURI
+  { nume: "Clonc Bogdan Munteanu 'Satan 3'", marca: "B.B. Clonc", specific: "pastilă convexă mare", prioritate: "expert", pentru: ["somn"], categoria: "somn-specific", note: "Preferatul lui Marian Mincu — 'se bate foarte ușor, scoate un zgomot înfundat foarte puternic'. La magazinul Marele Pescar." },
+  { nume: "Clonc Ebro 2 / Ebro 3", marca: "Ebro", prioritate: "expert", pentru: ["somn"], categoria: "somn-specific", note: "Alternative populare la GFT." },
+  { nume: "Clonc Profi Blinker (personalizat)", marca: "Profi Blinker", prioritate: "expert", pentru: ["somn"], categoria: "somn-specific" },
+
+  // FIRE NOI
+  { nume: "PB Products Strong forfac", marca: "PB Products", specific: "0.18 mm / 22 kg", prioritate: "must", pentru: ["crap"], categoria: "fir", note: "Singurul diametru pe care GFT îl folosește. Rotund, mătăsos, foarte moale. Funcționează cu caraș 200g la crap 15 kg." },
+  { nume: "Sufix Matrix Pro", marca: "Sufix", specific: "0.4 mm — 135 m bobină", prioritate: "must", pentru: ["somn"], categoria: "fir", note: "Pentru combo Madcat Black Series Spin." },
+  { nume: "Zeck forfac textil", marca: "Zeck", specific: "0.8 mm", prioritate: "nice", pentru: ["somn"], categoria: "fir", note: "Pentru montura cu lipitori la Erenciuc." },
+
+  // SHADURI ȘALĂU
+  { nume: "Bass'n Shad firetiger", marca: "Bass'n Shad", specific: "culoarea firetiger", prioritate: "must", pentru: ["salau"], categoria: "naluca", note: "Folosit pe Dunăre la Tulcea — capturile de iarnă." },
+  { nume: "Daiwa Tournament Lime", marca: "Daiwa", specific: "culoarea lime", prioritate: "must", pentru: ["salau"], categoria: "naluca", note: "Culoarea preferată GFT pentru șalău pe Dunăre." },
+  { nume: "Fox Rage spiky", marca: "Fox Rage", specific: "spiky cu culori pepper", prioritate: "nice", pentru: ["salau"], categoria: "naluca", note: "Marea trăsătură pe Dunăre vine pe spike Rage Fox." },
+  { nume: "Gambler shad striații", marca: "Gambler", prioritate: "nice", pentru: ["salau"], categoria: "naluca" },
+
+  // VOBLERE STIUCA
+  { nume: "Sebile Magic Swimmer / Stick Shadd", marca: "Sebile", specific: "imită pește rănit", prioritate: "must", pentru: ["stiuca"], categoria: "naluca", note: "Când lingurițele nu produc pe lacul Babina, voblerele Sebile cu animație în vârf provoacă atacurile." },
+
+  // MOMELI SOMN NOI
+  { nume: "Lipitori (groase)", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Pentru Erenciuc / Sf. Gheorghe primăvara. GROASE > subțiri (rezistă la mărunțiș). Procurare: pescari locali." },
+  { nume: "Coropișnițe (buchet 2 pe cârlig)", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Pentru somn CAPITAL pe Chilia — una 'ca regina', alta 'coadă'. Pe Erenciuc — primele zile slabe, vara pe Chilia foarte productive. Procurare: piață Tulcea sau membri GFT." },
+  { nume: "Atractant somn (spray)", prioritate: "nice", pentru: ["somn"], categoria: "somn-specific", note: "Pulverizat pe râme — crește frecvența trăsăturilor cu LiveScope la activ." },
+
+  // NADA / TTX
+  { nume: "TTX Cuc (cocă)", marca: "Cuc", specific: "praf + aromă", prioritate: "must", pentru: ["crap"], categoria: "nada", note: "Confirmat câștigător 7-1 vs boilies primăvara. Mizerie pe haine/barcă, dar primăvara nimic nu bate momitorul. NU vara — atrage albitură." },
+  { nume: "Porumb dulce Cuc cu miere", marca: "Cuc", specific: "semi-umed", prioritate: "must", pentru: ["crap"], categoria: "boilies", note: "Două boabe pe fir de păr cu varniș curbat (împiedică rotirea). Combo cu TTX = primăvara perfectă." },
+  { nume: "Boilies Profi", marca: "Profi", specific: "pungă personalizată", prioritate: "nice", pentru: ["crap"], categoria: "boilies", note: "Mai bune decât Decathlon (care 'se lărgește în gaură'). Pentru vară pe Sulina." },
+  { nume: "Boilies Fishmeal homemade Mihai Manea", specific: "rețetă proprie", prioritate: "expert", pentru: ["crap"], categoria: "boilies", note: "Pentru crap CAPITAL pe Chilia. Activare LENTĂ (1-2 zile) — combinație cu Burfood pentru spart gheața + Fishmeal pentru tracțiuni mari." },
+
+  // ALTE
+  { nume: "Minciog Savage Gear (pliabil)", marca: "Savage Gear", specific: "mâner pliabil scurt", prioritate: "nice", pentru: ["salau"], categoria: "accesorii", note: "Încape în barcă mică (Finval). Compatibil cu pescuitul de șalău pe Tulcea." },
+  { nume: "Costum Daiwa Grafix", marca: "Daiwa", specific: "salopetă completă", prioritate: "nice", pentru: ["salau"], categoria: "accesorii" },
+  { nume: "Costum Fox Rage (flotabilitate)", marca: "Fox Rage", prioritate: "nice", pentru: ["salau"], categoria: "accesorii", note: "Cu flotabilitate — siguranță pe Dunăre iarna." }
+);
+
 export function pentruSpecie(specie: Item["pentru"][0]) {
   return echipament.filter((e) => e.pentru.includes(specie));
 }
