@@ -49,9 +49,12 @@ export default async function MonturaPage({
       {/* Diagrama */}
       <section className="mb-8">
         <h2 className="text-xl font-display text-amber-glow mb-3">Diagrama</h2>
-        <pre className="card rounded-lg p-5 text-sm text-fog/90 font-mono overflow-x-auto leading-tight whitespace-pre">
+        <div className="scroll-x-wrap card rounded-lg p-4 md:p-5">
+          <pre className="text-xs md:text-sm text-fog/90 font-mono leading-tight whitespace-pre min-w-fit">
 {m.diagrama}
-        </pre>
+          </pre>
+        </div>
+        <p className="md:hidden text-[10px] text-fog/40 mt-1 italic">→ glisează lateral pentru diagramă completă</p>
       </section>
 
       {/* Componente */}

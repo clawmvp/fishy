@@ -44,8 +44,8 @@ export default async function ArticolPage({
       />
 
       <style>{`
-        .prose-fishy .md-table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
-        .prose-fishy .md-table th { text-align: left; padding: 8px 12px; background: rgba(212,166,87,0.1); color: var(--color-amber-glow); border: 1px solid rgba(212,166,87,0.2); font-weight: 500; }
+        .prose-fishy .md-table { border-collapse: collapse; margin: 1rem 0; width: 100%; display: block; overflow-x: auto; }
+        .prose-fishy .md-table th { text-align: left; padding: 8px 12px; background: rgba(212,166,87,0.1); color: var(--color-amber-glow); border: 1px solid rgba(212,166,87,0.2); font-weight: 500; white-space: nowrap; }
         .prose-fishy .md-table td { padding: 8px 12px; border: 1px solid rgba(212,166,87,0.15); }
         .prose-fishy ol { list-style: decimal; padding-left: 1.4rem; margin-bottom: 0.75rem; }
         .prose-fishy ol li { margin-bottom: 0.3rem; }

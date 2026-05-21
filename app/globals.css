@@ -78,3 +78,60 @@ a { color: inherit; text-decoration: none; }
 .prose-fishy blockquote { border-left: 3px solid var(--color-amber-glow); padding-left: 1rem; font-style: italic; color: var(--color-paper); margin: 1rem 0; }
 .prose-fishy strong { color: var(--color-paper); }
 .prose-fishy code { background: rgba(0,0,0,0.4); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; color: var(--color-amber-soft); }
+
+/* ============ MOBILE-FRIENDLY ============ */
+
+/* Scroll horizontal smooth pentru selectoare zile / tabele */
+.h-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 166, 87, 0.3) transparent;
+}
+.h-scroll::-webkit-scrollbar { height: 6px; }
+.h-scroll::-webkit-scrollbar-track { background: transparent; }
+.h-scroll::-webkit-scrollbar-thumb { background: rgba(212, 166, 87, 0.3); border-radius: 3px; }
+.h-scroll > * { scroll-snap-align: start; }
+
+/* Wrapper pentru ASCII diagrams + tabele — scroll horizontal cu fade indicator */
+.scroll-x-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.scroll-x-wrap::-webkit-scrollbar { height: 6px; }
+.scroll-x-wrap::-webkit-scrollbar-thumb { background: rgba(212, 166, 87, 0.3); border-radius: 3px; }
+
+/* Mobile: typography mai mic dar lizibil */
+@media (max-width: 640px) {
+  h1.font-display { font-size: 1.75rem !important; line-height: 1.15; }
+  h2.font-display { font-size: 1.35rem !important; }
+  h3.font-display { font-size: 1.1rem !important; }
+  .prose-fishy { font-size: 0.95rem; }
+  .prose-fishy h2 { font-size: 1.25rem !important; }
+  .prose-fishy h3 { font-size: 1.05rem !important; }
+  .prose-fishy ul { padding-left: 1.1rem; }
+  .prose-fishy .md-table { font-size: 0.85rem; }
+  .prose-fishy .md-table th, .prose-fishy .md-table td { padding: 6px 8px; }
+  .prose-fishy pre { font-size: 0.75rem; }
+  /* Diagramele ASCII din monturi devin scroll-able */
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+  }
+}
+
+/* Touch targets minim 44px (recomandare iOS / WCAG AAA) — pe mobile */
+@media (max-width: 768px) {
+  a.card, .card a, button {
+    min-height: 44px;
+  }
+}
+
+/* Card cu hover scale dezactivat pe mobile (anti-touch jank) */
+@media (hover: none) {
+  .card:hover { transform: none; }
+}
+

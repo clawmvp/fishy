@@ -248,14 +248,55 @@ export default async function PrognozaPage() {
         <h2 className="text-2xl font-display text-amber-glow mb-4">Zi cu zi — următoarele 14 zile</h2>
         <div className="space-y-2">
           {zile.map((zi, idx) => {
-            const ziLink = idx <= 3 ? `/azi?ziua=${idx}` : null;
+            const ziLink = idx <= 13 ? `/azi?ziua=${idx}` : null;
             return (
               <div
                 key={idx}
-                className="card rounded-lg p-4"
+                className="card rounded-lg p-3 md:p-4"
                 style={{ borderLeftColor: zi.scorMaxim >= 75 ? "#34d399" : zi.scorMaxim >= 55 ? "var(--color-amber-glow)" : "transparent", borderLeftWidth: "3px" }}
               >
-                <div className="flex items-center gap-4 flex-wrap">
+                {/* Mobile: stacked layout */}
+                <div className="flex md:hidden flex-col gap-2">
+                  <div className="flex items-baseline justify-between">
+                    <div>
+                      <p className="text-sm text-fog font-display">{ziuaRO[zi.date.getDay()]} {zi.date.getDate()} {luniRO[zi.date.getMonth()]}</p>
+                      <p className="text-xs text-fog/50">{zi.forecast.pressure} hPa · {zi.moon.illumination}% lună</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl">{getWeatherIcon(zi.forecast.weatherCode)}</span>
+                      <span className={`text-xl font-light ${scoreColor(zi.scorMaxim)}`}>{zi.scorMaxim}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 text-xs">
+                    <span className="text-fog/70">
+                      {zi.forecast.tempMax}°/{zi.forecast.tempMin}° · {zi.forecast.windMax} km/h {getWindDirection(zi.forecast.windDirection)}
+                    </span>
+                    {zi.topSpecie && (
+                      <span>
+                        <span className="text-fog/50">Top:</span>{" "}
+                        <span className="text-amber-glow font-medium">{zi.topSpecie.nume}</span>
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-1 flex-wrap">
+                    {zi.scoruri.map((s) => (
+                      <span
+                        key={s.specieId}
+                        className={`text-[10px] px-1.5 py-0.5 rounded ${scoreBg(s.scor)} ${scoreColor(s.scor)}`}
+                      >
+                        {s.specieNume.slice(0, 3)} {s.scor}
+                      </span>
+                    ))}
+                  </div>
+                  {ziLink && (
+                    <Link href={ziLink} className="text-xs text-moss hover:text-amber-glow self-end">
+                      detalii →
+                    </Link>
+                  )}
+                </div>
+
+                {/* Desktop: row layout */}
+                <div className="hidden md:flex items-center gap-4 flex-wrap">
                   <div className="min-w-[80px]">
                     <p className="text-sm text-fog font-display">{ziuaRO[zi.date.getDay()]}</p>
                     <p className="text-xs text-fog/50 font-mono">
@@ -285,7 +326,6 @@ export default async function PrognozaPage() {
                     ) : (
                       <p className="text-sm text-fog/40 italic">toate speciile în prohibiție</p>
                     )}
-                    {/* mini-grid de specii cu scoruri */}
                     <div className="flex gap-1 mt-1.5 flex-wrap">
                       {zi.scoruri.map((s) => (
                         <span

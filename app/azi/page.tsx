@@ -144,9 +144,39 @@ export default async function PartidaPage({
         <p className="text-fog/60 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>.</p>
       </header>
 
-      {/* SELECTOR ZIUA */}
+      {/* SELECTOR ZIUA — scroll horizontal pe mobile, grid pe desktop */}
       <section className="mb-8">
-        <div className="grid grid-cols-4 md:grid-cols-7 gap-2">
+        <div className="md:hidden h-scroll flex gap-2 pb-2 -mx-4 px-4">
+          {ziue.map((z) => {
+            const isActive = z.idx === ziuaIdx;
+            return (
+              <Link
+                key={z.idx}
+                href={`/azi?ziua=${z.idx}`}
+                className={`card rounded-lg p-3 text-center flex-shrink-0 w-[88px] transition-all ${
+                  isActive ? "border-amber-glow/60 bg-water-2/70" : ""
+                }`}
+              >
+                <p className={`text-xs uppercase tracking-wider ${isActive ? "text-amber-glow" : "text-moss"}`}>
+                  {z.label}
+                </p>
+                <p className="text-xs text-fog/50 mb-1">{z.data}</p>
+                {z.forecast && (
+                  <>
+                    <p className="text-xl mt-1">{getWeatherIcon(z.forecast.weatherCode)}</p>
+                    <p className="text-sm text-fog font-light">
+                      {z.forecast.tempMax}°<span className="text-fog/40">/{z.forecast.tempMin}°</span>
+                    </p>
+                    <p className="text-[10px] text-fog/50 mt-1">
+                      {z.forecast.windMax} km/h
+                    </p>
+                  </>
+                )}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="hidden md:grid md:grid-cols-7 gap-2">
           {ziue.map((z) => {
             const isActive = z.idx === ziuaIdx;
             return (
