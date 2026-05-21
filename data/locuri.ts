@@ -612,6 +612,218 @@ locuri.push(
   }
 );
 
+// Locuri noi batch 4 (77 videouri analizate cu 6 agenți paraleli)
+locuri.push(
+  {
+    slug: "lacul-babadag",
+    nume: "Lacul Babadag / Ghiolul Babadag",
+    tip: "lac",
+    scurt: "23 km² lângă Razim. Sălbăticie totală, multă piatră, șerpi. Regula caniculei: peștii muscă DUPĂ ora 9:00 dimineața.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap", "salau"],
+    caracteristici: [
+      "23 km² — lac semi-marin lângă Cetatea Enisala",
+      "Drumuri groaznice de acces, peisaj cu piatră",
+      "Capturi: șalău record ~3 kg (Rapala live verde), plătică, caraș",
+      "Apa devine agitată ca la mare cu valuri",
+    ],
+    pericole: [
+      "Foarte mulți șerpi pe maluri (Ionel: 'limita atacului de panică')",
+      "Pietre la 30 m de mal — risc rupere năluci",
+      "Trahere apei agitată în vânt",
+    ],
+    sfaturi: [
+      "REGULA: în caniculă peștii NU muscă înainte de ora 9 dimineața (confirmat 2 zile la rând)",
+      "Vântul oprit = trăsăturile oprite (confirmat și pe Corbu)",
+      "Porumb de silicon Enterprise Midi Pop când porumbul real nu merge",
+      "Nadă cu LAPTE DE PORUMB (rețetă Mircea Agheran) — 1 kg porumb la 1 kg nadă",
+      "Wafter MAI MARE pe momitor (contraintuitiv) — funcționează aici",
+    ],
+    sursa: ["-CZo8EkADdU"],
+  },
+  {
+    slug: "iannis-lake-bihor",
+    nume: "Iannis Lake (Bihor)",
+    tip: "lac",
+    scurt: "Lac privat de elită pentru plantat. Recorduri 32+ kg crap. Masterclass plantare cu navomodel.",
+    sezon: ["aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Max 160 m distanță legal — lac mare cu sectoare profunde",
+      "Recorduri zonă: Claudiu 32.2 kg, Darius 32 kg, multipli 20+ kg",
+      "Adâncimi 1.4 / 1.8 / 2.2 / 3 m — zona productivă pe 3 m",
+      "Stand 6 cu insulele 8-9 = adâncimea 3 m optimă",
+    ],
+    pericole: [
+      "Team-building Claumar — locuri populare, rezervare obligatorie",
+    ],
+    sfaturi: [
+      "Plantat ÎN PÂLNIE pe 4 adâncimi diferite — nu doar pe malul opus (greșeala #1)",
+      "Substrat mâlos → forfac 40-50 cm + fir rigid pentru auto-înțepare",
+      "Substrat tare → plumbi grei + riguri scurte",
+      "Nadiere PROGRESIVĂ, nu masivă din start — 'odată dată nu o iei înapoi'",
+      "Precizia bate frecvența — 100 plantări pe loc prost = 0 rezultate",
+      "Boilies Claumar Nuclear cril-căpșună 20 mm pe păr",
+    ],
+    sursa: ["uAktQy2YCmo"],
+  },
+  {
+    slug: "bratul-valciu-braila",
+    nume: "Brațul Vâlciu (Insula Mare a Brăilei)",
+    tip: "rau",
+    scurt: "Cot 90° pe Dunăre cu plajă de nisip. Caniculă = plantare pe șenal 120m+ în prag 16m. Crap, șalău, somotel.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap", "salau", "somn"],
+    caracteristici: [
+      "Cot 90° cu plajă de nisip pe Insula Mare a Brăilei",
+      "3 curenți simultan pe loc: contracurent mal, curent golf, șenal principal",
+      "Apă 29-31°C la suprafață vara — oxigen scăzut superficial",
+      "Prag de la 14 m care cade brusc la 16+ m pe șenal",
+    ],
+    pericole: [
+      "Caniculă infernală fără umbră",
+      "Curent complex pe 3 direcții cere ancorare specială",
+    ],
+    sfaturi: [
+      "Plantează la 120+ m de mal pe șenal — unde e oxigenul",
+      "Plumb pierdut 2×200 g sau 400 g (NU legat cu ață ca să se piardă)",
+      "Riguri LUNGI 35 cm",
+      "Nodul FG de la Cătălin Constantinescu (Utopia) pentru fluorocarbon pe textil",
+      "Unde e somn nu e crap — alegi specia după sonar",
+    ],
+    sursa: ["7hYVhIizF3g"],
+  },
+  {
+    slug: "bratul-cernovca",
+    nume: "Brațul Cernovca (Chilia secundar)",
+    tip: "brat",
+    scurt: "Brațul secundar al Chiliei. Pustietate, fără nave militare ucrainene. Apă 6 m productivă pentru crap + somn.",
+    sezon: ["august", "septembrie", "octombrie"],
+    specii: ["crap", "somn"],
+    caracteristici: [
+      "Braț secundar — fără trafic, ideal pentru pescuit liniștit",
+      "Apa 6 m la malul productiv (vs 16 m larg pe Chilia principală)",
+      "Fără alarme militare nocturne",
+      "Locul echipei Blue Kokilia care a câștigat Delta Carp Challenge 2025",
+    ],
+    pericole: [
+      "Acces dificil — necesită barca de la Mila 23 / Chilia Veche",
+    ],
+    sfaturi: [
+      "Cota mai mare + vânt NE → peștii mari cantonați urcă pe Chilia spre Babina și Cernovca",
+      "Boilies Burfood Baltacul semisolubile + Monster Crab pe ciotă",
+      "Forfacul textil se taie ușor în cioată → trecere pe MONO pentru retenție",
+    ],
+    sursa: ["WHbDy7eGWyQ", "YmTCno6IdUM"],
+  },
+  {
+    slug: "goldfish-lake",
+    nume: "Goldfish Lake (lac privat)",
+    tip: "lac",
+    scurt: "Lac de elită cu crapi 10+ kg, sturioni, distanțe lansat 150+ m. Loc pentru partide scurte iarnă cu PVA.",
+    sezon: ["aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Populat cu 'balube' ~9-10 kg medie",
+      "Specii bonus: sturion (bifare nouă în CV pescar)",
+      "Malul opus la 170 m — cere lansete 3.90 m și tehnică",
+      "Stand 12 = punct de referință (rețetă confirmată)",
+    ],
+    pericole: [
+      "Vânt puternic frecvent — cort/broly obligatoriu iarna",
+    ],
+    sfaturi: [
+      "Strategie 2-4 ore iarna: lac cunoscut + monturi pre-făcute acasă + bagaj minim fără rodpod",
+      "PVA + lichid PVA scopex + emburic — randament mai bun iarna pe rece",
+      "Lanseta să revină rapid pe poziție după trăsătură (peștii cantonați)",
+      "Fir închis/transparent (apă mai limpede iarna)",
+    ],
+    sursa: ["dLnqXP854r0", "a0e8Ykiy9Ic"],
+  },
+  {
+    slug: "olt-cainenii-mari",
+    nume: "Olt — Câinenii Mari",
+    tip: "rau",
+    scurt: "Râu de munte pentru scobar + mreana. Regulile englezești: viermi colanți + tehnica burtă fir pe monofilament.",
+    sezon: ["mai", "iunie", "iulie", "august", "septembrie", "octombrie", "decembrie"],
+    specii: ["caras"],
+    caracteristici: [
+      "Aproape Sibiu, prăiș cu piatră, 1 m apă",
+      "Curent puternic — drumul de la baraj e cheia",
+      "Specii: SCOBAR (Chondrostoma nasus), mreana, oblete",
+      "Iarnă: 2°C, apă tulbure neașteptat, sub coșuleț 60-80 g maxim",
+    ],
+    pericole: [
+      "Coșulețe mari iarna = greșeală comună (supranădesc)",
+      "Pietre pe fund — abraziune",
+    ],
+    sfaturi: [
+      "Nada ROȘIE pe apă tulbure / NEAGRĂ pe apă curată — camuflaj cu burta peștelui",
+      "Viermi colanți: APĂ DE ROBINET + colant guma arabică Colmic (NU apă baltă)",
+      "Lasă 10-15 min să transpire viermii — se lipesc",
+      "Tehnică englezească: după ce plumbul atinge fundul, dai PICK-UP și lași BURTĂ MARE de fir mono. Trăsături drop-back pe detensionare",
+      "DOAR monofilament — textilul nu funcționează pe curent puternic",
+      "Cârlig nr. 16-18 Gamakatsu 210B + fluorocarbon Trabucco 0.12-0.14",
+      "Aditiv praf pentru priză durabilă; aditiv lichid pentru semnal rapid",
+    ],
+    sursa: ["cTbjiLkzWcI", "dlk6kRmf97c"],
+  },
+  {
+    slug: "balta-valea-argovei-2",
+    nume: "Balta Valea Argovei 2",
+    tip: "balastiera",
+    scurt: "Baltă privată 8 ha (Lehliu - Valea Argovei). Method feeder primăvara DEVREME pe apă rece 3-4°C. Substrat citit prin plumb.",
+    sezon: ["martie"],
+    specii: ["crap", "caras"],
+    caracteristici: [
+      "8 ha, zăpadă în jurul lacului mart",
+      "Taxă 100 RON / 12 ore (administrator Beca)",
+      "Cotloane la 8-10 m de mal — locuri iernat",
+      "Recordul ~10 kg crap",
+    ],
+    pericole: [
+      "Gheață pe inele dimineața",
+      "Densitate oscilantă (înainte/după populare)",
+    ],
+    sfaturi: [
+      "CHEIA: zona de TRANZIȚIE mâl gros → mâl subțire / pământ tare (chiar 50 cm de pământ tare)",
+      "Mâlul cedează căldura repede, pământul tare lent → microclimat la limita celor două",
+      "CITIREA SUBSTRATULUI prin plumb: mâl = vârf coboară lent constant; piatră = ciocăneli; SCOICĂ = STRIAȚII LONGITUDINALE FINE pe plumb (muchia taie vopseaua); pământ tare = patinare ușoară constantă",
+      "Method feeder doar ~5 g — finețe extremă",
+      "Informația de la ADMINISTRAȚIE + vecinii pescari > orice YouTube",
+    ],
+    sursa: ["wAhmLXrYFoU"],
+  },
+  {
+    slug: "crapologia-fulga",
+    nume: "Crapologia (Fulga)",
+    tip: "lac",
+    scurt: "Lac premium 19 ha între Fulga de Jos și Fulga de Sus. Crap + ten densități uriașe, record 18.75 kg. Reguli stricte.",
+    sezon: ["aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "19 ha, 1.20-1.70 m adâncime — pescuit de cantitate",
+      "Substrat tare cu zone mâl subțire / pietriș",
+      "24 standuri (jumătate premium), spațiate la 40 m",
+      "Densitate: ~1 t/ha total (2.25 t crap + 2.25 t ten)",
+      "Medie capturi 4-5 kg; record 18.750 kg",
+      "75 km de București / 50 de Ploiești",
+    ],
+    pericole: [
+      "Reglementare strictă: max 4 lansete, 1 cârlig, plumb cu eliberare, catch & release",
+    ],
+    sfaturi: [
+      "PRIMĂVARA: carbohidrați — alune tigrate, semințe fierte (rachetă/spod sau săculeți solubili)",
+      "VARA: boilies pure",
+      "Monturi IN-LINE cu săculeț + WAFTERS — cele mai productive în concursuri",
+      "Vântul împinge peștele spre standurile 1 și 20",
+      "Cupa Baltacul ed. 7: 3.66 t pește, medie 4.41 kg",
+      "Lac de CANTITATE — câștigi cu volum și constanță, NU cu un exemplar mare",
+    ],
+    sursa: ["l7f-ylbiEzc"],
+  },
+);
+
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);
 }
