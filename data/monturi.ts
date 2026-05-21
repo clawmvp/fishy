@@ -5,6 +5,7 @@ export type Montura = {
   metoda: "static" | "spinning" | "feeder";
   scop: string;
   cand: string;
+  luni: number[]; // 1-12; gol = tot anul
   components: { item: string; spec: string; nota?: string }[];
   diagrama: string;
   pasi: string[];
@@ -22,6 +23,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Pescuit static din barcă pe curent moderat, lângă cioate scufundate. Standard pentru iulie-august pe brațele Deltei.",
     cand: "Vara (iunie-august), apă 6-14 m, brațele Chilia / Sf. Gheorghe",
+    luni: [6, 7, 8],
     components: [
       { item: "Plumb plat", spec: "120-150 g", nota: "Forma plată = mai puțin agățător decât rotund" },
       { item: "Biluță cauciuc amortizoare", spec: "8-10 mm, CULISANTĂ", nota: "NU fixă! La pierderea peștelui, plumbul cade liber" },
@@ -74,6 +76,7 @@ export const monturi: Montura[] = [
     metoda: "feeder",
     scop: "Cea mai bună montură primăvara pe canale înguste cu sonar. Eficient pe apă 5-17°C când plumbul pierdut nu funcționează.",
     cand: "Martie-aprilie pre-prohibiție, pe canalele Mila 23, Crișan-Îngusta, Litcov",
+    luni: [3, 4],
     components: [
       { item: "Momitor cu placă", spec: "Lazy Fish 40-130 g", nota: "Placa = se fixează mai bine pe substrat" },
       { item: "Nadă comprimată", spec: "consistență 'mămăligă', SCOATE aerul", nota: "Făcută cu 10-30 min înainte sau cu seara" },
@@ -126,6 +129,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Când peștii sunt cantonați LIPIT de cioată — fir gros, plumb care se eliberează la agățare, cârlig nr. 10 pe finețe.",
     cand: "Noiembrie-decembrie / martie pe cioate Mila 23 + Chilia",
+    luni: [3, 11, 12],
     components: [
       { item: "Plumb pierdut tip ciment", spec: "Atac 150-300 g (~12 RON / 150g)", nota: "10% absorbție, poate fi băgat în dip" },
       { item: "Conector / clip", spec: "FL (marca cu eliberare ușoară)", nota: "Sistemele rigide rup tot rigul; FL eliberează ușor" },
@@ -171,6 +175,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Singurul mod să scoți pește de pe pragul abrupt cu piatră / scoică pe Sulina sau Sf. Gheorghe.",
     cand: "Iulie-august pe Sulina și Sf. Gheorghe, sau orice loc cu scoică tăietoare",
+    luni: [6, 7, 8, 9],
     components: [
       { item: "Shock leader", spec: "Sufix Velocity Impact / Carp Spirit 0.80 mm / 36 kg / 80 lbs", nota: "10-15 m lungime" },
       { item: "Nod shock leader → fir principal", spec: "Albright modificat cu 7-8 ture + matisare", nota: "Pe textil subțire = 7-8 ture; pe mono gros = 3-4 ture" },
@@ -223,6 +228,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Crapii apatici scuipă cârligul mai ușor — fluorocarbonul rigid acționează ca un arc și împiedică scuiparea.",
     cand: "Noiembrie-decembrie cu apă sub 10°C — Chilia / Litcov / Îngusta",
+    luni: [11, 12, 1, 2],
     components: [
       { item: "Fluorocarbon", spec: "Claumar Poseidon 0.38 mm / 15 lbs", nota: "Rigid — acționează ca un arc" },
       { item: "Cârlig", spec: "Korda Krank Curve nr. 4", nota: "Formă agresivă, ochet exterior aliniat cu fluoro" },
@@ -263,6 +269,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Montura recomandării 'Doctor Fishing' — pentru partide lungi 7-10 zile pe Dunărea Veche cu crapi 22+ kg.",
     cand: "Mai-octombrie pe Dunărea Veche / Sulina cu buturi lipovenești",
+    luni: [5, 6, 7, 8, 9, 10],
     components: [
       { item: "Forfac Korda N-Trap", spec: "30 lbs, lungime 30-35-40 cm", nota: "Semi-Stiff iarna (crap pretențios), Soft vara" },
       { item: "Plumb", spec: "Inline + con cauciuc dur", nota: "Pe gropi (brațe mari) folosește plumb pierdut greu + textil simplu necămășuit" },
@@ -318,6 +325,7 @@ export const monturi: Montura[] = [
     metoda: "spinning",
     scop: "Finețe MAXIMĂ în februarie-martie. Năluci mici, jighead mic, fluorocarbon ca strună (apă curată).",
     cand: "Februarie - mijloc martie pe lacuri / canale Deltă",
+    luni: [2, 3],
     components: [
       { item: "Jighead", spec: "3 g cu cârlig 3/0", nota: "Cel mai mic — finețe absolută în bătaie" },
       { item: "Gumă", spec: "Savage Gear Cannibal Shad 6-8 cm", nota: "Culori Fire Tiger, Red Head, alb cu coadă roșie" },
@@ -366,6 +374,7 @@ export const monturi: Montura[] = [
     metoda: "spinning",
     scop: "Pentru exemplare 90+ cm la Stația 11 + lacuri Delta. Răbdare la înțepare = cheia.",
     cand: "Mai-iulie + septembrie când apa e caldă",
+    luni: [5, 6, 7, 9],
     components: [
       { item: "Vobler topwater", spec: "Berkley Choppo (prop), Abu Slider Hi-Lo, vobler 'șoarece'", nota: "Mărimi 8-15 cm" },
       { item: "Strună", spec: "Fluorocarbon 0.50-0.60 mm sau OȚEL", nota: "Topwater = peștele apucă din profil — risc maxim de dinți" },
@@ -411,6 +420,7 @@ export const monturi: Montura[] = [
     metoda: "spinning",
     scop: "Sensibilitate maximă pentru atacurile firave ale șalăului. Verde + finețe.",
     cand: "Octombrie-martie pe Argeș / Cândești / bălți cu prag",
+    luni: [1, 2, 3, 10, 11, 12],
     components: [
       { item: "Jighead", spec: "3.5-9 g (3.5 pe atacuri nervoase, 7 standard, 9 pe curent)", nota: "Cu cârlig 3/0" },
       { item: "Gumă", spec: "Verde clasic cu burtă deschisă ~7 cm sau Gambler verde", nota: "Verdele criminal = regulă universală" },
@@ -462,6 +472,7 @@ export const monturi: Montura[] = [
     metoda: "spinning",
     scop: "Vânat vizual matinal — corelează lansarea cu sărituri vizibile.",
     cand: "Iulie răsărit + noiembrie pe epi-uri Sulina",
+    luni: [6, 7, 8, 11],
     components: [
       { item: "Nălucă", spec: "Helic Nikel 16-17 g", nota: "Câștigătoare iulie pe Dunăre" },
       { item: "Fluorocarbon", spec: "0.30 mm × 60-70 cm", nota: "Lungime mare = invizibil pentru avat" },
@@ -509,6 +520,7 @@ export const monturi: Montura[] = [
     metoda: "spinning",
     scop: "Pentru bibani 24-30 cm lipiți de mal cu piatră.",
     cand: "Octombrie-noiembrie pe Dunărea Veche, Mila 23",
+    luni: [10, 11],
     components: [
       { item: "Jighead microjig BKK", spec: "5 g cu cârlig nr. 1/0", nota: "NU 7-10 g — agață piatra; cu sârmă îndoită care ține guma" },
       { item: "Gumă", spec: "Fast Strike 'Motoroil' sau Bass Assassin Electric Chicken (curly tail)" },
@@ -554,6 +566,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Chemarea somnului prin vibrație + montura cu păcălici care prinde aproape sigur.",
     cand: "Vară (iunie-septembrie) pe Chilia, ape adânci 8-22 m",
+    luni: [6, 7, 8, 9],
     components: [
       { item: "Les MadCat 'țigaretă'", spec: "200 g", nota: "Se scufundă, taie curentul" },
       { item: "Fir înaintaș", spec: "Textil 100 kg" },
@@ -605,6 +618,7 @@ export const monturi: Montura[] = [
     metoda: "static",
     scop: "Pe pragul de 18 m la Chilia Veche. Momelile testate vs alternative.",
     cand: "Octombrie-noiembrie",
+    luni: [10, 11],
     components: [
       { item: "Plumb culisant", spec: "200 g (pe mono) / 300 g (pe textil)" },
       { item: "Fir principal", spec: "MONO MadCat 0.40 mm", nota: "Mai multe trăsături decât textilul 0.40 pentru somni până în 10 kg — TESTAT" },
@@ -656,6 +670,14 @@ export function getMontura(slug: string) {
   return monturi.find((m) => m.slug === slug);
 }
 
-export function monturiPentru(specie: Montura["pentru"][0]) {
-  return monturi.filter((m) => m.pentru.includes(specie));
+export function monturiPentru(
+  specie: Montura["pentru"][0],
+  date?: Date
+) {
+  const filtered = monturi.filter((m) => m.pentru.includes(specie));
+  if (!date) return filtered;
+  const month = date.getMonth() + 1;
+  return filtered.filter(
+    (m) => !m.luni || m.luni.length === 0 || m.luni.includes(month)
+  );
 }

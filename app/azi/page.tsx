@@ -112,7 +112,7 @@ export default async function PartidaPage({
         scor: calculeazaScor(sp, todaysForecast, moon, waterTulcea, targetDate),
         locuri: recomandaLocuri(sp, targetDate),
         tehnici: recomandaTehnici(sp, targetDate),
-        monturi: monturiPentru(sp.id),
+        monturi: monturiPentru(sp.id, targetDate),
         inProhibitie: isInProhibitie(sp, targetDate),
         zileDeschidere: isInProhibitie(sp, targetDate) ? zileLaDeschidere(sp, targetDate) : 0,
       }))
