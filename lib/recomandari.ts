@@ -47,28 +47,56 @@ export function calculeazaScor(
     };
   }
 
+  // Algoritm:
+  //   - Începem cu 100 (zi perfectă)
+  //   - Apa = factor PRIMAR — determină un PLAFON (ceiling) maxim
+  //     (chiar dacă restul e perfect, scorul nu poate trece peste ceiling)
+  //   - Penalizările secundare scad scorul
+  //   - Bonusurile cresc scorul DAR fără să treacă peste ceiling
   let score = 100;
+  let ceiling = 100;
   const opt = specie.optimalConditions;
   const month = date.getMonth() + 1;
   const waterTemp = estimateWaterTemp(forecast, month);
 
-  // Temperatura apei
+  // Temperatura apei — factor PRIMAR (ceiling + penalty)
   if (waterTemp >= opt.waterTempMin && waterTemp <= opt.waterTempMax) {
     reasons.push({ text: `Temperatura apei optimă ~${waterTemp}°C`, positive: true });
   } else {
     const diff = waterTemp < opt.waterTempMin ? opt.waterTempMin - waterTemp : waterTemp - opt.waterTempMax;
-    const penalty = Math.min(30, Math.round(diff * 3));
-    score -= penalty;
-    reasons.push({
-      text: `Apa ${waterTemp < opt.waterTempMin ? "prea rece" : "prea caldă"} (~${waterTemp}°C, optim ${opt.waterTempMin}-${opt.waterTempMax}°C)`,
-      positive: false,
-    });
+    // Severitate proporțional cu diff:
+    //   1-2°C off → minor, ceiling 90, message "ușor sub/peste optim"
+    //   3-5°C off → moderat, ceiling 75, message "rece/caldă — finețe"
+    //   6+°C off → major, ceiling 50, message "prea rece/caldă"
+    let severity: "minor" | "moderat" | "major";
+    if (diff <= 2) severity = "minor";
+    else if (diff <= 5) severity = "moderat";
+    else severity = "major";
+
+    const direction = waterTemp < opt.waterTempMin ? "rece" : "caldă";
+    let text = "";
+    let penalty = 0;
+    if (severity === "minor") {
+      ceiling = 90;
+      penalty = Math.round(diff * 4);
+      text = `Apa ușor ${direction === "rece" ? "sub optim" : "peste optim"} (~${waterTemp}°C, optim ${opt.waterTempMin}-${opt.waterTempMax}°C)`;
+    } else if (severity === "moderat") {
+      ceiling = 75;
+      penalty = 8 + Math.round((diff - 2) * 5);
+      text = `Apa ${direction} (~${waterTemp}°C, optim ${opt.waterTempMin}-${opt.waterTempMax}°C) — finețe necesară`;
+    } else {
+      ceiling = 50;
+      penalty = 23 + Math.round((diff - 5) * 2);
+      text = `Apa prea ${direction} (~${waterTemp}°C, optim ${opt.waterTempMin}-${opt.waterTempMax}°C) — peștii apatici`;
+    }
+    score -= Math.min(40, penalty);
+    reasons.push({ text, positive: false });
   }
 
   // Presiune atmosferică
   if (forecast.pressure >= 1008 && forecast.pressure <= 1020 && (forecast.pressureTrend === "stable" || forecast.pressureTrend === "falling")) {
     reasons.push({ text: `Presiune favorabilă (${forecast.pressure} hPa, ${forecast.pressureTrend === "stable" ? "stabilă" : "în scădere"})`, positive: true });
-    if (opt.pressurePreference === "falling" && forecast.pressureTrend === "falling") score = Math.min(100, score + 5);
+    if (opt.pressurePreference === "falling" && forecast.pressureTrend === "falling") score += 5;
   } else if (forecast.pressureTrend === "rising" && forecast.pressure > 1020) {
     score -= 15;
     reasons.push({ text: `Presiune mare în creștere (${forecast.pressure} hPa) — dificil`, positive: false });
@@ -77,7 +105,7 @@ export function calculeazaScor(
   // Vânt
   if (forecast.windMax >= 5 && forecast.windMax <= 15) {
     reasons.push({ text: `Vânt ideal (${forecast.windMax} km/h) — oxigenează apa, creează val`, positive: true });
-    score = Math.min(100, score + 5);
+    score += 5;
   } else if (forecast.windMax < 5) {
     reasons.push({ text: `Calm (${forecast.windMax} km/h) — bun pt pluta, slab pt spinning`, positive: false });
   } else if (forecast.windMax > opt.windMax) {
@@ -91,7 +119,7 @@ export function calculeazaScor(
   // Faza lunii
   if (opt.moonPreference === "new" && moon.illumination < 15) {
     reasons.push({ text: `Lună nouă (${moon.illumination}%) — ideal (Vișoianu: ±2 zile)`, positive: true });
-    score = Math.min(100, score + 5);
+    score += 5;
   } else if (opt.moonPreference === "new" && moon.illumination > 70) {
     score -= 10;
     reasons.push({ text: `Prea multă lumină lunară (${moon.illumination}%) — pe lună plină crapul sare la suprafață`, positive: false });
@@ -107,7 +135,7 @@ export function calculeazaScor(
     const { min, max } = opt.cotaOptima;
     if (cota >= min && cota <= max) {
       reasons.push({ text: `Cota ${water.station.city} ${cota} — în interval optim (${min}-${max})`, positive: true });
-      score = Math.min(100, score + 5);
+      score += 5;
     } else if (cota < min) {
       score -= 12;
       reasons.push({ text: `Cota ${water.station.city} ${cota} — prea scăzută (sub ${min} = doar ciortani)`, positive: false });
@@ -127,13 +155,14 @@ export function calculeazaScor(
     reasons.push({ text: "Vreme uscată — favorabil", positive: true });
   } else if (opt.precipPreference === "after_rain" && forecast.precipitation > 0 && forecast.precipitation <= 10) {
     reasons.push({ text: "Ploaie ușoară — activează peștii", positive: true });
-    score = Math.min(100, score + 5);
+    score += 5;
   } else if (forecast.precipitation > 15) {
     score -= 12;
     reasons.push({ text: `Precipitații abundente (${forecast.precipitation.toFixed(1)} mm)`, positive: false });
   }
 
-  score = Math.max(0, Math.min(100, score));
+  // Final: aplic ceiling (din apa) ȘI clamp [0, 100]
+  score = Math.max(0, Math.min(ceiling, score));
 
   let label = "Dificile";
   let cssColor = "text-red-400";
