@@ -12,6 +12,11 @@ export interface DailyForecast {
   pressure: number;
   pressureTrend: "rising" | "falling" | "stable";
   cloudCover: number;
+  // Temperatura apei — proxy din Open-Meteo soil_temperature
+  // shallow = 18cm subsol = apă 30-50 cm de la mal (variază cu soarele)
+  // deep = 54cm subsol = apă 0.5-1m (mai stabilă, unde stau majoritatea peștilor)
+  waterTempShallow: number | null;
+  waterTempDeep: number | null;
 }
 
 export async function fetchWeather(
@@ -28,7 +33,7 @@ export async function fetchWeather(
   );
   url.searchParams.set(
     "hourly",
-    "relative_humidity_2m,surface_pressure,cloud_cover"
+    "relative_humidity_2m,surface_pressure,cloud_cover,soil_temperature_18cm,soil_temperature_54cm"
   );
   url.searchParams.set("timezone", "auto");
   url.searchParams.set("forecast_days", String(forecastDays));
@@ -43,6 +48,8 @@ export async function fetchWeather(
   const hourlyHumidity: number[] = data.hourly?.relative_humidity_2m || [];
   const hourlyPressure: number[] = data.hourly?.surface_pressure || [];
   const hourlyCloud: number[] = data.hourly?.cloud_cover || [];
+  const hourlySoilShallow: (number | null)[] = data.hourly?.soil_temperature_18cm || [];
+  const hourlySoilDeep: (number | null)[] = data.hourly?.soil_temperature_54cm || [];
 
   const dayNamesRo = [
     "Duminica",
@@ -92,6 +99,16 @@ export async function fetchWeather(
       }
     }
 
+    // Temperatura apă — mediu pe 24h, exclude null
+    const daySoilShallow = hourlySoilShallow.slice(i * 24, (i + 1) * 24).filter((v): v is number => v !== null);
+    const daySoilDeep = hourlySoilDeep.slice(i * 24, (i + 1) * 24).filter((v): v is number => v !== null);
+    const waterTempShallow = daySoilShallow.length > 0
+      ? Math.round((daySoilShallow.reduce((a, b) => a + b, 0) / daySoilShallow.length) * 10) / 10
+      : null;
+    const waterTempDeep = daySoilDeep.length > 0
+      ? Math.round((daySoilDeep.reduce((a, b) => a + b, 0) / daySoilDeep.length) * 10) / 10
+      : null;
+
     forecasts.push({
       date: daily.time[i],
       dayName: dayNamesRo[date.getDay()],
@@ -106,6 +123,8 @@ export async function fetchWeather(
       pressure: avgPressure,
       pressureTrend,
       cloudCover: avgCloud,
+      waterTempShallow,
+      waterTempDeep,
     });
   }
 

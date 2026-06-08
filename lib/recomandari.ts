@@ -19,6 +19,11 @@ const SEASONAL_WATER_TEMP: Record<number, number> = {
 };
 
 export function estimateWaterTemp(forecast: DailyForecast, month: number): number {
+  // Prefer soil_temperature_54cm (real-world proxy stabil pentru apa adâncă)
+  if (forecast.waterTempDeep !== null && forecast.waterTempDeep !== undefined) {
+    return Math.round(forecast.waterTempDeep);
+  }
+  // Fallback: estimare hibridă din temp aer + media sezonieră
   const airAvg = (forecast.tempMax + forecast.tempMin) / 2;
   const seasonalBase = SEASONAL_WATER_TEMP[month] || 15;
   return Math.round(seasonalBase * 0.7 + airAvg * 0.3);

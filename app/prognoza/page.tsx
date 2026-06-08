@@ -361,9 +361,12 @@ export default async function PrognozaPage() {
                       {zi.forecast.windMax} km/h {getWindDirection(zi.forecast.windDirection)}
                     </p>
                   </div>
-                  <div className="min-w-[80px]">
+                  <div className="min-w-[100px]">
                     <p className="text-xs text-fog/55">{zi.forecast.pressure} hPa</p>
                     <p className="text-xs text-fog/40">{zi.moon.illumination}% lună</p>
+                    {zi.forecast.waterTempDeep !== null && (
+                      <p className="text-xs text-amber-soft">apa ~{Math.round(zi.forecast.waterTempDeep)}°C</p>
+                    )}
                   </div>
                   <div className="flex-1 min-w-[200px]">
                     {zi.topSpecie ? (

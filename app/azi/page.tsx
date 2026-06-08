@@ -215,7 +215,7 @@ export default async function PartidaPage({
       </section>
 
       {/* CONDIȚII LIVE */}
-      <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+      <section className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-10">
         {waterTulcea && (
           <div className="card-hero rounded-xl p-4">
             <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Tulcea</p>
@@ -254,6 +254,30 @@ export default async function PartidaPage({
             <p className="text-xs text-amber-soft mt-1.5">
               {todaysForecast.pressure} hPa •{" "}
               {todaysForecast.pressureTrend === "rising" ? "în creștere" : todaysForecast.pressureTrend === "falling" ? "în scădere" : "stabilă"}
+            </p>
+          </div>
+        )}
+        {todaysForecast && todaysForecast.waterTempDeep !== null && (
+          <div className="card-hero rounded-xl p-4">
+            <p className="text-xs uppercase tracking-widest text-moss mb-1">Apa (estimat)</p>
+            <p className="text-3xl font-light text-amber-glow mb-1">
+              {Math.round(todaysForecast.waterTempDeep)}<span className="text-sm text-fog/55 ml-1">°C adânc</span>
+            </p>
+            {todaysForecast.waterTempShallow !== null && (
+              <p className="text-xs text-fog/55">
+                ~{Math.round(todaysForecast.waterTempShallow)}°C la mal
+              </p>
+            )}
+            <p className="text-xs text-amber-soft mt-1.5">
+              {todaysForecast.waterTempDeep < 10
+                ? "Rece — peștii apatici"
+                : todaysForecast.waterTempDeep < 16
+                  ? "Răcoroasă — finețe"
+                  : todaysForecast.waterTempDeep < 22
+                    ? "Optimă majoritate"
+                    : todaysForecast.waterTempDeep < 26
+                      ? "Caldă — fermentat"
+                      : "Caniculă — pe adânc"}
             </p>
           </div>
         )}
