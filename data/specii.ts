@@ -27,7 +27,9 @@ export const specii: Specie[] = [
     nume: "Crap",
     latin: "Cyprinus carpio",
     metoda: "static",
-    prohibitie: { start: { m: 4, d: 15 }, end: { m: 6, d: 15 } },
+    // ANPA 2026 — ape interioare: 9 aprilie - 7 iunie (60 zile).
+    // Dunăre frontieră RO-UA: 24 aprilie - 7 iunie. Dunăre frontieră RO-BG: 16 aprilie - 30 mai.
+    prohibitie: { start: { m: 4, d: 9 }, end: { m: 6, d: 7 } },
     marimeMinima: 40,
     optimalConditions: {
       waterTempMin: 15,
@@ -47,7 +49,8 @@ export const specii: Specie[] = [
     nume: "Știucă",
     latin: "Esox lucius",
     metoda: "spinning",
-    prohibitie: { start: { m: 1, d: 16 }, end: { m: 3, d: 31 } },
+    // ANPA 2026 — știuca: 1 februarie - 20 martie (depunere timpurie, ~48 zile).
+    prohibitie: { start: { m: 2, d: 1 }, end: { m: 3, d: 20 } },
     marimeMinima: 50,
     optimalConditions: {
       waterTempMin: 8,
@@ -67,7 +70,8 @@ export const specii: Specie[] = [
     nume: "Șalău",
     latin: "Sander lucioperca",
     metoda: "spinning",
-    prohibitie: { start: { m: 3, d: 1 }, end: { m: 4, d: 30 } },
+    // ANPA 2026 — șalău: 20 martie - 7 iunie (păzitul cuibului, ~80 zile).
+    prohibitie: { start: { m: 3, d: 20 }, end: { m: 6, d: 7 } },
     marimeMinima: 45,
     optimalConditions: {
       waterTempMin: 10,
@@ -87,6 +91,7 @@ export const specii: Specie[] = [
     nume: "Avat",
     latin: "Aspius aspius",
     metoda: "spinning",
+    // ANPA 2026 — avat: 15 aprilie - 31 mai (calendar specific, ~46 zile).
     prohibitie: { start: { m: 4, d: 15 }, end: { m: 5, d: 31 } },
     marimeMinima: 40,
     optimalConditions: {
@@ -107,7 +112,8 @@ export const specii: Specie[] = [
     nume: "Biban",
     latin: "Perca fluviatilis",
     metoda: "spinning",
-    prohibitie: { start: { m: 4, d: 15 }, end: { m: 6, d: 15 } },
+    // ANPA 2026 — biban: 20 martie - 7 iunie (păzitul cuibului, identic cu șalău).
+    prohibitie: { start: { m: 3, d: 20 }, end: { m: 6, d: 7 } },
     marimeMinima: 18,
     optimalConditions: {
       waterTempMin: 10,
@@ -127,7 +133,8 @@ export const specii: Specie[] = [
     nume: "Somn",
     latin: "Silurus glanis",
     metoda: "static",
-    prohibitie: { start: { m: 4, d: 16 }, end: { m: 6, d: 15 } },
+    // ANPA 2026 — somn nativ: 15 aprilie - 31 mai (calendar specific răpitor).
+    prohibitie: { start: { m: 4, d: 15 }, end: { m: 5, d: 31 } },
     marimeMinima: 60,
     optimalConditions: {
       waterTempMin: 18,

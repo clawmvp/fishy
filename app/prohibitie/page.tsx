@@ -197,8 +197,60 @@ export default function ProhibitionPage() {
       </section>
 
       {/* Reguli speciale Delta */}
+      {/* Tabel comparativ Dunăre vs Ape interioare */}
       <section className="mb-10">
-        <h2 className="text-xl font-display text-amber-glow mb-4">Reguli speciale Delta + zone frontieră</h2>
+        <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">Datele afișate sunt pentru APE INTERIOARE</h2>
+        <div className="card rounded-lg p-5">
+          <p className="text-sm text-fog/75 mb-3">
+            ANPA 2026 — prohibiția generală e diferită pe Dunăre vs ape interioare. Tabelul de mai sus folosește datele din <strong className="text-fog">ape interioare</strong>. Dacă pescuiești pe Dunăre, ai zile bonus.
+          </p>
+          <div className="scroll-x-wrap">
+            <table className="w-full text-sm min-w-fit">
+              <thead>
+                <tr className="border-b border-amber-glow/20">
+                  <th className="text-left py-2 text-amber-glow font-medium">Zonă</th>
+                  <th className="text-left py-2 text-amber-glow font-medium">Crap / Ciprinide</th>
+                  <th className="text-left py-2 text-amber-glow font-medium">Răpitori</th>
+                  <th className="text-left py-2 text-amber-glow font-medium">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-amber-glow/5">
+                  <td className="py-2 text-fog">Ape interioare (lacuri / bălți / râuri)</td>
+                  <td className="py-2 text-fog/75 font-mono">9 apr – 7 iun</td>
+                  <td className="py-2 text-fog/75 font-mono">depinde de specie</td>
+                  <td className="py-2 text-fog/55 text-xs">60 zile, standard</td>
+                </tr>
+                <tr className="border-b border-amber-glow/5">
+                  <td className="py-2 text-fog">Dunăre + Deltă (sectoare standard)</td>
+                  <td className="py-2 text-fog/75 font-mono">24 apr – 7 iun</td>
+                  <td className="py-2 text-fog/75 font-mono">24 apr – 7 iun</td>
+                  <td className="py-2 text-fog/55 text-xs">45 zile, +15 zile bonus la început</td>
+                </tr>
+                <tr className="border-b border-amber-glow/5">
+                  <td className="py-2 text-fog">Frontieră RO-Bulgaria</td>
+                  <td className="py-2 text-fog/75 font-mono">16 apr – 30 mai</td>
+                  <td className="py-2 text-fog/75 font-mono">16 apr – 30 mai</td>
+                  <td className="py-2 text-fog/55 text-xs">45 zile, terminat MAI DEVREME</td>
+                </tr>
+                <tr>
+                  <td className="py-2 text-fog">Frontieră RO-Serbia / RO-Ucraina</td>
+                  <td className="py-2 text-fog/75 font-mono">24 apr – 7 iun</td>
+                  <td className="py-2 text-fog/75 font-mono">24 apr – 7 iun</td>
+                  <td className="py-2 text-fog/55 text-xs">45 zile, identic Dunăre</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-fog/55 mt-3">
+            Zone frontieră RO-BG: <strong>Călărași → Călărași Veche</strong>, <strong>Drobeta-Turnu Severin → Calafat</strong> — termină pe 30 mai (vs 7 iunie restul țării).
+          </p>
+        </div>
+      </section>
+
+      {/* Reguli speciale */}
+      <section className="mb-10">
+        <h2 className="text-xl font-display text-amber-glow mb-4">Reguli speciale</h2>
         <div className="card rounded-lg p-5 space-y-3 text-sm text-fog">
           <p>
             <strong className="text-fog">Max 4 lansete per pescar</strong> — regulă universală pe Dunăre / Deltă.
@@ -207,25 +259,20 @@ export default function ProhibitionPage() {
             <strong className="text-fog">Mărimea legală crap</strong> a fost actualizată în 2025 — 40 cm fără coadă (anterior 45 cm cu coadă).
           </p>
           <p>
-            <strong className="text-fog">Excepție Dunărea de frontieră</strong> (RO-BG / RO-Serbia / RO-UA) — prohibiția răpitorilor începe pe <span className="text-amber-soft">24 aprilie</span>, NU pe 10 aprilie ca în restul țării. 14 zile bonus la avat / șalău / știucă în zonele:
-          </p>
-          <ul className="space-y-1 ml-4">
-            <li className="text-fog/75">· Port Oltenița → confluența cu Argeș</li>
-            <li className="text-fog/75">· Călărași → Călărași Veche</li>
-            <li className="text-fog/75">· Drobeta-Turnu Severin → Calafat</li>
-          </ul>
-          <p>
-            <strong className="text-fog">Amenzi pentru pescuit în prohibiție</strong> sunt mari (1500-5000 RON) și se confiscă echipamentul. Nu merită riscul.
+            <strong className="text-fog">Amenzi pentru pescuit în prohibiție</strong> — 2000-4000 RON conform ANPA 2026 + suspendarea permisului + confiscarea echipamentului.
           </p>
           <p>
             <strong className="text-fog">Permis ANPA + permis vânare-pescuit-Delta</strong> obligatoriu — verifică la administrația locală.
+          </p>
+          <p>
+            <strong className="text-fog">Specii invazive</strong> (caras argintiu, biban soare, somn pitic) — EXCEPTATE de la prohibiție, capturabile tot anul.
           </p>
         </div>
       </section>
 
       <section className="mt-10 pt-6 border-t border-amber-glow/15">
         <p className="text-xs text-fog/40">
-          Datele sunt simplificate — perioada exactă variază 1-3 zile anual prin ordin ANPA. Verifică ordinul oficial la{" "}
+          Datele de mai sus reflectă Ordinul ANPA pentru 2026 (ape interioare). Perioada poate varia 1-3 zile anual. Verifică ordinul oficial la{" "}
           <a href="https://anpa.ro" target="_blank" rel="noopener" className="hover:text-amber-glow">anpa.ro</a> înainte de orice partidă.
         </p>
       </section>
