@@ -120,40 +120,63 @@ export default async function PrognozaPage() {
     };
   });
 
-  // Detectare ferestre 2-3 zile cu scoruri consecutive bune
+  // Detectare ferestre 2-5 zile cu scoruri consecutive bune
+  // Threshold pe lungime: ferestrele mai lungi cer scor mediu un pic mai jos (greu să ai 5 zile la 75+)
   type Fereastra = { startIdx: number; lungime: number; avgScor: number; specii: string[] };
+  const THRESHOLDS: Record<number, number> = { 5: 58, 4: 60, 3: 62, 2: 65 };
   const ferestre: Fereastra[] = [];
 
-  for (let len = 3; len >= 2; len--) {
+  // Parcurg de la fereastra cea mai LUNGĂ (mai valoroasă) la cea scurtă
+  for (let len = 5; len >= 2; len--) {
+    if (zile.length < len) continue;
+    const threshold = THRESHOLDS[len];
     for (let i = 0; i <= zile.length - len; i++) {
       const slice = zile.slice(i, i + len);
       const avg = slice.reduce((s, z) => s + z.scorMaxim, 0) / len;
-      if (avg >= 65) {
-        // care specii sunt în peak în toate zilele?
-        const speciiComune = new Set<string>();
-        slice[0].scoruri.forEach((s) => {
-          if (s.scor >= 55) speciiComune.add(s.specieNume);
+      if (avg < threshold) continue;
+      // bonus: dacă toate zilele au scor >= threshold individual (consistență)
+      const minScore = slice.reduce((m, z) => Math.min(m, z.scorMaxim), 100);
+      if (minScore < threshold - 15) continue; // exclude ferestrele cu o zi terribilă
+
+      // care specii rămân bune (scor >= 50) în TOATE zilele
+      const speciiComune = new Set<string>();
+      slice[0].scoruri.forEach((s) => {
+        if (s.scor >= 50) speciiComune.add(s.specieNume);
+      });
+      slice.slice(1).forEach((zi) => {
+        const numeBune = new Set(zi.scoruri.filter((s) => s.scor >= 50).map((s) => s.specieNume));
+        speciiComune.forEach((nume) => {
+          if (!numeBune.has(nume)) speciiComune.delete(nume);
         });
-        slice.slice(1).forEach((zi) => {
-          const numeBune = new Set(zi.scoruri.filter((s) => s.scor >= 55).map((s) => s.specieNume));
-          speciiComune.forEach((nume) => {
-            if (!numeBune.has(nume)) speciiComune.delete(nume);
-          });
+      });
+
+      // Skip dacă nicio specie nu rămâne bună pe toată fereastra
+      if (speciiComune.size === 0) continue;
+
+      // Verifică suprapunere — fereastra mai SCURTĂ nu se adaugă dacă e cuprinsă în alta deja găsită (lungă)
+      const overlap = ferestre.some((f) => i >= f.startIdx && i + len <= f.startIdx + f.lungime);
+      if (!overlap) {
+        ferestre.push({
+          startIdx: i,
+          lungime: len,
+          avgScor: Math.round(avg),
+          specii: Array.from(speciiComune),
         });
-        // verifică suprapunere — nu adaug fereastră deja cuprinsă
-        const overlap = ferestre.some((f) => i >= f.startIdx && i + len <= f.startIdx + f.lungime);
-        if (!overlap) {
-          ferestre.push({
-            startIdx: i,
-            lungime: len,
-            avgScor: Math.round(avg),
-            specii: Array.from(speciiComune),
-          });
-        }
       }
     }
   }
-  ferestre.sort((a, b) => b.avgScor - a.avgScor);
+
+  // Sortare: prioritar lungimea (5 > 4 > 3 > 2), apoi scor mediu descendent
+  ferestre.sort((a, b) => {
+    if (b.lungime !== a.lungime) return b.lungime - a.lungime;
+    return b.avgScor - a.avgScor;
+  });
+
+  // Stats per lungime
+  const ferestreStats = ferestre.reduce((acc, f) => {
+    acc[f.lungime] = (acc[f.lungime] || 0) + 1;
+    return acc;
+  }, {} as Record<number, number>);
 
   const luniRO = ["ian","feb","mar","apr","mai","iun","iul","aug","sep","oct","nov","dec"];
   const ziuaRO = ["Dum","Lu","Ma","Mi","Joi","Vi","Sâm"];
@@ -183,26 +206,43 @@ export default async function PrognozaPage() {
         <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Când să mergi în Deltă</h1>
         <p className="text-fog/75 max-w-3xl">
           Următoarele {zile.length} zile evaluate per specie. Scor bazat pe vreme + presiune + vânt + cotă Tulcea + faza lunii.
-          Detectăm automat <strong className="text-amber-glow">ferestrele de 2-3 zile</strong> cu condiții consecutive bune — perioadele tipice de partidă.
+          Detectăm automat <strong className="text-amber-glow">ferestre de 2-5 zile consecutive</strong> cu condiții bune — sortate cu prioritate pe lungime (zile legate = partide mai serioase).
+          Speciile în prohibiție pentru ziua respectivă sunt excluse automat din scor.
         </p>
       </header>
 
       {/* FERESTRE RECOMANDATE */}
-      {ferestre.length > 0 && (
+      {ferestre.length > 0 ? (
         <section className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-display text-amber-glow mb-4">
-            Ferestre recomandate
-            <span className="text-fog/40 text-base ml-2">({ferestre.length})</span>
-          </h2>
+          <div className="flex items-baseline justify-between flex-wrap gap-2 mb-4">
+            <h2 className="text-2xl md:text-3xl font-display text-amber-glow">
+              Ferestre recomandate
+              <span className="text-fog/40 text-base ml-2">({ferestre.length})</span>
+            </h2>
+            <div className="flex flex-wrap gap-1.5 text-xs">
+              {[5, 4, 3, 2].map((len) => ferestreStats[len] ? (
+                <span key={len} className={`tag ${len >= 4 ? "tag-priority" : len === 3 ? "tag-amber" : "tag-neutral"}`}>
+                  {ferestreStats[len]}× {len} zile
+                </span>
+              ) : null)}
+            </div>
+          </div>
           <div className="space-y-3">
-            {ferestre.slice(0, 5).map((f, i) => {
+            {ferestre.slice(0, 6).map((f, i) => {
               const slice = zile.slice(f.startIdx, f.startIdx + f.lungime);
+              const isLong = f.lungime >= 4;
               return (
-                <div key={i} className="card rounded-xl p-5" style={{ background: "linear-gradient(135deg, rgba(212,166,87,0.10), rgba(107,163,104,0.05))" }}>
+                <div key={i} className={`card-hero rounded-xl p-5 ${isLong ? "ring-1 ring-amber-glow/40" : ""}`}>
                   <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-amber-glow mb-1">
+                      <p className="text-xs uppercase tracking-widest text-amber-glow mb-1 flex items-center gap-2">
                         {f.lungime} zile consecutive
+                        {f.lungime >= 4 && (
+                          <span className="tag tag-priority normal-case tracking-normal">partidă serioasă</span>
+                        )}
+                        {f.lungime === 5 && (
+                          <span className="text-emerald-400 text-base">★</span>
+                        )}
                       </p>
                       <h3 className="text-xl md:text-2xl font-display text-fog">
                         {dataScurta(slice[0].date)} → {dataScurta(slice[slice.length - 1].date)}
@@ -239,6 +279,15 @@ export default async function PrognozaPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+      ) : (
+        <section className="mb-10">
+          <div className="card rounded-xl p-5">
+            <p className="text-fog/75 text-sm">
+              Nu există ferestre de 2+ zile cu condiții consecutive bune în următoarele 14 zile. Verifică zilele individuale mai jos —
+              chiar și o singură zi cu scor 70+ poate fi suficientă pentru o partidă scurtă.
+            </p>
           </div>
         </section>
       )}
