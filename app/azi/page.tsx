@@ -323,14 +323,44 @@ export default async function PartidaPage({
                 </div>
               </div>
 
-              <ul className="space-y-1 mb-4">
-                {scor.reasons.map((r, i) => (
-                  <li key={i} className="text-sm flex gap-2">
-                    <span className={r.positive ? "text-moss" : "text-orange-400/70"}>{r.positive ? "+" : "−"}</span>
-                    <span className="text-fog/75">{r.text}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Factor breakdown — arată exact cum se construiește scorul */}
+              <div className="mb-4">
+                <div className="flex items-baseline justify-between mb-2">
+                  <p className="text-xs uppercase tracking-widest text-moss">
+                    Cum se construiește scorul
+                  </p>
+                  <Link href="/algoritm" className="text-xs text-moss hover:text-amber-glow">
+                    cum se calculează →
+                  </Link>
+                </div>
+                <div className="space-y-1.5">
+                  {scor.factors.map((f) => {
+                    const barColor = f.subScore >= 75 ? "bg-emerald-400" : f.subScore >= 50 ? "bg-amber-glow" : "bg-orange-400/80";
+                    return (
+                      <div key={f.cheie} className="grid grid-cols-[100px_1fr_auto] md:grid-cols-[140px_1fr_auto] gap-2 items-center text-xs">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-fog/75 truncate">{f.label}</span>
+                          <span className="text-fog/40 text-[10px]">{f.weight}%</span>
+                        </div>
+                        <div className="relative h-4 bg-water-2/40 rounded-sm overflow-hidden">
+                          <div
+                            className={`h-full ${barColor} transition-all`}
+                            style={{ width: `${f.subScore}%` }}
+                          />
+                          <div className="absolute inset-0 flex items-center px-2">
+                            <span className="text-[10px] text-fog truncate">
+                              {f.detail}
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-fog/55 font-mono text-[11px] tabular-nums whitespace-nowrap">
+                          +{f.contribution.toFixed(1)}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
 
               <p className="text-xs text-fog/55 mb-3">
                 <strong className="text-fog/75">Ore optime:</strong> {specie.optimalConditions.bestTimeOfDay}
