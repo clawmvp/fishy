@@ -309,7 +309,12 @@ export default async function PrognozaPage() {
                   <div className="flex items-baseline justify-between">
                     <div>
                       <p className="text-sm text-fog font-display">{ziuaRO[zi.date.getDay()]} {zi.date.getDate()} {luniRO[zi.date.getMonth()]}</p>
-                      <p className="text-xs text-fog/55">{zi.forecast.pressure} hPa · {zi.moon.illumination}% lună</p>
+                      <p className="text-xs text-fog/55">
+                        {zi.forecast.pressure} hPa · {zi.moon.illumination}% lună
+                        {zi.forecast.waterTempDeep !== null && (
+                          <> · <span className="text-amber-soft">{Math.round(zi.forecast.waterTempDeep)}°C apă</span></>
+                        )}
+                      </p>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-2xl">{getWeatherIcon(zi.forecast.weatherCode)}</span>
