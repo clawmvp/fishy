@@ -1335,6 +1335,1055 @@ Cu astea 3 + un loc cu prag humă la 4-6m toamna — ai capturi peste medie gara
   },
 );
 
+// Articole noi — Logistică & Calitatea partidei
+articole.push(
+  {
+    slug: "permise-anpa-arbdd-delta",
+    titlu: "Permise pentru pescuit în Delta — pas cu pas (ANPA + ARBDD)",
+    scurt: "Două permise, două instituții. Cum le iei online, cât costă (0-30 RON), de ce le ai mereu cu tine.",
+    tags: ["legal", "incepator", "delta"],
+    body: `## De ce ai nevoie de DOUĂ permise
+
+Pentru pescuit recreativ în Delta Dunării ai nevoie de **două documente separate**:
+
+1. **Permis ANPA** (Agenția Națională pentru Pescuit și Acvacultură) — pentru pescuit recreativ pe Dunăre și ape interioare
+2. **Permis ARBDD** (Administrația Rezervației Biosferei Delta Dunării) — pentru acces în Rezervația Delta
+
+Lipsa oricăruia → amendă 200-1000 RON. Cu ambele → ești în regulă.
+
+## 1. Permis ANPA — GRATUIT, dar obligatoriu
+
+### Cum îl obții
+- **Online**: [anpa.ro](https://anpa.ro) → secțiunea Pescuit recreativ → completezi formular
+- **Necesar**: CI scan, fotografie tip pașaport
+- **Termen eliberare**: 7-14 zile (vine prin poștă SAU îl printezi singur)
+- **Valabilitate**: 1 an
+
+### Limitări legale impuse de permis ANPA
+- Maxim **4 lansete** per pescar
+- Maxim **5 kg pește** / zi per pescar (toate speciile cumulat)
+- Maxim **1 exemplar** trofeu / zi (peste anumite mărimi)
+- Eliberare obligatorie pentru pești sub mărimea legală
+- Mărimi legale (cap-coadă): crap 40 cm, somn 60 cm, șalău 45 cm, știucă 50 cm, biban 18 cm, avat 40 cm
+- Catch & release recomandat pentru pești 10+ kg (vara nu rezistă în juvelnic)
+
+## 2. Permis ARBDD — diferențiat pe tip activitate
+
+### Tipuri și prețuri 2026
+| Tip permis | Preț | Pentru cine |
+|---|---|---|
+| Acces 1 zi | **3 RON** | Turist (NU pescar) |
+| Acces 7 zile | **7 RON** | Turist |
+| Acces 1 an | **30 RON** | Turist regulat |
+| Pescuit recreativ 1 an | **0 RON** (gratis!) | Pescar cu permis ANPA |
+| Pescuit familial | special | Localnici care vând pește |
+
+### Cum îl obții
+- **Online**: [rbdd.ro](https://www.rbdd.ro) sau aplicația ARBDD Delta
+- Alternativ: la centrele turistice din **Tulcea, Mahmudia, Murighiol, Crișan, Sulina, Sf. Gheorghe**
+- Plata: card sau cash la centre
+- Document fizic: bilet/voucher cu QR code
+
+## Regulile critice ARBDD
+
+**Camparea în Deltă**:
+- ❌ **INTERZIS** pe mal — amendă **5000 RON** (1500 RON dacă plătești în 15 zile)
+- ✅ **LEGAL** în barcă cu cort (cort-barcă tip Husky Bizam 2 Plus ~580 RON)
+- ✅ Plaje permise: doar cele marcate (Sulina, Sf. Gheorghe punctual)
+
+**Zone refacere biologică** — **PESCUIT INTERZIS** indiferent de permise:
+- Lebăda → canal Cu Răducu și canal Gurguiu → Mila 8 (Brațul Sulina)
+- Anumite canale interioare marcate cu placi roșii
+- Verifică harta ARBDD înainte de fiecare partidă
+
+**Frontieră Ucraina** — zonă specială:
+- Permis suplimentar pentru navigare la <1 km de frontieră
+- Bruiaj GSM frecvent (drone se pierd)
+- Atenție la patrulele FRO și navale ucrainene
+
+## Amenzi 2026 — ce te poate costa
+
+| Faptă | Amendă |
+|---|---|
+| Pescuit fără permis ANPA | 200-1000 RON |
+| Pescuit fără permis ARBDD | 500-2000 RON |
+| Pescuit în prohibiție | **2000-4000 RON** + suspendare permis + confiscare |
+| Camparea pe mal Deltă | 5000 RON (1500 dacă plătești în 15 zile) |
+| Depășire număr lansete (5+) | 200-500 RON |
+| Reținere pește sub măsură | 100-500 RON / exemplar |
+| Vintirele lăsate fără permis | 5000+ RON (intră penal pe braconaj) |
+
+## Verifică-te înainte de plecare
+
+Checklist 5 puncte:
+1. ☐ Permis ANPA valid în portofel + scan pe telefon
+2. ☐ Voucher ARBDD cu QR pe telefon SAU printat
+3. ☐ Permis special frontieră (dacă vei merge la <1 km de Ucraina/Bulgaria)
+4. ☐ Lista mărimi legale pe telefon (sau memorie: 40/45/50/60 cm)
+5. ☐ Sac/pungă gunoi (etică — "cu malurile Dunării curate")
+
+## Surse oficiale
+
+- **ANPA**: [anpa.ro](https://anpa.ro) — Ordinul de prohibiție anual publicat în martie
+- **ARBDD**: [rbdd.ro](https://www.rbdd.ro) — hartă zone, permise, regulament
+
+Verifică ORDINUL ANUAL înainte de fiecare sezon — datele pot varia cu 1-3 zile.
+`,
+  },
+  {
+    slug: "pachet-bagaje-delta-checklist",
+    titlu: "Pachet bagaje pentru Deltă — 3 checkliste (1 zi / weekend / 7 zile)",
+    scurt: "De la lansete la role de hârtie igienică. Trei configurații testate de pescari profesioniști.",
+    tags: ["incepator", "logistica", "delta"],
+    body: `## De ce contează lista
+
+În Deltă **NU EXISTĂ magazin** pe brațul Chilia sau Sulina. Dacă ai uitat agrafa rapidă, conducători stoarse, ulei pentru aragaz — pierzi ziua. Lista de mai jos e construită din 4 partide documentate (Marian Mincu, Baltacul, DPD, GFT).
+
+## Bază: ce ai mereu, indiferent de durată
+
+### Pescuit
+- 2-4 lansete + mulinete (montate înainte de plecare!)
+- Cutie monturi de rezervă (10+ gata făcute acasă)
+- Plumbi 3 mărimi (100g, 150g, 200g)
+- Boilies/momeli — 1.5× ce crezi că ai nevoie
+- Cârlige rezervă (ascunse într-un buzunar separat)
+- Foarfecă + clește cu vârf (pentru triplu fără barbetă, scoatere ancore)
+- Cântar 0.1 kg precizie + ruletă moale 2 m (regulamentar)
+- Saltea hidratantă pt fotografii eliberare
+
+### Documente
+- Permis ANPA + ARBDD (telefon + printat)
+- CI
+- Asigurare medicală (ne-EU dacă mergi pe frontieră Ucraina)
+
+### Siguranță minimă
+- Vestă de salvare (1 per persoană, OBLIGATORIE pe barcă)
+- Trusă primul ajutor (alcool, plasturi, fașe, antialgic, antihistaminic)
+- Lanternă frontală + 1 lanternă tactică (Armytek Wizard C2 Pro Max + Viking Pro recomandate)
+- Telefon + power bank 20.000+ mAh
+
+### Comunicare
+- Telefon cu hartă offline descărcată (zona ta — semnal slab pe Sulina/Chilia)
+- Numere de urgență scrise pe hârtie (NU doar în telefon)
+
+---
+
+## CHECKLIST 1: O ZI (de pe mal sau cu mașina la Tulcea)
+
+**Plus față de baza de mai sus**:
+- Apă potabilă 3 L
+- Sandvișuri / fructe + termos cafea/ceai
+- Spray anti-țânțari Szuku sau Ballistol
+- Scaun pliant
+- Sac gunoi (pentru gunoiul tău + ce găsești pe mal — etică)
+
+**Buget total bagaj**: 1 rucsac 30L + husă lansete
+
+---
+
+## CHECKLIST 2: WEEKEND (2-3 zile cu cabinata sau cortul în barcă)
+
+### Pescuit suplimentar
+- Mincioc cu coadă LUNGĂ (3.6 m+) cu cap rotund
+- Sondaj cu sonar portabil (Deeper, Garmin Striker)
+- Marker float + greutate sondare
+- 2-3 monturi suplimentare gata făcute pentru fiecare specie
+
+### Cort barcă / dormit
+- **Cort-barcă Husky Bizam 2 Plus** (~580 RON, 2 ieșiri prova+pupa) sau echivalent
+- Saltea Pinguin Nomad 75 mm autogonflabilă
+- Sac dormit 3 sezoane (sau Carp Spirit Magnum XL pe iarnă)
+- Pernă (Carp Spirit Half Moon)
+- Plasă țânțari închisă etanș
+
+### Mâncare 2 zile
+- Aragaz portabil **Tracker Armolif CG3 SOV** (~300 RON) + butelii Coleman C500 (40 RON/buc) — minim 2 butelii
+- Ceaun mic + tigaie mică + tocător + cuțit
+- Apă potabilă 5 L per persoană + 2 L rezervă
+- Mămăligă pre-făcută + porumb fiert + ulei + sare/piper
+- Conserve (somon, ton, fasole) pentru urgență
+- Cafea instant + zahăr + lapte praf
+- Ulei + făină + ardei kapia + usturoi (pentru saramură / ciorbă)
+
+### Confort
+- Prosop microfibră (se usucă rapid)
+- Schimb haine (1 set + lenjerie + șosete extra)
+- Cizme cauciuc 40 cm (sau Rapala cu pâslă pentru ape mai adânci)
+- Pelerină ploaie subțire
+- Costum/șapcă caldă (chiar vara, dimineața)
+
+### Frigider
+- **Lada Coleman Marine Extreme 50-66L** sau Anker Solix EverFrost 2 (electric)
+- 4 bidoane 2-5L congelate (NU cuburi de gheață — se topesc prea repede)
+- Regula: scurgi apa de 3-4 ori/zi
+
+**Buget total bagaj**: 1 rucsac mare 70L + husă lansete + ladă frigorifică + sac dormit
+
+---
+
+## CHECKLIST 3: 7 ZILE (cu cortul în barcă — gen 6 zile Vișoianu)
+
+### Pescuit + monturi
+- 4-6 lansete (specii diferite — somn + crap + spinning)
+- 25+ monturi pre-făcute (10 per specie principală)
+- Boilies/nadă pentru 7 zile × 3-5 kg/zi (vezi calcul Vișoianu: 30+ kg total)
+- Praștie cu rezervor + paletă nădire
+- Filtru sităre nada (Anelin: "sita pe nadă, deși durează puțin")
+- Recipiente nadă cu colant (umectare în 2 etape)
+
+### Bărci & sondaj
+- Barcă pneumatică (1.8 m / Honda 6 CP) PENTRU SONDAJ + nădire — separat de cabinata mare
+- Ancoră grea (10-20 kg) + funie 15+ m peste adâncime
+- Motor electric cu GPS-anchor lock (pentru repoziționare)
+- Sonar performant + sondă live (Garmin Livescope dacă investiție serioasă)
+- Senzori pe lansete (Delfin Roller Shock + stație radio)
+
+### Energie
+- Panou solar 100W monocristalin (~320 RON)
+- Controler încărcare 14.3V + baterie 70-100 Ah
+- Frigider 12V Anker Solix EverFrost 2 (~5500 RON)
+- Lampe LED solare exterioare
+- Power bank 20.000+ mAh per persoană
+
+### Dormit / Cort
+- Pat Carp Spirit Magnum Airline Bed XL (cu saltea autogonflabilă)
+- Sac Carp Spirit Magnum 5 sezoane XL
+- Cort dormit Trakker Tempest RS (25.000 hidrostatic)
+- Webasto 2 racorduri (sub 0°C) — Vevor sau echivalent
+
+### Bucătărie 7 zile
+- Tot din lista WEEKEND + Geantă-bucătărie Carp Spirit Hydrobag (organizator vesela)
+- Dutch oven Big Barbecue (~250 RON) pentru pui la jar / pastramă
+- 10 L apă potabilă rezervă (PET 2 L stocate la umbră)
+- Provizii uscate: orez, paste, salam, brânză vacuum
+- Vinete murate, oțet, mujdei pre-făcut
+- Aluat pre-făcut pentru lipii / azimă
+
+### Igienă
+- Săpun bio (Delta = mediu protejat — NU detergent normal)
+- Hârtie igienică
+- Lopată mică (cu acid acoperit + îngropat la 30 cm departe de apă)
+- 2 prosoape (unul vesel, unul pt înot)
+- Bidon 5L pentru spălat
+- Sac mare gunoi (DUS cu tine la întoarcere)
+
+### Comunicare 7 zile
+- Starlink (dacă ai buget — recomandat de Vișoianu pe zonele cu bruiaj)
+- Stație radio walkie-talkie pentru comunicare cu cabinata
+- Telefon secundar dacă tau cazi în apă (1 zi)
+
+**Buget total bagaj**: 2-3 huse mari + ladă frigorifică XL + cort + panou solar + barcă pneumatică
+
+---
+
+## Lecții din eșecuri reale
+
+Din partide documentate:
+
+- **Nu ai mincioc adecvat** → pierdere garantată la pește 8+ kg (Baltacul, 1 ținta partidă)
+- **Te bazezi pe semnal GSM** → bruiaj la frontieră, drona pierdută (PCS, 1 ținta partidă)
+- **Cubul de gheață** = topit în 8 ore. **Bidoane congelate 2L** = țin 3 zile
+- **Aragaz fără rezervă butelie** = mănânci sandvișuri 4 zile (DPD)
+- **Permis uitat acasă** = amenzi 200-1000 RON + ziua pierdută
+- **Saltea hidratantă uitată** = peștii de 10+ kg eliberați mor (etică = ZERO)
+
+> "Cu cât sunteți mai chinuiți, cu atât prindeți mai mult pește."
+> — Mihai Manea, GDA Fishing
+
+Dar nu trebuie să fii chinuit din cauza unui detaliu evitabil. Lista de mai sus = cum eviti chinul nejustificat.
+`,
+  },
+  {
+    slug: "strategie-7-zile-nadire-descendenta",
+    titlu: "Strategie multi-zi în Deltă — 7-10 zile cu nădire descendentă",
+    scurt: "Filozofia Vișoianu detaliată. Cum scalezi nada de la 13 kg/zi inițial la 20 boilies/lansetă final. Tablă timp.",
+    tags: ["crap", "expert", "strategie", "delta"],
+    body: `## De ce partidă LUNGĂ pentru crap capital
+
+Crapul devine **dependent de mixul tău în 4-5 zile**. Înainte, e curios; după, e pe pat. Partidele scurte (1-3 zile) **nu testează valid** un loc — peștele tocmai descoperă nada când tu pleci.
+
+> "Niciodată partidă scurtă. Minim 7-10 zile."
+> — Călin Vișoianu (record personal 22 kg pe Dunărea Veche)
+
+## Tablou de timp — 7 zile model Vișoianu
+
+### Ziua 1-3: NĂDIRE MASIVĂ (impact)
+
+**Obiectiv**: să TREZEȘTI peștii din zonă, să-i atragi de pe alte canale.
+
+- **10-13 kg boilies/seară**, aruncate cu scafa în arcuri de cerc
+- Bandă de nadă: **50 m × 150-200 m**
+- Plecare cu **barca pneumatică din 100 m amonte** de zonă, lași curentul să distribuie
+- Nădire **DOAR seara** (16:00-20:00). NU dimineața, NU prânz — albitura mănâncă tot
+- Boilies amestec: **70% solubile + 30% tari** (Sticky Krill fishmeal — recomandat Vișoianu)
+
+**Așteptări capturi**: 0-2 pești 3-5 kg. Pești "curioși" care testează. NU te demoralizeazi — sunt zilele de investiție.
+
+### Ziua 4-6: NĂDIRE MEDIE (consolidare)
+
+**Obiectiv**: să FACI peștii dependenți — vin la zona ta în loc de altele.
+
+- Scădere la **5-7 kg/seară**
+- Aceeași distribuție (50 m × 150-200 m)
+- Tot **doar seara**
+
+**Așteptări capturi**: 2-5 pești 5-8 kg / zi. Pești "obișnuiți" cu mixul, înghite complet.
+
+### Ziua 7 (și 8-10 dacă rămâi): NĂDIRE MINIMĂ (capital)
+
+**Obiectiv**: să PESCUIEȘTI capital — peștii mari ies la masă.
+
+- DOAR **20 boilies/lansetă** la plantare
+- ZERO nădire masivă suplimentară
+- Cele mai mari capturi vin acum: 10-15+ kg
+
+**Așteptări capturi**: 1-3 pești 10+ kg / zi. Pescuit "fin" la dependență instalată.
+
+---
+
+## Cantități totale 7 zile
+
+| Tip nadă | Cantitate | Cost orientativ |
+|---|---|---|
+| Boilies fishmeal Sticky Krill 20mm | **25-30 kg** | 1500-2000 RON |
+| Boilies tari rezistă 12h+ | 5-7 kg | 350-500 RON |
+| Boilies pentru hookbait final | 1 kg | 70-100 RON |
+| **TOTAL** | **~35 kg** | **~2000-2500 RON** |
+
+Plus accesorii (forfac, cârlige, plumbi, fluor) ~200-400 RON.
+
+**Cost mediu /zi pentru o partidă serioasă de 7 zile**: 350-450 RON (fără cazare/transport).
+
+---
+
+## Reguli de aur Vișoianu
+
+### 1. NICIODATĂ boilies cu aromă mare (gen Decathlon)
+- Bune pentru weekend rapid, NU pentru partide lungi
+- Nu creează dependență — peștele se obișnuiește în 2 zile și nu mai vine
+
+### 2. DOAR fishmeal pentru partide lungi
+- **Sticky Baits — Sticky Krill** (recomandare directă): krill + arahide
+- Creează dependență în 4-5 zile
+
+### 3. NICIODATĂ solubile pe Dunăre
+- Caras + plătică distrug în minute
+- Folosește solubile DOAR ca atragere inițială (ziua 1)
+
+### 4. **DOAR seara nădești**
+- Ziua = albitura mănâncă, hrănești grădinița
+- Seara la îngânarea zilei cu noaptea = albitura se oprește
+- Peștii mari vin noaptea
+
+### 5. Ferestre de hrănire au ore EXACTE
+- Tradițional: 17:00 start, 23:00-04:00 principal, 09:00-10:00 secundar
+- 2019 atipic: doar 17-19 + 04:00
+- Pescarii care vin pentru 24 ore PLEACĂ exact când începe activitatea
+
+---
+
+## Logistic — cum susții 7 zile
+
+### Bărci (setup minim)
+- **Cabinata** ancorată cu prova în curent, perpendicular
+- **Barcă pneumatică 1.8 m + motor 2.8-6 CP** pentru sondat / nădit / scos peștele
+- Funie ancoră 15+ m peste adâncime + 20 kg greutate
+
+### Energie 7 zile
+- Generator pornit doar 3-4 zile pentru baterii (LED-uri energetic eficiente)
+- Frigider Anker Solix EverFrost 2 + panou solar 100W = autonomie completă
+- Aeroterma 220V pentru cabin (când răcește seara)
+
+### Suport mal handmade
+Vișoianu: suport handmade din inox cu tuburi Cabela's + senzori + stație radio. Esențial pentru dormit în barcă pe noapte cu activitate.
+
+### Hrană
+- 7 zile mâncare = NU pleci înfometat. Plan separat pentru fiecare zi.
+- Vezi articolul *"Mâncare pe baltă — rețete și echipament"*
+
+---
+
+## Tabel "așteptări" partida 7 zile pe Dunărea Veche
+
+| Zi | Nadire | Capturi tipice | Marime medie |
+|---|---|---|---|
+| 1 | 10-13 kg | 0-2 | 2-3 kg |
+| 2 | 10-13 kg | 1-2 | 3-4 kg |
+| 3 | 10-13 kg | 2-3 | 4-5 kg |
+| 4 | 5-7 kg | 3-4 | 5-7 kg |
+| 5 | 5-7 kg | 3-5 | 5-8 kg |
+| 6 | 5-7 kg | 3-5 | 5-8 kg |
+| 7 | Minimă | 2-3 | **8-15+ kg** |
+
+**Total așteptat 7 zile**: ~20 pești, din care 5-7 capital (8+ kg), record posibil 15-22 kg.
+
+---
+
+## Adaptări sezoniere
+
+- **Iulie-august** (caniculă): pescuit DOAR seara/noaptea, dimineața maxim ora 9
+- **Septembrie-octombrie**: ferestre mai largi de hrănire, posibil 4 capturi mari în 24h
+- **Noiembrie** (post-mâncare grasă pre-iernat): pești mari activi, dar trăsături "anemice" — cârlig mic + fluorocarbon
+- **Iunie post-prohibiție**: pești încă apatici (după depunere), nădire MAI MASIVĂ în zilele 1-3 (15+ kg)
+
+## NU-uri categorice
+
+- ❌ NU pleci la 4 dimineața când peștele tocmai începe — stai cu cortul în barcă
+- ❌ NU schimbi locul după prima zi fără pește — investiția în nadă cere RĂBDARE
+- ❌ NU dai partide scurte cu boilies premium gen Sticky — irosești 2000 RON pe 2 zile
+- ❌ NU ești singur dacă e prima ta partidă lungă — în 2 sunt mai sigure ferestrele și mâncarea
+
+> "Locurile bune NU au loc de cort — doar stuf, butur, sălcie. Locurile DRESATE sunt cele mai PROASTE."
+> — Vișoianu (de aia barca = mereu obligatorie)
+`,
+  },
+  {
+    slug: "protectie-tantari-serpi-delta",
+    titlu: "Țânțari, șerpi și insecte în Deltă — protecție testată",
+    scurt: "Ce funcționează REAL. Spray-uri concrete, perioade critice, ce să faci la mușcătură.",
+    tags: ["incepator", "delta", "siguranta"],
+    body: `## Țânțarii — inamicul principal al Deltei
+
+Țânțarii Deltei sunt LEGENDARI. Pescarii GFT au filme cu nori vizibili de țânțari pe brațul Chilia. Ionel (PCS) descrie pescuitul vară: *"Pescuit la crap sălbatic? Pescuit la țânțari sălbatici!"*
+
+### Perioada critică
+- **21:00 - 22:30** — fereastra de atac maxim
+- Înainte de 21:00 vântul mai oprește puiul; după 22:30 se așază
+- Vara (iunie-august): TOT TIMPUL, doar vârf seara
+- Iarna (nov-feb): aproape absenți
+
+### Ce funcționează REAL
+
+Testat în 30+ partide documentate, în ordinea eficienței:
+
+| Produs | Cum funcționează | Durată | Verdict |
+|---|---|---|---|
+| **Szuku** (Total Fishing, ungar) | Repelent natural cu uleiuri esențiale | 40-45 min | TOP 1 — confirmat de DPD + GFT |
+| **Ballistol** spray (cod DPDF5 -5%) | Multifuncțional, miros puternic | 30-40 min | TOP 2 — funcționează dar miroase |
+| **Autan Multi-Insect** | Cu icaridină | 2-3 ore | Bun pentru zile întregi |
+| **Jungle Extra Strong** | DEET 40% (substanță chimică) | 4-6 ore | Excelent dar agresiv pe piele |
+| **Spirale anti-țânțari** | Fum continuu sub cort | 2-3h per spirală | Bun ca SUPLIMENT, nu singur |
+
+### Ce NU funcționează
+- **Balsamuri cu citronella** — slabe vs țânțarii Delta
+- **Brățări ultrasonic** — TZIPĂ inutil, nu țin țânțarii departe
+- **Bere rece + plasă cort** — Lecția PCS: *"Cea mai bună protecție: stai în cort între 21:00-22:00"*
+
+### Tactică completă
+1. **Spray Szuku** la apus (19:30-20:00) — durată 40 min
+2. **Re-aplicare la 20:30** dacă mai stai afară
+3. **21:00 INTRI ÎN CORT** (cu plasă închisă etanș)
+4. Spirală sub cort la intrare (afumare 30 min)
+5. Lanternă cu filtru ROȘU (lumina galbenă atrage țânțarii)
+
+### Mușcătură — ce să faci
+- Spălare imediată cu apă + săpun
+- Anti-histaminic local (Fenistil gel) sau oral (Aerius)
+- NU scârpi — provoacă inflamație + risc infecție
+- Dacă reacția severă (umflătură peste 5 cm, febră): du-te la urgență Tulcea
+
+## Șerpii — frica exagerată, riscul real
+
+### Specii din Deltă
+- **Vipera (Vipera ammodytes)** — SINGURA periculoasă, dar RARĂ în Deltă (mai mult în munți)
+- **Năpârca de apă (Natrix tessellata)** — masiv în Deltă, NEVENINOSĂ
+- **Năpârca obișnuită (Natrix natrix)** — pe maluri uscate, NEVENINOSĂ
+
+### Locuri de risc
+- **Lacul Babadag**: Ionel (MarelePescar) — *"Am fost la limita atacului de panică. Locație plină de șerpi."* (NEVENINOȘI dar mulți)
+- **Maluri stâncoase + ierboase** — risc moderat
+- **Apa în sine** — najarcele înoată, dar fug de tine
+
+### Protecție
+- **Cizme cauciuc 40 cm+** — bate șapca dorsală a viperei (rar atinge sus)
+- **Bocanci la mers prin iarbă** (NU papuci!)
+- **Bastoane sau lansetă lungă** la mers prin vegetație înaltă — vibrează, șerpii pleacă
+- Lanternă noaptea (șerpii nocturni mai puțin)
+- NU pune mâinile sub pietre, scoarțe — verifică cu băț
+
+### Mușcătură de viperă (extrem rar în Deltă)
+**Simptome**: umflătură rapidă, durere violentă, posibil greață
+**Ce să faci**:
+1. **NU SUGE** sânge (mit periculos)
+2. NU strânge garou
+3. **Imobilizează membrul** mai jos decât inima
+4. APEL **112** — SMURD scoate pe elicopter din Deltă în 30-60 min
+5. Du-te la spital Tulcea sau Constanța (au antivenin)
+
+## Alte insecte și animale
+
+### Căpușele (Lyme + Encefalită)
+- **Risc**: vară pe maluri ierboase
+- **Protecție**: pantaloni lungi în șosete, repelent cu permetrin pe haine
+- **După partidă**: verifică genital, axilă, cap (locurile preferate)
+- **Scoatere**: cu **pensetă** prinzi cap-corp, scoți DREPT (nu rotești)
+- **Du la analize** dacă-i salvezi (test Borrelia)
+
+### Albine + viespi
+- Atrac mierea + dulcele (din nadă)
+- Vara în jurul mâncării
+- **Mușcătură**: scoate ac, gheață, Fenistil
+- **Alergic**: EpiPen + 112
+
+### Coropișnița (Gryllotalpa)
+- NU mușcă oamenii (deși arată terifiant)
+- IA pe cârlig — momelă-bombă pentru biban + somn (vezi articol clonc)
+- Cumpără din piața Tulcea (nu poți săpa singur eficient)
+
+### Lipitorile de apă
+- **NU sug sânge oamenilor** (în Europa) — sunt comestibile (carcalete)
+- Doar de la vie (cele de la Nea Dan Cernavodă) = momeală premium pentru somn
+- Dacă se prinde de tine accidental — sare grunjoasă, se desprinde
+
+## Capcane sezoniere
+
+### Vară (iunie-august)
+- Țânțari MAX
+- Mătase broaștei (algele) la 22°C+ apă — explodează, blochează firele
+- Caniculă 40°C+ — risc deshidratare + insolatie
+
+### Toamnă (sept-noi)
+- Țânțari mai puțini după 15 oct
+- **Furnicari volanți** — invadează tabăra brusc (3-5 ore, apoi pleacă)
+- **Pufu plopilor** (iunie devreme): face firele inutile
+
+### Iarnă (dec-feb)
+- Țânțari absenți
+- **Hipotermie** — risc real pentru pescuit nocturn
+- Gheața pe inele — nu pescuiești sub -5°C dimineața
+
+## Concluzia practică
+
+**3 lucruri esențiale** pentru orice partidă în Deltă:
+1. **2 spray-uri** repelent (Szuku în buzunar + Autan în rucsac ca rezervă)
+2. **Plasă cort etanșă** — verifică ÎNAINTE de plecare orice gaură
+3. **Cizme + lanternă** — pentru orice deplasare pe mal noaptea
+
+Costul total protecție: ~150-200 RON. Cea mai bună investiție în comfort.
+`,
+  },
+  {
+    slug: "mancarea-pe-balta-retete-echipament",
+    titlu: "Mâncarea pe baltă în Deltă — rețete + echipament",
+    scurt: "Saramură de pește, ciorba clasică, mămăligă cu mujdei. Plus ce găteti efectiv (aragaz, ceaun, dutch oven).",
+    tags: ["delta", "incepator"],
+    body: `## De ce contează mâncarea
+
+În partide de 3-7 zile, nu te poți baza pe sandvișuri. **Pescuit pe stomacul gol = decizii proaste**. Plus că tradițiile delta (saramură, ciorbă) sunt parte din experiență.
+
+> "Cine prinde primul dă berea — dar somotelul nu se pune."
+> — Anelin Enache + Marian Mincu (regulă tată-fiu)
+
+## Echipamentul minim pentru mâncare pe baltă
+
+### Aragaz portabil
+**Recomandat**: **Tracker Armolif CG3 SOV** — ~300 RON
+- 1 ochi, presiune înaltă
+- Butelii **Coleman C500** (~40 RON/buc) — cumpără MIN 3
+- O butelie ține ~2-3 ore de gătit
+- Sigur — anti-vânt, oprire automată
+
+**Alternativă premium**: aragaz cu 2 ochi (Trakker, Fox) — pentru gătit complex multi-zi.
+
+### Ceaun + utensile
+- **Ceaun mic 3-5 L** + capac
+- Tigaie 28 cm cu mâner detașabil
+- Tocător + cuțit ascuțit
+- Strecurătoare mică
+- Pungă lemn (pentru ridicare ceaun de pe foc)
+- Lingură mare + spumieră
+
+### Tradițional pentru zile de gală
+**Dutch oven Big Barbecue** (~250 RON):
+- Cuptor olandez din fontă, cu jar deasupra + dedesubt
+- **Pui întreg 1 kg la jar** = 1h30 min, gust EXCEPȚIONAL
+- Pâine în bilă, fasole cu cârnați, mămăligă uriașă
+
+### Vesela
+- 2 boluri stackate + 2 farfurii adânci
+- 4 pahare (poliester reziduri)
+- Tacâmuri inox (NU plastic — se rup)
+- Rolă hârtie + șervete umede
+
+### Frigider
+- **Coleman Marine Extreme 50-66L** — clasic, manual, ține 4 zile cu bidoane congelate
+- **Anker Solix EverFrost 2 58L** (~5500 RON) — electric, autonomy infinit cu panou solar 100W
+- Regula: scurge apa de 3-4 ori/zi
+- NU cuburi de gheață — bidoane 2-5 L CONGELATE acasă
+
+---
+
+## REȚETE — Tradiționale Delta
+
+### 1. SARAMURĂ de pește (regina partidei)
+
+**Ingrediente** (pentru 4 persoane):
+- 4 fileuri pește gros (crap mediu 1.5 kg sau șalău, somn — ideal sub 1 kg pentru să nu fie gras)
+- 4 ardei kapia roșii copți
+- 6-8 căței usturoi
+- Sare grunjoasă cu pulbere
+- 1 mămăligă proaspătă (vezi rețeta mai jos)
+
+**Cum se face**:
+1. **Sărarea peștelui**: presară sare grunjoasă bună peste fileuri pe ambele părți, lași 30 min într-o pungă
+2. **Coacerea ardeiului kapia**: deasupra focului direct, până se rumenește total (negru pe alocuri) — apoi îl jupoi de coajă
+3. **Mujdeiul** (regula CHEIE): usturoi pisat în mojar (NU presă), **sare la început**, **ulei câte puțin amestecat ÎNTR-O SINGURĂ direcție**, **oțet DOAR LA SFÂRȘIT** (altfel "se taie")
+4. **Peștele**: tigaie cu puțin ulei, prăjește peștele 3-4 min pe parte (NU expirat — vrei carnea moale)
+5. **Asamblare**: pune peștele cald într-un bol mare, ardei kapia rupți peste, mujdei TURNAT generos, mămăligă alături
+6. **Servire**: cu o pală mămăligă, o bucată pește, mai mult mujdei — direct cu mâna
+
+**Notă**: peștii cu carne MOALE (crap, plătică) > pești carne tare (somn) pentru saramură.
+
+### 2. CIORBA tradițională (cu pește mixt)
+
+**Ingrediente**:
+- Cap somn + bucăți crap + 2 plătici (sau ce ai prins)
+- 2 morcovi, 1 țelină, 1 ardei gras, 1 ceapă, 2 roșii
+- Borș sau zeamă de varză (sau oțet la final)
+- Ardei iute + mărar / leuștean (regional)
+- Sare, piper, foi dafin
+
+**Tradiție DPD vs Moldova**:
+- DPD: ciorbă cu zarzavat MULT, fără mărar (Marian: *"cu zarzavat moldovenește, fără mărar"*)
+- Moldova: cu mărar mult
+- Regional dobrogeano: fără ardei iute, cu hrean
+
+**Pași**:
+1. Pune zarzavatul tăiat în apă cu sare, fierbe 20 min
+2. Adaugă peștele 10-15 min (NU mai mult — se fărâmă)
+3. Borșul (sau oțetul) doar **ultimul minut**
+4. Servire: cu ardei iute aparte, mămăligă, mujdei
+
+> "Nu uită nimeni să bagi borșul ÎN URMĂ — taie sosul când îl pui prea devreme."
+
+### 3. MĂMĂLIGA (rețeta 3-2-1 universală)
+
+**Pentru saramură / ciorbă**:
+- 3 părți apă + 2 părți mălai + 1 parte sare
+- Sau: 600 ml apă + 400 g mălai + 1 linguriță sare
+
+**Cum**:
+1. Apă cu sare la foc, când fierbe pune mălaiul ÎNCETIȘOR, amestecă cu lingura
+2. Foc mic, amestecă 15-20 min (NU se prinde — cere ATENȚIE)
+3. Când se desprinde de ceaun = gata
+4. Răstoarne pe tocător, taie cu sfoară (NU cuțit — se lipește)
+
+**Pentru hookbait (mămăligă LIPICIOASĂ)**:
+- Tradiția canalului Cernavodă: 10 kg porumb + 1 kg zahăr + apă de robinet
+- Fierbi 1-1.5h până crapă boaba
+- Macerare 1 noapte
+- *"Eu lai făină zahăr și atât — fără esențe."* (Tata PCS)
+
+### 4. PRĂJEALĂ rapidă (pentru moace mici / strapazani)
+
+**Pentru** moace, plătică, caraș, ciortănaș:
+1. Pește curat (eviscerat, fără solzi) cu sare grunjoasă
+2. Făină + sare + piper într-o pungă, scuturi peștele acolo
+3. Tigaie cu ulei FIERBINTE (nu călduț)
+4. **2-3 min pe parte** (NU mai mult — devine cauciuc)
+5. Servire imediată cu mămăligă + mujdei
+
+**Notă regulară**: caraș + plătică = excelent. Crap mare nu se prăjește (gras, mai bun la cuptor/proțap).
+
+### 5. SUPA DE PEȘTE (varianta gourmet)
+
+Variantă pe Brațul Chilia — combinația ciortani + somotel = vârf:
+- Ciortani 2-3 kg + 1 cap somn + 1 caras + ardei kapia
+- Strecurată după fierbere = supă clară
+- Servită cu pițorache (chiftele de pește pe deasupra)
+- *"Ciorba cu zarzavat MULT, fără mărar moldovenește"* (Anelin)
+
+---
+
+## Carnea cum o conservi pentru ACASĂ
+
+Dacă reții 1 pește mare (sub limita legală de 5 kg/zi):
+
+### Sărarea (cea mai simplă)
+1. Curăță, dezosă fileuri
+2. Strat de sare grunjoasă DENS pe ambele părți
+3. Frigider 24 h, scoți seara: sare în exces + suc
+4. Stoarce cu prosop, reduci sare cu lichid scuturat
+5. Frigider 5-7 zile sau congelator 6 luni
+
+### Afumarea (gust legendar)
+1. Sare 24 h → spăl → 2 h aerat (pe sârmă, sub plasă)
+2. Afumător cu rumeguș de fag/cireșe (NU rășinoase!)
+3. 80-90°C, 2-3 ore — fileul devine maro auriu
+
+### Pastrama (vară)
+- Specială pentru plătică (cârjancă)
+- Sărată generos + condimente (boia, cimbru, usturoi)
+- Uscată la umbră 2-3 zile
+- Țineri la 12-15°C până 2 săptămâni
+
+---
+
+## Planificare 7 zile — provizii
+
+| Zi | Mic dejun | Prânz | Cina |
+|---|---|---|---|
+| 1 | Sandvișuri | Conserve + pâine | Saramură (dacă prinzi) sau pasta |
+| 2 | Omleta cu pâine | Caș cu mămăligă | Ciorba (din pește prins ziua) |
+| 3 | Ouă fierte | Salam + bristol | Prăjeală + mămăligă |
+| 4 | Mămăligă cu lapte | Sandvișuri | Saramură 2.0 (dacă prinzi capital) |
+| 5 | Cafea + biscuiti | Conserve | Dutch oven (pui cu cartofi) |
+| 6 | Omleta | Caș + roșii | Ciorba |
+| 7 | Lapte cu pâine | Sandvișuri | Saramură finală (sau pleci acasă) |
+
+**Cantități cumpărate INAINTE** (pentru 2 persoane, 7 zile):
+- 6 pâini negre integrale
+- 1 kg salam uscat
+- 500 g caș sărat
+- 12 conserve (ton, fasole, somon, ciorbă concentrată)
+- 2 kg mălai
+- 2 kg sare grunjoasă
+- 5 kg cartofi
+- 1 kg ceapă, 1 kg morcov, 1 kg ardei, 4 căpățâni usturoi
+- 5 L ulei
+- Cafea + zahăr + lapte praf + biscuiți
+
+**Bani estimați**: 500-800 RON pentru provizii 2 pers / 7 zile.
+
+---
+
+## Cum NU faci
+
+- ❌ NU plici cu mâncarea în mașină la 35°C — toate se strică
+- ❌ NU congelezi DUPĂ ce ai cumpărat — congelezi acasă bidoane apă 2L
+- ❌ NU lași gunoiul pe mal — duci ABSOLUT TOT cu tine (regula Deltei)
+- ❌ NU faci foc direct pe iarbă uscată — pericol incendiu (vara obligatoriu strat metal sub)
+- ❌ NU mănânci moarte găsite în juvelnic — peștii care mor vara sunt deja descompuși
+`,
+  },
+  {
+    slug: "vreme-extrema-furtuna-cod-rosu",
+    titlu: "Vreme extremă în Deltă — protocol RoAlert și retragere sigură",
+    scurt: "Cod roșu = pleacă acasă. Cod portocaliu = retragi monturile. Plus cum citești vântul și ploaia înainte să vină.",
+    tags: ["delta", "siguranta", "incepator"],
+    body: `## De ce contează
+
+Delta poate trece de la *senin* la **vijelie 90 km/h** în 30 minute. Pe lacurile mari (Roșu, Matița, Babadag), valurile devin ca pe Marea Neagră. Bărci nepregătite = răsturnate. Confirmat în partide reale:
+
+> "Tabără inundată la 12:00 noaptea — saltele plutind. Motor cedat la întoarcere, salvat de Ilarie lipovean cu 250 RON."
+> — Lecția Bucla 4, 1 aprilie 2014 (DPD)
+
+> "5 zile cu cortul pe Sfântu Gheorghe + capturi somn — apoi furtună cod roșu, am strâns tot în 30 min."
+> — Baltacul Sf. Gheorghe 2024
+
+## Cod RoAlert — ce înseamnă fiecare
+
+### COD GALBEN — atenție
+- Posibilitate fenomen meteo intens
+- **Acțiune**: monitor permanent (telefon cu app RoAlert pornit)
+- **Pescuit**: continui dar atent la cer
+- **Plecare**: posibilă în 1-2 ore dacă escaladează
+
+### COD PORTOCALIU — fenomen iminent
+- Vânt 60-80 km/h, ploaie, grindină POSIBILE
+- **Acțiune**: **RETRAGI MONTURILE** ÎN 30 MIN
+- **Pescuit**: STOP. Strângi în barcă/mașină ce poți
+- **Plecare**: în 1-2 ore dacă ești în Delta, ÎN BARCA până la pensiune
+
+### COD ROȘU — pericol IMEDIAT
+- Vânt 80-100+ km/h, copaci căzuți, inundații
+- **Acțiune**: **PĂRĂSEȘTI APA IMEDIAT**
+- **Pescuit**: STOP TOTAL. Lasă monturi dacă nu reușești
+- **Plecare**: în BARCA cabinata stai ancorat cu funia lungă. Pe MAL pleci spre construcție solidă cea mai apropiată
+
+## Cum identifici furtuna ÎNAINTE de RoAlert
+
+### Semnale vizuale (cer)
+- **Nori cumulonimbus** (turn cu vârf în formă de nicovală) — furtună în 1-2 ore
+- **Cer galben/verzui** — grindină iminentă
+- **Front rapid** (linia de nori care se apropie ca un perete) — vine vijelie
+
+### Semnale auzite
+- Tunet DEPARTE = furtuna se apropie
+- Tunet pierde sec = furtuna se duce
+- Calculează distanța: secunde între fulger și tunet ÷ 3 = km
+
+### Semnale ale peștelui
+- Pescuitul SE OPREȘTE brusc = pește simte presiunea în scădere
+- Pe pescărușii care pleacă vânt mare = se așază lângă mal
+- Albitura SARE haotică = barometru jos
+
+### Aplicații utile
+- **Windy** (gratis) — vânt în timp real, 7 zile
+- **RoAlert** (oficial DSU) — notificări push
+- **AccuWeather** — radar ploaie cu mișcare
+
+## Protocol RETRAGERE — pas cu pas
+
+### Dacă ești pe MAL cu cort/tabără
+1. **Acum 30 min**: împachetează echipament fragil (sonar, telefoane, etc.) în pungi etanșe
+2. **Acum 20 min**: strânge lansetele + monturile (mâini pe ele)
+3. **Acum 10 min**: cortul TRAGI ANCORE (vânt → cortul = zmeu)
+4. **Acum 5 min**: te muți la mașină / pensiune / construcție solidă
+5. **NICIODATĂ sub copac** la fulger — risc trăsnet
+
+### Dacă ești în BARCA cabinata
+1. Ancorează cu funia lungă (15+ m) + 20 kg ancoră
+2. Pune motor electric pe ANCHOR LOCK dacă ai
+3. Coboară parbrizele / capacele
+4. Aprinde luminile de poziție
+5. Stai ÎN cabinata — NU pe punte
+6. Comunică POZIȚIA prin radio sau GSM la pensiune
+
+### Dacă ești în BARCA mică (gonflabilă, sub 3.5 m)
+1. **Caută cel mai apropiat mal SAU canal interior îngust**
+2. Trage barca pe mal — atașează de un copac SOLID (NU sălcie subțire)
+3. Strânge ce poți, restul lași
+4. Cauți adăpost — mașină, pensiune, casă
+
+### Dacă ești la 30+ min de mal
+1. **Apel 112** — Salvamont Naval / SMURD Delta
+2. Vesta de salvare ON
+3. Strânge mâinile pe ce ai prețuios (telefon, portofel) într-o pungă etanșă
+4. La răsturnare: rămâi LÂNGĂ barca răsturnată (mai vizibilă decât un singur om)
+
+## Vântul — citește direcția
+
+### Cum vântul afectează pescuitul + siguranța
+
+| Direcție vânt | Efect pe Dunăre | Acțiune |
+|---|---|---|
+| **N / NV** | Apa se calmează la maluri sudice | Pescuit BUN pe maluri nord |
+| **S / SV** | Apa se mișcă spre maluri nord | Pescuit BUN pe maluri sud + valuri mari |
+| **E (Crivețul)** | Aer rece, scădere presiune | Pește activ — DAR atenție la furtună |
+| **V** | Vremea vine din spate (vest spre est) | Furtună sigur în 1-3 ore |
+
+### Cum măsori vânt fără anemometru
+- **Apa**: ușoare valuri = ~10 km/h; valuri cu spumă = 25+ km/h; valuri vinde cu creastă = 40+ km/h
+- **Copacii**: ramurile mici dansează = 15 km/h; ramuri groase mișcă = 30 km/h; copacii întregi se îndoiesc = 50+ km/h
+- **Sentiment**: vânt în față greu de respirat = 30 km/h; te clatină = 50+ km/h
+
+### Vânt + Direcție + Cer = decizie
+- **Vânt din vest + cer noros + tunet** = furtună în <2 ore → ÎNCEPE RETRAGEREA
+- **Vânt slab + cer senin + miere** = vreme stabilă 6+ ore → poți rămâne
+- **Vânt în creștere + scădere cot + cer galben** = grindină → STOP imediat
+
+## Inundații + viituri Delta
+
+### De ce se întâmplă
+- **Ploi MARI în Carpați** (Siret, Prut) → Dunărea crește în 2-3 zile
+- **Ploi în Germania/Austria** → Dunărea crește în 14 zile (vine din avale)
+- Vișoianu: *"Variațiile de la Drobeta-Turnu Severin ajung la noi în 2 săptămâni."*
+
+### Verifică ÎNAINTE de plecare
+- **AFDJ** (Administrația Fluvială Dunării de Jos) — site cu cote actualizate
+- **Hidro.ro** — cote toate stațiile Dunării (folosit de fishy.n01.app)
+- Sub 200 cm Tulcea = stabilă; peste 300 cm = mal inundat
+
+### Cota peste 280 cm Tulcea
+- Brațe interioare se umplu, malurile sunt inundate
+- **Pescuit DOAR în barcă** (mal inaccesibil)
+- Țeapă MARE: malurile vechi sunt sub apă, cota se schimbă rapid
+
+### Cota sub 100 cm Tulcea
+- Maluri visible, dar canalele se închid (apă mică)
+- Cu barca: atent la bancurile de nisip
+- Pescuit BUN — peștii concentrați în puține zone adânci
+
+## Furtună severă — accident
+
+Dacă ești PRINS în furtună violentă pe apă:
+
+1. **VESTĂ de salvare** — IMEDIAT
+2. Stinge motorul DACĂ valuri îl pot inunda (alternativ: fii cu prova în vânt)
+3. **Telefonează 112** și DĂ POZIȚIA exactă (Latitudine/Longitudine din telefon)
+4. Dacă barca se umple cu apă: STAI LÂNGĂ EA, nu încerca să înoți
+5. Apel suplimentar la **Salvamont Naval Tulcea: 0240.515.515**
+
+### Trusa de urgență MINIMĂ
+- Vestă de salvare (obligatoriu)
+- Trusă primul ajutor
+- 1 L apă potabilă
+- 1 baterie portabilă cu USB (telefon mort = mort)
+- 1 fluier (pentru semnal acustic dacă răgușești)
+- 1 oglindă (semnal optic spre elicopter)
+
+## Concluzia practică
+
+3 reguli care îți salvează partida (și posibil viața):
+
+1. **Telefonul mobil cu RoAlert + Windy** pornite — VERIFICĂ înainte și în timpul partidei
+2. **Plan B mereu pregătit** — știi pensiunea cea mai apropiată + drumul rapid
+3. **Cod portocaliu = ai plecat deja, nu aștepți codul roșu**
+
+> "Verificați cotele înainte. Cota constantă în prognoză + ploaie în toată țara = +15 cm prima zi. Nu te mai baza pe prognoză."
+> — Lecția Baltacul, Foișor 2025
+`,
+  },
+  {
+    slug: "cu-copii-pescuit-delta",
+    titlu: "Pescuit în Deltă cu copiii — siguranță și programe alternative",
+    scurt: "Cum faci o partidă cu micii pescari să fie distractivă (nu calvar). Locuri sigure, programe non-pescuit, primele lecții.",
+    tags: ["incepator", "familie", "delta"],
+    body: `## Vârsta optimă
+
+Pescuit serios cu copilul: de la **6-7 ani** atenția permite.
+Înainte de 6 ani: copilul vine ca turist, nu ca pescar — programa NUMAI cu jucării de baltă (lopata, găleata, plasa de fluturi).
+
+## Locații SIGURE pentru copii
+
+### Pensiuni cu acces la apă mică
+- **Pensiunea Timona — Dunavățu de Jos (Nelu)** — mal cu apă progresivă (sub 50 cm la 10 m de mal), peri sub supraveghere
+- **Gigant Fish Mila 23** — multiple pensiuni cu acces la canal mic interior
+- **Plaja Gostineștii (jud. Giurgiu)** — terasa Trică, plajă cu nisip (NU adâncă), recomandat de DPD pt familie
+
+### Lacuri private cu reguli stricte (recomandate pt primii pescari)
+- **Lacul Crapologia (Fulga, Prahova)** — 19 ha, 1.20-1.70 m adâncime, ușor de gestionat
+- **Goldfish Lake** — cu monitori prezenți
+- **Iannis Lake (Bihor)** — pentru educație plantat (avansat)
+
+### Evitate cu copii
+- ❌ Brațul Chilia / Sf. Gheorghe (curent puternic)
+- ❌ Lacuri sălbatice fără maluri (Babadag — șerpi)
+- ❌ Dunărea curgătoare cu apă peste 2 m la mal
+- ❌ Pescuit pe vreme rece (sub 15°C) — copilul îngheață
+
+## Echipament pentru micul pescar
+
+### Lansetă + mulinetă
+**6-8 ani**: lansetă **telescopică 3-4 m, 5-15 g** (Decathlon Caperlan Strike 350 — ~50 RON, perfect pt început)
+
+**9-12 ani**: lansetă **3.6-4 m, 10-30 g** (Daiwa TriForce Power 3.60m — recomandare buget Anelin)
+
+**Mulinetă**: 3000-4000, baitrunner inutil. Frână delicată pentru să nu rupă firul la primul drill.
+
+### Fir
+- Mono **0.20-0.25 mm** (textil prea sensibil pt copii — rateuri multe)
+- **NU shock leader** — copilul nu lansează la distanță
+
+### Cârlige + momelă
+- **Vierme roșu (mulțumir)** — atrage tot (caraș, plătică, biban, roșioară)
+- **Pluta colorată** — copilul vede ușor trăsătura
+- **Boilă mică 10-14 mm** — pentru ciortan / caraș (anti-frustrarea "nu prind nimic")
+
+## Strategia partidei
+
+### Ziua 1: introducere + recompensă RAPIDĂ
+- Pescuit la **balt cu reținere** sau pensiune (densitate mare = trăsătură garantată)
+- Primul pește = sărbătoare, FOTO, eliberat cu el dacă vrea
+- **NU pescuit lung peste 2 ore prima zi** — copilul se plictisește
+
+### Ziua 2: alternative non-pescuit
+**Programe alternative obligatorii**:
+- **Plimbare cu barca** (lipoveni la Sulina, Sf. Gheorghe — 50-100 RON/persoană)
+- **Observații păsări** — binocluri + cartea cu pelicani, stârcetzi, lebede
+- **Vizita la Cetatea Enisala** sau Histria (arheologie + plimbare)
+- **Plaja Sulina sau Sf. Gheorghe** — castle de nisip
+- **Vizita la Centrul de Vizitare Murighiol** (ARBDD) — gratuit, panouri educaționale
+
+### Ziua 3 (dacă rămâi mai mult)
+- Pescuit de dimineață (când copilul e fresh)
+- Prânz cu prăjeală din pește prins (motivație: "ne mâncăm pescuirea")
+- După-amiaza relax
+
+## Siguranța — REGULI ABSOLUTE
+
+### Vestă de salvare
+- **OBLIGATORIE 24/7 pe barcă pentru copii** — nu negociabil
+- Vestă specifică VÂRSTĂ (NU adultă pe copil — alunecă)
+- Decathlon Caperlan Junior 30-50 RON
+
+### Apă + scaldă
+- **NEVER LÂSA SINGUR** lângă apă — orice vârstă, indiferent dacă "știe să înoate"
+- Maluri cu nisip > maluri cu pietre / iarbă (alunecoasă)
+- Apa până la genunchi MAX la copii < 8 ani
+
+### Soare
+- **Cremă SPF 50** cu re-aplicare la 2 ore
+- Pălărie cu calotă largă
+- Ochelari soare cu protecție UV (pentru ochi)
+- Cămașă cu mâneci lungi pe apă (reflectă soare)
+
+### Țânțari
+- Spray **PEDIATRIC** (nu DEET puternic pentru copii < 10 ani)
+- **Picaridin 10%** = sigur și pt copii > 6 luni
+- Cort plasă etanș (vezi articolul "Țânțari în Deltă")
+- Re-aplicare după înot
+
+### Mâncare + apă
+- **Apă MOTIONALĂ doar** (NU din canal, NU din baltă)
+- 2 L apă potabilă rezerve / copil / zi
+- Sandvișuri + fructe (NU pește crud / icre nepăstrate corespunzător)
+
+### Trusa primul ajutor PEDIATRIC
+- Plasturi multiple
+- Alcool diluat
+- Anti-histaminic copii (Fenistil oral)
+- Anti-vomitiv (mișcarea bărcii)
+- Antibiotic local (Baneocin)
+- Cremă pentru insolație
+- Termometru
+- Numere de urgență: 112, SMURD Tulcea
+
+## Reguli sociale cu copilul
+
+### Învățarea
+- **Explică DE CE faci ce faci** — nu doar "ascultă"
+- Lasă-l să pună întrebări (multe, lipsite de sens — răbdare)
+- **Recompensează ATENȚIA**, nu doar capturile (un dulce când a stat 1h liniștit)
+
+### Eliberarea peștelui
+- **Învață-l etică** de la prima captură — pești mici eliberați
+- **Saltea hidratantă** + mâini umede — copilul învață manipularea corectă
+- "Crapul ăsta e bunicuț — îl lăsăm să facă pui"
+
+### Conflictul (când nu prind nimic)
+- Plan B obligatoriu — fa toaletă cu ceva ce poate prinde GARANTAT (caraș, plătică pe pluta cu vierme)
+- "Ne mutăm la altă zonă" > "Ai răbdare 4 ore" pentru copil
+- Termină partidă cu NOTĂ POZITIVĂ — chiar dacă mic, ultima captură rămâne în memorie
+
+### Pescuit competitiv cu copii AQM
+- Aquam Mania Fishing Club organizează **Kids Cup** (concurs spinning copii Delta)
+- **Diana Chiriac** (MarelePescar) — locul 1 + CMMC la AQM Kids Cup 2024
+- Spinning la știucă cu copii 9-12 ani = posibil, dar nevoie de echipament adecvat
+- Motto învățător: **"Bombardier — bombardier — bombardier!"** (refrenul de încurajare)
+
+## Buget partidă familie 3 zile
+
+| Cheltuială | Cost RON |
+|---|---|
+| Pensiune Timona (2 adulți + 2 copii) | 1500-2000 |
+| Bărci pensiune (3 zile) | 300-500 |
+| Permise (4 persoane) | 12 (ARBDD turist) |
+| Vestă salvare copii | 200 (cumpărare unică) |
+| Echipament pescuit copii | 200-300 (cumpărare unică) |
+| Mâncare + provizii | 600-800 |
+| Combustibil + drum | 500-700 |
+| **TOTAL** | **~3500-4500 RON** |
+
+## Programul "primii pași" — 1 weekend
+
+**Vineri seara**: sosire la pensiune, cina, somn devreme
+**Sâmbătă dimineața** (7:00-10:00): pescuit la pluta cu vierme = caraș + plătică garantat (3 ore)
+**Sâmbătă prânz**: prăjeală peste pe terasa pensiunii, somn
+**Sâmbătă după-amiaza**: plimbare cu barca lipoveană (1-2h)
+**Sâmbătă seara**: focul cu povești, observații stele
+**Duminică dimineața** (7:00-9:00): scurt pescuit final
+**Duminică prânz**: drum spre casă cu opriri (parc Murighiol, etc.)
+
+**Rezultat**: copilul SE VA ÎNTOARCE. Asta-i scopul.
+
+> "Învață copilul să pescuiască să n-aibă bani de droguri."
+> — Baltacul (citatul recurent pe DPD)
+
+## NU-uri categorice
+
+- ❌ NU lăsa copilul singur lângă apă (NICIODATĂ, indiferent că "doar 1 min")
+- ❌ NU forța să stea liniștit ore (max 1-2h prima zi)
+- ❌ NU pescui pe vreme rece sub 15°C
+- ❌ NU mergi în zone cu curent (Chilia, Sf. Gheorghe) cu copii < 12 ani
+- ❌ NU pescuit nocturn (somn la clonc) cu copii — ZIUA să iei somnul când vine acasă
+
+Plus regulă universală: **vestă de salvare ABSOLUT MEREU pe apă.**
+`,
+  }
+);
+
 export function getArticol(slug: string) {
   return articole.find((a) => a.slug === slug);
 }
