@@ -2388,27 +2388,15 @@ articole.push(
   {
     slug: "lectii-deschidere-2026",
     titlu: "Lecții de la deschiderea sezonului 2026 — ce s-a schimbat în Deltă",
-    scurt: "Pescari 'invazivi' cu 25+ suporți cu zile înainte. Controale ANR intensificate. Apă tulbure + efemeride masive. Cum NU să te pregătești pentru deschidere.",
+    scurt: "Controale ANR intensificate. Apă tulbure + efemeride masive. 'Era begului' — PVA cu plumb greu înlocuiește momitorul. Cum să te pregătești pentru sezon.",
     tags: ["delta", "post-prohibitie", "2026"],
     body: `## Contextul deschiderii 2026
 
-8 iunie 2026 — ziua deschiderii oficiale pe Dunăre. Pe Chilia, brațul Tatanir, DPD documentează un fenomen nou și îngrijorător: **pescari care au înfipt 25+ suporți pe 600m de mal cu 3-4 zile ÎNAINTE** ca să "rezerve" locurile. Pe brațul Sulina, GDA Fishing documentează ultima fereastră legală pre-prohibiție (până pe 7 iunie pentru ape interioare).
+8 iunie 2026 — ziua deschiderii oficiale pe Dunăre. Pe Chilia, brațul Tatanir, DPD documentează prima partidă post-prohibiție. Pe brațul Sulina, GDA Fishing documentează ultima fereastră legală pre-prohibiție (până pe 7 iunie pentru ape interioare).
 
 Iată ce ne învață cele două deschideri.
 
-## Lecția 1 — Pescari "invazivi" la deschidere
-
-Pe Ostrov Tătaru, locuri istoric productive sunt ocupate cu suporți **înainte de deschidere**.
-
-> "Să vii cu trei zile înainte de deschidere și să înfigi 25 de suporți pe 600 m de mal mi se pare de a dreptul inimaginabil. 400 km să pescuiești și toate locurile de pe Ostrov Tătaru sunt ocupate cu suporți. Nu mai ai cu cine să discuți." — DPD, 5 iunie 2026
-
-### Ce să faci
-- **Plecare devreme** — dimineața deschiderii cu 8-10 ore avans dacă ții la un loc specific
-- **Plan B + C** — 3 locuri alternative identificate ÎNAINTE de plecare
-- **Negociere cu lipovenii locali** — uneori îți cedează un spot dacă plătești 50-100 RON pentru "vegetație curățată"
-- **Acceptarea reală**: deschiderea NU mai e ce era acum 5 ani. Locurile populare sunt premium.
-
-## Lecția 2 — Controalele ANR sunt intensificate
+## Lecția 1 — Controalele ANR sunt intensificate
 
 ANR (Autoritatea Navală Română) face controale mult mai stricte în 2026 față de anii anteriori.
 
@@ -2426,7 +2414,7 @@ ANR (Autoritatea Navală Română) face controale mult mai stricte în 2026 faț
 - Termen valabilitate extinctor (5 ani)
 - Trusă medicală — alcohol, plasturi, fașe, antialgic
 
-## Lecția 3 — Așteaptă condițiile, NU te grăbi
+## Lecția 2 — Așteaptă condițiile, NU te grăbi
 
 > "Nu vă grăbiți la deschidere. Așteptați condiții bune, ape limpezi, vreme bună. Noi am venit precum caii." — DPD, după 2 zile gherl pe Chilia
 
@@ -2445,7 +2433,7 @@ ANR (Autoritatea Navală Română) face controale mult mai stricte în 2026 faț
 
 **Mai bine pierzi 4-5 zile post-deschidere decât să mergi într-o gherl planificată.**
 
-## Lecția 4 — Ultima fereastră pre-prohibiție = oportunitate
+## Lecția 3 — Ultima fereastră pre-prohibiție = oportunitate
 
 Pe canalele Delta (lac Fortuna, Boda Proste, Lopatna), GDA Fishing documentează **18 trăsături, 13 pești în ziua 3** după 2 zile slabe. De ce?
 
@@ -2458,7 +2446,7 @@ Pe canalele Delta (lac Fortuna, Boda Proste, Lopatna), GDA Fishing documentează
 
 Crapii sunt agresivi în pre-depunere — moment de aur pentru capturi.
 
-## Lecția 5 — "Era begului" 2026
+## Lecția 4 — "Era begului" 2026
 
 Trend mare în 2026: **abandonul momitorului** pentru **pungă PVA cu plumb greu**.
 
@@ -2473,7 +2461,7 @@ Trend mare în 2026: **abandonul momitorului** pentru **pungă PVA cu plumb greu
 ### Recomandare practică
 Dacă pescuiești pe Boldești, Crapologia, Goldfish — **învață montura PVA cu plumb greu** ÎNAINTE de a investi în navomodel sau momitor scump. Trendul 2026 confirmă: PVA = standard.
 
-## Lecția 6 — Adaptabilitate vs plan rigid
+## Lecția 5 — Adaptabilitate vs plan rigid
 
 > "Cuvântul la ordine este adaptabilitate. N-am reușit ce ne-am pus în plan, am sucit-o pe specia cea mai activă." — Anelin Enache
 
@@ -2487,10 +2475,10 @@ Pescarii TOP nu se încăpățânează — recunosc condițiile și se mută.
 ## Concluzia 2026
 
 Sezonul 2026 cere:
-1. **Planificare mai bună** — pentru anti-invaziv + meteo + condiții
-2. **Echipament conform** — pentru controale ANR + tehnica PVA greu
-3. **Răbdare** — așteapta condițiile, NU te grăbi
-4. **Adaptabilitate** — schimbi planul când realitatea dictează
+1. **Echipament conform** — pentru controale ANR + tehnica PVA greu
+2. **Răbdare** — așteapta condițiile, NU te grăbi
+3. **Adaptabilitate** — schimbi planul când realitatea dictează
+4. **Simplitate** — tipar de hrănire > complexitate
 
 > "Pescuitul trebuie să fie simplu. Vizitați acea zonă cu câteva bile, premiați după trăsătură, ușor-ușor se creează un tipar de hrănire." — Ionel Iancu, MarelePescar
 

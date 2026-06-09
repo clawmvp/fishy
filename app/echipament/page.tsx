@@ -1,6 +1,9 @@
 import { echipament, type Item } from "@/data/echipament";
 
 const categoriiOrdine: Item["categoria"][] = [
+  "barci",
+  "motoare",
+  "sonare",
   "lanseta",
   "mulineta",
   "fir",
@@ -14,6 +17,9 @@ const categoriiOrdine: Item["categoria"][] = [
 ];
 
 const catLabel: Record<Item["categoria"], string> = {
+  barci: "Bărci",
+  motoare: "Motoare",
+  sonare: "Sonare & Navomodele",
   lanseta: "Lansete",
   mulineta: "Mulinete",
   fir: "Fire",

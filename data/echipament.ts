@@ -5,7 +5,7 @@ export type Item = {
   pret?: string;
   prioritate: "must" | "nice" | "expert";
   pentru: ("stiuca" | "salau" | "avat" | "crap" | "biban" | "somn")[];
-  categoria: "lanseta" | "mulineta" | "fir" | "naluca" | "boilies" | "nada" | "montura" | "carlige" | "accesorii" | "somn-specific";
+  categoria: "lanseta" | "mulineta" | "fir" | "naluca" | "boilies" | "nada" | "montura" | "carlige" | "accesorii" | "somn-specific" | "barci" | "motoare" | "sonare";
   note?: string;
 };
 
@@ -603,7 +603,7 @@ export const echipament: Item[] = [
     nume: "Sonar cu side scan + down scan + sondă live",
     prioritate: "must",
     pentru: ["crap"],
-    categoria: "accesorii",
+    categoria: "sonare",
     note: "Esențial pentru spotare cioate, identificare grup, marcare buturi pe GPS.",
   },
   {
@@ -728,16 +728,16 @@ echipament.push(
   { nume: "Opritor MadCat sectionat", marca: "MadCat", prioritate: "nice", pentru: ["somn"], categoria: "somn-specific", note: "Pentru ajustat distanța plumb-cârlig (scurt = vibrație, lung 40-50 cm = pește suspicios)." },
 
   // === SONARE / NAVOMODELE / ACCESORII ===
-  { nume: "Garmin GPSMAP 923 XSV", marca: "Garmin", specific: "9 inch, Down + Side Imaging", prioritate: "expert", pentru: ["crap", "somn"], categoria: "accesorii", note: "Preferat față de Finval/Humminbird/Lowrance. Identifică crapii după mărimea 'buburuzelor' pe Down — mari = crap, mici = caras." },
-  { nume: "Garmin Live Scope 841 + LVS34", marca: "Garmin", specific: "live sonar", prioritate: "expert", pentru: ["biban", "stiuca", "salau"], categoria: "accesorii", note: "Localizare bancuri în timp real." },
-  { nume: "Lowrance HDS Pro 16 + Active Target 2", marca: "Lowrance", specific: "live sonar", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "Afișează silueta naturală a somnului. Permite apropierea monturii fără a speria peștele. 2D-ul comprimă semnal — Active Target = upgrade major." },
-  { nume: "Deeper Quest navomodel", marca: "Deeper", specific: "rază 400 m, sonar integrat, auto-pilot", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Conuri 47°/20°/7°, sensibilitate 70% (echilibru). Pentru poziționare PRECISĂ pe structuri, nu doar distanță." },
+  { nume: "Garmin GPSMAP 923 XSV", marca: "Garmin", specific: "9 inch, Down + Side Imaging", prioritate: "expert", pentru: ["crap", "somn"], categoria: "sonare", note: "Preferat față de Finval/Humminbird/Lowrance. Identifică crapii după mărimea 'buburuzelor' pe Down — mari = crap, mici = caras." },
+  { nume: "Garmin Live Scope 841 + LVS34", marca: "Garmin", specific: "live sonar", prioritate: "expert", pentru: ["biban", "stiuca", "salau"], categoria: "sonare", note: "Localizare bancuri în timp real." },
+  { nume: "Lowrance HDS Pro 16 + Active Target 2", marca: "Lowrance", specific: "live sonar", prioritate: "expert", pentru: ["somn"], categoria: "sonare", note: "Afișează silueta naturală a somnului. Permite apropierea monturii fără a speria peștele. 2D-ul comprimă semnal — Active Target = upgrade major." },
+  { nume: "Deeper Quest navomodel", marca: "Deeper", specific: "rază 400 m, sonar integrat, auto-pilot", prioritate: "expert", pentru: ["crap"], categoria: "sonare", note: "Conuri 47°/20°/7°, sensibilitate 70% (echilibru). Pentru poziționare PRECISĂ pe structuri, nu doar distanță." },
   { nume: "Rod-pod Prologic Tri-Sky", marca: "Prologic", specific: "4 posturi", prioritate: "nice", pentru: ["crap"], categoria: "accesorii" },
   { nume: "Avertizoare Prologic Cies", marca: "Prologic", prioritate: "nice", pentru: ["crap"], categoria: "accesorii", note: "Lumină + indicator pentru lanseta cu trăsătură." },
   { nume: "Cleștele plantat Ridge Monkey", marca: "Ridge Monkey", prioritate: "nice", pentru: ["crap"], categoria: "accesorii" },
   { nume: "Lanternă albastră Formax", marca: "Formax", prioritate: "nice", pentru: ["crap"], categoria: "accesorii", note: "Vede firul fluo în drill noaptea." },
-  { nume: "Barcă Mary Fisher 695", marca: "Mary Fisher", specific: "695", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Barca Gigant Fish pentru pescuit pe canalele Mila 23." },
-  { nume: "Finval 595", marca: "Finval", specific: "595", prioritate: "expert", pentru: ["salau", "crap"], categoria: "accesorii", note: "Pentru Sulina. Combo cu motor electric Quest + Live Scope pe baterie LiFePO4 36V/100Ah." },
+  { nume: "Barcă Mary Fisher 695", marca: "Mary Fisher", specific: "695", prioritate: "expert", pentru: ["crap"], categoria: "barci", note: "Barca Gigant Fish pentru pescuit pe canalele Mila 23." },
+  { nume: "Finval 595", marca: "Finval", specific: "595", prioritate: "expert", pentru: ["salau", "crap"], categoria: "barci", note: "Pentru Sulina. Combo cu motor electric Quest + Live Scope pe baterie LiFePO4 36V/100Ah." },
   { nume: "Stație gătit Fox multifuncțională", marca: "Fox", specific: "grătar fontă + placă + tigaie + butelie Flamex", prioritate: "nice", pentru: ["crap", "somn"], categoria: "accesorii", note: "Pentru gătit pe barcă în partide lungi." },
   { nume: "Geantă termo MadCat pentru râme", marca: "MadCat", prioritate: "must", pentru: ["somn"], categoria: "somn-specific", note: "Plus sac de rafie pentru umezeală. Fluctuațiile de temperatură deteriorează râmele rapid." }
 );
@@ -751,10 +751,10 @@ echipament.push(
   { nume: "Madcat Black Series Spin", marca: "Madcat", specific: "2.40 m / 40-150 g", prioritate: "must", pentru: ["somn"], categoria: "lanseta", note: "Setup somn LIGHT pentru primăvara (Erenciuc). Frecvență trăsături mult mai mare decât textil 0.40 — testat. Combo Penn Slammer 560 + Sufix Matrix Pro 0.4." },
 
   // SONARE NOI
-  { nume: "Humminbird Apex 13", marca: "Humminbird", specific: "sonar 2D + DownImaging", prioritate: "expert", pentru: ["somn", "crap"], categoria: "accesorii", note: "Folosit de GFT pe Chilia. Detalii fundului + linia de cădere a peștelui." },
-  { nume: "Humminbird Solix 12", marca: "Humminbird", specific: "2D — Sens 9, Contrast 17, Speed 7, 150/200 kHz chirp", prioritate: "expert", pentru: ["somn", "crap"], categoria: "accesorii", note: "Setări concrete GFT pentru clonc. NU 83/200 kHz." },
-  { nume: "Garmin Panoptix LiveScope LVS34", marca: "Garmin", specific: "live sonar (combinat cu GPSMAP 8412)", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "DESCOPERIRE: pe 2D părea că somnul ajunge la momeală — pe LVS34 se vede că oprește la 3-4 m. Rata reală atac ~90%." },
-  { nume: "Smart Vision rotator electronic", specific: "motorizat cu telecomandă + memorie pentru LVS34", prioritate: "expert", pentru: ["somn"], categoria: "accesorii", note: "Esențial cu LiveScope — orientezi sonda pe orice direcție fără să muți barca." },
+  { nume: "Humminbird Apex 13", marca: "Humminbird", specific: "sonar 2D + DownImaging", prioritate: "expert", pentru: ["somn", "crap"], categoria: "sonare", note: "Folosit de GFT pe Chilia. Detalii fundului + linia de cădere a peștelui." },
+  { nume: "Humminbird Solix 12", marca: "Humminbird", specific: "2D — Sens 9, Contrast 17, Speed 7, 150/200 kHz chirp", prioritate: "expert", pentru: ["somn", "crap"], categoria: "sonare", note: "Setări concrete GFT pentru clonc. NU 83/200 kHz." },
+  { nume: "Garmin Panoptix LiveScope LVS34", marca: "Garmin", specific: "live sonar (combinat cu GPSMAP 8412)", prioritate: "expert", pentru: ["somn"], categoria: "sonare", note: "DESCOPERIRE: pe 2D părea că somnul ajunge la momeală — pe LVS34 se vede că oprește la 3-4 m. Rata reală atac ~90%." },
+  { nume: "Smart Vision rotator electronic", specific: "motorizat cu telecomandă + memorie pentru LVS34", prioritate: "expert", pentru: ["somn"], categoria: "sonare", note: "Esențial cu LiveScope — orientezi sonda pe orice direcție fără să muți barca." },
 
   // CARLIGE NOI
   { nume: "Gamakatsu G-Carp A1 PTFE Pop-Up nr. 4", marca: "Gamakatsu", specific: "nr. 4 pentru Sulina / curent puternic", prioritate: "must", pentru: ["crap"], categoria: "carlige", note: "Vârf închis dictează direcția matisării. Carl ig favorit GFT." },
@@ -887,8 +887,6 @@ echipament.push(
   { nume: "Spaceuri Tismor pe sondă cu eva moale", marca: "Tismor", prioritate: "nice", pentru: ["crap"], categoria: "montura" },
 
   // ACCESORII / SONARE / NAVOMODELE
-  { nume: "Navomodel Deeper Quest", marca: "Deeper", specific: "3 cuve, sonar integrat, autopilot, Wi-Fi 800m, return-home cu frânare automată, 4 zile autonomie", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Standardul GFT pentru plantat. Update 2025/2026 cu rezoluție și viteză mai bune." },
-  { nume: "Garmin GPSMAP 923 XSV", marca: "Garmin", specific: "9 inch, Down + Side Imaging", prioritate: "expert", pentru: ["crap", "somn"], categoria: "accesorii", note: "Preferat față de Finval/Humminbird/Lowrance. Identifică crapii după mărimea 'buburuzelor'." },
   { nume: "Hangere CarPro Harpax", marca: "CarPro", specific: "9g + 9g, aluminiu, SD4", prioritate: "nice", pentru: ["crap"], categoria: "accesorii", note: "Indicare fină pentru feeder. Anelin la Balta Lazăr." },
   { nume: "Scaun CarPro Diamond Bliss", marca: "CarPro", specific: "perna detașabilă reglabilă, picioare reglabile + picheți antinoroi", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Scaun premium pentru partide lungi sau iarnă." },
   { nume: "Geantă CarPro modulară", marca: "CarPro", specific: "compartimente reconfigurabile, fără rodpod", prioritate: "expert", pentru: ["crap"], categoria: "accesorii", note: "Pentru partide scurte — Ionel Iancu. Avertizoare/swingere în geantă." },
