@@ -1009,6 +1009,57 @@ locuri.push(
   },
 );
 
+// Locuri noi — insight #10 + #11
+locuri.push(
+  {
+    slug: "boda-proste-lopatna",
+    nume: "Boda Proste + Canalul Lopatna",
+    tip: "canal",
+    scurt: "Canale lângă Crișan unde GDA a prins 13 pești în ziua 3 cu pelete mov/vișiniu. Specific pentru pelete CPK + Secret Aromă galben.",
+    sezon: ["mai", "iunie", "iulie", "august", "septembrie", "octombrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Canale interioare cu cioate + stuf — traseu pește între ele",
+      "Apă cu vizibilitate mai bună ca Dunărea (când Dunărea e tulbure)",
+      "Preluate ca info de la Vali — 'Aventuri cu Gust'",
+    ],
+    pericole: [
+      "Pe canalul Lopatna se face curent la confluență cu Sulina",
+    ],
+    sfaturi: [
+      "Pelete 15mm CPK Căpșună mov sau vișiniu pe păr — culoarea câștigătoare 2026",
+      "Secret Aromă galben deasupra ca 'cireașa pe tort'",
+      "Lansetele DIN MÂNĂ (NU cu navomodel) — traseu pește chiar lângă mal",
+      "'Lași până vârful coboară. El absoarbe, expiră' — NU țapezi la prima mișcare",
+    ],
+    sursa: ["kjrGXYKOnH0"],
+  },
+  {
+    slug: "groapa-25m-chilia-tatanir",
+    nume: "Groapa de 25-27 m Chilia (lângă Tatanir)",
+    tip: "brat",
+    scurt: "Groapă adâncă clasică pentru clonc + somn. Lângă Ostrov Tatanir. Sergei = punct de contact local pentru info pe loc.",
+    sezon: ["iunie", "iulie", "august", "septembrie", "octombrie"],
+    specii: ["somn"],
+    caracteristici: [
+      "Adâncime 25-27 m — printre cele mai adânci puncte Chilia",
+      "Somnii vin la clonc dar SUNT MUFTUROȘI — atac slab",
+      "Pădurea Tatanir arsă în 2025 — acces dificil pe mal",
+    ],
+    pericole: [
+      "După incendiul 2025, acces dificil + lipsa locuri tabără",
+      "Efemeride masive în iunie = somn nu mănâncă pe ele",
+    ],
+    sfaturi: [
+      "Sergei (local) = informații live despre cum mănâncă peștele",
+      "Tehnica: 'Lași până când îl ai cu monturile între voi' — NU țapezi de prima oară",
+      "Sonar HumingBird sau Garmin LiveScope pentru a vedea somnul ridicând-se la clonc",
+      "Apă tulbure de crap = OK pentru somn (dar dacă somnul are chef)",
+    ],
+    sursa: ["jzBZucsULsU", "GUUrOHxsQ70"],
+  },
+);
+
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);
 }

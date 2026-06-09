@@ -5,6 +5,10 @@ import { articole } from "@/data/articole";
 import { echipament } from "@/data/echipament";
 import { glosar } from "@/data/glosar";
 import SpeciesIcon from "@/components/SpeciesIcon";
+import ConditiiLive from "@/components/ConditiiLive";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 1800;
 
 export default function Home() {
   const stats = {
@@ -32,6 +36,9 @@ export default function Home() {
           static pe brațe și canale. Filozofia lui Călin Vișoianu.
         </p>
       </section>
+
+      {/* Condiții live */}
+      <ConditiiLive />
 
       {/* Live banner */}
       <section className="mb-8">
