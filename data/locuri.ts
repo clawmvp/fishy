@@ -978,6 +978,37 @@ locuri.push(
   },
 );
 
+// Locuri noi batch 6
+locuri.push(
+  {
+    slug: "boldesti-gradistea",
+    nume: "Boldești Grădiștea (Buzău)",
+    tip: "balastiera",
+    scurt: "Balastieră 100+ ha cu reținere lângă București. 3 zone, regulament strict. Sub 8 kg ții, peste = release obligatoriu.",
+    sezon: ["aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "100+ ha, accesibilă mașină + bicicletă (zona 'la roabă')",
+      "3 zone distincte: la roabă (zi), dig (vizavi de mal), pământ (zi + noapte)",
+      "Capturi maxim 8 kg (peste = catch & release obligatoriu)",
+      "Stand fără rezervare — te pui unde găsești",
+    ],
+    pericole: [
+      "Agățătură severă peste 130 m distanță",
+      "Influențat masiv de vânt — 'apă oglindă = nu trage'",
+      "Pre-depunere primăvara: peștii inactivi 2-3 săptămâni",
+    ],
+    sfaturi: [
+      "Tehnica 2026 — pungă PVA cu plumb GREU 95-130g auto-înțepare",
+      "Cârlig Ridge Monkey White Gape nr. 4 + shrink tube pentru agresivitate",
+      "Sondare obligatorie indiferent de experiență (substrat variat)",
+      "Vârtej cu ANOU (NU agrafă rapidă) la pungă PVA",
+      "Profit: 6-7 kg = scoți taxa, restul = profit",
+    ],
+    sursa: ["37Ul4ArZUIs"],
+  },
+);
+
 export function getLoc(slug: string) {
   return locuri.find((l) => l.slug === slug);
 }

@@ -1405,6 +1405,54 @@ tehnici.push(
   },
 );
 
+// Tehnici noi 2026 — din analiza video deschidere sezon
+tehnici.push(
+  {
+    slug: "pva-plumb-greu-2026",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Pungă PVA cu plumb greu — 'era begului' (Costache 2026)",
+    scurt: "Trendul 2026 pe balastiere și canale Delta. Plumb 95-130g + cârlig agresiv = auto-înțepare fără compromis.",
+    perioada: "Tot anul (vârf post-prohibiție iunie-august)",
+    pasi: [
+      "Sondează zona INDIFERENT de experiență — substrat variat per loc",
+      "Plumb GREU: 95g minim, până la 130g pe substrate tari (NU compensa cu material moale)",
+      "Pungă PVA cu pelete + dip (Z-Amino Bucovina recomandat)",
+      "Cârlig Ridge Monkey White Gape Big Eye Point nr. 4",
+      "Shrink tube pe tija cârligului pentru a forța atac de jos (mai agresiv)",
+      "Vârtej cu ANOU la cap (NU agrafă rapidă — slăbește auto-înțeparea)",
+      "Fir Silk Flex Ridge Monkey 25lb (~0.25-0.28) cu buclă mare în capăt pentru rigiditate",
+      "Lansează la max 135m (peste = agățătură severă pe majoritatea lacurilor)",
+    ],
+    naluci: [],
+    echipament: [
+      "Cârlig Ridge Monkey White Gape Big Eye Point nr. 4",
+      "Fir Silk Flex Ridge Monkey 25lb",
+      "Shrink tube Ridge Monkey",
+      "Plumb pierdut/inline 95-130g",
+      "Pelete Bucovina sau CPK 15mm Căpșună (mov/vișiniu = trend 2026)",
+      "Dip Z-Amino Bucovina sau MoniTor CPK",
+    ],
+    monturi: [
+      "Plumb pierdut sau inline (după agățători)",
+      "Cârlig pe fir rigid cu shrink tube",
+      "Pungă PVA cu pelete + boilies tăiate + dip",
+      "Vârtej cu anou (NU agrafă rapidă)",
+    ],
+    sfaturi: [
+      "'Cu cât plumbul e mai greu, cu atât autoînțeparea e mai bună' (Claudiu Costache, fost campion național)",
+      "'Treime era begului. Nu mai e perioada în care dădeam cu momitor' — trend 2026",
+      "Cel mai bun indicator e PEȘTELE: dacă semnalizează unde sunt agățătorile = continui pe loc",
+      "Pe agățători severe (peste 130m) — folosește plumb mai greu, NU mai ușor",
+      "Pungă PVA = prezentare pe ORICE substrat — funcționează unde momitorul cade prost",
+    ],
+    citate: [
+      "Treime era begului. Cu cât plumbul e mai greu, cu atât autoînțeparea e mai bună.",
+      "Pescuitul trebuie să fie simplu. Vizitați zona cu câteva bile, premiați după trăsătură, se creează tipar de hrănire.",
+    ],
+  },
+);
+
 export function getTehnica(slug: string) {
   return tehnici.find((t) => t.slug === slug);
 }

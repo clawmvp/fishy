@@ -2384,6 +2384,121 @@ Plus regulă universală: **vestă de salvare ABSOLUT MEREU pe apă.**
   }
 );
 
+articole.push(
+  {
+    slug: "lectii-deschidere-2026",
+    titlu: "Lecții de la deschiderea sezonului 2026 — ce s-a schimbat în Deltă",
+    scurt: "Pescari 'invazivi' cu 25+ suporți cu zile înainte. Controale ANR intensificate. Apă tulbure + efemeride masive. Cum NU să te pregătești pentru deschidere.",
+    tags: ["delta", "post-prohibitie", "2026"],
+    body: `## Contextul deschiderii 2026
+
+8 iunie 2026 — ziua deschiderii oficiale pe Dunăre. Pe Chilia, brațul Tatanir, DPD documentează un fenomen nou și îngrijorător: **pescari care au înfipt 25+ suporți pe 600m de mal cu 3-4 zile ÎNAINTE** ca să "rezerve" locurile. Pe brațul Sulina, GDA Fishing documentează ultima fereastră legală pre-prohibiție (până pe 7 iunie pentru ape interioare).
+
+Iată ce ne învață cele două deschideri.
+
+## Lecția 1 — Pescari "invazivi" la deschidere
+
+Pe Ostrov Tătaru, locuri istoric productive sunt ocupate cu suporți **înainte de deschidere**.
+
+> "Să vii cu trei zile înainte de deschidere și să înfigi 25 de suporți pe 600 m de mal mi se pare de a dreptul inimaginabil. 400 km să pescuiești și toate locurile de pe Ostrov Tătaru sunt ocupate cu suporți. Nu mai ai cu cine să discuți." — DPD, 5 iunie 2026
+
+### Ce să faci
+- **Plecare devreme** — dimineața deschiderii cu 8-10 ore avans dacă ții la un loc specific
+- **Plan B + C** — 3 locuri alternative identificate ÎNAINTE de plecare
+- **Negociere cu lipovenii locali** — uneori îți cedează un spot dacă plătești 50-100 RON pentru "vegetație curățată"
+- **Acceptarea reală**: deschiderea NU mai e ce era acum 5 ani. Locurile populare sunt premium.
+
+## Lecția 2 — Controalele ANR sunt intensificate
+
+ANR (Autoritatea Navală Română) face controale mult mai stricte în 2026 față de anii anteriori.
+
+### Checklist BARCĂ obligatoriu (sub amendă 500-2000 RON)
+- Vestă de salvare per persoană (OBLIGATORIU pe apă)
+- Colac de salvare (vizibil)
+- Trusă medicală
+- Tinge (sirenă/fluier de alarmă)
+- Extinctor
+- Lopată/iglu pentru rezervă
+- Documente: ANPA + ARBDD + carnetul de conducător barcă (peste 15 CP)
+
+### Verifică ÎNAINTE de plecare
+- Bateria sirenă
+- Termen valabilitate extinctor (5 ani)
+- Trusă medicală — alcohol, plasturi, fașe, antialgic
+
+## Lecția 3 — Așteaptă condițiile, NU te grăbi
+
+> "Nu vă grăbiți la deschidere. Așteptați condiții bune, ape limpezi, vreme bună. Noi am venit precum caii." — DPD, după 2 zile gherl pe Chilia
+
+### Condiții MEDIOCRE la deschidere 2026
+- Apă tulbure (creștere săptămâna anterioară)
+- 10-11°C noaptea (iunie!)
+- 3 furtuni în 2 zile
+- 10-12 reprize de ploaie
+- **Efemeride masive** — somnul nu mușcă când plin de efemeride
+
+### Așteaptă pentru
+- Stabilizare cotă (NU în creștere bruscă)
+- Apă cu vizibilitate >30 cm
+- Temperatura nopții peste 15°C
+- 2-3 zile fără furtună
+
+**Mai bine pierzi 4-5 zile post-deschidere decât să mergi într-o gherl planificată.**
+
+## Lecția 4 — Ultima fereastră pre-prohibiție = oportunitate
+
+Pe canalele Delta (lac Fortuna, Boda Proste, Lopatna), GDA Fishing documentează **18 trăsături, 13 pești în ziua 3** după 2 zile slabe. De ce?
+
+### Strategie GDA ultima fereastră:
+- Caut **TRASEU** între stuf și cioată (NU malul opus)
+- Lansetele DIRECT DIN MÂNĂ (nu cu navomodel — prea departe)
+- **Pelete 15mm Căpșună** (mov/vișiniu) + Secret Aromă galben pe păr
+- Lași până vârful coboară (NU trăgi la primă mișcare)
+- *"El absoarbe, expiră. Dacă dă din cap, el deja are cârligul în gură."*
+
+Crapii sunt agresivi în pre-depunere — moment de aur pentru capturi.
+
+## Lecția 5 — "Era begului" 2026
+
+Trend mare în 2026: **abandonul momitorului** pentru **pungă PVA cu plumb greu**.
+
+> "Treime era begului. Nu mai e perioada în care dădeam cu momitor." — Claudiu Costache, fost campion național
+
+### De ce trecerea?
+- Momitorul cade prost pe substrate variate (mâl, pietre, scoică)
+- Pungă PVA = prezentare CONSISTENTĂ indiferent de substrat
+- Plumb greu (95-130g) = auto-înțepare fără compromis
+- Cârlig Ridge Monkey White Gape + shrink tube = atac forțat de jos
+
+### Recomandare practică
+Dacă pescuiești pe Boldești, Crapologia, Goldfish — **învață montura PVA cu plumb greu** ÎNAINTE de a investi în navomodel sau momitor scump. Trendul 2026 confirmă: PVA = standard.
+
+## Lecția 6 — Adaptabilitate vs plan rigid
+
+> "Cuvântul la ordine este adaptabilitate. N-am reușit ce ne-am pus în plan, am sucit-o pe specia cea mai activă." — Anelin Enache
+
+### Reguli adaptabilitate
+- Plan inițial: crap → **dacă tace 4-5 ore**, treci pe feeder/plătică/mreană
+- Loc inițial: cioată → **dacă curent prea puternic**, treci pe golf adăpostit
+- Momeală inițială: boilies → **dacă scapi rateuri**, treci pe wafter mic
+
+Pescarii TOP nu se încăpățânează — recunosc condițiile și se mută.
+
+## Concluzia 2026
+
+Sezonul 2026 cere:
+1. **Planificare mai bună** — pentru anti-invaziv + meteo + condiții
+2. **Echipament conform** — pentru controale ANR + tehnica PVA greu
+3. **Răbdare** — așteapta condițiile, NU te grăbi
+4. **Adaptabilitate** — schimbi planul când realitatea dictează
+
+> "Pescuitul trebuie să fie simplu. Vizitați acea zonă cu câteva bile, premiați după trăsătură, ușor-ușor se creează un tipar de hrănire." — Ionel Iancu, MarelePescar
+
+Asta-i lecția finală: **simplitate + consistență > complexitate + improvizație**.
+`,
+  },
+);
+
 export function getArticol(slug: string) {
   return articole.find((a) => a.slug === slug);
 }
