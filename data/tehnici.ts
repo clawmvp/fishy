@@ -1453,6 +1453,67 @@ tehnici.push(
   },
 );
 
+// Tehnici noi — insight #2 ritm activitate + #14 canale limpezi vs Dunăre tulbure
+tehnici.push(
+  {
+    slug: "ritm-activitate-canale-primavara",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Ritmul activitate crap pe canale primăvara — 9:30/11:00/15:00",
+    scurt: "Pattern observat pe canalele Delta martie-mai: 9:30 start, pauză la prânz, reluare 15-17. Soarele 'cu dinți' încălzește pătura de apă.",
+    perioada: "Martie - mai (post-iarnă, pre-prohibiție)",
+    pasi: [
+      "07:00-09:30 — pauză (apa rece de la noapte, peștii inactivi)",
+      "09:30 — START activitate primă — soarele încălzește pătura de apă",
+      "09:30-11:00 — vârful matinal — pescuit intensiv recomandat",
+      "11:00-14:30 — pauză (peștii la adâncime — chiar la 18-20°C peștii intră 'caniculă psihologică')",
+      "14:30-15:00 — pregătire — reaprinzi senzorii, verifici monturile",
+      "15:00-17:00 — vârful după-amiezii — soarele 'cu dinți' reîncălzește apa",
+      "După 17:00 — scade gradual, pauză până dimineața",
+    ],
+    naluci: [],
+    echipament: [],
+    monturi: [],
+    sfaturi: [
+      "Pauza de prânz NU e timp pierdut — nadești de rezervă pentru reluarea de 15:00",
+      "În martie devreme: activitatea începe mai târziu (10:30 în loc de 9:30)",
+      "În aprilie-mai: vârfurile sunt mai clare (40-60 min cu 2-3 trăsături)",
+      "Ferestre similare se observă pe canale interioare (Mila 23, Boda Proste) — NU pe brațele principale",
+      "Brațele principale (Sulina, Chilia) au mai puțină variație orară — apa mai stabilă termic",
+    ],
+    citate: [
+      "Soarele 'cu dinți' — soare puternic dar apă încă rece. Combinația care REGE încălzește pătura de suprafață rapid.",
+    ],
+  },
+  {
+    slug: "canale-limpezi-vs-dunare-tulbure",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Apă canal limpede vs Dunăre tulbure — regula mutării",
+    scurt: "Post-prohibiție și după ploi: Dunărea tulbure = pește mut. Canalele Delta = limpezi + pește activ. Mută-te, nu aștepta.",
+    perioada: "Iunie - septembrie (după ploi sau viituri)",
+    pasi: [
+      "Verifică VIZIBILITATEA apei: bagi plumbul 1 m, vezi dacă-l mai vezi = peste 80 cm vizibilitate = OK",
+      "Sub 50 cm vizibilitate pe Dunăre = APĂ TULBURE",
+      "Mergi la cel mai apropiat canal interior (Mila 23, Boda Proste, Lopatna, Crișan-Îngusta)",
+      "Verifică vizibilitatea — pe canale apa decantează mai repede",
+      "Dacă canalul e limpede, instalezi acolo — peștele s-a mutat și el",
+    ],
+    naluci: [],
+    echipament: [],
+    monturi: [],
+    sfaturi: [
+      "Pe Dunăre tulbure → SOMN poate fi activ (caută vibrația); CRAP refuză",
+      "Pe Dunăre tulbure + canale limpezi → crapul migrează în canale în 24-48h",
+      "Cauza: sedimentele răcoresc Dunărea cu 2-3°C; canalele rămân stabile termic",
+      "Excepție: viituri Siret/Prut durează 7-10 zile; ploaie locală 1-2 zile",
+    ],
+    citate: [
+      "Dacă Dunărea = ciocolată, pescuiești pe canale. Punct.",
+    ],
+  },
+);
+
 export function getTehnica(slug: string) {
   return tehnici.find((t) => t.slug === slug);
 }

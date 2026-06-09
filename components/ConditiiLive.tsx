@@ -64,7 +64,7 @@ export default async function ConditiiLive() {
   const date = new Date();
   const moon = getMoonPhase(date);
 
-  let forecasts;
+  let forecasts: Awaited<ReturnType<typeof fetchWeather>> = [];
   try { forecasts = await fetchWeather(REF_LAT, REF_LON, 1); } catch { forecasts = []; }
   const today = forecasts[0];
 
