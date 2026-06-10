@@ -677,21 +677,143 @@ export function toateLocurileDelta(specie: Specie): Loc[] {
   return locuri.filter((l) => l.regiune === "delta" && l.specii.includes(specie.id));
 }
 
-export function recomandaTehnici(specie: Specie, date: Date): Tehnica[] {
+// Pattern → tehnici activate (cele mai relevante când pattern e activ)
+const PATTERN_TEHNICI: Record<string, string[]> = {
+  "saptamana-magica": ["crap-primavara-momitor", "porumb-fermentat-vs-fiert", "ritm-activitate-canale-primavara"],
+  "fereastra-visoianu": ["crap-strategie-visoianu", "crap-vara-boilies"],
+  "bate-norocul": ["crap-strategie-bate-norocul", "crap-iarna-canale-alegere"],
+  "era-begului": ["pva-plumb-greu-2026", "crap-pva-navomodel"],
+  "front-activator": ["somn-clonc-chilia", "clonc-sonar-live-modern", "clonc-sonar-citire", "somn-stationar-chilia-veche"],
+  "post-furtuna": [],
+};
+
+// Pattern → monturi activate
+const PATTERN_MONTURI: Record<string, string[]> = {
+  "saptamana-magica": ["momitor-method-feeder"],
+  "fereastra-visoianu": ["n-trap-visoianu", "inline-clasic-barca"],
+  "bate-norocul": ["plumb-pierdut-cioata", "fluorocarbon-rigid-iarna"],
+  "era-begului": [], // PVA cu plumb greu — tehnică nu montură separată în baza
+  "front-activator": ["clonc-somn", "clonc-ancori-owner", "somn-stationar"],
+  "post-furtuna": [],
+};
+
+// Recomandă TEHNICI scor-based — cu context
+export function recomandaTehnici(specie: Specie, date: Date, ctx?: RecomandareContext): Tehnica[] {
   const month = date.getMonth() + 1;
   const luniRO = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
   const lunaActuala = luniRO[month - 1];
 
-  return tehnici.filter((t) => {
-    if (t.specie !== specie.id) return false;
-    if (!t.perioada) return true;
-    return t.perioada.toLowerCase().includes(lunaActuala) || t.perioada.toLowerCase().includes("tot anul");
+  const candidates = tehnici.filter((t) => t.specie === specie.id);
+  if (!candidates.length) return [];
+
+  const scoruri = candidates.map((t) => {
+    let scor = 30; // baseline
+
+    // 1. Match perioada (luna)
+    const perioadaLower = (t.perioada || "").toLowerCase();
+    if (perioadaLower.includes(lunaActuala)) scor += 30;
+    else if (perioadaLower.includes("tot anul")) scor += 15;
+    else scor -= 12; // în afara perioadei
+
+    // 2. Pattern activare directă — boost mare
+    if (ctx?.patterns) {
+      for (const p of ctx.patterns) {
+        const tehniciPattern = PATTERN_TEHNICI[p.id];
+        if (tehniciPattern?.includes(t.slug)) {
+          scor += 35; // boost important pe pattern direct
+        }
+      }
+    }
+
+    // 3. Apă rece (<12°C) → tehnici finețe / iarnă
+    if (ctx?.waterTemp !== undefined && ctx.waterTemp < 12) {
+      if (t.slug.includes("iarna") || t.slug.includes("finete") || t.slug.includes("prag-iarna")) scor += 15;
+    }
+
+    // 4. Apă caldă (>22°C) → tehnici vară
+    if (ctx?.waterTemp !== undefined && ctx.waterTemp > 22) {
+      if (t.slug.includes("vara") || t.slug.includes("boilies") || t.slug.includes("topwater")) scor += 12;
+    }
+
+    // 5. Vânt mare (>25 km/h) → tehnici de static din barcă > spinning de pe mal
+    if (ctx?.forecast?.windMax && ctx.forecast.windMax > 25) {
+      if (t.metoda === "spinning") scor -= 10;
+      if (t.metoda === "static") scor += 5;
+    }
+
+    // 6. Front activator (somn) → tehnici clonc
+    if (ctx?.trend?.fronctActivator && specie.id === "somn" && t.slug.includes("clonc")) {
+      scor += 20;
+    }
+
+    // 7. Cotă mică (<100) + tehnici brațe principale
+    if (ctx?.cota !== undefined && ctx.cota < 100 && (t.slug.includes("prag") || t.slug.includes("brate"))) {
+      scor += 10;
+    }
+
+    return { tehnica: t, scor };
   });
+
+  scoruri.sort((a, b) => b.scor - a.scor);
+  return scoruri.slice(0, 5).map((s) => s.tehnica);
 }
 
-export function recomandaMonturi(specie: Specie, date: Date): Montura[] {
+// Recomandă MONTURI scor-based — cu context
+export function recomandaMonturi(specie: Specie, date: Date, ctx?: RecomandareContext): Montura[] {
   const month = date.getMonth() + 1;
-  return monturi
-    .filter((m) => m.pentru.includes(specie.id))
-    .filter((m) => !m.luni || m.luni.length === 0 || m.luni.includes(month));
+  const candidates = monturi.filter((m) => m.pentru.includes(specie.id));
+  if (!candidates.length) return [];
+
+  const scoruri = candidates.map((m) => {
+    let scor = 30; // baseline
+
+    // 1. Match luna
+    if (!m.luni || m.luni.length === 0) scor += 10; // generic universal
+    else if (m.luni.includes(month)) scor += 28;
+    else scor -= 15; // în afara lunii
+
+    // 2. Pattern activare directă
+    if (ctx?.patterns) {
+      for (const p of ctx.patterns) {
+        const monturiPattern = PATTERN_MONTURI[p.id];
+        if (monturiPattern?.includes(m.slug)) {
+          scor += 30;
+        }
+      }
+    }
+
+    // 3. Apă rece (<12°C) → monturi de iarnă / fluorocarbon rigid
+    if (ctx?.waterTemp !== undefined && ctx.waterTemp < 12) {
+      if (m.slug.includes("iarna") || m.slug.includes("rigid") || m.slug.includes("fluorocarbon")) scor += 15;
+    }
+
+    // 4. Vânt mare → plumb mai greu / momitor cu placă > simplu
+    if (ctx?.forecast?.windMax && ctx.forecast.windMax > 25) {
+      if (m.slug.includes("inline") || m.slug.includes("momitor") || m.slug.includes("pierdut")) scor += 8;
+      if (m.slug.includes("topwater") || m.slug.includes("jighead")) scor -= 8;
+    }
+
+    // 5. Cotă mică + brațe principale → plumb pierdut
+    if (ctx?.cota !== undefined && ctx.cota < 100 && m.slug.includes("pierdut")) {
+      scor += 12;
+    }
+
+    // 6. Front activator (somn) → monturi clonc
+    if (ctx?.trend?.fronctActivator && specie.id === "somn" && m.slug.includes("clonc")) {
+      scor += 18;
+    }
+
+    return { montura: m, scor };
+  });
+
+  scoruri.sort((a, b) => b.scor - a.scor);
+  return scoruri.slice(0, 5).map((s) => s.montura);
+}
+
+// Helper pentru compatibilitate (filtrare simplă pe lună)
+export function monturiPentru(specieId: Specie["id"], date?: Date): Montura[] {
+  const filtered = monturi.filter((m) => m.pentru.includes(specieId));
+  if (!date) return filtered;
+  const month = date.getMonth() + 1;
+  return filtered.filter((m) => !m.luni || m.luni.length === 0 || m.luni.includes(month));
 }

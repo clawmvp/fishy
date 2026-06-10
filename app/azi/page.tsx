@@ -6,8 +6,7 @@ import { getMoonPhase } from "@/lib/moon";
 import { DANUBE_STATIONS, HIDRO_IDS, classifyLevel, getLevelLabel, getLevelFishingImpact } from "@/lib/water-level";
 import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
-import { calculeazaScor, recomandaLocuri, recomandaTehnici, estimateWaterTemp } from "@/lib/recomandari";
-import { monturiPentru } from "@/data/monturi";
+import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, estimateWaterTemp } from "@/lib/recomandari";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -123,8 +122,20 @@ export default async function PartidaPage({
             patterns: scor.patterns,
             trend: scor.trend,
           }),
-          tehnici: recomandaTehnici(sp, targetDate),
-          monturi: monturiPentru(sp.id, targetDate),
+          tehnici: recomandaTehnici(sp, targetDate, {
+            forecast: todaysForecast,
+            cota: waterTulcea?.level,
+            waterTemp: todaysForecast?.waterTempDeep ?? undefined,
+            patterns: scor.patterns,
+            trend: scor.trend,
+          }),
+          monturi: recomandaMonturi(sp, targetDate, {
+            forecast: todaysForecast,
+            cota: waterTulcea?.level,
+            waterTemp: todaysForecast?.waterTempDeep ?? undefined,
+            patterns: scor.patterns,
+            trend: scor.trend,
+          }),
           inProhibitie: isInProhibitie(sp, targetDate),
           zileDeschidere: isInProhibitie(sp, targetDate) ? zileLaDeschidere(sp, targetDate) : 0,
         };
