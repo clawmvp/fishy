@@ -110,7 +110,11 @@ export default async function PartidaPage({
   const scoruriSpecii = todaysForecast
     ? specii.map((sp) => ({
         specie: sp,
-        scor: calculeazaScor(sp, todaysForecast, moon, waterTulcea, targetDate),
+        scor: calculeazaScor(
+          sp, todaysForecast, moon, waterTulcea, targetDate,
+          // ultimele 3 zile pentru trend awareness
+          ziuaIdx >= 3 ? [forecasts[ziuaIdx - 1], forecasts[ziuaIdx - 2], forecasts[ziuaIdx - 3]].filter(Boolean) : []
+        ),
         locuri: recomandaLocuri(sp, targetDate),
         tehnici: recomandaTehnici(sp, targetDate),
         monturi: monturiPentru(sp.id, targetDate),
@@ -322,6 +326,85 @@ export default async function PartidaPage({
                   <p className={`text-xs uppercase tracking-wider ${scor.cssColor}`}>{scor.label}</p>
                 </div>
               </div>
+
+              {/* Verdict semantic — recomandare clară */}
+              <div className="mb-4 p-3 rounded-lg" style={{
+                background: scor.semantic.verdict === "du-te" ? "rgba(52,211,153,0.10)" :
+                  scor.semantic.verdict === "du-te-scurt" ? "rgba(212,166,87,0.10)" :
+                  scor.semantic.verdict === "muta-te" ? "rgba(251,146,60,0.10)" :
+                  scor.semantic.verdict === "schimba-specia" ? "rgba(251,146,60,0.10)" :
+                  "rgba(248,113,113,0.10)",
+                border: `1px solid ${scor.semantic.verdict === "du-te" ? "rgba(52,211,153,0.3)" :
+                  scor.semantic.verdict === "du-te-scurt" ? "rgba(212,166,87,0.3)" :
+                  scor.semantic.verdict === "muta-te" ? "rgba(251,146,60,0.3)" :
+                  scor.semantic.verdict === "schimba-specia" ? "rgba(251,146,60,0.3)" :
+                  "rgba(248,113,113,0.3)"}`,
+              }}>
+                <div className="flex items-baseline justify-between flex-wrap gap-2 mb-1">
+                  <p className={`text-sm font-semibold uppercase tracking-wide ${
+                    scor.semantic.verdict === "du-te" ? "text-emerald-400" :
+                    scor.semantic.verdict === "du-te-scurt" ? "text-amber-glow" :
+                    scor.semantic.verdict === "muta-te" || scor.semantic.verdict === "schimba-specia" ? "text-orange-400" :
+                    "text-red-400"
+                  }`}>
+                    {scor.semantic.verdict === "du-te" ? "✓ Du-te" :
+                     scor.semantic.verdict === "du-te-scurt" ? "→ Du-te scurt" :
+                     scor.semantic.verdict === "muta-te" ? "↻ Mută-te" :
+                     scor.semantic.verdict === "schimba-specia" ? "🔄 Schimbă specia" :
+                     "✕ Stai acasă"}
+                  </p>
+                  {scor.semantic.fereastra && (
+                    <span className="text-xs text-fog/75 font-mono">fereastra: {scor.semantic.fereastra}</span>
+                  )}
+                </div>
+                <p className="text-sm text-fog/85">{scor.semantic.motiv}</p>
+              </div>
+
+              {/* Patterns detectate */}
+              {scor.patterns.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs uppercase tracking-widest text-amber-glow mb-2">Patterns detectate</p>
+                  <div className="space-y-2">
+                    {scor.patterns.map((p) => (
+                      <div key={p.id} className="card-hero rounded-lg p-3">
+                        <div className="flex items-baseline justify-between gap-2 mb-1">
+                          <p className="text-sm font-semibold text-fog">
+                            <span className="mr-2">{p.emoji}</span>{p.nume}
+                          </p>
+                          <span className="text-xs font-mono text-amber-glow">+{Math.round((p.bonus - 1) * 100)}%</span>
+                        </div>
+                        <p className="text-xs text-fog/75">{p.descriere}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Trend awareness (lookback 3 zile) */}
+              {(scor.trend.pressureStable || scor.trend.windCalm || scor.trend.fronctActivator) && (
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {scor.trend.pressureStable && (
+                    <span className="text-[11px] px-2 py-1 rounded-md bg-emerald-400/15 border border-emerald-400/30 text-emerald-400">
+                      ✓ presiune stabilă 3 zile
+                    </span>
+                  )}
+                  {scor.trend.windCalm && (
+                    <span className="text-[11px] px-2 py-1 rounded-md bg-emerald-400/15 border border-emerald-400/30 text-emerald-400">
+                      ✓ vânt calm 3 zile
+                    </span>
+                  )}
+                  {scor.trend.fronctActivator && (
+                    <span className="text-[11px] px-2 py-1 rounded-md bg-amber-glow/15 border border-amber-glow/30 text-amber-glow">
+                      ⚡ front meteo activator
+                    </span>
+                  )}
+                  {scor.trend.cotaTrend === "rising" && (
+                    <span className="text-[11px] px-2 py-1 rounded-md bg-emerald-400/15 border border-emerald-400/30 text-emerald-400">
+                      ↑ cota în creștere
+                    </span>
+                  )}
+                </div>
+              )}
 
               {/* Factor breakdown — arată exact cum se construiește scorul */}
               <div className="mb-4">

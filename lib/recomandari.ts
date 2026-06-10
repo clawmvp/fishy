@@ -222,12 +222,241 @@ export interface FactorBreakdown {
   positive: boolean;
 }
 
+export type Pattern = {
+  id: string;
+  nume: string;
+  emoji: string;
+  descriere: string;
+  bonus: number; // multiplicator (1.0 = neutral, 1.25 = +25%)
+};
+
+export type TrendInfo = {
+  pressureStable: boolean;
+  windCalm: boolean;
+  cotaTrend: "rising" | "falling" | "stable" | "unknown";
+  fronctActivator: boolean;
+  multiplier: number;
+};
+
+export type SemanticRecommendation = {
+  verdict: "du-te" | "du-te-scurt" | "muta-te" | "stai-acasa" | "schimba-specia";
+  motiv: string;
+  fereastra?: string;
+};
+
 export interface ScorulZilei {
   total: number;
+  raw: number;
   label: string;
   cssColor: string;
   factors: FactorBreakdown[];
   reasons: { text: string; positive: boolean }[];
+  patterns: Pattern[];
+  trend: TrendInfo;
+  semantic: SemanticRecommendation;
+}
+
+// Detectează ferestrele celebre din partidele documentate
+function detecteazaPatterns(
+  specie: Specie,
+  forecast: DailyForecast,
+  forecastsPrev: DailyForecast[], // ultimele 0-3 zile
+  moon: MoonPhaseInfo,
+  water: WaterLevelReading | null,
+  date: Date,
+  waterTemp: number,
+): Pattern[] {
+  const patterns: Pattern[] = [];
+  const month = date.getMonth() + 1;
+  const isPrev3 = forecastsPrev.length >= 3;
+  const noStorm3Days = isPrev3 && forecastsPrev.every((f) => f.precipitation < 5 && f.windMax < 25);
+
+  // 1. Săptămâna magică primăvară (Vișoianu/Baltacul)
+  if (specie.id === "crap" && month >= 3 && month <= 5) {
+    const airWarm = forecast.tempMax > 20;
+    const waterWarm = waterTemp >= 10;
+    const cotaOK = !water || (water.level >= 150);
+    if (airWarm && waterWarm && cotaOK && noStorm3Days) {
+      patterns.push({
+        id: "saptamana-magica",
+        nume: "Săptămâna magică",
+        emoji: "🌸",
+        descriere: "Apă >10°C + aer >20°C + cotă bună + 3 zile stabile = pre-depunere activă. Vișoianu/Baltacul confirmă.",
+        bonus: 1.20,
+      });
+    }
+  }
+
+  // 2. Fereastra Vișoianu (crap)
+  if (specie.id === "crap") {
+    const lunaIdeala = moon.illumination < 15 || moon.illumination > 85;
+    const cotaOK = water && water.level >= 150 && water.level <= 200;
+    const presStable = isPrev3 && forecastsPrev.every((f) => Math.abs(f.pressure - forecast.pressure) <= 3);
+    if (lunaIdeala && cotaOK && presStable) {
+      patterns.push({
+        id: "fereastra-visoianu",
+        nume: "Fereastra Vișoianu",
+        emoji: "🎯",
+        descriere: "Lună ±2 zile + cotă 150-200 + presiune stabilă 3 zile = momentul ideal pe Dunărea Veche.",
+        bonus: 1.18,
+      });
+    }
+  }
+
+  // 3. Front activator (somn + crap pe somn)
+  if (specie.id === "somn" || specie.id === "crap") {
+    const presDrop = forecastsPrev.length >= 1 && (forecastsPrev[0].pressure - forecast.pressure) > 4;
+    const ploaie = forecast.precipitation > 0.5 && forecast.precipitation < 12;
+    const ventCreste = forecastsPrev.length >= 1 && forecast.windMax > forecastsPrev[0].windMax + 5;
+    if (presDrop && ploaie && ventCreste) {
+      patterns.push({
+        id: "front-activator",
+        nume: "Front activator",
+        emoji: "⚡",
+        descriere: "Presiune scădere + ploaie ușoară + vânt în creștere = peștii activează înainte de front meteo.",
+        bonus: specie.id === "somn" ? 1.22 : 1.12,
+      });
+    }
+  }
+
+  // 4. Post-furtună (toate speciile)
+  if (isPrev3) {
+    const cele2Anterioare = forecastsPrev.slice(0, 2);
+    const haveStorm = cele2Anterioare.some((f) => f.windMax > 25 || f.precipitation > 10);
+    const acumCalm = forecast.windMax < 15 && forecast.precipitation < 2;
+    if (haveStorm && acumCalm) {
+      patterns.push({
+        id: "post-furtuna",
+        nume: "Post-furtună",
+        emoji: "🌤️",
+        descriere: "Ferestră 3-4h după ce trece furtuna. Peștii ies activ după presiunea s-a stabilizat.",
+        bonus: 1.13,
+      });
+    }
+  }
+
+  // 5. Bate norocul (crap noiembrie)
+  if (specie.id === "crap" && month === 11) {
+    const cotaRising = water?.trend === "rising";
+    const apaRece = waterTemp >= 8 && waterTemp <= 13;
+    if (cotaRising && apaRece) {
+      patterns.push({
+        id: "bate-norocul",
+        nume: "Bate norocul",
+        emoji: "🍂",
+        descriere: "Strategia GDA: noiembrie + cotă în creștere + apă 8-13°C = crap mare pe canale Delta.",
+        bonus: 1.17,
+      });
+    }
+  }
+
+  // 6. Era begului (post-prohibiție iunie)
+  if (specie.id === "crap" && month === 6 && date.getDate() >= 8 && date.getDate() <= 25) {
+    const apaOK = waterTemp >= 15 && waterTemp <= 22;
+    if (apaOK) {
+      patterns.push({
+        id: "era-begului",
+        nume: "Era begului",
+        emoji: "💪",
+        descriere: "Post-prohibiție + apă optimă + pre-depunere terminat = PVA cu plumb greu (Costache) = capturi active.",
+        bonus: 1.10,
+      });
+    }
+  }
+
+  return patterns;
+}
+
+// Calculează stabilitatea trendului ultimelor 3 zile
+function calculeazaTrend(
+  forecast: DailyForecast,
+  forecastsPrev: DailyForecast[],
+  water: WaterLevelReading | null,
+): TrendInfo {
+  const isPrev3 = forecastsPrev.length >= 3;
+  const allForecasts = [forecast, ...forecastsPrev];
+
+  const pressures = allForecasts.map((f) => f.pressure);
+  const pressureRange = Math.max(...pressures) - Math.min(...pressures);
+  const pressureStable = isPrev3 && pressureRange <= 6;
+
+  const windCalm = isPrev3 && forecastsPrev.every((f) => f.windMax < 20);
+
+  let cotaTrend: TrendInfo["cotaTrend"] = "unknown";
+  if (water) cotaTrend = water.trend;
+
+  const presDrop = forecastsPrev.length >= 1 && (forecastsPrev[0].pressure - forecast.pressure) > 4;
+  const ploaie = forecast.precipitation > 0.5 && forecast.precipitation < 12;
+  const fronctActivator = presDrop && ploaie;
+
+  let multiplier = 1.0;
+  if (pressureStable) multiplier += 0.05;
+  if (windCalm) multiplier += 0.03;
+  if (cotaTrend === "stable") multiplier += 0.04;
+  if (cotaTrend === "rising") multiplier += 0.02;
+
+  return { pressureStable, windCalm, cotaTrend, fronctActivator, multiplier };
+}
+
+// Generează verdict semantic — "Du-te" / "Mută-te" / "Stai acasă"
+function generaSemantic(
+  scor: number,
+  forecast: DailyForecast,
+  trend: TrendInfo,
+  patterns: Pattern[],
+): SemanticRecommendation {
+  // Pattern detectat = recomandare puternică
+  const hasMajorPattern = patterns.some((p) => p.bonus >= 1.18);
+  if (hasMajorPattern) {
+    return {
+      verdict: "du-te",
+      motiv: `Pattern detectat: ${patterns.find((p) => p.bonus >= 1.18)!.nume}. Fereastra apare rar — profită.`,
+      fereastra: "partidă completă",
+    };
+  }
+
+  if (scor >= 75 && trend.pressureStable) {
+    return {
+      verdict: "du-te",
+      motiv: "Condiții excelente + trend stabil 3 zile = partidă lungă justificată.",
+      fereastra: "2-3 zile",
+    };
+  }
+
+  if (scor >= 60 && trend.fronctActivator) {
+    return {
+      verdict: "du-te-scurt",
+      motiv: "Fereastră scurtă activator front. Atacă în primele 4-6h, apoi pleacă înainte de furtună.",
+      fereastra: "4-6 ore",
+    };
+  }
+
+  if (scor >= 55 && forecast.windMax > 25) {
+    return {
+      verdict: "muta-te",
+      motiv: `Vânt ${forecast.windMax} km/h — caută mal adăpostit (opus vântului) sau canal protejat.`,
+    };
+  }
+
+  if (scor < 35) {
+    return {
+      verdict: "stai-acasa",
+      motiv: "Condițiile contra. Folosește timpul pentru pregătire monturi sau studiu.",
+    };
+  }
+
+  if (scor >= 45 && scor < 65) {
+    return {
+      verdict: "du-te-scurt",
+      motiv: "Condiții medii — du-te DOAR dacă timpul permite, fără așteptări mari.",
+      fereastra: "matinal sau seral",
+    };
+  }
+
+  return {
+    verdict: "du-te",
+    motiv: "Condiții bune — partidă normală.",
+  };
 }
 
 export function calculeazaScor(
@@ -235,15 +464,20 @@ export function calculeazaScor(
   forecast: DailyForecast,
   moon: MoonPhaseInfo,
   water: WaterLevelReading | null,
-  date: Date
+  date: Date,
+  forecastsPrev: DailyForecast[] = [], // ultimele 0-3 zile pentru lookback
 ): ScorulZilei {
   if (isInProhibitie(specie, date)) {
     return {
       total: 0,
+      raw: 0,
       label: "Prohibiție",
       cssColor: "text-red-400",
       reasons: [{ text: "Specia e în prohibiție — pescuitul interzis", positive: false }],
       factors: [],
+      patterns: [],
+      trend: { pressureStable: false, windCalm: false, cotaTrend: "unknown", fronctActivator: false, multiplier: 1 },
+      semantic: { verdict: "stai-acasa", motiv: "Prohibiție." },
     };
   }
 
@@ -322,7 +556,27 @@ export function calculeazaScor(
   // Weighted average — sumă contribuții
   const totalWeight = factors.reduce((s, f) => s + f.weight, 0);
   const totalContribution = factors.reduce((s, f) => s + f.contribution, 0);
-  const score = Math.round((totalContribution / totalWeight) * 100);
+  const rawScore = Math.round((totalContribution / totalWeight) * 100);
+
+  // ============ NIVEL 2: PATTERN RECOGNITION + TREND + COMBINAȚII NON-LINIARE ============
+  const trend = calculeazaTrend(forecast, forecastsPrev, water);
+  const patterns = detecteazaPatterns(specie, forecast, forecastsPrev, moon, water, date, waterTemp);
+
+  // Aplicare modificatori multiplicativi
+  let finalScore = rawScore * trend.multiplier;
+  patterns.forEach((p) => { finalScore *= p.bonus; });
+
+  // Non-linear combinations
+  // Presiune scădere + ploaie ușoară pentru somn = boost extra (front activator confirmat)
+  if (specie.id === "somn" && trend.fronctActivator) {
+    finalScore *= 1.05;
+  }
+  // Cotă mică (sub 100) + apă rece = catastrofă multiplicativă
+  if (water && water.level < 100 && waterTemp < 12) {
+    finalScore *= 0.85;
+  }
+
+  const score = Math.max(0, Math.min(100, Math.round(finalScore)));
 
   let label = "Dificile";
   let cssColor = "text-red-400";
@@ -336,7 +590,9 @@ export function calculeazaScor(
     positive: f.positive,
   }));
 
-  return { total: score, label, cssColor, factors, reasons };
+  const semantic = generaSemantic(score, forecast, trend, patterns);
+
+  return { total: score, raw: rawScore, label, cssColor, factors, reasons, patterns, trend, semantic };
 }
 
 // Recomandă LOCURI și TEHNICI din baza noastră de date, în funcție de specie + lună
