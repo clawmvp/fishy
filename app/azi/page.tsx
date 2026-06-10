@@ -108,19 +108,27 @@ export default async function PartidaPage({
   ]);
 
   const scoruriSpecii = todaysForecast
-    ? specii.map((sp) => ({
-        specie: sp,
-        scor: calculeazaScor(
+    ? specii.map((sp) => {
+        const scor = calculeazaScor(
           sp, todaysForecast, moon, waterTulcea, targetDate,
-          // ultimele 3 zile pentru trend awareness
           ziuaIdx >= 3 ? [forecasts[ziuaIdx - 1], forecasts[ziuaIdx - 2], forecasts[ziuaIdx - 3]].filter(Boolean) : []
-        ),
-        locuri: recomandaLocuri(sp, targetDate),
-        tehnici: recomandaTehnici(sp, targetDate),
-        monturi: monturiPentru(sp.id, targetDate),
-        inProhibitie: isInProhibitie(sp, targetDate),
-        zileDeschidere: isInProhibitie(sp, targetDate) ? zileLaDeschidere(sp, targetDate) : 0,
-      }))
+        );
+        return {
+          specie: sp,
+          scor,
+          locuri: recomandaLocuri(sp, targetDate, {
+            forecast: todaysForecast,
+            cota: waterTulcea?.level,
+            waterTemp: todaysForecast?.waterTempDeep ?? undefined,
+            patterns: scor.patterns,
+            trend: scor.trend,
+          }),
+          tehnici: recomandaTehnici(sp, targetDate),
+          monturi: monturiPentru(sp.id, targetDate),
+          inProhibitie: isInProhibitie(sp, targetDate),
+          zileDeschidere: isInProhibitie(sp, targetDate) ? zileLaDeschidere(sp, targetDate) : 0,
+        };
+      })
     : [];
   const speciiActive = scoruriSpecii.filter((s) => !s.inProhibitie).sort((a, b) => b.scor.total - a.scor.total);
   const speciiProhibite = scoruriSpecii.filter((s) => s.inProhibitie);

@@ -29,7 +29,7 @@ export default function LocuriPage() {
       </header>
 
       {grupuri.map((tip) => {
-        const items = locuri.filter((l) => l.tip === tip);
+        const items = locuri.filter((l) => l.tip === tip && l.regiune === "delta");
         if (!items.length) return null;
         return (
           <section key={tip} className="mb-10">

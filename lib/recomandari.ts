@@ -595,17 +595,86 @@ export function calculeazaScor(
   return { total: score, raw: rawScore, label, cssColor, factors, reasons, patterns, trend, semantic };
 }
 
-// Recomandă LOCURI și TEHNICI din baza noastră de date, în funcție de specie + lună
-export function recomandaLocuri(specie: Specie, date: Date): Loc[] {
+// Context pentru recomandări inteligente
+export type RecomandareContext = {
+  forecast?: DailyForecast;
+  trend?: TrendInfo;
+  patterns?: Pattern[];
+  cota?: number; // cota Tulcea cm
+  waterTemp?: number;
+};
+
+// Pattern-uri și locurile pe care le activează
+const PATTERN_LOCURI: Record<string, string[]> = {
+  "saptamana-magica": ["bratul-tataru", "canalul-iacub", "mila-23", "boda-proste-lopatna"],
+  "fereastra-visoianu": ["dunarea-veche", "mila-23", "canalul-ingusta"],
+  "bate-norocul": ["canalul-litcov", "mila-23", "canalul-ingusta", "dunarea-veche-mila23-lopatna"],
+  "era-begului": ["boda-proste-lopatna", "canalul-ingusta", "mila-23"],
+  "front-activator": ["bratul-chilia", "bratul-sfantu-gheorghe", "groapa-25m-chilia-tatanir", "chilia-veche-pragul-22m"],
+  "post-furtuna": [], // toate
+};
+
+// Recomandă LOCURI scor-based — filtrat strict Delta + context
+export function recomandaLocuri(specie: Specie, date: Date, ctx?: RecomandareContext): Loc[] {
   const month = date.getMonth() + 1;
   const luniRO = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
   const lunaActuala = luniRO[month - 1];
 
-  return locuri.filter((l) => {
-    if (!l.specii.includes(specie.id)) return false;
-    if (l.sezon.length === 0) return true;
-    return l.sezon.some((s) => s.toLowerCase().includes(lunaActuala));
+  // STRICT: doar Delta
+  const candidates = locuri.filter((l) => l.regiune === "delta" && l.specii.includes(specie.id));
+  if (!candidates.length) return [];
+
+  // Scor per loc
+  const scoruri = candidates.map((l) => {
+    let scor = 30; // baseline
+
+    // 1. Match sezon (luna)
+    const matchLuna = l.sezon.some((s) => s.toLowerCase().includes(lunaActuala));
+    if (matchLuna) scor += 25;
+    else if (l.sezon.length === 0) scor += 5; // generic
+    else scor -= 10; // în afara sezonului
+
+    // 2. Match cu cota Tulcea (dacă o avem)
+    if (ctx?.cota !== undefined) {
+      const cota = ctx.cota;
+      if (cota < 100 && l.preferaCotaMica) scor += 18;
+      else if (cota > 200 && l.preferaCotaMare) scor += 18;
+      else if (cota >= 150 && cota <= 200 && (l.tip === "canal" || l.slug === "dunarea-veche")) scor += 15;
+    }
+
+    // 3. Vânt mare → preferă adăpostit
+    if (ctx?.forecast?.windMax && ctx.forecast.windMax > 22) {
+      if (l.adapostitDeVant) scor += 18;
+      else if (l.tip === "brat") scor -= 12; // brațe largi cu val
+    }
+
+    // 4. Patterns activează locuri specifice
+    if (ctx?.patterns) {
+      for (const p of ctx.patterns) {
+        const locuriPattern = PATTERN_LOCURI[p.id];
+        if (locuriPattern?.includes(l.slug)) {
+          scor += Math.round((p.bonus - 1) * 100); // bonus pattern
+        }
+      }
+    }
+
+    // 5. Trend cota în creștere + canale interioare = boost (peștii intră în Deltă)
+    if (ctx?.trend?.cotaTrend === "rising" && l.tip === "canal") scor += 8;
+
+    // 6. Apă rece (<12°C) + canale interioare = boost (apă mai stabilă)
+    if (ctx?.waterTemp !== undefined && ctx.waterTemp < 12 && l.tip === "canal") scor += 10;
+
+    return { loc: l, scor };
   });
+
+  // Sortez descrescător + top 5
+  scoruri.sort((a, b) => b.scor - a.scor);
+  return scoruri.slice(0, 5).map((s) => s.loc);
+}
+
+// Toate locurile Delta pentru specia (fără filtru sezon/scor)
+export function toateLocurileDelta(specie: Specie): Loc[] {
+  return locuri.filter((l) => l.regiune === "delta" && l.specii.includes(specie.id));
 }
 
 export function recomandaTehnici(specie: Specie, date: Date): Tehnica[] {
