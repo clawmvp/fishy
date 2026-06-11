@@ -6,7 +6,7 @@ import { getMoonPhase } from "@/lib/moon";
 import { DANUBE_STATIONS, HIDRO_IDS, classifyLevel, getLevelLabel, getLevelFishingImpact } from "@/lib/water-level";
 import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
-import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, estimateWaterTemp } from "@/lib/recomandari";
+import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, genereazaGhidSpatial, estimateWaterTemp } from "@/lib/recomandari";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -116,6 +116,13 @@ export default async function PartidaPage({
           specie: sp,
           scor,
           locuri: recomandaLocuri(sp, targetDate, {
+            forecast: todaysForecast,
+            cota: waterTulcea?.level,
+            waterTemp: todaysForecast?.waterTempDeep ?? undefined,
+            patterns: scor.patterns,
+            trend: scor.trend,
+          }),
+          ghid: genereazaGhidSpatial(sp, {
             forecast: todaysForecast,
             cota: waterTulcea?.level,
             waterTemp: todaysForecast?.waterTempDeep ?? undefined,
@@ -328,7 +335,7 @@ export default async function PartidaPage({
         </div>
 
         <div className="space-y-4">
-          {speciiActive.map(({ specie, scor, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec }) => (
+          {speciiActive.map(({ specie, scor, ghid, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec }) => (
             <div key={specie.id} className="card rounded-xl p-5">
               <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                 <div className="flex items-baseline gap-3">
@@ -378,6 +385,40 @@ export default async function PartidaPage({
                 </div>
                 <p className="text-sm text-fog/85">{scor.semantic.motiv}</p>
               </div>
+
+              {/* Ghid spațial — unde caut peștele acum */}
+              {ghid && (
+                <div className="mb-4 p-4 rounded-lg" style={{
+                  background: "linear-gradient(135deg, rgba(212,166,87,0.06), rgba(107,163,104,0.04))",
+                  border: "1px solid rgba(212,166,87,0.18)",
+                }}>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-amber-glow text-base">📍</span>
+                    <div>
+                      <p className="text-xs uppercase tracking-widest text-amber-glow">unde caut peștele acum</p>
+                      <p className="text-base font-display text-fog mt-0.5">{ghid.unde}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-fog/85 leading-relaxed mb-2">
+                    <strong className="text-fog">De ce: </strong>{ghid.deCe}
+                  </p>
+                  {ghid.evitati && (
+                    <p className="text-sm text-orange-400/90 leading-relaxed mb-2">
+                      <strong>Evită: </strong>{ghid.evitati}
+                    </p>
+                  )}
+                  {ghid.detalii && ghid.detalii.length > 0 && (
+                    <ul className="space-y-1 mt-2">
+                      {ghid.detalii.map((d, i) => (
+                        <li key={i} className="text-sm flex gap-2 text-fog/80">
+                          <span className="text-amber-soft flex-shrink-0">·</span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
 
               {/* Patterns detectate */}
               {scor.patterns.length > 0 && (

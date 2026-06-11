@@ -677,6 +677,241 @@ export function toateLocurileDelta(specie: Specie): Loc[] {
   return locuri.filter((l) => l.regiune === "delta" && l.specii.includes(specie.id));
 }
 
+// Ghid spațial — traduce condițiile actuale în "unde caut peștele acum?"
+export type GhidSpatial = {
+  unde: string;        // titlu scurt: "Pe brațele principale"
+  deCe: string;        // explicație: "Cota mică + apa caldă = peștii fug din canale"
+  evitati?: string;    // anti-pattern: "NU pierde timp pe canale înguste"
+  detalii?: string[];  // sfaturi adiționale punctuale
+};
+
+export function genereazaGhidSpatial(specie: Specie, ctx: RecomandareContext): GhidSpatial | null {
+  const cota = ctx.cota;
+  const apa = ctx.waterTemp;
+  const vant = ctx.forecast?.windMax ?? 0;
+  const vantDir = ctx.forecast?.windDirection;
+  const presTrend = ctx.forecast?.pressureTrend;
+  const cotaTrend = ctx.trend?.cotaTrend;
+  const patterns = ctx.patterns ?? [];
+
+  // ============ CRAP ============
+  if (specie.id === "crap") {
+    if (cota !== undefined && cota > 250) {
+      return {
+        unde: "În lacurile interioare",
+        deCe: `Cota Tulcea ${cota} cm = ape mari. Crapul s-a mutat din canale în lacurile inundate (mâncare abundentă pe vegetația proaspăt acoperită).`,
+        evitati: "Brațele principale și canalele de tranzit sunt seci de crap.",
+        detalii: [
+          "Lacurile din nord de Mila 23 (Brateș, Roșu, Matița)",
+          "Ghioluri laterale cu stuf inundat",
+          "Apropie-te de marginile inundate, NU centrul lacului",
+        ],
+      };
+    }
+    if (cota !== undefined && cota >= 150 && cota <= 200) {
+      return {
+        unde: "Pe canale Delta + Dunărea Veche",
+        deCe: `Cota ${cota} cm = OPTIMĂ (regula Vișoianu). Crapul circulă pe canalele de tranzit între brațe — momentul ideal pe Dunărea Veche, Mila 23, Crișan-Îngusta.`,
+        detalii: [
+          "Dunărea Veche (Mila 23 → Crișan) = șansa la crap capital",
+          "Canalele Boda Proste, Lopatna, Litcov — peștii migrează",
+          "Cota OPTIMĂ + presiune stabilă = du-te pentru partidă lungă",
+        ],
+      };
+    }
+    if (cota !== undefined && cota >= 100 && cota < 150) {
+      return {
+        unde: "Mixt — canale interioare + brațe",
+        deCe: `Cota ${cota} cm = mediu. Peștele se distribuie pe canale + zonele de tranziție de pe brațe.`,
+        detalii: [
+          "Verifică vântul: pe vânt mare → canale (adăpost)",
+          "Pe vânt slab → brațe principale cu acces la cioate",
+          "Decizia depinde mai mult de apă + presiune decât de cotă",
+        ],
+      };
+    }
+    if (cota !== undefined && cota < 100) {
+      return {
+        unde: "Pe brațele principale Sulina / Chilia / Sf. Gheorghe",
+        deCe: `Cota ${cota} cm = scăzută. Crapul a fugit din canalele înguste (rămase fără apă suficientă) și s-a cantonat pe brațele principale unde mai e adâncime.`,
+        evitati: "NU pierde timp pe canalele Crișan-Îngusta, Boda Proste, Lopatna — sunt aproape goale.",
+        detalii: [
+          "Chilia Veche prag 22m = aur la cotă mică",
+          "Sf. Gheorghe pe gropi adânci",
+          "Sulina pe șenal lângă pietre / epi-uri",
+        ],
+      };
+    }
+    if (apa !== undefined && apa > 24) {
+      return {
+        unde: "Pe adâncime, doar matinal/seral",
+        deCe: `Apa ${apa}°C = caniculă. Crapul refuză apă caldă de suprafață, se duce pe 8-15m. Nu mănâncă între 11:00-16:00.`,
+        detalii: [
+          "Ferestre: 05:00-09:00 și 19:00-23:00",
+          "Sondează pe sonar adâncimi 8-15m pe brațe",
+          "Folosește boilies semi-solubile (țin 24h+)",
+        ],
+      };
+    }
+    return null;
+  }
+
+  // ============ SOMN ============
+  if (specie.id === "somn") {
+    if (apa !== undefined && apa < 14) {
+      return {
+        unde: "Aproape inactiv pe Dunăre",
+        deCe: `Apa ${apa}°C = somn în repaus metabolic. Singura excepție: canalele cu apă caldă (CNE Cernavodă).`,
+        evitati: "Cloncul pe Chilia/Sf. Gheorghe = pierdere de timp.",
+        detalii: [
+          "Așteaptă apa să urce peste 16°C",
+          "SAU mergi pe canalul de evacuare CNE Cernavodă (apă caldă constantă)",
+        ],
+      };
+    }
+    if (presTrend === "falling" || ctx.trend?.fronctActivator) {
+      return {
+        unde: "Pe gropi adânci + clonc activ",
+        deCe: "Presiunea scade = front meteo iminent. SOMNUL ACTIVEAZĂ înainte de furtună — momentul cel mai bun pentru clonc.",
+        detalii: [
+          "Groapa 25-27m Chilia (lângă Tatanir)",
+          "Chilia Veche pe pragul 22m",
+          "Sf. Gheorghe pe gropile adânci",
+          "Folosește vier de salcie + coropișniță (regină)",
+        ],
+      };
+    }
+    if (apa !== undefined && apa >= 22) {
+      return {
+        unde: "Pe gropi adânci NOAPTEA",
+        deCe: `Apa ${apa}°C = caldă. Somnul stă pe fund 15-25m ziua, urcă să mănânce noaptea (22:00-04:00).`,
+        detalii: [
+          "Cloncul după apus și înainte de răsărit",
+          "Ziua doar gher — economisește energia",
+        ],
+      };
+    }
+    return {
+      unde: "Pe gropile clasice Chilia / Sf. Gheorghe",
+      deCe: "Condiții normale = pescuit standard pe gropile cunoscute. Activitate moderată matinal+seral.",
+      detalii: [
+        "Groapa 25-27m Chilia",
+        "Chilia Veche pragul 22m",
+        "Vier de salcie + coropișniță > râme negre",
+      ],
+    };
+  }
+
+  // ============ ȘTIUCĂ ============
+  if (specie.id === "stiuca") {
+    if (apa !== undefined && apa > 22) {
+      return {
+        unde: "În lacuri pe vegetație, matinal/seral",
+        deCe: `Apa ${apa}°C = prea caldă pentru știuca activă ziua. Stă la umbră în nuferi, dormit pe căldură.`,
+        detalii: [
+          "Spot-uri umbroase pe lacurile Mila 23 nord",
+          "Topwater dimineața 05:00-08:00 / seara 19:00-21:00",
+          "Stația 11 — confirmate exemplare 90+ cm pe topwater",
+        ],
+      };
+    }
+    if (apa !== undefined && apa < 8) {
+      return {
+        unde: "Pe adâncime — jigging clasic",
+        deCe: `Apa ${apa}°C = știuca lentă, jos. Caută praguri și cioate pe adâncime 4-8m.`,
+        detalii: [
+          "Jighead 3-7g cu gumă mică (6-8 cm)",
+          "Storm Jointed Minnow Fire Tiger = standardul iarna",
+          "Lacuri interioare Mila 23",
+        ],
+      };
+    }
+    return {
+      unde: "Pe lacuri cu vegetație, lângă structuri",
+      deCe: "Condiții optime. Caută cioate, nuferi, marginea stufului.",
+      detalii: [
+        "Lacuri Mila 23 nord",
+        "Stația 11 = exemplare mari pe topwater",
+        "Slider Salmo 7 = trend dominant pe lacuri",
+      ],
+    };
+  }
+
+  // ============ ȘALĂU ============
+  if (specie.id === "salau") {
+    if (vant > 25) {
+      return {
+        unde: "Pe mal adăpostit, jigging vertical",
+        deCe: `Vânt ${vant} km/h = șalău fuge de val. Caută zonele protejate de vânt.`,
+        detalii: [
+          "Cot de mal opus vântului",
+          "Praguri în zona adăpostită",
+          "Gumă verde clasic + jighead mai greu pentru val",
+        ],
+      };
+    }
+    if (apa !== undefined && apa < 12) {
+      return {
+        unde: "Pe praguri adânci, jigging lent",
+        deCe: `Apa ${apa}°C = șalău cantonat pe praguri 8-12m. Atacuri firave — finețe maximă.`,
+        detalii: [
+          "Jighead 3.5g (NU mai greu — atac nervos)",
+          "Gumă verde 7 cm cu burtă deschisă",
+          "Înțepare INSTANT la primul atac",
+        ],
+      };
+    }
+    return {
+      unde: "Pe primul prag de la mal",
+      deCe: "Condiții normale. Șalău pe primul prag (3-6m de mal), nu departe.",
+      detalii: [
+        "Lansare paralel cu malul",
+        "Lacul Babadag — singur loc Delta validat",
+        "Apoi treptat spre larg",
+      ],
+    };
+  }
+
+  // ============ BIBAN ============
+  if (specie.id === "biban") {
+    if (cota !== undefined && cota > 200) {
+      return {
+        unde: "În lacuri interioare cu apă limpede",
+        deCe: `Cota ${cota} cm = lacurile sunt pline cu apă proaspătă. Bibanii migrează acolo după caras/roșioară.`,
+        detalii: [
+          "Lacuri Mila 23 nord",
+          "Bance compacte pe Live Scope",
+          "Microjig cu gumă Motoroil 4 cm",
+        ],
+      };
+    }
+    return {
+      unde: "Pe Dunărea Veche, mal cu piatră",
+      deCe: "Bibanii MARI lipiți de malul cu piatră. Cei mici în larg sub barcă.",
+      detalii: [
+        "Confluența Dunărea Veche - Canal Lopatna",
+        "Jighead 5g (NU 7-10 — agață piatra)",
+        "Fast Strike Motoroil + Bass Assassin Electric Chicken",
+      ],
+    };
+  }
+
+  // ============ AVAT ============
+  if (specie.id === "avat") {
+    return {
+      unde: "Pe epi-urile Sulina, în anaforuri",
+      deCe: "Avatul vânează vizual pe suprafață. Anaforul din spatele epiului = locul ideal.",
+      detalii: [
+        "Răsărit 5:00-8:00 = ora de aur",
+        "Helic Nikel 16-17g sau Duo Realis 14.5g",
+        "Vânat VIZUAL — dacă vezi sărituri, lansează acolo",
+      ],
+    };
+  }
+
+  return null;
+}
+
 // Pattern → tehnici activate (cele mai relevante când pattern e activ)
 const PATTERN_TEHNICI: Record<string, string[]> = {
   "saptamana-magica": ["crap-primavara-momitor", "porumb-fermentat-vs-fiert", "ritm-activitate-canale-primavara"],
