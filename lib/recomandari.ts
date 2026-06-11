@@ -683,9 +683,96 @@ export type GhidSpatial = {
   deCe: string;        // explicație: "Cota mică + apa caldă = peștii fug din canale"
   evitati?: string;    // anti-pattern: "NU pierde timp pe canale înguste"
   detalii?: string[];  // sfaturi adiționale punctuale
+  pozitionareVant?: PozitionareVant; // unde să te așezi ca să nu te deranjeze vântul
 };
 
+export type PozitionareVant = {
+  intensitate: "calm" | "moderat" | "puternic" | "extrem";
+  directie: string;     // ex. "NV"
+  pozitie: string;      // ex. "Cot adăpostit pe malul SE / canal protejat de stuf"
+  detalii?: string[];   // sfaturi punctuale
+};
+
+function genereazaPozitionareVant(windKmh: number, windDir: number): PozitionareVant | null {
+  if (windKmh < 8) return null; // vânt slab — nu deranjează
+  const dir = degreeToCardinal(windDir);
+
+  let intensitate: PozitionareVant["intensitate"] = "moderat";
+  if (windKmh < 15) intensitate = "moderat";
+  else if (windKmh < 25) intensitate = "puternic";
+  else intensitate = "extrem";
+
+  // Logica de poziționare:
+  // 1. Te așezi pe MALUL DINSPRE CARE BATE vântul (vântul vine din spate)
+  //    → adăposit, val merge spre malul opus, dar peștii sunt pe malul OPUS (care e bătut de val)
+  // 2. Sau te așezi la confluență/cot adăpostit
+  // 3. Pe vânt extrem (>25 km/h) → caută canale înguste cu maluri înalte
+
+  const oppositeDir: Record<string, string> = {
+    N: "S", NE: "SV", E: "V", SE: "NV", S: "N", SV: "NE", V: "E", NV: "SE",
+  };
+  const malOpus = oppositeDir[dir] || dir;
+
+  if (intensitate === "moderat") {
+    return {
+      intensitate, directie: dir,
+      pozitie: `Stai cu spatele la vânt (mal ${dir}) — val face oxigenare bună pe malul ${malOpus} unde sunt peștii`,
+      detalii: [
+        "Lansare cu vântul = distanță mare",
+        `Peștii vin pe malul ${malOpus} după mâncarea adusă de val (insecte, semințe)`,
+        "Vânt moderat = bun pentru pescuit, oxigenează apa",
+      ],
+    };
+  }
+
+  if (intensitate === "puternic") {
+    return {
+      intensitate, directie: dir,
+      pozitie: `Caută cot adăpostit pe malul ${dir} — val mare pe brațe principale, mută-te pe canal interior`,
+      detalii: [
+        `Brațe Sulina/Chilia cu vânt ${dir} ${windKmh} km/h = val 0.5-1m, lansaj dificil`,
+        "Canalele interioare (Mila 23, Boda Proste, Crișan-Îngusta) = adăpost natural cu maluri înalte de stuf",
+        `În barcă: prova FIX în vânt (NU lateral — se învârte), funia ancorei dublată`,
+        `Peștii MARI vin pe malul ${malOpus} bătut de val (vibrație + insecte căzute)`,
+      ],
+    };
+  }
+
+  // extrem
+  return {
+    intensitate, directie: dir,
+    pozitie: `STAI ÎN PORT — vânt ${windKmh} km/h pe brațele Deltei = val 1m+, pericol real`,
+    detalii: [
+      "Pescuit doar pe canale interioare COMPLET adăpostite (Mila 23 canal Sontea, Litcov, Crișan interior)",
+      "Sub copaci scufundați + maluri înalte cu stuf",
+      `Risc cod portocaliu/roșu — verifică RoAlert dacă vântul ține peste 6h`,
+      "Cot/portar de pensiune (Gigant Fish, Lebăda) = singura opțiune sigură",
+    ],
+  };
+}
+
+function degreeToCardinal(deg: number): string {
+  const dirs = ["N", "NE", "E", "SE", "S", "SV", "V", "NV"];
+  return dirs[Math.round(deg / 45) % 8];
+}
+
 export function genereazaGhidSpatial(specie: Specie, ctx: RecomandareContext): GhidSpatial | null {
+  const ghid = _genereazaGhidInternal(specie, ctx);
+  if (!ghid) {
+    // Chiar fără ghid spațial, dacă e vânt putem returna doar poziționarea
+    if (ctx.forecast?.windMax !== undefined && ctx.forecast?.windDirection !== undefined) {
+      const poz = genereazaPozitionareVant(ctx.forecast.windMax, ctx.forecast.windDirection);
+      if (poz) return { unde: "—", deCe: "—", pozitionareVant: poz };
+    }
+    return null;
+  }
+  if (ctx.forecast?.windMax !== undefined && ctx.forecast?.windDirection !== undefined) {
+    ghid.pozitionareVant = genereazaPozitionareVant(ctx.forecast.windMax, ctx.forecast.windDirection) ?? undefined;
+  }
+  return ghid;
+}
+
+function _genereazaGhidInternal(specie: Specie, ctx: RecomandareContext): GhidSpatial | null {
   const cota = ctx.cota;
   const apa = ctx.waterTemp;
   const vant = ctx.forecast?.windMax ?? 0;

@@ -392,30 +392,61 @@ export default async function PartidaPage({
                   background: "linear-gradient(135deg, rgba(212,166,87,0.06), rgba(107,163,104,0.04))",
                   border: "1px solid rgba(212,166,87,0.18)",
                 }}>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-amber-glow text-base">📍</span>
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-amber-glow">unde caut peștele acum</p>
-                      <p className="text-base font-display text-fog mt-0.5">{ghid.unde}</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-fog/85 leading-relaxed mb-2">
-                    <strong className="text-fog">De ce: </strong>{ghid.deCe}
-                  </p>
-                  {ghid.evitati && (
-                    <p className="text-sm text-orange-400/90 leading-relaxed mb-2">
-                      <strong>Evită: </strong>{ghid.evitati}
-                    </p>
+                  {ghid.unde !== "—" && (
+                    <>
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-amber-glow text-base">📍</span>
+                        <div>
+                          <p className="text-xs uppercase tracking-widest text-amber-glow">unde caut peștele acum</p>
+                          <p className="text-base font-display text-fog mt-0.5">{ghid.unde}</p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-fog/85 leading-relaxed mb-2">
+                        <strong className="text-fog">De ce: </strong>{ghid.deCe}
+                      </p>
+                      {ghid.evitati && (
+                        <p className="text-sm text-orange-400/90 leading-relaxed mb-2">
+                          <strong>Evită: </strong>{ghid.evitati}
+                        </p>
+                      )}
+                      {ghid.detalii && ghid.detalii.length > 0 && (
+                        <ul className="space-y-1 mt-2">
+                          {ghid.detalii.map((d, i) => (
+                            <li key={i} className="text-sm flex gap-2 text-fog/80">
+                              <span className="text-amber-soft flex-shrink-0">·</span>
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
                   )}
-                  {ghid.detalii && ghid.detalii.length > 0 && (
-                    <ul className="space-y-1 mt-2">
-                      {ghid.detalii.map((d, i) => (
-                        <li key={i} className="text-sm flex gap-2 text-fog/80">
-                          <span className="text-amber-soft flex-shrink-0">·</span>
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                  {/* Poziționare la vânt */}
+                  {ghid.pozitionareVant && (
+                    <div className={`${ghid.unde !== "—" ? "mt-3 pt-3 border-t border-amber-glow/15" : ""}`}>
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-base">💨</span>
+                        <div>
+                          <p className="text-xs uppercase tracking-widest text-amber-glow">
+                            poziționare la vânt — {ghid.pozitionareVant.intensitate} {ghid.pozitionareVant.directie}
+                          </p>
+                          <p className="text-sm font-display text-fog mt-0.5 leading-snug">
+                            {ghid.pozitionareVant.pozitie}
+                          </p>
+                        </div>
+                      </div>
+                      {ghid.pozitionareVant.detalii && ghid.pozitionareVant.detalii.length > 0 && (
+                        <ul className="space-y-1 mt-2">
+                          {ghid.pozitionareVant.detalii.map((d, i) => (
+                            <li key={i} className="text-sm flex gap-2 text-fog/80">
+                              <span className="text-amber-soft flex-shrink-0">·</span>
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   )}
                 </div>
               )}
