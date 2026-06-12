@@ -206,8 +206,8 @@ function gramHigh(g: number): string {
 }
 
 export default function ProviziiPage() {
-  const [pescari, setPescari] = useState(4);
-  const [zile, setZile] = useState(2);
+  const [pescari, setPescari] = useState(2);
+  const [zile, setZile] = useState(3);
   const [tip, setTip] = useState<TipPartida>("crap");
   const [anotimp, setAnotimp] = useState<Anotimp>("tranzitie");
   const [companie, setCompanie] = useState<Companie>("amici");
