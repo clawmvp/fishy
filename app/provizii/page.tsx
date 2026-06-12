@@ -72,13 +72,15 @@ type Bauturi = {
   vinMl: number;
   whiskyMl: number;
   apaL: number;
+  apaMineralaL: number;
   cafea: number;
 };
 
 function calculeazaBauturi(
   pescari: number, zile: number, tip: TipPartida, anotimp: Anotimp, companie: Companie, locatie: Locatie
 ): Bauturi {
-  let palinca = 150, bere = 3, vin = 200, whisky = 0;
+  // Baseline reglat: 100ml palincă, 2.5 doze bere, 500ml vin (spritz) per pescar/zi
+  let palinca = 100, bere = 2.5, vin = 500, whisky = 0;
 
   if (tip === "spinning") { palinca *= 0.7; bere *= 0.8; vin *= 0.7; }
   else if (tip === "clonc") { palinca *= 1.6; bere *= 0.8; vin *= 0.5; }
@@ -96,13 +98,16 @@ function calculeazaBauturi(
   else if (locatie === "pensiune-bar") { palinca *= 1.4; bere *= 1.5; vin *= 1.5; whisky += 50; }
 
   const t = pescari * zile;
+  const vinMl = Math.round(vin * t);
   return {
     palincaMl: Math.round(palinca * t),
     bereDoze: Math.round(bere * t),
-    vinMl: Math.round(vin * t),
+    vinMl,
     whiskyMl: Math.round(whisky * t),
     apaL: Math.round(2 * t * 10) / 10,
-    cafea: Math.ceil(2.5 * t),
+    // Apă minerală gazoasă: 1:1 cu vinul pentru spritz, minim 1L
+    apaMineralaL: Math.max(1, Math.round((vinMl / 1000) * 10) / 10),
+    cafea: 2 * t,
   };
 }
 
@@ -286,7 +291,9 @@ export default function ProviziiPage() {
           <Linie nume="Bere" cantitate={`${b.bereDoze} doze`}
             sub={`≈ ${Math.ceil(b.bereDoze / 24)} bax de 24`} icon="🍺" />
           <Linie nume="Vin" cantitate={`${(b.vinMl / 1000).toFixed(1)} L`}
-            sub={`≈ ${Math.ceil(b.vinMl / 750)} sticle / damigene`} icon="🍷" />
+            sub={`≈ ${Math.ceil(b.vinMl / 750)} sticle / damigene · pentru spritz`} icon="🍷" />
+          <Linie nume="Apă minerală gazoasă" cantitate={`${b.apaMineralaL} L`}
+            sub="pentru spritz 1:1 cu vinul" icon="🫧" />
           {b.whiskyMl > 0 && (
             <Linie nume="Whisky / coniac" cantitate={`${b.whiskyMl} ml`}
               sub="pentru aere și fotografii" icon="🥃" />
