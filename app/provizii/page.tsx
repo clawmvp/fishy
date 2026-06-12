@@ -22,129 +22,146 @@ const ANOTIMPURI: { val: Anotimp; label: string; nota: string }[] = [
 
 const COMPANII: { val: Companie; label: string; nota: string }[] = [
   { val: "amici", label: "Doar amici", nota: "baseline — democratic" },
-  { val: "socrul", label: "Cu socrul", nota: "+50% palincă obligatoriu (legea nescrisă)" },
-  { val: "sefii", label: "Cu șefii de la birou", nota: "toți încearcă să se țină tari → consum ridicat" },
+  { val: "socrul", label: "Cu socrul", nota: "+50% palincă (legea nescrisă)" },
+  { val: "sefii", label: "Cu șefii de la birou", nota: "toți se țin tari → consum ridicat" },
   { val: "nevasta", label: "Cu nevasta", nota: "vin elegant, palincă pe ascuns" },
   { val: "pensionari", label: "Pensionari veterani din sat", nota: "categorie OLIMPICĂ" },
 ];
 
 const LOCATII: { val: Locatie; label: string; nota: string }[] = [
-  { val: "sat", label: "Sat lipovenesc cu magazin", nota: "poți ieși după rezerve dacă se termină" },
+  { val: "sat", label: "Sat lipovenesc cu magazin", nota: "ieși după rezerve dacă se termină" },
   { val: "izolat", label: "Insulă / Stuf izolat", nota: "+20% panică să nu rămâi sec" },
   { val: "pensiune-bar", label: "Pensiune cu bar deschis", nota: "necontrolat — variabila scapă" },
 ];
 
-type Provizii = {
-  palincaMl: number;     // mililitri totali
-  bereDoze: number;      // doze 500ml
+type Bauturi = {
+  palincaMl: number;
+  bereDoze: number;
   vinMl: number;
   whiskyMl: number;
   apaL: number;
-  cafea: number;         // capsule
-  slanaG: number;
-  branzaG: number;
-  castravetiBorcane: number;
-  semintePungi: number;
+  cafea: number;
 };
 
-function calculeaza(
-  pescari: number,
-  zile: number,
-  tip: TipPartida,
-  anotimp: Anotimp,
-  companie: Companie,
-  locatie: Locatie
-): Provizii {
-  // BASE per persoană per zi
-  let palinca = 150; // ml
-  let bere = 3; // doze 500ml
-  let vin = 200; // ml
-  let whisky = 0;
+function calculeazaBauturi(
+  pescari: number, zile: number, tip: TipPartida, anotimp: Anotimp, companie: Companie, locatie: Locatie
+): Bauturi {
+  let palinca = 150, bere = 3, vin = 200, whisky = 0;
 
-  // Tip de partidă
-  if (tip === "spinning") {
-    palinca *= 0.7; bere *= 0.8; vin *= 0.7;
-  } else if (tip === "clonc") {
-    palinca *= 1.6; bere *= 0.8; vin *= 0.5; // palincă pentru somn
-  } else if (tip === "pensiune") {
-    palinca *= 0.9; bere *= 1.3; vin *= 2.0; whisky = 60;
-  }
+  if (tip === "spinning") { palinca *= 0.7; bere *= 0.8; vin *= 0.7; }
+  else if (tip === "clonc") { palinca *= 1.6; bere *= 0.8; vin *= 0.5; }
+  else if (tip === "pensiune") { palinca *= 0.9; bere *= 1.3; vin *= 2.0; whisky = 60; }
 
-  // Anotimp
-  if (anotimp === "iarna") {
-    palinca *= 1.4; bere *= 0.4; vin *= 1.1;
-  } else if (anotimp === "vara") {
-    palinca *= 0.8; bere *= 1.8; vin *= 0.9;
-  }
+  if (anotimp === "iarna") { palinca *= 1.4; bere *= 0.4; vin *= 1.1; }
+  else if (anotimp === "vara") { palinca *= 0.8; bere *= 1.8; vin *= 0.9; }
 
-  // Companie
-  if (companie === "socrul") {
-    palinca *= 1.5; bere *= 1.1; vin *= 1.0;
-  } else if (companie === "sefii") {
-    palinca *= 1.4; bere *= 1.6; vin *= 1.3; whisky += 80;
-  } else if (companie === "nevasta") {
-    palinca *= 0.5; bere *= 0.7; vin *= 1.8;
-  } else if (companie === "pensionari") {
-    palinca *= 2.0; bere *= 1.1; vin *= 1.4;
-  }
+  if (companie === "socrul") { palinca *= 1.5; bere *= 1.1; }
+  else if (companie === "sefii") { palinca *= 1.4; bere *= 1.6; vin *= 1.3; whisky += 80; }
+  else if (companie === "nevasta") { palinca *= 0.5; bere *= 0.7; vin *= 1.8; }
+  else if (companie === "pensionari") { palinca *= 2.0; bere *= 1.1; vin *= 1.4; }
 
-  // Locație
-  if (locatie === "izolat") {
-    palinca *= 1.2; bere *= 1.2; vin *= 1.2;
-  } else if (locatie === "pensiune-bar") {
-    palinca *= 1.4; bere *= 1.5; vin *= 1.5; whisky += 50;
-  }
+  if (locatie === "izolat") { palinca *= 1.2; bere *= 1.2; vin *= 1.2; }
+  else if (locatie === "pensiune-bar") { palinca *= 1.4; bere *= 1.5; vin *= 1.5; whisky += 50; }
 
-  const total = pescari * zile;
-
+  const t = pescari * zile;
   return {
-    palincaMl: Math.round(palinca * total),
-    bereDoze: Math.round(bere * total),
-    vinMl: Math.round(vin * total),
-    whiskyMl: Math.round(whisky * total),
-    apaL: Math.round(2 * total * 10) / 10, // 2L apă / persoană / zi (deshidratare iminentă)
-    cafea: Math.ceil(2.5 * total),
-    slanaG: 120 * total,
-    branzaG: 200 * total,
-    castravetiBorcane: Math.max(1, Math.ceil(total / 3)),
-    semintePungi: Math.ceil(pescari / 2) * zile, // o pungă pe pescar la 2 zile
+    palincaMl: Math.round(palinca * t),
+    bereDoze: Math.round(bere * t),
+    vinMl: Math.round(vin * t),
+    whiskyMl: Math.round(whisky * t),
+    apaL: Math.round(2 * t * 10) / 10,
+    cafea: Math.ceil(2.5 * t),
   };
 }
 
-function verdict(p: Provizii, pescari: number, zile: number): { titlu: string; descriere: string; emoji: string; culoare: string } {
-  // Total alcool pur estimat (40% palincă, 5% bere, 12% vin, 40% whisky)
-  const alcoolPur =
-    p.palincaMl * 0.40 +
-    p.bereDoze * 500 * 0.05 +
-    p.vinMl * 0.12 +
-    p.whiskyMl * 0.40;
-  const perPescarPeZi = alcoolPur / (pescari * zile);
+type Mancare = {
+  paineGr: number;
+  oua: number;
+  branzaTelemea: number;  // grame
+  salamPateuGr: number;
+  rosiiGr: number;
+  ceapaGr: number;
+  cartofiGr: number;
+  malaiGr: number;
+  fasoleGr: number;
+  conserveBuc: number;     // pateu/sardine/fasole cutie
+  slanaGr: number;
+  castravetiBorcane: number;
+  biscuitiPungi: number;
+  fructeBuc: number;
+  semintePungi: number;
+  calTotalKcal: number;
+};
 
-  if (perPescarPeZi < 80) return {
-    emoji: "🎓", culoare: "#9bb5a3",
-    titlu: "NOVICE — abia ai trecut testul berii",
-    descriere: "Pescarii din Deltă te-ar adopta ca pe un nepoțel. Te lasă să prinzi babușcă. Te trimit după lemne. Te-ai nimerit aici din greșeală sau ești corporatist evadat?",
-  };
-  if (perPescarPeZi < 140) return {
-    emoji: "🎣", culoare: "#a8c87a",
-    titlu: "PESCAR DECENT — îți ții berea când prinzi",
-    descriere: "Echilibru sănătos. Costache nu te dă afară de la masă, dar nici nu te invită la rondul al doilea. Ai potențial.",
-  };
-  if (perPescarPeZi < 220) return {
-    emoji: "🍻", culoare: "#d4a657",
-    titlu: "GFT VETERAN — ai locul tău la masa lui Costache",
-    descriere: "Numele tău e pronunțat cu respect la magazinul din Crișan. Aduci palincă proprie. Ai propria farfurie de borș. Ești noi (în sens bun).",
-  };
-  if (perPescarPeZi < 320) return {
-    emoji: "🦅", culoare: "#e89844",
-    titlu: "BALTACUL VENERABIL — caracajos legendar",
-    descriere: "Localnicii te confundă cu un călugăr de la Mănăstirea Saon care a luat-o pe scurtătură. Bărci de pescari trec pe lângă tine în liniște religioasă.",
-  };
+function calculeazaMancare(pescari: number, zile: number, tip: TipPartida): Mancare {
+  // dacă pensiune: cina inclusă → tăiem ~50% din mâncarea adusă
+  const f = tip === "pensiune" ? 0.5 : 1.0;
+  const t = pescari * zile;
+
   return {
-    emoji: "🐻", culoare: "#c84a3c",
-    titlu: "LIPOVEAN AUTENTIC — sau urs deghizat?",
-    descriere: "Statisticile sunt depășite. Calculatorul cere protecție sindicală. ANPA discută să te declare specie protejată. Recomandăm verificare medicală post-partidă.",
+    paineGr: Math.round(300 * t * f),
+    oua: Math.ceil(3 * pescari * Math.min(zile, 2)), // ouă doar primele 2 dimineți
+    branzaTelemea: Math.round(180 * t * f),
+    salamPateuGr: Math.round(150 * t * f),
+    rosiiGr: Math.round(250 * t * f),
+    ceapaGr: Math.round(120 * t * f),
+    cartofiGr: Math.round(250 * t * f),
+    malaiGr: Math.round(100 * t * f),
+    fasoleGr: Math.round(80 * t * f),
+    conserveBuc: Math.ceil(t * f),
+    slanaGr: Math.round(100 * t * f),
+    castravetiBorcane: Math.max(1, Math.ceil(t / 3)),
+    biscuitiPungi: Math.max(1, Math.ceil(t / 3)),
+    fructeBuc: Math.ceil(t * f),
+    semintePungi: Math.ceil(pescari * Math.max(1, zile / 2)),
+    calTotalKcal: Math.round(2800 * t * f),
   };
+}
+
+type ZiMeniu = {
+  numar: number;
+  micDejun: string[];
+  pranz: string[];
+  cina: string[];
+  gluma?: string;
+};
+
+function genereazaMeniu(zile: number, tip: TipPartida): ZiMeniu[] {
+  const lista: ZiMeniu[] = [];
+  for (let i = 1; i <= zile; i++) {
+    const ultima = i === zile && zile > 1;
+    if (ultima && tip !== "pensiune") {
+      lista.push({
+        numar: i,
+        micDejun: ["Cafea + biscuiți + ce-a mai rămas din slană"],
+        pranz: ["Sandwich cu telemea + roșii + ceapă verde"],
+        cina: ["🐟 Crap la proțap / saramură de crap"],
+        gluma: "Aici v-am pus crap în meniu. Dacă nu-l prindeți... aveți pâine cu castraveți. Succes!",
+      });
+    } else if (tip === "pensiune") {
+      lista.push({
+        numar: i,
+        micDejun: ["Mic dejun la pensiune (inclus)"],
+        pranz: ["Sandwich-uri în barcă: pateu + brânză + roșii"],
+        cina: ["Cina la pensiune (inclusă)"],
+      });
+    } else if (i === 1) {
+      lista.push({
+        numar: i,
+        micDejun: ["Ouă jumări cu slană", "Pâine caldă + roșii + ceapă verde", "Cafea tare"],
+        pranz: ["Sandwich cu pateu/șuncă", "Telemea + roșii", "Măr"],
+        cina: ["Ciorbă pescărească (din ce-ai adus)", "Mămăligă + brânză", "Murături"],
+      });
+    } else {
+      lista.push({
+        numar: i,
+        micDejun: ["Ouă cu slană (dacă mai sunt)", "Pâine + telemea + ceapă", "Cafea"],
+        pranz: ["Conservă pateu + pâine", "Brânză + castraveți", "Semințe"],
+        cina: ["Fasole boabe cu ciolan", "Mămăligă + murături"],
+      });
+    }
+  }
+  return lista;
 }
 
 function gramHigh(g: number): string {
@@ -159,11 +176,12 @@ export default function ProviziiPage() {
   const [companie, setCompanie] = useState<Companie>("amici");
   const [locatie, setLocatie] = useState<Locatie>("izolat");
 
-  const p = useMemo(
-    () => calculeaza(pescari, zile, tip, anotimp, companie, locatie),
+  const b = useMemo(
+    () => calculeazaBauturi(pescari, zile, tip, anotimp, companie, locatie),
     [pescari, zile, tip, anotimp, companie, locatie]
   );
-  const v = useMemo(() => verdict(p, pescari, zile), [p, pescari, zile]);
+  const m = useMemo(() => calculeazaMancare(pescari, zile, tip), [pescari, zile, tip]);
+  const meniu = useMemo(() => genereazaMeniu(zile, tip), [zile, tip]);
 
   return (
     <div>
@@ -183,119 +201,116 @@ export default function ProviziiPage() {
 
       {/* INPUTURI */}
       <section className="card rounded-xl p-5 md:p-6 mb-6">
-        <h2 className="text-lg font-display text-amber-glow mb-4">
-          Cine, când, unde
-        </h2>
+        <h2 className="text-lg font-display text-amber-glow mb-4">Cine, când, unde</h2>
 
         <div className="grid md:grid-cols-2 gap-5 mb-5">
           <div>
             <label className="block text-xs uppercase tracking-widest text-moss mb-2">
               Număr de pescari: <span className="text-amber-glow text-base ml-1">{pescari}</span>
             </label>
-            <input
-              type="range" min={1} max={12} value={pescari}
+            <input type="range" min={1} max={12} value={pescari}
               onChange={(e) => setPescari(+e.target.value)}
-              className="w-full accent-amber-glow"
-            />
+              className="w-full accent-amber-glow" />
             <div className="flex justify-between text-xs text-fog/40 mt-1">
               <span>1 (solo)</span><span>6 (echipă)</span><span>12 (cumetrie)</span>
             </div>
           </div>
-
           <div>
             <label className="block text-xs uppercase tracking-widest text-moss mb-2">
               Număr de zile: <span className="text-amber-glow text-base ml-1">{zile}</span>
             </label>
-            <input
-              type="range" min={1} max={7} value={zile}
+            <input type="range" min={1} max={7} value={zile}
               onChange={(e) => setZile(+e.target.value)}
-              className="w-full accent-amber-glow"
-            />
+              className="w-full accent-amber-glow" />
             <div className="flex justify-between text-xs text-fog/40 mt-1">
               <span>1 zi</span><span>3 zile</span><span>7 zile</span>
             </div>
           </div>
         </div>
 
-        <RadioGroup
-          label="Tipul partidei"
-          options={TIPURI}
-          value={tip}
-          onChange={(v) => setTip(v as TipPartida)}
-        />
-        <RadioGroup
-          label="Anotimpul"
-          options={ANOTIMPURI}
-          value={anotimp}
-          onChange={(v) => setAnotimp(v as Anotimp)}
-        />
-        <RadioGroup
-          label="Compania"
-          options={COMPANII}
-          value={companie}
-          onChange={(v) => setCompanie(v as Companie)}
-        />
-        <RadioGroup
-          label="Locația"
-          options={LOCATII}
-          value={locatie}
-          onChange={(v) => setLocatie(v as Locatie)}
-          last
-        />
+        <RadioGroup label="Tipul partidei" options={TIPURI} value={tip} onChange={(v) => setTip(v as TipPartida)} />
+        <RadioGroup label="Anotimpul" options={ANOTIMPURI} value={anotimp} onChange={(v) => setAnotimp(v as Anotimp)} />
+        <RadioGroup label="Compania" options={COMPANII} value={companie} onChange={(v) => setCompanie(v as Companie)} />
+        <RadioGroup label="Locația" options={LOCATII} value={locatie} onChange={(v) => setLocatie(v as Locatie)} last />
       </section>
 
-      {/* VERDICT */}
-      <section className="card rounded-xl p-6 mb-6" style={{
-        background: `linear-gradient(135deg, ${v.culoare}22, ${v.culoare}08)`,
-        borderColor: `${v.culoare}55`,
-      }}>
-        <p className="text-xs uppercase tracking-widest text-fog/60 mb-2">verdict</p>
-        <div className="flex items-start gap-4">
-          <div className="text-5xl flex-shrink-0">{v.emoji}</div>
-          <div>
-            <h2 className="text-2xl md:text-3xl font-display mb-2" style={{ color: v.culoare }}>
-              {v.titlu}
-            </h2>
-            <p className="text-fog/85 leading-relaxed">{v.descriere}</p>
+      {/* BĂUTURI */}
+      <section className="card rounded-xl p-5 md:p-6 mb-6">
+        <h2 className="text-lg font-display text-amber-glow mb-1">
+          Băuturi — {pescari} pescari × {zile} {zile === 1 ? "zi" : "zile"}
+        </h2>
+        <p className="text-sm text-fog/55 mb-4">Bere, vin, palincă — ajustate la profilul echipei.</p>
+
+        <div className="grid sm:grid-cols-2 gap-3">
+          <Linie nume="Palincă" cantitate={`${(b.palincaMl / 1000).toFixed(1)} L`}
+            sub={`≈ ${Math.ceil(b.palincaMl / 500)} sticle de 0.5L`} icon="🥃" />
+          <Linie nume="Bere" cantitate={`${b.bereDoze} doze`}
+            sub={`≈ ${Math.ceil(b.bereDoze / 24)} bax de 24`} icon="🍺" />
+          <Linie nume="Vin" cantitate={`${(b.vinMl / 1000).toFixed(1)} L`}
+            sub={`≈ ${Math.ceil(b.vinMl / 750)} sticle / damigene`} icon="🍷" />
+          {b.whiskyMl > 0 && (
+            <Linie nume="Whisky / coniac" cantitate={`${b.whiskyMl} ml`}
+              sub="pentru aere și fotografii" icon="🥃" />
+          )}
+          <Linie nume="Apă plată" cantitate={`${b.apaL} L`}
+            sub="dublul dacă-i caniculă" icon="💧" />
+          <Linie nume="Cafea" cantitate={`${b.cafea} doze`}
+            sub="la 4 AM cu 2°C, te salvează" icon="☕" />
+        </div>
+      </section>
+
+      {/* MÂNCARE */}
+      <section className="card rounded-xl p-5 md:p-6 mb-6">
+        <h2 className="text-lg font-display text-amber-glow mb-1">
+          Mâncare — listă de cumpărături
+        </h2>
+        <p className="text-sm text-fog/55 mb-4">
+          Calculat la ~2800 kcal/pescar/zi. Total: <strong className="text-fog">{m.calTotalKcal.toLocaleString("ro-RO")} kcal</strong>.
+          {tip === "pensiune" && " (Pensiune: mesele principale incluse, doar gustări de zi.)"}
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-3 mb-6">
+          <Linie nume="Pâine" cantitate={gramHigh(m.paineGr)} sub="de casă, dacă găsești" icon="🍞" />
+          <Linie nume="Ouă" cantitate={`${m.oua} buc`} sub="pentru jumări dimineața" icon="🥚" />
+          <Linie nume="Slană / mușchi țigănesc" cantitate={gramHigh(m.slanaGr)} sub="la lumânare, subțire" icon="🥓" />
+          <Linie nume="Brânză telemea / cașcaval" cantitate={gramHigh(m.branzaTelemea)} sub="cu roșii și ceapă verde" icon="🧀" />
+          <Linie nume="Salam / pateu" cantitate={gramHigh(m.salamPateuGr)} sub="pentru sandwich în barcă" icon="🥪" />
+          <Linie nume="Conserve" cantitate={`${m.conserveBuc} cutii`} sub="pateu, sardine, fasole — backup" icon="🥫" />
+          <Linie nume="Roșii" cantitate={gramHigh(m.rosiiGr)} sub="rezistente, NU foarte coapte" icon="🍅" />
+          <Linie nume="Ceapă (verde + uscată)" cantitate={gramHigh(m.ceapaGr)} sub="nelipsită la orice masă" icon="🧅" />
+          <Linie nume="Cartofi" cantitate={gramHigh(m.cartofiGr)} sub="ciorbă, tocăniță, jar" icon="🥔" />
+          <Linie nume="Mălai" cantitate={gramHigh(m.malaiGr)} sub="mămăligă obligatorie" icon="🌽" />
+          <Linie nume="Fasole boabe" cantitate={gramHigh(m.fasoleGr)} sub="cu ciolan afumat, cina #2" icon="🫘" />
+          <Linie nume="Castraveți murați" cantitate={`${m.castravetiBorcane} ${m.castravetiBorcane === 1 ? "borcan" : "borcane"}`} sub="anti-mahmureală absolută" icon="🥒" />
+          <Linie nume="Biscuiți" cantitate={`${m.biscuitiPungi} ${m.biscuitiPungi === 1 ? "pungă" : "pungi"}`} sub="pentru cafea și prânz rapid" icon="🍪" />
+          <Linie nume="Fructe (mere, banane)" cantitate={`${m.fructeBuc} buc`} sub="vitamine și energie rapidă" icon="🍎" />
+          <Linie nume="Semințe / alune" cantitate={`${m.semintePungi} ${m.semintePungi === 1 ? "pungă" : "pungi"}`} sub="așteptarea de 6 ore între cap-uri" icon="🌰" />
+        </div>
+
+        {/* MENIU PE ZILE */}
+        <div className="mt-6">
+          <h3 className="text-sm uppercase tracking-widest text-moss mb-3">Meniu propus pe zile</h3>
+          <div className="grid md:grid-cols-2 gap-3">
+            {meniu.map((zi) => (
+              <div key={zi.numar} className="rounded-lg p-4 border border-amber-glow/20 bg-water-2/30">
+                <p className="text-xs uppercase tracking-widest text-amber-glow mb-3">Ziua {zi.numar}</p>
+                <Masa nume="Mic dejun" items={zi.micDejun} />
+                <Masa nume="Prânz" items={zi.pranz} />
+                <Masa nume="Cina" items={zi.cina} last />
+                {zi.gluma && (
+                  <p className="mt-3 pt-3 border-t border-amber-glow/15 text-sm text-amber-soft italic leading-snug">
+                    😄 {zi.gluma}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SHOPPING LIST */}
-      <section className="card rounded-xl p-5 md:p-6 mb-6">
-        <h2 className="text-lg font-display text-amber-glow mb-4">
-          Listă de cumpărături pentru {pescari} pescari × {zile} {zile === 1 ? "zi" : "zile"}
-        </h2>
-
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Linie nume="Palincă" cantitate={`${(p.palincaMl / 1000).toFixed(1)} L`}
-            sub={`≈ ${Math.ceil(p.palincaMl / 500)} sticle de 0.5L`} icon="🥃" />
-          <Linie nume="Bere" cantitate={`${p.bereDoze} doze`}
-            sub={`≈ ${Math.ceil(p.bereDoze / 24)} bax de 24`} icon="🍺" />
-          <Linie nume="Vin" cantitate={`${(p.vinMl / 1000).toFixed(1)} L`}
-            sub={`≈ ${Math.ceil(p.vinMl / 750)} sticle / damigene`} icon="🍷" />
-          {p.whiskyMl > 0 && (
-            <Linie nume="Whisky / coniac" cantitate={`${p.whiskyMl} ml`}
-              sub="pentru aere și fotografii" icon="🥃" />
-          )}
-          <Linie nume="Apă plată" cantitate={`${p.apaL} L`}
-            sub="OBLIGATORIU — altfel a doua zi e jale" icon="💧" />
-          <Linie nume="Cafea" cantitate={`${p.cafea} doze / cafele`}
-            sub="la 4 AM cu 2°C, te salvează" icon="☕" />
-          <Linie nume="Slană / mușchi țigănesc" cantitate={gramHigh(p.slanaG)}
-            sub="se taie subțire la lumânare" icon="🥓" />
-          <Linie nume="Brânză telemea" cantitate={gramHigh(p.branzaG)}
-            sub="cu roșii, ceapă verde, pâine de casă" icon="🧀" />
-          <Linie nume="Castraveți murați" cantitate={`${p.castravetiBorcane} ${p.castravetiBorcane === 1 ? "borcan" : "borcane"}`}
-            sub="anti-mahmureală absolută" icon="🥒" />
-          <Linie nume="Semințe / alune" cantitate={`${p.semintePungi} ${p.semintePungi === 1 ? "pungă" : "pungi"}`}
-            sub="pentru așteptarea de 6 ore între cap-uri" icon="🌰" />
-        </div>
-      </section>
-
-      {/* MICUL PRINȚ DE PESCAR */}
+      {/* REGULI NESCRISE */}
       <section className="card rounded-xl p-5 md:p-6 mb-6" style={{
-        background: "linear-gradient(135deg, rgba(212,166,87,0.04), rgba(107,163,104,0.03))",
+        background: "linear-gradient(135deg, rgba(212,166,87,0.05), rgba(107,163,104,0.03))",
       }}>
         <h2 className="text-lg font-display text-amber-glow mb-3">Reguli nescrise</h2>
         <ul className="space-y-2 text-sm text-fog/85 leading-relaxed">
@@ -305,11 +320,11 @@ export default function ProviziiPage() {
           </li>
           <li className="flex gap-2">
             <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Coeficient Vișoianu:</strong> pentru fiecare crap pierdut din mână — 1 pahar în plus. Pentru fiecare crap prins — 2.</span>
+            <span><strong className="text-fog">Coeficient Vișoianu:</strong> pentru fiecare crap pierdut din mână — 1 pahar în plus. Pentru fiecare prins — 2.</span>
           </li>
           <li className="flex gap-2">
             <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Bonus Mila 23:</strong> palinca de prune începe după ce trece de Crișan, NU înainte.</span>
+            <span><strong className="text-fog">Bonus Mila 23:</strong> palinca de prune începe DUPĂ ce treci de Crișan, NU înainte.</span>
           </li>
           <li className="flex gap-2">
             <span className="text-amber-soft flex-shrink-0">·</span>
@@ -317,21 +332,64 @@ export default function ProviziiPage() {
           </li>
           <li className="flex gap-2">
             <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Regula Baltacul:</strong> dacă pescuiești beat, prinzi. Dacă pescuiești treaz, povestești. Pescarii adevărați aleg ambele.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
             <span><strong className="text-fog">Sfânta Treime de cumpărături:</strong> palincă — slană — castraveți. Restul e detaliu.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Curse de eficiență:</strong> 1L palincă rezistă 4 pescari × 1 noapte sau 1 pescar × 4 nopți. Matematica nu minte.</span>
           </li>
         </ul>
       </section>
 
+      {/* SERIOS — GLUMA GLUMA, DAR */}
+      <section className="rounded-xl p-5 md:p-6 mb-6" style={{
+        background: "linear-gradient(135deg, rgba(189,78,65,0.08), rgba(189,78,65,0.02))",
+        border: "1px solid rgba(189,78,65,0.30)",
+      }}>
+        <div className="flex items-baseline gap-2 mb-3">
+          <span className="text-xl">⚠️</span>
+          <h2 className="text-lg font-display text-fog">Gluma gluma, dar nu uitați</h2>
+        </div>
+        <p className="text-sm text-fog/80 leading-relaxed mb-4">
+          Calculator-ul de sus e satiric. <strong>Astea de jos NU sunt.</strong> Delta nu iartă neatenția —
+          vânt brusc, motor stricat, deshidratare, căpușă infectată, accident la curățat pește.
+          Lista minimă reală:
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-2.5">
+          <ItemSerios icon="🦺" titlu="Vestă de salvare per pescar"
+            text="Obligatoriu pe Dunăre și brațe (Garda Mediu + ANR). Nu sub scaun — pe corp." />
+          <ItemSerios icon="📋" titlu="Permise actualizate"
+            text="Permis ANPA recreativ + permis ARBDD (sezonier 30 zile sau anual). Fără ele = amendă 1.500-3.000 RON." />
+          <ItemSerios icon="🧴" titlu="Repelent puternic"
+            text="DEET 30%+ sau Picaridin. Țânțari + căpușe Delta = risc borrelioză reală. Aplică inclusiv pe glezne." />
+          <ItemSerios icon="🆘" titlu="Trusă prim ajutor"
+            text="Pansamente, dezinfectant, antialgice, antihistaminice, cărbune medicinal, pensetă pentru căpușe." />
+          <ItemSerios icon="📡" titlu="Telefon încărcat + baterie externă"
+            text="Semnal slab pe canalele interioare. Memorează 112 și salvează coordonatele de bivuac." />
+          <ItemSerios icon="🌡️" titlu="Verifică RoAlert + prognoza vânt"
+            text="Cod portocaliu / vânt >30 km/h pe brațe = rămâi la mal. Furtuna pe Dunăre răstoarnă bărci mici." />
+          <ItemSerios icon="💧" titlu="Apă potabilă verificată"
+            text="2L/persoană/zi minim, 3-4L pe caniculă. Apa Dunării NU se bea direct, nici fiartă (microplastice, agricultură)." />
+          <ItemSerios icon="⚓" titlu="Ancoră + funie 20m + colac"
+            text="Motor stricat = derivă rapidă cu cota mare. Colac de salvare în barcă, nu doar veste." />
+          <ItemSerios icon="🔧" titlu="Trusă motor + benzină rezervă"
+            text="Bujie, sfoară demaror, ulei amestec, 5L benzină în plus. Distanțele înșeală în Deltă." />
+          <ItemSerios icon="🔦" titlu="Lanternă frontală + baterii"
+            text="Întoarcerea seara pe canale fără lumini = riscuri reale. Frontală îți lasă mâinile libere." />
+          <ItemSerios icon="🚿" titlu="Schimb haine uscate + folie izotermică"
+            text="O răsturnare + 2h ud în vânt = hipotermie reală chiar la 18°C. Folia stă în trusa de salvare." />
+          <ItemSerios icon="🧭" titlu="GPS + hartă imprimată backup"
+            text="Telefonul moare, GPS-ul se confuză pe canalele înguste. Hartă pe hârtie e backup-ul care nu cedează." />
+        </div>
+
+        <div className="mt-5 pt-4 border-t border-red-400/20">
+          <p className="text-sm text-fog/85 leading-relaxed">
+            <strong className="text-red-400/90">Hidratare reală:</strong> 1L apă pentru fiecare 100ml alcool tare consumat.
+            Cafeaua deshidratează, NU înlocuiește apa. Și — <strong className="text-fog">nu conduci barca cu motor sub influență</strong>:
+            limita e 0.0‰ pentru ambarcațiuni cu motor peste 15 CP (NU 0.5‰ ca la auto). Garda Mediu și Poliția fluvială verifică.
+          </p>
+        </div>
+      </section>
+
       <p className="text-xs text-fog/40 italic text-center">
-        Calculator satiric. Pescuit cu barca peste 0.5‰ = OK, doar dacă nu te prinde Garda. Hidratează-te cu apă, nu cu palincă. Sau cu ambele. Adultul ești tu.
+        Adultul ești tu. Calculator-ul îți spune ce să iei, nu cât să bei.
       </p>
     </div>
   );
@@ -382,6 +440,34 @@ function Linie({ nume, cantitate, sub, icon }: { nume: string; cantitate: string
           <span className="text-amber-glow font-medium text-sm whitespace-nowrap">{cantitate}</span>
         </div>
         <p className="text-xs text-fog/55 mt-0.5 leading-snug">{sub}</p>
+      </div>
+    </div>
+  );
+}
+
+function Masa({ nume, items, last }: { nume: string; items: string[]; last?: boolean }) {
+  return (
+    <div className={last ? "" : "mb-2"}>
+      <p className="text-xs text-moss mb-1">{nume}</p>
+      <ul className="space-y-0.5">
+        {items.map((it, i) => (
+          <li key={i} className="text-sm text-fog/85 flex gap-1.5">
+            <span className="text-amber-soft flex-shrink-0">·</span>
+            <span>{it}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ItemSerios({ icon, titlu, text }: { icon: string; titlu: string; text: string }) {
+  return (
+    <div className="flex gap-3 p-3 rounded-md bg-water-2/20 border border-red-400/15">
+      <span className="text-xl flex-shrink-0 mt-0.5">{icon}</span>
+      <div>
+        <p className="text-sm font-display text-fog mb-0.5">{titlu}</p>
+        <p className="text-xs text-fog/70 leading-snug">{text}</p>
       </div>
     </div>
   );
