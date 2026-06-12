@@ -13,6 +13,7 @@ const nav = [
   { href: "/echipament", label: "echipament" },
   { href: "/articole", label: "articole" },
   { href: "/glosar", label: "glosar" },
+  { href: "/provizii", label: "provizii" },
 ];
 
 export default function Nav() {
