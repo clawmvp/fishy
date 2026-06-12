@@ -1,6 +1,38 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+type Regula = { titlu: string; text: string };
+
+const TOATE_REGULILE: Regula[] = [
+  { titlu: "Legea Costache", text: "Primul pahar se bea în picioare, ultimul nu se mai numără." },
+  { titlu: "Coeficient Vișoianu", text: "Pentru fiecare crap pierdut din mână — 1 pahar în plus. Pentru fiecare prins — 2." },
+  { titlu: "Bonus Mila 23", text: "Palinca de prune începe DUPĂ ce treci de Crișan, NU înainte." },
+  { titlu: "Taxă socru", text: "Ginerele plătește berea. Întotdeauna. Fără discuții." },
+  { titlu: "Sfânta Treime de cumpărături", text: "Palincă — slană — castraveți. Restul e detaliu." },
+  { titlu: "Regula Baltacul", text: "Beat prinzi, treaz povestești. Pescarii adevărați aleg ambele." },
+  { titlu: "Regula 5 AM", text: "Dacă te-ai trezit la 5 fără palincă, ești bolnav. Mergi la doctor." },
+  { titlu: "Verdict pescar adevărat", text: "Îți recunoști propria undiță după sunet, nu după vedere." },
+  { titlu: "Tradiția primului pește", text: "Primul pește prins se udă cu palincă în barcă (peștele, nu tu — încă)." },
+  { titlu: "Legea borșului", text: "Borșul de pește se face DOAR cu cap și coadă. Mușchiul se mănâncă la grătar." },
+  { titlu: "Regula nevestei", text: "Dacă te sună de 3 ori, închizi telefonul. Dacă te sună de 5 ori, te întorci." },
+  { titlu: "Codul lanetei", text: "Laneta NU se împrumută. Punct. Sfârșit." },
+  { titlu: "Tradiția tăcerii la cap", text: "Când vine cap, tăcere absolută. Cine vorbește plătește berea seara." },
+  { titlu: "Regula Lipovenească a Vinului", text: "Vinul roșu se bea de la mâna stângă, palinca de la dreapta. Nu confunda." },
+  { titlu: "Bonus Sulina", text: "Orice partidă care trece de Sulina merită +1 sticlă în plus, „pentru drum”." },
+  { titlu: "Anti-regula corporatistului", text: "Dacă vine cu undiță nouă de 3000€ și prinde mai puțin decât cel cu băț de bambus, plătește seara." },
+  { titlu: "Regula câinelui pescarului", text: "Câinele are dreptul la prima bucată de slană. Întotdeauna. Sfârșit." },
+  { titlu: "Decizia dimineții", text: "Ultimul care se trezește spală tigaia de ouă." },
+];
+
+function shuffleN<T>(arr: T[], n: number): T[] {
+  const copy = arr.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, n);
+}
 
 type TipPartida = "spinning" | "crap" | "clonc" | "pensiune";
 type Anotimp = "iarna" | "tranzitie" | "vara";
@@ -183,6 +215,13 @@ export default function ProviziiPage() {
   const m = useMemo(() => calculeazaMancare(pescari, zile, tip), [pescari, zile, tip]);
   const meniu = useMemo(() => genereazaMeniu(zile, tip), [zile, tip]);
 
+  // Reguli rotative — SSR-safe: primele 5, apoi shuffle pe client la mount
+  const [reguli, setReguli] = useState<Regula[]>(TOATE_REGULILE.slice(0, 5));
+  useEffect(() => {
+    setReguli(shuffleN(TOATE_REGULILE, 5));
+  }, []);
+  const roteste = () => setReguli(shuffleN(TOATE_REGULILE, 5));
+
   return (
     <div>
       <header className="mb-10">
@@ -308,32 +347,31 @@ export default function ProviziiPage() {
         </div>
       </section>
 
-      {/* REGULI NESCRISE */}
+      {/* REGULI NESCRISE — rotative */}
       <section className="card rounded-xl p-5 md:p-6 mb-6" style={{
         background: "linear-gradient(135deg, rgba(212,166,87,0.05), rgba(107,163,104,0.03))",
       }}>
-        <h2 className="text-lg font-display text-amber-glow mb-3">Reguli nescrise</h2>
+        <div className="flex items-baseline justify-between gap-3 mb-3">
+          <div>
+            <h2 className="text-lg font-display text-amber-glow">Reguli nescrise</h2>
+            <p className="text-xs text-fog/50 mt-0.5">5 din {TOATE_REGULILE.length} — se schimbă la fiecare refresh</p>
+          </div>
+          <button
+            type="button"
+            onClick={roteste}
+            className="text-xs uppercase tracking-widest text-amber-glow hover:text-amber-soft border border-amber-glow/30 hover:border-amber-glow/60 rounded-md px-3 py-1.5 transition-all flex items-center gap-1.5"
+            aria-label="Rotește regulile"
+          >
+            <span>🎲</span> schimbă
+          </button>
+        </div>
         <ul className="space-y-2 text-sm text-fog/85 leading-relaxed">
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Legea Costache:</strong> primul pahar se bea în picioare, ultimul nu se mai numără.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Coeficient Vișoianu:</strong> pentru fiecare crap pierdut din mână — 1 pahar în plus. Pentru fiecare prins — 2.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Bonus Mila 23:</strong> palinca de prune începe DUPĂ ce treci de Crișan, NU înainte.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Taxă socru:</strong> ginerele plătește berea. Întotdeauna. Fără discuții.</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-amber-soft flex-shrink-0">·</span>
-            <span><strong className="text-fog">Sfânta Treime de cumpărături:</strong> palincă — slană — castraveți. Restul e detaliu.</span>
-          </li>
+          {reguli.map((r, i) => (
+            <li key={`${r.titlu}-${i}`} className="flex gap-2">
+              <span className="text-amber-soft flex-shrink-0">·</span>
+              <span><strong className="text-fog">{r.titlu}:</strong> {r.text}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
