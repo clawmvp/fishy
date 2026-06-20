@@ -15,7 +15,7 @@ Returnezi STRICT JSON cu următoarea structură:
   "tehnica": "string|null — tehnică concretă (ex: 'method feeder', 'clonc nocturn', 'jigging vertical', 'spinning shallow'). Null dacă nu e clar.",
   "stare_apa": "string|null — cum descrie apa (ex: 'tulbure', 'clară', 'cota mare', 'cota mică', 'cu vegetație'). Null dacă nu menționează.",
   "vant_vreme": "string|null — vânt, vreme, presiune menționate (ex: 'vânt SE 25 km/h', 'cald 28°C', 'după furtună'). Null dacă nu menționează.",
-  "rezumat": "string — 1-2 propoziții cu CE e relevant pentru un alt pescar care planifică o partidă (focus pe semnale practice de teren, NU pe povești sociale).",
+  "rezumat": "string — 1-2 propoziții cu CE e relevant pentru un alt pescar care planifică o partidă (focus pe semnale practice de teren). IGNORĂ COMPLET: povești sociale, conflicte cu pescari, aglomerație, drama de sat — focus DOAR pe info acționabilă (locație, specie, nadă, tehnică, cota, vânt). Nu spune 'fără detalii' — scrie ce e relevant pentru altcineva.",
   "relevant_score": 0-100 (0 = irelevant pentru semnale teren, 100 = ghid complet cu locație+specie+nadă+rezultat)
 }
 

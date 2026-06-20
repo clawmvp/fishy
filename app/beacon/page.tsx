@@ -2,7 +2,7 @@ import { sql } from "@/lib/db";
 import type { BeaconSignal } from "@/lib/beacon-types";
 import { CANALE } from "@/lib/beacon-channels";
 
-export const revalidate = 600; // 10 min — beacon nu se schimbă des
+export const dynamic = "force-dynamic"; // citește DB la fiecare request
 
 const CANAL_LABEL: Record<string, string> = Object.fromEntries(
   CANALE.map((c) => [c.slug, c.nume])
