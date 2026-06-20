@@ -11,10 +11,11 @@ export async function CotaTrendSparkline({ stationSlug, stationName, currentLeve
   const history = await getCotaHistory(stationSlug, days);
 
   if (history.length < 2) {
+    const hasCurrent = typeof currentLevel === "number";
     return (
       <div className="card rounded-xl p-4">
         <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota {stationName} — trend {days}z</p>
-        {currentLevel != null ? (
+        {hasCurrent ? (
           <>
             <p className="text-3xl font-light text-amber-glow mb-1">
               {currentLevel}<span className="text-sm text-fog/55 ml-1">cm acum</span>
@@ -29,7 +30,7 @@ export async function CotaTrendSparkline({ stationSlug, stationName, currentLeve
           <>
             <p className="text-base font-display text-fog/60 mt-1">indisponibil</p>
             <p className="text-xs text-fog/50 mt-1.5">
-              Stația {stationName} nu raportează la hidro.ro acum. Verifică din nou mai târziu.
+              Stația {stationName} nu raportează la hidro.ro acum. Verifică pe <a className="text-amber-glow" href="https://www.hidro.ro" target="_blank" rel="noopener noreferrer">hidro.ro</a>.
             </p>
           </>
         )}
