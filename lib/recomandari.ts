@@ -265,6 +265,7 @@ function detecteazaPatterns(
   water: WaterLevelReading | null,
   date: Date,
   waterTemp: number,
+  cotaHistory: CotaHistPoint[] = [],
 ): Pattern[] {
   const patterns: Pattern[] = [];
   const month = date.getMonth() + 1;
@@ -346,6 +347,63 @@ function detecteazaPatterns(
         emoji: "🍂",
         descriere: "Strategia GDA: noiembrie + cotă în creștere + apă 8-13°C = crap mare pe canale Delta.",
         bonus: 1.17,
+      });
+    }
+  }
+
+  // ============ PATTERNS BAZATE PE ISTORIC COTA (multi-zi) ============
+  // Sortat ascendent cronologic; valoarea curentă = ultima
+  const sortedCota = [...cotaHistory].sort((a, b) =>
+    new Date(a.measured_at).getTime() - new Date(b.measured_at).getTime()
+  );
+
+  // 7. "Crap iese din canale" — cota crescut +30cm în 3 zile + apă peste 16°C
+  if (specie.id === "crap" && sortedCota.length >= 3 && waterTemp >= 16) {
+    const last = sortedCota[sortedCota.length - 1].level_cm;
+    const treiZileInUrma = sortedCota[Math.max(0, sortedCota.length - 4)].level_cm;
+    const crestere = last - treiZileInUrma;
+    if (crestere >= 30) {
+      patterns.push({
+        id: "iesire-din-canale",
+        nume: "Crap iese din canale",
+        emoji: "🌊",
+        descriere: `Cota +${crestere}cm în 3 zile + apă ${Math.round(waterTemp)}°C. Crapii migrează din lacuri spre brațe/canale, descoperă mâncarea pe malurile inundate.`,
+        bonus: 1.15,
+      });
+    }
+  }
+
+  // 8. "Retragere pe brațe" — cota scade rapid în 3 zile (anti-pattern pentru canale)
+  if (sortedCota.length >= 3) {
+    const last = sortedCota[sortedCota.length - 1].level_cm;
+    const treiZileInUrma = sortedCota[Math.max(0, sortedCota.length - 4)].level_cm;
+    const scadere = treiZileInUrma - last;
+    if (scadere >= 25 && (specie.id === "crap" || specie.id === "somn")) {
+      patterns.push({
+        id: "retragere-pe-brate",
+        nume: "Retragere pe brațe",
+        emoji: "⚠️",
+        descriere: `Cota -${scadere}cm în 3 zile. Peștii fug din canale interioare spre brațe adânci (Sulina, Chilia). EVITĂ canale înguste, focus pe brațe.`,
+        bonus: 0.92,
+      });
+    }
+  }
+
+  // 9. "Lockdown la cioate" — cota stabilă (variație ≤10cm) timp de 5+ zile la nivel scăzut
+  if ((specie.id === "crap" || specie.id === "somn") && sortedCota.length >= 5) {
+    const ultimele5 = sortedCota.slice(-5);
+    const levels = ultimele5.map((p) => p.level_cm);
+    const max = Math.max(...levels);
+    const min = Math.min(...levels);
+    const variation = max - min;
+    const avgLevel = levels.reduce((s, x) => s + x, 0) / levels.length;
+    if (variation <= 10 && avgLevel < 100) {
+      patterns.push({
+        id: "lockdown-cioate",
+        nume: "Lockdown la cioate",
+        emoji: "🔒",
+        descriere: `Cota stabilă (±${Math.round(variation/2)}cm) sub 100 timp de 5+ zile. Peștii lipiți de cioate adânci, sezonul feeder/clonc pe locație fixă. Răbdare 3-4 zile pe același loc (regula Mihai Manea).`,
+        bonus: 1.10,
       });
     }
   }
@@ -459,6 +517,8 @@ function generaSemantic(
   };
 }
 
+export type CotaHistPoint = { level_cm: number; measured_at: string };
+
 export function calculeazaScor(
   specie: Specie,
   forecast: DailyForecast,
@@ -466,6 +526,7 @@ export function calculeazaScor(
   water: WaterLevelReading | null,
   date: Date,
   forecastsPrev: DailyForecast[] = [], // ultimele 0-3 zile pentru lookback
+  cotaHistory: CotaHistPoint[] = [], // istoric cotă pentru pattern-uri pe trend multi-zi
 ): ScorulZilei {
   if (isInProhibitie(specie, date)) {
     return {
@@ -560,7 +621,7 @@ export function calculeazaScor(
 
   // ============ NIVEL 2: PATTERN RECOGNITION + TREND + COMBINAȚII NON-LINIARE ============
   const trend = calculeazaTrend(forecast, forecastsPrev, water);
-  const patterns = detecteazaPatterns(specie, forecast, forecastsPrev, moon, water, date, waterTemp);
+  const patterns = detecteazaPatterns(specie, forecast, forecastsPrev, moon, water, date, waterTemp, cotaHistory);
 
   // Aplicare modificatori multiplicativi
   let finalScore = rawScore * trend.multiplier;

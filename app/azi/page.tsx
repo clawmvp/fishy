@@ -10,6 +10,7 @@ import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, ge
 import { semnaleRecentePerSpecie } from "@/lib/beacon-query";
 import { SemnaleBeacon } from "@/components/SemnaleBeacon";
 import { CotaTrendSparkline } from "@/components/CotaTrendSparkline";
+import { getCotaHistory } from "@/lib/cota-history";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -109,11 +110,15 @@ export default async function PartidaPage({
     getWaterLevel("sulina"),
   ]);
 
+  // Istoric cota Tulcea pentru patterns multi-zi (Crap iese din canale / Retragere pe brațe / Lockdown la cioate)
+  const cotaHistoryTulcea = await getCotaHistory("tulcea", 7);
+
   const scoruriSpecii = todaysForecast
     ? specii.map((sp) => {
         const scor = calculeazaScor(
           sp, todaysForecast, moon, waterTulcea, targetDate,
-          ziuaIdx >= 3 ? [forecasts[ziuaIdx - 1], forecasts[ziuaIdx - 2], forecasts[ziuaIdx - 3]].filter(Boolean) : []
+          ziuaIdx >= 3 ? [forecasts[ziuaIdx - 1], forecasts[ziuaIdx - 2], forecasts[ziuaIdx - 3]].filter(Boolean) : [],
+          cotaHistoryTulcea
         );
         return {
           specie: sp,
