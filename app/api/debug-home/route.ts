@@ -50,7 +50,10 @@ export async function GET(req: NextRequest) {
     waterTulcea: waterTulcea ? { level: waterTulcea.level, variation: waterTulcea.variation, trend: waterTulcea.trend } : null,
     waterSulina: waterSulina ? { level: waterSulina.level, variation: waterSulina.variation, trend: waterSulina.trend } : null,
     cotaHistory: cotaHistory.length,
-    cotaHistoryPoints: cotaHistory.map((p) => ({ date: p.measured_at.slice(0, 10), level: p.level_cm })),
+    cotaHistoryPoints: cotaHistory.map((p) => ({
+      date: typeof p.measured_at === "string" ? p.measured_at.slice(0, 10) : new Date(p.measured_at).toISOString().slice(0, 10),
+      level: p.level_cm,
+    })),
     todaysForecast: todaysForecast
       ? {
           tempMax: todaysForecast.tempMax,
