@@ -3,6 +3,10 @@
     {
       "path": "/api/beacon-scan",
       "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/api/cota-snapshot",
+      "schedule": "30 6 * * *"
     }
   ]
 }

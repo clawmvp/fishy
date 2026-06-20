@@ -9,6 +9,7 @@ import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
 import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, genereazaGhidSpatial, estimateWaterTemp } from "@/lib/recomandari";
 import { semnaleRecentePerSpecie } from "@/lib/beacon-query";
 import { SemnaleBeacon } from "@/components/SemnaleBeacon";
+import { CotaTrendSparkline } from "@/components/CotaTrendSparkline";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -336,6 +337,18 @@ export default async function PartidaPage({
                 ? "Activitate bună"
                 : "Pătrar — atenție"}
           </p>
+        </div>
+      </section>
+
+      {/* TREND COTE 30 ZILE */}
+      <section className="mb-10">
+        <div className="flex items-baseline justify-between mb-4">
+          <h2 className="text-xl md:text-2xl font-display text-amber-glow">Trend cote ultimele 30 zile</h2>
+          <p className="text-xs text-fog/40">snapshot zilnic 6:30 AM</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <CotaTrendSparkline stationSlug="tulcea" stationName="Tulcea" currentLevel={waterTulcea?.level} />
+          <CotaTrendSparkline stationSlug="sulina" stationName="Sulina" currentLevel={waterSulina?.level} />
         </div>
       </section>
 
