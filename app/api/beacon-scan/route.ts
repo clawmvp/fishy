@@ -22,9 +22,12 @@ export async function GET(req: NextRequest) {
   let inserted = 0;
   let skipped = 0;
 
+  // ?zile=N pentru a controla cutoff (default 14)
+  const zile = parseInt(req.nextUrl.searchParams.get("zile") ?? "14", 10);
+
   for (const canal of CANALE) {
     try {
-      const videos = await videosRecente(canal, 7);
+      const videos = await videosRecente(canal, zile);
       log.push(`${canal.slug}: ${videos.length} relevante`);
 
       for (const v of videos) {

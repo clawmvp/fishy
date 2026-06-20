@@ -2,22 +2,20 @@
 
 export type Canal = {
   slug: string;       // identificator scurt
-  handle: string;     // @handle YouTube fără @
+  channelId: string;  // YouTube channel ID (UC...) — stabil, RSS direct
   nume: string;       // nume afișat
   focus: string;      // ce face
 };
 
+// Channel IDs rezolvate prin yt-dlp / căutare directă
 export const CANALE: Canal[] = [
-  { slug: "marele-pescar", handle: "MarelePescar", nume: "Marele Pescar", focus: "crap, spinning, multi-day" },
-  { slug: "gda-fishing", handle: "GDAFishing", nume: "GDA Fishing", focus: "crap Delta, brațe principale" },
-  { slug: "baltacul", handle: "Baltacul", nume: "Baltacul", focus: "spinning, somn clonc" },
-  { slug: "gigant-fish", handle: "GigantFishTeam", nume: "Gigant Fish Team", focus: "crap, carnasiere" },
-  { slug: "dpd", handle: "DPDelta", nume: "DPD", focus: "feeder, plută" },
-  { slug: "pcs", handle: "PCSdelta", nume: "PCS", focus: "Delta clasic" },
-  { slug: "moga", handle: "MihaiMoga", nume: "Moga Mihai", focus: "tehnici Delta" },
-  { slug: "claumar", handle: "ClaudiuPopaClaumarPescar", nume: "Claudiu Popa (Claumar)", focus: "Delta dintre sate, crap" },
-  { slug: "totalfishing", handle: "LapescuitcuTotalFishing", nume: "Total Fishing", focus: "Dunăre, somn primăvară" },
-  { slug: "visoianu", handle: "VladVisoianu", nume: "Vlad Vișoianu", focus: "școala săptămânii magice" },
+  { slug: "marele-pescar", channelId: "UCK9lWjpOcWz6K8-Ptm8Wyyg", nume: "Marele Pescar", focus: "crap, spinning, multi-day" },
+  { slug: "gda-fishing", channelId: "UCtqM2w3F5OTjqLc4QK7tiFQ", nume: "GDA Fishing", focus: "crap Delta, brațe principale" },
+  { slug: "baltacul", channelId: "UCNcpEBxFqt9BVEPfB16pfNA", nume: "Baltacul", focus: "spinning, somn clonc" },
+  { slug: "gigant-fish", channelId: "UC6maYkDcVleOlQ3-nkimjlw", nume: "Gigant Fish Team", focus: "crap, carnasiere" },
+  { slug: "claumar", channelId: "UCf2wohxIjzzsEzSc7-uScXw", nume: "Claudiu Popa (Claumar)", focus: "Delta dintre sate, crap" },
+  { slug: "totalfishing", channelId: "UCgpaEr_7PSedOfV-dNE7QDA", nume: "Total Fishing", focus: "Dunăre, somn primăvară" },
+  { slug: "dpd", channelId: "UCbxbPIxUqT8oILkpmg4tPLw", nume: "DOAR PENTRU DUNĂRENI (DPD)", focus: "Dunăre, somn" },
 ];
 
 // Cuvinte cheie pentru filtrul Delta Dunării — extinde la nevoie
