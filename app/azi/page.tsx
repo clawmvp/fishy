@@ -7,6 +7,8 @@ import { DANUBE_STATIONS, HIDRO_IDS, classifyLevel, getLevelLabel, getLevelFishi
 import type { WaterLevelReading } from "@/lib/water-level";
 import { specii, isInProhibitie, zileLaDeschidere } from "@/data/specii";
 import { calculeazaScor, recomandaLocuri, recomandaTehnici, recomandaMonturi, genereazaGhidSpatial, estimateWaterTemp } from "@/lib/recomandari";
+import { semnaleRecentePerSpecie } from "@/lib/beacon-query";
+import { SemnaleBeacon } from "@/components/SemnaleBeacon";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -148,7 +150,17 @@ export default async function PartidaPage({
         };
       })
     : [];
-  const speciiActive = scoruriSpecii.filter((s) => !s.inProhibitie).sort((a, b) => b.scor.total - a.scor.total);
+  const speciiActiveBaza = scoruriSpecii.filter((s) => !s.inProhibitie).sort((a, b) => b.scor.total - a.scor.total);
+
+  // Fetch semnale beacon per specie (paralel)
+  const semnalePerSpecie = await Promise.all(
+    speciiActiveBaza.map(async (s) => ({
+      id: s.specie.id,
+      semnale: await semnaleRecentePerSpecie(s.specie.id, 3),
+    }))
+  );
+  const semnaleMap = new Map(semnalePerSpecie.map((s) => [s.id, s.semnale]));
+  const speciiActive = speciiActiveBaza.map((s) => ({ ...s, beaconSemnale: semnaleMap.get(s.specie.id) ?? [] }));
   const speciiProhibite = scoruriSpecii.filter((s) => s.inProhibitie);
 
   const luniRO = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
@@ -335,7 +347,7 @@ export default async function PartidaPage({
         </div>
 
         <div className="space-y-4">
-          {speciiActive.map(({ specie, scor, ghid, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec }) => (
+          {speciiActive.map(({ specie, scor, ghid, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec, beaconSemnale }) => (
             <div key={specie.id} className="card rounded-xl p-5">
               <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
                 <div className="flex items-baseline gap-3">
@@ -450,6 +462,9 @@ export default async function PartidaPage({
                   )}
                 </div>
               )}
+
+              {/* Semnale beacon recente per specie */}
+              <SemnaleBeacon semnale={beaconSemnale} specie={specie.id} />
 
               {/* Patterns detectate */}
               {scor.patterns.length > 0 && (
