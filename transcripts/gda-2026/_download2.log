@@ -1,0 +1,240 @@
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=kjrGXYKOnH0
+[youtube] kjrGXYKOnH0: Downloading webpage
+[youtube] kjrGXYKOnH0: Downloading android vr player API JSON
+[youtube] kjrGXYKOnH0: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] kjrGXYKOnH0: Downloading m3u8 information
+[info] kjrGXYKOnH0: Downloading subtitles: ro, en
+[info] kjrGXYKOnH0: Downloading 1 format(s): 401+251
+Deleting existing file kjrGXYKOnH0.ro.vtt
+[info] Writing video subtitles to: kjrGXYKOnH0.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: kjrGXYKOnH0.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.75MiB/s (00:00:00)[download]    7.00KiB at    5.37MiB/s (00:00:00)[download]   15.00KiB at    9.99MiB/s (00:00:00)[download]   31.00KiB at   18.14MiB/s (00:00:00)[download]   63.00KiB at   31.99MiB/s (00:00:00)[download]  127.00KiB at    9.07MiB/s (00:00:00)[download]  176.48KiB at    8.10MiB/s (00:00:00)[download] 100% of  176.48KiB in 00:00:00 at 912.79KiB/s
+[info] Writing video subtitles to: kjrGXYKOnH0.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=tog8SODDgpI
+[youtube] tog8SODDgpI: Downloading webpage
+[youtube] tog8SODDgpI: Downloading android vr player API JSON
+[youtube] tog8SODDgpI: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] tog8SODDgpI: Downloading m3u8 information
+[info] tog8SODDgpI: Downloading subtitles: ro, en
+[info] tog8SODDgpI: Downloading 1 format(s): 401+251
+Deleting existing file tog8SODDgpI.ro.vtt
+[info] Writing video subtitles to: tog8SODDgpI.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: tog8SODDgpI.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.62MiB/s (00:00:00)[download]    7.00KiB at    5.04MiB/s (00:00:00)[download]   15.00KiB at    9.30MiB/s (00:00:00)[download]   31.00KiB at   16.54MiB/s (00:00:00)[download]   63.00KiB at   29.06MiB/s (00:00:00)[download]  127.00KiB at   15.20MiB/s (00:00:00)[download]  183.17KiB at   13.66MiB/s (00:00:00)[download] 100% of  183.17KiB in 00:00:00 at 1.00MiB/s
+[info] Writing video subtitles to: tog8SODDgpI.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=ZrOR8n9VeEU
+[youtube] ZrOR8n9VeEU: Downloading webpage
+[youtube] ZrOR8n9VeEU: Downloading android vr player API JSON
+[youtube] ZrOR8n9VeEU: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] ZrOR8n9VeEU: Downloading m3u8 information
+[info] ZrOR8n9VeEU: Downloading subtitles: ro, en
+[info] ZrOR8n9VeEU: Downloading 1 format(s): 400+251
+Deleting existing file ZrOR8n9VeEU.ro.vtt
+[info] Writing video subtitles to: ZrOR8n9VeEU.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: ZrOR8n9VeEU.ro.vtt
+[download]    1.00KiB at  967.10KiB/s (00:00:00)[download]    3.00KiB at    1.89MiB/s (00:00:00)[download]    7.00KiB at    3.75MiB/s (00:00:00)[download]   15.00KiB at    7.11MiB/s (00:00:00)[download]   31.00KiB at   12.95MiB/s (00:00:00)[download]   63.00KiB at   19.73MiB/s (00:00:00)[download]  127.00KiB at    5.11MiB/s (00:00:00)[download]  255.00KiB at    3.82MiB/s (00:00:00)[download]  324.15KiB at    4.66MiB/s (00:00:00)[download] 100% of  324.15KiB in 00:00:00 at 1.28MiB/s
+[info] Writing video subtitles to: ZrOR8n9VeEU.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=VkkAhdBEtaE
+[youtube] VkkAhdBEtaE: Downloading webpage
+[youtube] VkkAhdBEtaE: Downloading android vr player API JSON
+[youtube] VkkAhdBEtaE: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] VkkAhdBEtaE: Downloading m3u8 information
+[info] VkkAhdBEtaE: Downloading subtitles: ro, en
+[info] VkkAhdBEtaE: Downloading 1 format(s): 401+251
+Deleting existing file VkkAhdBEtaE.ro.vtt
+[info] Writing video subtitles to: VkkAhdBEtaE.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: VkkAhdBEtaE.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.42MiB/s (00:00:00)[download]    7.00KiB at    4.61MiB/s (00:00:00)[download]   15.00KiB at    8.39MiB/s (00:00:00)[download]   31.00KiB at   15.12MiB/s (00:00:00)[download]   63.00KiB at   24.73MiB/s (00:00:00)[download]  127.00KiB at   13.44MiB/s (00:00:00)[download]  255.00KiB at    5.30MiB/s (00:00:00)[download]  405.54KiB at    6.58MiB/s (00:00:00)[download] 100% of  405.54KiB in 00:00:00 at 1.59MiB/s
+[info] Writing video subtitles to: VkkAhdBEtaE.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=PFwNriYmmk4
+[youtube] PFwNriYmmk4: Downloading webpage
+[youtube] PFwNriYmmk4: Downloading android vr player API JSON
+[youtube] PFwNriYmmk4: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] PFwNriYmmk4: Downloading m3u8 information
+[info] PFwNriYmmk4: Downloading subtitles: ro, en
+[info] PFwNriYmmk4: Downloading 1 format(s): 401+251
+Deleting existing file PFwNriYmmk4.ro.vtt
+[info] Writing video subtitles to: PFwNriYmmk4.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: PFwNriYmmk4.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.21MiB/s (00:00:00)[download]    7.00KiB at    4.45MiB/s (00:00:00)[download]   15.00KiB at    8.47MiB/s (00:00:00)[download]   31.00KiB at   15.25MiB/s (00:00:00)[download]   63.00KiB at   22.96MiB/s (00:00:00)[download]  127.00KiB at    5.04MiB/s (00:00:00)[download]  228.32KiB at    5.70MiB/s (00:00:00)[download] 100% of  228.32KiB in 00:00:00 at 1.02MiB/s
+[info] Writing video subtitles to: PFwNriYmmk4.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=o48pxAziGeY
+[youtube] o48pxAziGeY: Downloading webpage
+[youtube] o48pxAziGeY: Downloading android vr player API JSON
+[youtube] o48pxAziGeY: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] o48pxAziGeY: Downloading m3u8 information
+[info] o48pxAziGeY: Downloading subtitles: ro, en
+[info] o48pxAziGeY: Downloading 1 format(s): 401+251
+Deleting existing file o48pxAziGeY.ro.vtt
+[info] Writing video subtitles to: o48pxAziGeY.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: o48pxAziGeY.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.90MiB/s (00:00:00)[download]    7.00KiB at    5.47MiB/s (00:00:00)[download]   15.00KiB at   10.09MiB/s (00:00:00)[download]   31.00KiB at   18.01MiB/s (00:00:00)[download]   63.00KiB at   31.37MiB/s (00:00:00)[download]  127.00KiB at    4.36MiB/s (00:00:00)[download]  255.00KiB at    3.64MiB/s (00:00:00)[download]  365.75KiB at    4.66MiB/s (00:00:00)[download] 100% of  365.75KiB in 00:00:00 at 1.33MiB/s
+[info] Writing video subtitles to: o48pxAziGeY.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=PZOJbG8e92I
+[youtube] PZOJbG8e92I: Downloading webpage
+[youtube] PZOJbG8e92I: Downloading android vr player API JSON
+[youtube] PZOJbG8e92I: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] PZOJbG8e92I: Downloading m3u8 information
+[info] PZOJbG8e92I: Downloading subtitles: ro, en
+[info] PZOJbG8e92I: Downloading 1 format(s): 401+251
+Deleting existing file PZOJbG8e92I.ro.vtt
+[info] Writing video subtitles to: PZOJbG8e92I.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: PZOJbG8e92I.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at  Unknown B/s (00:00:00)[download]   15.00KiB at  Unknown B/s (00:00:00)[download]   31.00KiB at  Unknown B/s (00:00:00)[download]   63.00KiB at   22.36MiB/s (00:00:00)[download]  127.00KiB at    5.36MiB/s (00:00:00)[download]  255.00KiB at    4.15MiB/s (00:00:00)[download]  511.00KiB at    4.64MiB/s (00:00:00)[download]  779.64KiB at    5.86MiB/s (00:00:00)[download] 100% of  779.64KiB in 00:00:00 at 2.21MiB/s
+[info] Writing video subtitles to: PZOJbG8e92I.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=WgqDiw13peo
+[youtube] WgqDiw13peo: Downloading webpage
+[youtube] WgqDiw13peo: Downloading android vr player API JSON
+[youtube] WgqDiw13peo: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] WgqDiw13peo: Downloading m3u8 information
+[info] WgqDiw13peo: Downloading subtitles: ro, en
+[info] WgqDiw13peo: Downloading 1 format(s): 401+251
+Deleting existing file WgqDiw13peo.ro.vtt
+[info] Writing video subtitles to: WgqDiw13peo.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: WgqDiw13peo.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    1.63MiB/s (00:00:00)[download]    7.00KiB at    3.27MiB/s (00:00:00)[download]   15.00KiB at    6.28MiB/s (00:00:00)[download]   31.00KiB at   11.58MiB/s (00:00:00)[download]   63.00KiB at   20.67MiB/s (00:00:00)[download]  127.00KiB at    8.84MiB/s (00:00:00)[download]  255.00KiB at    4.63MiB/s (00:00:00)[download]  511.00KiB at    5.03MiB/s (00:00:00)[download]  832.68KiB at    6.81MiB/s (00:00:00)[download] 100% of  832.68KiB in 00:00:00 at 2.09MiB/s
+[info] Writing video subtitles to: WgqDiw13peo.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=GSwRz2tD1L8
+[youtube] GSwRz2tD1L8: Downloading webpage
+[youtube] GSwRz2tD1L8: Downloading android vr player API JSON
+[youtube] GSwRz2tD1L8: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] GSwRz2tD1L8: Downloading m3u8 information
+[info] GSwRz2tD1L8: Downloading subtitles: ro, en
+[info] GSwRz2tD1L8: Downloading 1 format(s): 313+251
+Deleting existing file GSwRz2tD1L8.ro.vtt
+[info] Writing video subtitles to: GSwRz2tD1L8.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: GSwRz2tD1L8.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at  Unknown B/s (00:00:00)[download]   15.00KiB at   13.00MiB/s (00:00:00)[download]   31.00KiB at   23.15MiB/s (00:00:00)[download]   63.00KiB at   40.51MiB/s (00:00:00)[download]   97.88KiB at   26.48MiB/s (00:00:00)[download] 100% of   97.88KiB in 00:00:00 at 550.58KiB/s
+[info] Writing video subtitles to: GSwRz2tD1L8.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=TpVCnpZiC5o
+[youtube] TpVCnpZiC5o: Downloading webpage
+[youtube] TpVCnpZiC5o: Downloading android vr player API JSON
+[youtube] TpVCnpZiC5o: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] TpVCnpZiC5o: Downloading m3u8 information
+[info] TpVCnpZiC5o: Downloading subtitles: ro, en
+[info] TpVCnpZiC5o: Downloading 1 format(s): 401+251
+Deleting existing file TpVCnpZiC5o.ro.vtt
+[info] Writing video subtitles to: TpVCnpZiC5o.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: TpVCnpZiC5o.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at  Unknown B/s (00:00:00)[download]   15.00KiB at  Unknown B/s (00:00:00)[download]   31.00KiB at   26.51MiB/s (00:00:00)[download]   63.00KiB at   43.80MiB/s (00:00:00)[download]  127.00KiB at    4.94MiB/s (00:00:00)[download]  255.00KiB at    4.00MiB/s (00:00:00)[download]  339.54KiB at    4.98MiB/s (00:00:00)[download] 100% of  339.54KiB in 00:00:00 at 1.32MiB/s
+[info] Writing video subtitles to: TpVCnpZiC5o.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=HLjnRrY_ijU
+[youtube] HLjnRrY_ijU: Downloading webpage
+[youtube] HLjnRrY_ijU: Downloading android vr player API JSON
+[youtube] HLjnRrY_ijU: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] HLjnRrY_ijU: Downloading m3u8 information
+[info] HLjnRrY_ijU: Downloading subtitles: ro, en
+[info] HLjnRrY_ijU: Downloading 1 format(s): 137+251
+Deleting existing file HLjnRrY_ijU.ro.vtt
+[info] Writing video subtitles to: HLjnRrY_ijU.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: HLjnRrY_ijU.ro.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    6.33MiB/s (00:00:00)[download]   15.00KiB at   12.04MiB/s (00:00:00)[download]   31.00KiB at   22.08MiB/s (00:00:00)[download]   63.00KiB at   27.76MiB/s (00:00:00)[download]   86.49KiB at   20.29MiB/s (00:00:00)[download] 100% of   86.49KiB in 00:00:00 at 491.77KiB/s
+[info] Writing video subtitles to: HLjnRrY_ijU.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
+WARNING: Your yt-dlp version (2026.03.17) is older than 90 days!
+         It is strongly recommended to always use the latest version.
+         You installed yt-dlp with pip or using the wheel from PyPi; Use that to update.
+         To suppress this warning, add --no-update to your command/config.
+[youtube] Extracting URL: https://www.youtube.com/watch?v=S85q8ZhhW_g
+[youtube] S85q8ZhhW_g: Downloading webpage
+[youtube] S85q8ZhhW_g: Downloading android vr player API JSON
+[youtube] S85q8ZhhW_g: Downloading player ac678d18-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] S85q8ZhhW_g: Downloading m3u8 information
+[info] S85q8ZhhW_g: Downloading subtitles: ro, en
+[info] S85q8ZhhW_g: Downloading 1 format(s): 399+251
+Deleting existing file S85q8ZhhW_g.ro.vtt
+[info] Writing video subtitles to: S85q8ZhhW_g.ro.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: S85q8ZhhW_g.ro.vtt
+[download]    607.00B at  Unknown B/s (00:00:00)[download] 100% of    607.00B in 00:00:00 at 4.17KiB/s
+[info] Writing video subtitles to: S85q8ZhhW_g.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests
