@@ -664,6 +664,301 @@ export const monturi: Montura[] = [
     ],
     surse: ["p3C-k5EANv4"],
   },
+  // === INSIGHTS GDA 2026 (auto-extras din transcripts) ===
+  {
+    slug: "momitor-gda-peleta-solubila-semi-ingropata",
+    nume: "Momitor GDA cu peletă solubilă semi-îngropată — Delta post-prohibiție",
+    pentru: ["crap"],
+    metoda: "feeder",
+    scop: "Prezentare cu nadă aromată și peletă vizibilă pentru crap/ciortan în Delta după prohibiție",
+    cand: "Vara și începutul toamnei, post-prohibiție în Delta",
+    luni: [6, 7, 8, 9],
+    components: [
+      { item: "Momitor", spec: "method-feeder" },
+      { item: "Nadă", spec: "GDA Fishing căpșună / usturoi / Secret Aroma" },
+      { item: "Peletă cârlig", spec: "solubilă 10 mm sau 15 mm" },
+      { item: "Cârlige", spec: "mici, pentru ciortan apatic" },
+      { item: "Bile nădit", spec: "20-24 mm căpșună / Secret Aroma" },
+      { item: "Bile solubile", spec: "Secret Aroma din borcan, pentru pește mai mare" }
+    ],
+    diagrama: "fir principal → momitor method-feeder cu nadă → cârlig acoperit în nadă → peletă semi-îngropată vizibilă deasupra",
+    pasi: [
+      "Pune nada pe momitor",
+      "Introdu peleta în nadă fără s-o îngropi complet — las-o vizibilă deasupra",
+      "Acoperă cârligul cu puțină nadă pentru a evita încurcarea pe fir principal",
+      "Lansează — momitorul atrage peștele care va lua peleta cu cârlig",
+      "Nădește suplimentar cu sac de bile + câteva boilies întregi în afara cioatei"
+    ],
+    sfaturi: [
+      "Lasă peleta vizibilă deasupra nadei pentru atac rapid",
+      "Acoperirea cârligului previne încurcăturile la cădere",
+      "Combină cu nădire suplimentară în afara cioatelor"
+    ],
+    surse: ["GSwRz2tD1L8"],
+  },
+  {
+    slug: "momitor-fin-iarna-peleta-single-10mm",
+    nume: "Momitor fin iarnă — peletă single 10mm sicilit/căpșună",
+    pentru: ["crap"],
+    metoda: "feeder",
+    scop: "Prezentare de finețe pentru crap apatic pe vreme rece",
+    cand: "Noiembrie, pe vreme rece când crapul e apatic",
+    luni: [11, 12, 1, 2],
+    components: [
+      { item: "Momitor", spec: "method-feeder" },
+      { item: "Cârlig", spec: "nr. 10" },
+      { item: "Nadă", spec: "GDA Fishing + pelete fish meal 5mm pentru încărcat" },
+      { item: "Peletă cârlig", spec: "10mm sicilit aromă căpșună" },
+      { item: "Opțional", spec: "peletă 15mm sau 2x15mm dacă apar scăpări" }
+    ],
+    diagrama: "fir principal → momitor cu nadă GDA + pelete 5mm → cârlig nr.10 → peletă 10mm pe păr",
+    pasi: [
+      "Umezește nada GDA cu pelete 5mm fish meal",
+      "Presează pe momitor în jurul cârligului",
+      "Pune peleta 10mm sicilit pe păr",
+      "Lansează fin pe locul nădit, frână ușor strânsă",
+      "Crește la 15mm sau cârlig 15 dacă peștele e mai activ/mai mare"
+    ],
+    sfaturi: [
+      "Cârlig mic nr.10 pentru gură atentă iarna",
+      "Crește momeala dacă apar scăpări la înțepare",
+      "Pelete 5mm la momitor pentru atragere fără sațietate"
+    ],
+    surse: ["PFwNriYmmk4"],
+  },
+  {
+    slug: "combo-plumb-inline-bile-24mm-delta",
+    nume: "Combo plumb in-line + bile 24mm Delta Active / Delta Secret",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Setup paralel pentru crap mare pe Sulina, acoperind mal și larg",
+    cand: "Sezon cald, pe Sulina lângă cioate",
+    luni: [5, 6, 7, 8, 9],
+    components: [
+      { item: "Plumb", spec: "in-line" },
+      { item: "Bilă mal", spec: "1x 24mm Delta Active" },
+      { item: "Bile larg", spec: "2x 24mm Delta Secret" },
+      { item: "Cârlig", spec: "mai mare adaptat bilei 24mm" },
+      { item: "Frână", spec: "strânsă aproape la maxim, pentru cioate" }
+    ],
+    diagrama: "fir principal → plumb in-line → forfac → cârlig cu bilă 24mm pe păr",
+    pasi: [
+      "Lansează lanseta Delta Active aproape de mal/cioate",
+      "Lansează lanseta Delta Secret cu dublă bilă spre larg",
+      "Strânge frânele aproape la maxim pentru a opri peștele din cioate",
+      "Întreține nădirea cu bile 20mm la fiecare oră"
+    ],
+    sfaturi: [
+      "Combină arome diferite pe lansete diferite pentru a testa preferința",
+      "Frână aproape blocată obligatorie lângă cioate",
+      "Nădire la oră fixă menține peștele activ în zonă"
+    ],
+    surse: ["PFwNriYmmk4"],
+  },
+  {
+    slug: "rig-crap-sulina-fir-camasuit",
+    nume: "Rig crap Sulina cu fir cămășuit anti-abraziune pe piatră",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Rig anti-abraziune pentru pescuit pe digul de piatră al brațului Sulina",
+    cand: "Tot sezonul deschis pe brațul Sulina, lângă dig",
+    luni: [5, 6, 7, 8, 9, 10],
+    components: [
+      { item: "Forfac", spec: "fir cămășuit rezistent la frecare cu pietrele" },
+      { item: "Cârlig boilies", spec: "nr. 6 pentru bile" },
+      { item: "Cârlig pelete", spec: "nr. 8 pentru pelete solubile 15mm" },
+      { item: "Plumb", spec: "sistem pierdut cu opritor" },
+      { item: "Shock leader", spec: "monofilament somn 0.90mm, lungime ~7m" }
+    ],
+    diagrama: "fir principal → shock leader mono 0.90mm 7m → plumb pierdut cu opritor → forfac cămășuit → cârlig 6/8",
+    pasi: [
+      "Alege mărimea cârligului raportată vizual la momeală, nu doar după numărul producătorului",
+      "Montează forfac din fir cămășuit (nu textil simplu — se rupe pe piatră)",
+      "Atașează sistemul plumb pierdut cu opritor pentru eliberare la blocare",
+      "Folosește shock leader monofilament somn 0.90mm de ~7m între fir principal și montură",
+      "Pentru momitor: pelete 15mm pe cârlig 8; pentru plumb: bilă pe cârlig 6"
+    ],
+    sfaturi: [
+      "Numerele de cârlig variază între branduri — verifică vizual",
+      "Shock leader-ul protejează la lansare și pe piatră",
+      "Sistem plumb pierdut obligatoriu lângă dig"
+    ],
+    surse: ["PZOJbG8e92I"],
+  },
+  {
+    slug: "momitor-opritoare-auto-intepare",
+    nume: "Montură momitor cu opritoare pentru auto-înțepare (rig 8-9 cm)",
+    pentru: ["crap"],
+    metoda: "feeder",
+    scop: "Auto-înțepare forțată prin fixarea momitorului între două opritoare",
+    cand: "Toamnă-iarnă (cârlig 8) sau vară (cârlig 6)",
+    luni: [9, 10, 11, 12, 1, 2, 6, 7, 8],
+    components: [
+      { item: "Momitor", spec: "method spod 120g" },
+      { item: "Cârlig", spec: "nr. 8 toamnă/iarnă, nr. 6 vara, subțire" },
+      { item: "Rig", spec: "8-9 cm cu păr" },
+      { item: "Momeală", spec: "dumbell solubil GDA Fishing" },
+      { item: "Opritoare", spec: "2 opritoare de cauciuc pe firul principal" },
+      { item: "Quick change", spec: "pentru schimbat rapid cârligul" },
+      { item: "Vârtej", spec: "de rezervă, alternativă la quick change" }
+    ],
+    diagrama: "fir principal → opritor → momitor 120g → opritor → quick change → rig 8-9cm cu dumbell pe păr",
+    pasi: [
+      "Leagă cârligele de acasă (câte 4 din fiecare mărime) cu păr și opritor pentru dumbell",
+      "Pune un opritor pe firul principal înainte și după momitor pentru a-l fixa",
+      "Înfige dumbell-ul solubil pe părul de 8-9 cm",
+      "Frământă nada GDA căpșună umedă și aplic-o pe momitor",
+      "Verifică vârful cârligului DUPĂ FIECARE PEȘTE — schimbă imediat dacă s-a strâmbat"
+    ],
+    sfaturi: [
+      "Opritoarele fixează momitorul pentru auto-înțepare la prima zvâcnire",
+      "Testează vârful cârligului pe unghie după fiecare pește",
+      "Pregătește cârlige înnodate de acasă pentru schimb rapid"
+    ],
+    surse: ["TpVCnpZiC5o"],
+  },
+  {
+    slug: "momitor-peleta-nada-neindesata-curent",
+    nume: "Momitor cu peletă în interior + nadă neîndesată pentru dâră în curent",
+    pentru: ["crap"],
+    metoda: "feeder",
+    scop: "Crează dâră rapidă de atragere în curent pentru activare zonă iarna",
+    cand: "Iarna, în zone cu curent",
+    luni: [12, 1, 2],
+    components: [
+      { item: "Momitor", spec: "method-feeder" },
+      { item: "Pelete interior", spec: "cireașa principală, încărcate în momitor" },
+      { item: "Nadă", spec: "pudră deasupra, fără îndesare" },
+      { item: "Cârlig", spec: "nr. 10 cu fir textil 0.13 pentru finețe iarnă" }
+    ],
+    diagrama: "fir principal → momitor (pelete în interior + nadă afânată deasupra) → cârlig 10 cu fir textil 0.13",
+    pasi: [
+      "Umple momitorul cu pelete în interior (cantitate normală)",
+      "Adaugă nadă deasupra fără să strângi/îndeși",
+      "Lansează — nada se desface în coloana de apă",
+      "Crează dâră în curent care activează rapid zona",
+      "Dacă peștele apare dar nu mușcă, schimbă pe plumb in-line cu rig 6 lângă cioată"
+    ],
+    sfaturi: [
+      "Nada neîndesată = desfacere rapidă și dâră lungă",
+      "Fir textil subțire 0.13 pentru finețe iarnă",
+      "Schimbă la plumb in-line dacă peștii sunt suspicioși"
+    ],
+    surse: ["VkkAhdBEtaE"],
+  },
+  {
+    slug: "bile-fishmeal-delta-secret-24mm-chilia",
+    nume: "Bile Fishmeal Delta Secret 24mm pentru crap mare Chilia",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Filtrarea ciortanului și targetarea crapului mare (10kg+) pe Chilia",
+    cand: "Sezon deschis pe brațul Chilia, pescuit de pe barcă",
+    luni: [5, 6, 7, 8, 9, 10],
+    components: [
+      { item: "Boilies", spec: "Fishmeal Delta Secret 24mm standard" },
+      { item: "Boilies XL", spec: "Fishmeal Delta Secret 32mm pentru pește foarte mare" },
+      { item: "Lansete", spec: "Trabuco Max Deep 3m, calibre 4" },
+      { item: "Setup", spec: "3 lansete pe barcă per pescar, evantai pe prag" }
+    ],
+    diagrama: "fir principal → plumb → forfac → cârlig cu bilă 24mm (sau 32mm pe o lansetă) pe păr",
+    pasi: [
+      "Montează bila 24mm pe forfac standard pentru crap",
+      "Pe o lansetă pune bilă 32mm ca filtru extrem pentru pește record",
+      "Lansează 3 lansete de pe barcă în evantai pe prag",
+      "Acceptă rata mică de trăsături — target = pește 10kg+"
+    ],
+    sfaturi: [
+      "Bila 24mm filtrează ciortanul mic",
+      "Bila 32mm pe o lansetă pentru a viza recordul",
+      "Lansete 4lb necesare pentru pește 10kg+"
+    ],
+    surse: ["WgqDiw13peo"],
+  },
+  {
+    slug: "pelete-10mm-spin-direct",
+    nume: "Pelete 10mm pe spin direct (nu pe păr)",
+    pentru: ["crap"],
+    metoda: "feeder",
+    scop: "Fixare mai bună a peletei mici pe apă rece, fără folosirea părului",
+    cand: "Apă rece, când peleta 10mm se desface rapid",
+    luni: [10, 11, 12, 1, 2, 3],
+    components: [
+      { item: "Pelete 10mm", spec: "solubile căpșună / secret aroma / usturoi" },
+      { item: "Cârlig", spec: "cu spin clasic" },
+      { item: "Pelete 15mm", spec: "separat, pentru firul de păr" },
+      { item: "Momitor", spec: "ediție specială GDA + pelete 2mm" }
+    ],
+    diagrama: "momitor cu nadă + pelete 2mm → cârlig cu peletă 10mm înfiptă direct pe spin (fără păr)",
+    pasi: [
+      "Pentru pelete 10 mm: înfige direct pe spinul cârligului",
+      "Pentru pelete 15 mm: folosește firul de păr clasic",
+      "Schimbă cârligul și peleta după fiecare trăsătură/ratare",
+      "Combină cu momitor nadă ediție specială + pelete 2 mm"
+    ],
+    sfaturi: [
+      "Spin direct ține peleta 10mm mai bine pe cârlig",
+      "Pentru 15mm rămâi pe păr",
+      "Schimbă peleta după fiecare contact pentru frosalitate"
+    ],
+    surse: ["ZrOR8n9VeEU"],
+  },
+  {
+    slug: "peleta-15mm-capsuna-gda-single-culoar",
+    nume: "Peletă 15 mm căpșună roșu GDA — single hookbait pe culoar",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Single hookbait pe culoar îngust pentru crap activ primăvara",
+    cand: "Primăvara în Delta, pe culoare între cioată și stuf",
+    luni: [3, 4, 5],
+    components: [
+      { item: "Peletă", spec: "solubilă 15 mm aromă căpșună roșu (GDA Cireasa de pe Tort)" },
+      { item: "Alternativă", spec: "peletă 10 mm Secret Aroma galben" },
+      { item: "Forfac", spec: "standard crap, scurt" },
+      { item: "Nadă", spec: "ediție specială GDA pentru pre-momire culoar" }
+    ],
+    diagrama: "fir principal → plumb → forfac scurt → cârlig cu peletă 15mm pe păr, plasat pe culoar pre-momit",
+    pasi: [
+      "Pre-momește culoarul îngust dintre cioată și stuf cu nadă specială",
+      "Montează peleta 15 mm căpșună pe forfac scurt",
+      "Plasează lansetele pe același culoar — peștii vin în serie (3 trăsături în 30 min)",
+      "Dacă activitatea scade, schimbă pe una din lansete cu peletă 10 mm galben",
+      "Reîmprospătează momeala la fiecare pește prins — ritmul scade altfel"
+    ],
+    sfaturi: [
+      "Toate lansetele pe același culoar — atrac multiplicat",
+      "Schimbă culoarea/aroma dacă scade ritmul",
+      "Reîmprospătează momeala la fiecare contact"
+    ],
+    surse: ["kjrGXYKOnH0"],
+  },
+  {
+    slug: "plumb-pierdut-eliberare-epi-sulina",
+    nume: "Plumb pierdut cu eliberare pentru epi-uri Sulina",
+    pentru: ["crap"],
+    metoda: "static",
+    scop: "Eliberare obligatorie a plumbului la baza epi-urilor pentru a nu pierde peștele în cioată",
+    cand: "Sezon deschis pe Sulina, lângă epiuri și cioate",
+    luni: [5, 6, 7, 8, 9, 10],
+    components: [
+      { item: "Plumb pierdut", spec: "cu clip rapid de eliberare" },
+      { item: "Cârlig nr. 6", spec: "pentru bilă 20mm solubilă Delta Activ" },
+      { item: "Cârlig nr. 4", spec: "pentru bilă 24mm semisolubilă Delta Activ" },
+      { item: "Forfac", spec: "care permite eliberarea plumbului la prima opritură" }
+    ],
+    diagrama: "fir principal → clip eliberare cu plumb pierdut → forfac → cârlig 4/6 cu bilă 20/24mm pe păr",
+    pasi: [
+      "Verificare obligatorie funcționare clip eliberare înainte de lansare",
+      "Lansează la baza peretelui de epi",
+      "La trăsătură — plumbul TREBUIE să se elibereze imediat",
+      "Dacă plumbul rămâne prins → peștele intră în cioată și se pierde"
+    ],
+    sfaturi: [
+      "Testează clipul de eliberare ÎNAINTE de fiecare lansare",
+      "Bilă 20mm pe cârlig 6 sau 24mm pe cârlig 4",
+      "Plumb prins = pește pierdut în cioată"
+    ],
+    surse: ["o48pxAziGeY"],
+  }
 ];
 
 // Monturi noi din batch 3 (GFT)

@@ -363,6 +363,573 @@ export const tehnici: Tehnica[] = [
       "Locurile dresate sunt cele mai proaste",
     ],
   },
+  // === INSIGHTS GDA 2026 (auto-extras din transcripts) ===
+  {
+    slug: "crap-ciortan-post-prohibitie-mila23",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Ciortan post-prohibiție Mila 23 — cârlige mici + trăsătură liberă",
+    scurt: "Strategie pentru pește apatic post-prohibiție când peștele suge peleta superficial fără să ia cârligul. Se folosesc cârlige mici și se lasă peștele să se înțepe singur.",
+    perioada: "iunie",
+    pasi: [
+      "Folosește cârlige mici (nr. fin) — NU cârlige măricele care dau rateuri",
+      "Lasă peștele pe trăsătură lungă, nu încerca să-l înțepi — el se înțepă singur",
+      "Pescuiește la momitor cu peletă solubilă 10-15 mm acoperită cu nadă",
+      "Dacă vrei să selectezi pește mai mare, treci de la momitor la plumb in-line + bilă 20-24 mm",
+      "Nădire țintită lângă cioate cu bile de nădit + boilies sparte în jumătate pentru a scoate peștele afară din cioată",
+      "Schimbă des locul (canale învecinate Mila 23) dacă intră doar ciortan"
+    ],
+    echipament: [
+      "Cârlige mici nr. fin",
+      "Peletă solubilă 10-15 mm",
+      "Momitor",
+      "Plumb in-line pentru selecție",
+      "Boilies 20-24 mm",
+      "Bile de nădit"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Nu forța înțeparea — lasă trăsătura lungă",
+      "Filtrează ciortanul prin creșterea diametrului momelii"
+    ],
+  },
+  {
+    slug: "crap-sondare-substrat-mila23",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Sondare substrat cu plumb greu Mila 23",
+    scurt: "Înainte de a planta monturile, sondează substratul cu plumb de 250g pentru a evita zonele de mâl unde momitorul/plumbul de 80g se afundă complet și ascunde momeala.",
+    perioada: "primavara, vara, toamna",
+    pasi: [
+      "Folosește un plumb greu (200-250g) pe o lansetă de testare",
+      "Aruncă în zona vizată și trage încet pentru a simți rezistența substratului",
+      "Dacă plumbul se afundă 15-20cm în mâl, caută zonă cu fund tare",
+      "Salvează poziția pe sonar (Lawrence Live) doar după validarea substratului",
+      "Montează doar după ce ai confirmat fund tare + prezență pește pe sonar"
+    ],
+    echipament: [
+      "Plumb 200-250g pentru sondare",
+      "Lansetă de testare",
+      "Sonar live (Lowrance)",
+      "Plumb de lucru 80g",
+      "Momitor"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Mâlul ascunde momeala — caută fund tare",
+      "Combină sondarea substratului cu detectarea peștelui pe sonar"
+    ],
+  },
+  {
+    slug: "crap-fara-nada-ape-salbatice",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Pescuit fără nadă pe ape sălbatice",
+    scurt: "Pe ape sălbatice, când vezi peștele pe sonar într-un loc, NU nădi — aruncă doar monturile. Nada creează concurență pentru cârlig și crapul alege boilies-urile libere mai puțin periculoase.",
+    perioada: "primavara, vara, toamna",
+    pasi: [
+      "Localizează peștele cu sonar live înainte de orice acțiune",
+      "NU arunca bile de nadă în primele 1-1.5 ore",
+      "Aruncă doar cele 2-4 monturi cu boilies/dumbells pe cârlig",
+      "Așteaptă trăsătura — peștele activ va lua momeala fără competiție",
+      "Doar dacă în 1-2 ore nu sunt trăsături, încearcă o nadă minimală"
+    ],
+    echipament: [
+      "Sonar live",
+      "2-4 lansete cu monturi",
+      "Boilies/dumbells pentru cârlig",
+      "Plumb clasic"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Pe ape sălbatice nada poate face mai rău decât bine",
+      "Răbdare 1-2 ore înainte să intervii cu nadă"
+    ],
+  },
+  {
+    slug: "crap-finete-ape-salbatice",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Monturi de finețe pe ape sălbatice",
+    scurt: "Pe ape sălbatice cu pește mofturos, folosește monturi de finețe (cârlige 16-18) cu dumbells/boilies mai mici pentru a activa peștii suspicioși.",
+    perioada: "primavara, vara, toamna",
+    pasi: [
+      "Pregătește o lansetă de rezervă cu cârlig nr. 16-18",
+      "Folosește dumbells/boilies de diametru mic (10-12mm)",
+      "Aplică această montură când prezentările sunt rare, dar peștele e prezent pe sonar",
+      "Păstrează celelalte lansete cu monturi normale pentru a vedea ce funcționează",
+      "Combină cu sondare prealabilă pe sonar live"
+    ],
+    echipament: [
+      "Cârlige nr. 16-18",
+      "Dumbells/boilies 10-12mm",
+      "Sonar live",
+      "Lansetă de rezervă pentru finețe"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Folosește finețea când peștele e prezent dar mofturos",
+      "Păstrează și monturi standard pe celelalte lansete pentru comparație"
+    ],
+  },
+  {
+    slug: "crap-noiembrie-sulina-escaladare-progresiva",
+    specie: "crap",
+    metoda: "feeder",
+    titlu: "Crap noiembrie Sulina — escaladare progresivă cârlig/momeală",
+    scurt: "Pornești fin cu cârlig 10 și peletă 10mm pe momitor pentru a provoca trăsături, apoi crești dimensiunea cârligului și momelii doar dacă apar scăpări sau vrei pește mai mare.",
+    perioada: "noiembrie, decembrie",
+    pasi: [
+      "Start: 2 lansete cu momitor + cârlig 10 + peletă 10mm sicilit/căpșună",
+      "1 lansetă cu cârlig mai mare și bilă pentru filtrare pește mare",
+      "Dacă scapă ciortanii, urcă pe cârlig 15",
+      "Dacă peștii se hrănesc apatic, treci pe plumb in-line cu bilă 20-24mm",
+      "Combinație: o lansetă cu bilă 24 Delta Active spre mal + una cu 2 bile 24 Delta Secret spre larg",
+      "Frână strânsă aproape la maxim când pescuiești lângă cioate"
+    ],
+    echipament: [
+      "Cârlige nr. 10 și nr. 15",
+      "Pelete 10mm sicilit/căpșună",
+      "Boilies 20-24mm Delta Active/Secret",
+      "Momitor",
+      "Plumb in-line",
+      "Lansete multiple"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Escaladează progresiv abia când ai dovezi (scăpări, pește prea mare)",
+      "Frână tare lângă cioate ca să forțezi peștele afară"
+    ],
+  },
+  {
+    slug: "crap-nadire-intretinere-orara-sulina",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Nădire de întreținere oră-cu-oră pe Sulina",
+    scurt: "Protocol de nădire pentru sesiuni multi-zi pe Sulina: nădire inițială masivă + completări orare cu praștia.",
+    perioada: "toamna, iarna",
+    pasi: [
+      "La sosire: 2-3 kg bile 20mm (Delta Activ / Fish Meal / Birdfood)",
+      "La fiecare oră: 2 pumni de bile cu praștia",
+      "Lansează nădirea puțin în amonte față de poziția momelii",
+      "Ajustează după curent, prag, dacă pescuiești în afara curentului",
+      "După fiecare pește prins, completezi cu o nouă mână de bile"
+    ],
+    echipament: [
+      "Bile 20mm Delta Activ/Fish Meal/Birdfood (2-3 kg)",
+      "Praștie pentru nădire",
+      "Lansetă principală cu momeală"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Nădirea în amonte compensează deriva curentului",
+      "Completează imediat după fiecare captură"
+    ],
+  },
+  {
+    slug: "crap-sulina-buza-prag-inaintas-somn",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Crap pe Sulina — pescuit pe buza pragului cu înaintaș lung de somn",
+    scurt: "Tehnică de targetare a crapilor mai mari pe brațul Sulina, lansând fix pe buza pragului sau ușor sub, folosind înaintaș de monofilament de somn 0.90mm pe ~7m pentru rezistență la abraziune în pietre.",
+    perioada: "august, septembrie",
+    pasi: [
+      "Localizează platoul de 3m și buza pragului unde începe coborârea spre 12m",
+      "Montează înaintaș de monofilament de somn 0.90mm, lungime ~7m, ca shock leader anti-abraziune",
+      "Lansează exact pe buza pragului sau 1m mai jos, în zona de coborâre",
+      "Nădește masiv cu bile pe platoul de 3m, ușor în amonte (curentul aduce nada la momeli)",
+      "Folosește plumb pierdut cu opritor pentru eliberarea plumbului blocat",
+      "La drill, ridică imediat lanseta sus pentru a scoate firul de pe substratul de piatră"
+    ],
+    echipament: [
+      "Mono somn 0.90mm shock leader ~7m",
+      "Plumb pierdut cu opritor",
+      "Bile pentru nădit masiv",
+      "Sonar pentru localizare prag",
+      "Lansetă puternică"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Ridică lanseta sus în drill ca să eviți pietrele",
+      "Nădește în amonte ca să compensezi curentul"
+    ],
+  },
+  {
+    slug: "crap-nadire-dubla-boilies-tari",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Nădire dublă 2kg dimineața + 2kg seara cu boilies tari",
+    scurt: "Strategie de nădit constant pe un singur loc cu boilies tari (nu solubile) pentru a păstra nada pe substrat ore în șir, iar la cârlig se folosesc dumbells solubile pentru atragere rapidă.",
+    perioada: "octombrie, noiembrie",
+    pasi: [
+      "Nădește dimineața 2 kg boilies tari pe locul ales",
+      "Nădește seara încă 2 kg boilies tari pe același loc",
+      "La cârlig folosește DOAR dumbells/boilies solubile (nu tari) pentru activare rapidă",
+      "Pe momitor pune nadă umedă GDA căpșună frământată",
+      "Verifică/schimbă boilul solubil la fiecare 30-40 min dacă nu ai trăsătură (se topește)",
+      "Localizează peștele întâi (informații de la localnici) înainte de a aplica strategia"
+    ],
+    echipament: [
+      "Boilies tari 4 kg pentru nădit",
+      "Dumbells/boilies solubile pentru cârlig",
+      "Nadă umedă GDA căpșună",
+      "Momitor"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Boilies tari rezistă pe substrat — solubilele activează rapid la cârlig",
+      "Verifică momeala la 30-40 min — solubilele se topesc"
+    ],
+  },
+  {
+    slug: "crap-fir-textil-subtire-dunare",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Fir textil 0.14-0.15 cu momitor pe Dunăre — anti-ridicare în curent",
+    scurt: "Folosirea de fir textil foarte subțire (0.14-0.15) pe Dunăre/Sulina pentru ca firul să nu pună rezistență în curent și să ridice momitorul de pe substrat.",
+    perioada: "toamna, primavara",
+    pasi: [
+      "Folosește fir textil de 0.14-0.15 mm (moale, tip Feeder) ca shock/main pe Dunăre",
+      "Indicat mai ales pe Sulina unde curentul e mare",
+      "Compensează lipsa elongației lucrând foarte atent din frână în drill",
+      "Strânge frâna mai slab decât ai face cu mono — altfel rupi buza peștelui",
+      "Folosește momitor 120g pentru a sta pe substrat în ciuda curentului"
+    ],
+    echipament: [
+      "Fir textil 0.14-0.15 mm tip feeder",
+      "Momitor 120g",
+      "Lansetă cu acțiune progresivă pentru compensare lipsă elongație"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Frâna mai slabă decât la mono — textilul nu cedează",
+      "120g momitor minim pentru curent mare"
+    ],
+  },
+  {
+    slug: "crap-iarna-lansare-cioata-ancorare",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Crap iarna — lansare direct în cioată cu ancorare în curent",
+    scurt: "Strategie de iarnă unde te ancorezi direct în curent cu botul bărcii spre cioată și lansezi efectiv în lemn, pentru că peștele apatic nu iese din agățătură.",
+    perioada: "decembrie, ianuarie, februarie",
+    pasi: [
+      "Sondează mai multe cioate cu sonar live până găsești peștele cantonat",
+      "Ancorează barca direct în curent, cu botul în cioată",
+      "Lansează din mână (nu cu lanseta) fix în lemn sau lângă cioată",
+      "Strânge frânele aproape complet — lasă doar puțin fir să poată ceda",
+      "Folosește fir 0.35 mono pentru canale cu curent (compromis între textil 0.13 fără elongație și 0.55 care vâjâie)",
+      "Dacă ai trăsături frecvente, schimbă pe plumb in-line pierdut cu cârlig 6 și fir cămășuit pentru a lansa în cioată"
+    ],
+    echipament: [
+      "Fir mono 0.35 pentru curent",
+      "Plumb in-line pierdut",
+      "Cârlig nr. 6",
+      "Fir cămășuit pentru rezistență la cioată",
+      "Ancoră",
+      "Sonar live"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Lansează din mână pentru precizie milimetrică",
+      "Strânge frânele aproape complet — peștele apatic nu trage tare"
+    ],
+  },
+  {
+    slug: "crap-rabdare-3-4-zile-iarna",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Răbdare 3-4 zile pe același loc iarna",
+    scurt: "Tactică de iarnă bazată pe observația că peștele văzut pe sonar dar care nu se hrănește 2 zile, poate exploda în ziua 3-4 pe același loc cu nadit constant.",
+    perioada: "decembrie, ianuarie",
+    pasi: [
+      "Identifică loc cu densitate mare de pește pe sonar live",
+      "Aruncă câteva bile de nadă seara, chiar dacă nu ai prins, ca să dea de gust",
+      "Persistă pe același loc 3-4 zile chiar fără trăsături",
+      "Variază nada: începe fără fish meal, apoi adaugă progresiv fish meal",
+      "Verifică comportamentul peștelui pe sonar — capul în jos = caută, dar nu se hrănește încă"
+    ],
+    echipament: [
+      "Sonar live",
+      "Bile de nădit cu și fără fish meal",
+      "Cort/bivuac pentru staționare lungă"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Nu părăsi locul dacă vezi densitate mare de pește",
+      "Variază treptat compoziția nadei"
+    ],
+  },
+  {
+    slug: "crap-vara-chilia-mobil-6-zile",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Crap vara Chilia - mobil pe 6 zile cu sondare multiplă",
+    scurt: "Strategie de explorare pe 6 zile pe Chilia, cu mutarea taberei zilnic și nădire în mai multe locuri pentru a găsi peștele activ.",
+    perioada: "iulie, august",
+    pasi: [
+      "Sondează 2-3 locuri pe zi cu sonarul pentru praguri și agățături",
+      "Nădește 2-3 locuri în prima zi pentru a avea opțiuni de revenire",
+      "Mută tabăra aproape zilnic - cort minim, foc, fără bagaj greu",
+      "Folosește bile mari (24-32mm) - filtrează ciortanul, ținta e crapul mare",
+      "Pe praguri verticale ancorează aproape pentru a putea recupera plumbul",
+      "Dacă găsești tramvaie pe nadă, revii peste 2-3 zile când se taie"
+    ],
+    echipament: [
+      "Sonar pentru sondare",
+      "Bile 24-32mm pentru filtrare",
+      "Cort minim/bivuac mobil",
+      "Ancoră",
+      "Lansete pentru praguri"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Mobilitatea bate confortul pe ape mari",
+      "Bile mari = pește mare; filtrezi ciortanii"
+    ],
+  },
+  {
+    slug: "crap-eliberare-vara-delta",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Eliberare obligatorie vara în Delta - protocol",
+    scurt: "Protocol de eliberare pentru perioada de vară când apa caldă la suprafață nu permite păstrarea peștelui în sac.",
+    perioada: "iunie, iulie, august",
+    pasi: [
+      "Oprește doar peștele necesar pentru gătit imediat pe mal/barcă",
+      "Nu ține pește în sacul de păstrare - apa caldă neoxigenată îl omoară în mai puțin de o zi",
+      "Eliberare imediat după poză - ține peștele în apă să-și revină înainte de eliberare",
+      "Folosește minciog adaptat dimensiunii (cap mic pentru pește mic, cap mare pentru pește mare)",
+      "Evită saci de păstrare colectivi - se aruncă zeci de kg pe sezon"
+    ],
+    echipament: [
+      "Minciog cap mic + cap mare",
+      "Saltea de descârligat",
+      "Aparat foto pregătit pentru poză rapidă"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Apa caldă neoxigenată omoară peștele în sac în câteva ore",
+      "Eliberarea trebuie să fie rapidă și în apă"
+    ],
+  },
+  {
+    slug: "crap-martie-cioate-plumb-in-cap",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Crap martie cioate - plumb în cap apă rece",
+    scurt: "În martie cu apă 6-7°C peștele e cantonat strâns pe cioate și nu caută mâncare; tehnica e să lansezi momitorul EXACT pe/lângă cioată unde e densitate mare de pește, nu să aștepți să iasă el.",
+    perioada: "martie, februarie",
+    pasi: [
+      "Sondează cu sonar 15-20 min să localizezi cioata cu densitate mare de pește",
+      "Alege canal îngust unde poți lansa pe sub mână pentru precizie",
+      "Ancorează cât mai aproape de cioată, eventual chiar pe ea",
+      "Folosește fir gros 0,55 ca să poți forța peștele din cioată",
+      "Lansează momitorul în cioată sau lipit de ea — nu mai departe",
+      "Mută-te după 1-2 pești prinși de pe un loc (peștii se sperie repede de clancul motorului)"
+    ],
+    echipament: [
+      "Sonar live",
+      "Fir mono 0.55",
+      "Momitor",
+      "Ancoră",
+      "Barcă cu motor pentru mobilitate"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Peștele apatic nu iese din cioată — du momeala la el",
+      "2 pești = mută locul, peștii rămași se sperie"
+    ],
+  },
+  {
+    slug: "crap-momitor-desfacere-rapida-apa-rece",
+    specie: "crap",
+    metoda: "feeder",
+    titlu: "Momitor desfăcut rapid apă rece (nadă ediție specială + pelete 2mm)",
+    scurt: "Pentru apă de 6-7°C momitorul se umectează mai puțin și se strânge slab pe plumb ca să se desfacă rapid și să elibereze aroma fără să încarce stomacul peștelui apatic.",
+    perioada: "martie, februarie, decembrie",
+    pasi: [
+      "Folosește nadă ediție specială crap sălbatic + pelete 2 mm amestecate",
+      "Umectează puțin (mai puțină apă decât vara)",
+      "Strânge slab pe momitor ca să se desfacă în ~25-40 min",
+      "Pune pelete solubile 10 mm direct pe spin (nu pe firul de păr)",
+      "Pelete 15 mm se pun pe firul de păr clasic",
+      "Verifică după 40 min: peleta trebuie să fie activată complet"
+    ],
+    echipament: [
+      "Nadă crap sălbatic ediție specială",
+      "Pelete 2mm pentru amestec",
+      "Pelete solubile 10mm și 15mm",
+      "Momitor",
+      "Cârlig cu spin"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Mai puțină apă în nadă = desfacere rapidă",
+      "Strânge slab pe momitor pentru eliberare în 25-40 min"
+    ],
+  },
+  {
+    slug: "crap-lansare-mana-culoar-ingust",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Lansare din mână pe culoar îngust între stuf și cioată",
+    scurt: "Tehnică de plasare a momelii la 4-5 m de barcă, dată pe sub mână în spatele bărcii pentru a intercepta culoarul de trecere al crapului între obstacole.",
+    perioada: "martie, aprilie",
+    pasi: [
+      "Identifică cioata sau obstacolul din fața bărcii — peștele va ocoli prin spate",
+      "Dă 4 lansete din mână pe sub mână, plasate în spatele bărcii pe culoar",
+      "Folosește pelete de 15 mm căpșună (roșu) ca momeală principală",
+      "Alternează cu Secret Aroma galben pe alte lansete pentru a acoperi gusturi",
+      "Fii pregătit să ții lanseta — trăsăturile vin din zbor, imediat după lansare",
+      "Țepușă imediat la prima mișcare a vârfului — nu lăsa peștele 'să o ia bine' (o scuipă)"
+    ],
+    echipament: [
+      "4 lansete pregătite simultan",
+      "Pelete 15mm căpșună",
+      "Pelete 15mm Secret Aroma galben",
+      "Momitor",
+      "Barcă ancorată"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Țepușă imediat — peștele scuipă rapid pe apă rece",
+      "Acoperă gusturi diferite cu arome diverse"
+    ],
+  },
+  {
+    slug: "crap-contra-curent-baza-epi-sulina",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Pescuit contra curentului la baza epiului - Sulina",
+    scurt: "Tehnică neconvențională de pescuit pe brațul Sulina, lansând împotriva curgerii apei la baza epi-urilor, cu nădire repetată la interval de 1-1.5 ore.",
+    perioada: "octombrie, noiembrie",
+    pasi: [
+      "Sondare loc cu o zi înainte și nădire baza epiului cu praștia",
+      "Lansare contra curentului către baza peretelui artificial",
+      "Folosire bile solubile 20mm cu plumb pierdut pe adâncime",
+      "În paralel - momitor cu pelete pe partea opusă pe 6-7m",
+      "Re-nădire la interval de 1-1.5 ore cu bile semisolubile (stau pe substrat)",
+      "După prima captură, trecere de pe momitor pe bilă simplă 24mm semisolubilă"
+    ],
+    echipament: [
+      "Bile solubile 20mm",
+      "Bile semisolubile 24mm",
+      "Plumb pierdut",
+      "Momitor cu pelete",
+      "Praștie pentru nădit"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Sondează cu o zi înainte ca peștele să se obișnuiască",
+      "Re-nădire la 1-1.5 ore cu semisolubile"
+    ],
+  },
+  {
+    slug: "crap-mixt-solubile-semisolubile-delta",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Strategie mixtă solubile/semisolubile Delta Activ în deltă rece",
+    scurt: "Combinație de bile solubile (activare rapidă) și semisolubile (rezistență pe substrat) pe brațul Sulina în noiembrie când peștele e mofturos.",
+    perioada: "octombrie, noiembrie",
+    pasi: [
+      "Început partidă: TOATE pe solubile pentru activare rapidă a peștelui",
+      "2 lansete cu cârlig nr. 6 + bilă 20mm solubilă",
+      "2 lansete cu cârlig nr. 4 + bilă 24mm solubilă",
+      "După prima captură semnal de bancuri pe larg - trecere pe 24mm semisolubile",
+      "Nădire suplimentară cu Delta Secret biletari pentru atragere lungă durată"
+    ],
+    echipament: [
+      "Bile solubile 20mm și 24mm Delta Activ",
+      "Bile semisolubile 24mm",
+      "Cârlige nr. 4 și nr. 6",
+      "Bile tari Delta Secret pentru nădit",
+      "4 lansete"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Start cu solubile pentru activare rapidă",
+      "Trecere pe semisolubile după primul semnal de bancuri"
+    ],
+  },
+  {
+    slug: "crap-lansare-peste-cioata-stuf",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Lansare peste cioată din stuf - canale Delta",
+    scurt: "Tehnică de poziționare a bărcii lipit de stuf și lansare direct peste cioată/obstacol pentru a forța trăsătura când peștii sunt apatici pe canale.",
+    perioada: "septembrie, octombrie, noiembrie, decembrie, ianuarie, februarie",
+    pasi: [
+      "Poziționezi barca lipită de stuf, nu în mijlocul canalului",
+      "Lansezi peste cioată/lemn căzut, nu în zone curate",
+      "Folosești cârlige subțiri de 8 cu pelete 15 mm",
+      "Verifici OBLIGATORIU vârful cârligului între lansări (cioata îndoaie vârful)",
+      "Schimbi cârligul după fiecare pește pentru că se îndreaptă la forțare"
+    ],
+    echipament: [
+      "Cârlige subțiri nr. 8",
+      "Pelete 15mm",
+      "Lansetă cu acțiune puternică",
+      "Cârlige de rezervă (multe)"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Verifică vârful cârligului după fiecare lansare în cioată",
+      "Schimbă cârligul după fiecare pește forțat"
+    ],
+  },
+  {
+    slug: "crap-pelete-capsuna-cioparţita-apa-rece",
+    specie: "crap",
+    metoda: "static",
+    titlu: "Pelete căpșună ciopârțită pe apă rece",
+    scurt: "Pe apă rece, peleta de 15 mm GDA căpșună se taie/zgârâie cu cutter pe toate părțile pentru a elibera mai rapid aromele și a activa peștele apatic.",
+    perioada: "octombrie, noiembrie, decembrie",
+    pasi: [
+      "Iei peleta de 15 mm căpșună GDA",
+      "O ciopârțești cu cutter/cuțit pe toate părțile, lași strat zgrunțuros deasupra",
+      "Faci gaură mică cu degetul în nada de pe momitor",
+      "Bagi peleta superficial în nadă (nu adânc) ca să poată fi trasă ușor de pește",
+      "Strângi nodul la ochiul cârligului doar cât să reziste impactul cu apa"
+    ],
+    echipament: [
+      "Pelete 15mm căpșună GDA",
+      "Cutter/cuțit pentru zgâriat",
+      "Momitor cu nadă umedă",
+      "Cârlig"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Stratul zgrunțuros eliberează aroma mai repede în apă rece",
+      "Peleta superficială se trage ușor de peștele apatic"
+    ],
+  },
+  {
+    slug: "crap-momitor-doua-straturi",
+    specie: "crap",
+    metoda: "feeder",
+    titlu: "Momitor în două straturi - strat compact + strat superficial",
+    scurt: "Tehnică de încărcare a momitorului în două etape pentru eliberare rapidă de particule pe substrat, util pe canale Delta când peștele trece rar.",
+    perioada: "ianuarie, februarie, martie, aprilie, mai, iunie, iulie, august, septembrie, octombrie, noiembrie, decembrie",
+    pasi: [
+      "Frămânți o cantitate de nadă bine și o presezi compact pe momitor (baza rezistentă)",
+      "Iei o cantitate mai mică de nadă și o aplici superficial deasupra",
+      "Stratul superficial trebuie să reziste la impact dar să se desfacă rapid pe substrat",
+      "Faci gaură pentru pelete și o bagi puțin în nadă",
+      "Lansezi delicat ca să nu se desfacă în aer"
+    ],
+    echipament: [
+      "Momitor",
+      "Nadă umedă bine frământată",
+      "Pelete pentru cârlig",
+      "Lansetă cu acțiune lină pentru lansare delicată"
+    ],
+    monturi: [],
+    sfaturi: [
+      "Stratul compact rezistă impactului, cel superficial eliberează rapid",
+      "Lansează delicat — desfacerea în aer pierde nada"
+    ],
+  }
 ];
 
 // Tehnici noi din batch 2

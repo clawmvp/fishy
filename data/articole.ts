@@ -376,6 +376,145 @@ Pe Brațul Chilia august 2024, Marian Mincu și Anelin Enache au descoperit că 
 Lecție: dacă ai trăsături pe o singură lansetă, **mută barca lateral** ca să aliniezi celelalte 3 pe aceeași zonă, nu schimbi lansetele.
 `,
   },
+  {
+    slug: "lectii-gda-2026",
+    titlu: "63 lecții teren din partidele GDA Fishing 2024-2025",
+    scurt: "Observații concrete extrase din 11 transcripturi GDA: nadă, sondare, finețe pe ape sălbatice, răbdare iarna, escaladare progresivă cârlig. Lecții imediat aplicabile.",
+    tags: ["crap", "delta", "gda", "lectii", "experienta"],
+    body: `## 63 observații teren din 11 partide GDA Fishing
+
+Lecții concrete extrase automat din transcripturile videoclipurilor GDA Fishing 2024-2025, grupate per partidă. Toate observațiile sunt verificabile la sursa indicată — click pe link pentru videoclip.
+
+
+### Revenirea în Paradis: Pescuit la Crap în Delta Dunării După Prohibiție - GDA Fis...
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=GSwRz2tD1L8)
+
+- Imediat post-prohibiție (iunie) în Delta Dunării crapul mare este încă în lacuri pentru reproducere — confirmat de pescarii comerciali cu plase. Pe canalele din jurul Mila 23 se prinde aproape exclusiv ciortan (1-2 kg, rar 3-4 kg).
+- Semnal clar de pește apatic: trăsături anemice de 5-10 minute (țăcăneli din vârf de lansetă) înainte de plecare reală — peștele suge peleta fără să o ia.
+- Indicator de hrănire slabă: peștii sunt prinși de buza de sus / buza de jos (înțepare superficială), nu din interiorul gurii — semn că trebuie reduse imediat dimensiunile cârligului.
+- În iunie post-prohibiție, Dunărea principală este încă tulbure și nepescuibilă pentru crap — alternativa sunt canalele limpezi din jurul Mila 23.
+- Trecere strategică în timpul partidei: începi cu momitor (atrage tot) și dacă intră prea mulți ciortani treci la plumb in-line + bilă singură 20-24 mm pentru a selecta pește mai mare.
+- Bilele Secret Aroma solubile din borcan se activează vizibil după ~20 minute în apă și par să selecteze pește ușor mai mare decât peletele.
+
+
+### Rezumat și concluzii Partidă de Pescuit la Crap în Delta Dunării
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=HLjnRrY_ijU)
+
+- Pe canalele Mila 23 cu apă crescută (primăvara), iarba plutitoare se prinde pe fir, vibrează și sperie peștele — pescuit foarte dificil
+- Localnicii din Mila 23 (ex. Marian Mincu - Gigant Fish) confirmă că la apă crescută crapul este 'zăpăcit' și greu de localizat
+- Validare: prezența altor pescari experimentați pe o buclă de canal este indiciu sigur de pește în zonă
+- Fundamentele pescuitului la crap pe ape private (sondare, localizare, prezentare) se transferă pe ape sălbatice, dar densitatea de pește e mult mai mică
+- Activitatea pe canalele Delta scade brusc după ora 14:00 — fereastra optimă e 10:00-14:00 când apa e crescută
+
+
+### Delta Dunării – Pescuit la crap pe canale și pe Brațul Sulina
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=PFwNriYmmk4)
+
+- Sfârșit de noiembrie pe Sulina: crapul devine apatic, multe trăsături se eliberează după 3-4 secunde — nu te grăbi cu înțepătura, lasă peștele să plece cu momeala.
+- Pe canalele din jurul Mila 23 ritm bun raportat în noiembrie: 6 crapi 2-5 kg într-o oră (Harry), în timp ce Sulina dă pește puțin dar potențial mare.
+- Strategia echipei GDA: pescuit paralel pe canale (Mila 23) pentru numeric + Sulina înădită pentru pește mare; decizia se ia seara în funcție de raportările partenerilor.
+- Pescuit de noapte/plecare pe întuneric folosit pentru a maximiza orele efective de pescuit în zilele scurte de noiembrie.
+- Ceața dimineața blochează deplasarea — rămâi pe locul curent până se ridică, apoi te muți spre Mila 8 dacă nu sunt trăsături.
+- Bilele Delta Active GDA au fost lansate oficial pe site între octombrie și noiembrie 2025.
+
+
+### Delta Dunării de la A-Z | Ghid complet pentru pescuit la crap pe Sulina
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=PZOJbG8e92I)
+
+- Pe Sulina firul se rupe sistematic la rig (forfac) când e textil simplu — soluția testată: fir cămășuit care se zdrelește dar nu cedează
+- Pe Chilia și Sfântu Gheorghe pragurile sunt mult mai prietenoase decât pe Sulina — chiar dacă firul se blochează, peștele poate fi scos de cele mai multe ori
+- Strategie GDA pe Sulina august: nădire masivă bile pe platoul 3m + 2 lansete momitor (pelete solubile 15mm) + 2 lansete plumb in-line cu bilă; noaptea toate 4 pe biletari Delta Secret
+- Avertisment branding: postările cu capturi creează așteptare falsă — nada e doar o variabilă; cota apei, presiunea atmosferică, alegerea locului și strategia contează mai mult
+
+
+### Strategia Bate Norocul: Cum Am Prins Crap După Crap în Delta Dunării, în Noiembr...
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=TpVCnpZiC5o)
+
+- Logica momitorului pe Dunăre: momitorul cade contracurent, nada se desface și creează o dâră în aval; cârligul cu dumbell e prins de curent și ajunge pe acea dâră — peștele găsește cârligul mâncând pe traseul de nadă.
+- Contraindicat momitorul când ai pește mic pe vad (plătică, caras) — vara se renunță la momitor și se trece pe plumb inline cu boilies.
+- Apa în scădere de peste o săptămână pe Deltă (noiembrie) face peștele să tranziteze canalele dinspre lacuri spre Dunăre — focus pe canalele de legătură.
+- Quick change-urile ieftine din magazin au defect de fabrică: muchia ascuțită unde se prinde cârligul taie rigul în drill — alternativă: vârteje simple.
+- Cârlige GDA nr. 8 pentru toamnă-iarnă, nr. 6 pentru vară — regulă generală pe crap în Deltă.
+- Mit dezmințit: opritoarele pe fir NU sunt o capcană mortală dacă se rupe firul — când peștele dă din cap, momitorul alunecă în spate și se eliberează.
+
+
+### Pescuit la crap iarna în Delta Dunării – Strategia care a funcționat
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=VkkAhdBEtaE)
+
+- Decembrie 2025 Deltă: dimineți cu îngheț pe lansete, mizerie/frunze tocate pe canale (Litcov, Îngusta) care umplu firul în prima zi dar se diminuează în zilele următoare
+- Pe sonar live, crapul iarna apare cu capul în jos pe substrat — semn că examinează nada dar nu se hrănește activ; trebuie persistență 2-3 zile
+- Carasul mare (la peletă/momitor) coabitează cu crapul în cioate de Litcov în decembrie — bycatch frecvent
+- Compromis fir pentru canale Delta cu curent iarna: 0.35 mono ideal — 0.13 textil e prea rigid (rupe cârligul/buza), 0.55 vâjâie în curent puternic
+- Iarna, peștele NU se plimbă — este 100% cantonat în cioate; degeaba cauți pe șenal, trebuie să lansezi efectiv în lemn cu rig rezistent
+
+
+### 6 Zile în Delta Dunării - Brațul Chilia cu Gabriel Dediu și Mihai Manea
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=WgqDiw13peo)
+
+- În iulie-august 2024 cotele Dunării erau în scădere pe Chilia, iar presiunea atmosferică instabilă a făcut peștele greu de prins - 6 zile pentru un crap de 13kg și câțiva de 2-7kg
+- Pe brațul Chilia pragurile verticale (8m→11m) au crengi/agățături direct pe prag - obligatoriu sondaj cu sonar înainte de a planta
+- Activitatea de mușcare pe Chilia vara poate fi concentrată la prânz-după-amiază (12:30-19:00), nu doar dimineața
+- Vara apa de suprafață în Deltă e atât de caldă și neoxigenată încât crapul moare în sac în mai puțin de 24h - protocol strict catch & release
+- Etichetă în Deltă: nu împărtăși locul de pescuit al altcuiva dacă ești invitat - vei avea nevoie de informații data viitoare
+
+
+### Pescuit la Crap în Delta Dunării în Martie | Partidă de 2 Zile în Apă de 7°C
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=ZrOR8n9VeEU)
+
+- Mila 23 martie 2025: apă 6-7°C, ceață densă dimineața care împiedică ieșirea pe lacuri/canale deschise — pescuit obligat pe canale lângă sat
+- Comportament diferit al peștelui pe canale diferite în aceeași zonă — sonarul confirmă: pe unele canale peștii se plimbă, pe altele sunt cantonați strict pe cioate
+- Line bite-urile multiple pe vârf în martie indică pește prezent care se plimbă printre fire — nu confunda cu mizerie pe fir
+- Trăsăturile pe apă rece sunt violente (după Harry), nu delicate cum s-ar aștepta — peștele se lasă pe momeală
+- Râme de pământ găsite pe fundul Deltei în martie — explică de ce momelile naturale uneori nu performează (concurență naturală)
+- Clancul motorului la pornire sperie peștii de pe cioată — manevrează cu grijă la ancorare
+- Stuf pe ambele maluri = greu de luat repere vizuale pentru lansare precisă; preferabil canal cu repere clare
+
+
+### Pescuit la Crap in Delta Dunarii Inainte de Prohibitie | Partida cu de Toate + C...
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=kjrGXYKOnH0)
+
+- Înainte de prohibiție (martie), crapul este foarte mofturos în Delta — pot fi necesare 2-3 zile de căutare/plimbare (Fortuna → Boda Proste → Lopatna) pentru a-l localiza
+- Activitatea explodează imediat după ce încetează ploaia/grindina — furtuna pare să declanșeze hrănirea
+- Pe canal îngust cu cioate, peștele are culoar precis — toate trăsăturile vin pe aceeași lansetă (cea de pe culoar), nu pe celelalte
+- Greșeala clasică la țepușă: lăsarea peștelui 'să o ia' — crapul absoarbe/expiră momeala, iar când vezi mișcarea vârfului oprindu-se, deja a scuipat-o; țepușa trebuie dată la prima mișcare
+- Statistică partidă reușită pre-prohibiție: ~10 trăsături / 8 scoși într-o zi cu vreme schimbătoare — frecvență bună după 2 zile fără pește
+- Peștii devin progresiv mai mici pe parcursul zilei dacă rămâi în același spot — semn că banc-ul de crapi mari a trecut, urmează ciortanii
+
+
+### Delta Dunării - Pescuit în Noiembrie cu noile Boilies Delta Activ
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=o48pxAziGeY)
+
+- Sfârșit octombrie - început noiembrie 2024: 4 săptămâni fără capturi semnificative în Delta Dunării din cauza variațiilor de cotă și apei tulburi - chiar pescari de top (Silvan) au scos doar 2 pești în 4 zile
+- În perioade de inactivitate în deltă, lansarea CONTRA curentului la baza epi-urilor pe Sulina poate sparge tiparul - tehnică riscantă dar productivă
+- Tipar de mușcătură observat la crap în apă rece pe Sulina: ciupitură ușoară urmată de run puternic - dacă nu apuci la run, intră în cioată și pierzi peștele
+- Când pescari vecini prind pe linia ta de lansare, mută-te pe distanțele/liniile lor - strategie de adaptare ca pe baltă
+- Crapii mari de 11kg pe Sulina iau cârlig mic (nr. 6) cu bilă 20mm - nu necesită montură supradimensionată
+
+
+### 11 KG în Delta Dunării! Cea mai grea partidă de până acum
+
+[🔗 Video sursă](https://www.youtube.com/watch?v=tog8SODDgpI)
+
+- Pe canale Delta în condiții de vânt puternic 70 km/h timp de 4 zile, peștele devine extrem de apatic - se hrănește foarte puțin, doar 1-2 trăsături pe zi chiar și pentru pescari experimentați
+- Record personal crap pe canale Delta: 11 kg (raritate pe canale, nu pe brațe principale)
+- Regulă în barcă echipă: trăsăturile se alternează strict între parteneri (unul pe unul) indiferent de mărimea peștelui - peștele aparține echipei
+- Greșeală tipică: nu verifici vârful cârligului după prinderea unui pește mare - se îndoaie/îndreaptă și ratezi următoarea trăsătură
+- Iarba curgătoare adusă de vânt pe canale Delta face pescuitul aproape imposibil - acoperă montura constant
+- Practica eliberării crapilor mari (11 kg) ca exemplu pentru ceilalți pescari - rar întâlnită în Delta
+- Locația cazare/bază operațiuni pentru pescari crap canale Delta: Pensiunea Gigant Fish a lui Marian Mincu
+- Punct de oprire/cafea pentru pescari pe Sulina: Gorgova (la Costeluș)
+`,
+  },
 ];
 
 // Articole noi din batch 2

@@ -356,6 +356,299 @@ export const locuri: Loc[] = [
     ],
     sursa: ["W-XdKuMZWXo"],
   },
+  // === INSIGHTS GDA 2026 (auto-extras din transcripts) ===
+  {
+    slug: "canalul-sontea",
+    nume: "Canalul Șontea (Delta Dunării)",
+    tip: "canal",
+    regiune: "delta",
+    scurt: "Canal din Delta Dunării unde crapul se mișcă pe substrat aproape de stuf, ieșind din vegetație pentru hrănire.",
+    sezon: ["martie", "aprilie", "mai", "iunie", "iulie", "august"],
+    specii: ["crap"],
+    caracteristici: [
+      "Peștele nu stă în mijlocul canalului, ci aproape de stuf",
+      "Se deplasează pe substrat, rar urcă în coloana de apă",
+      "Iese din stuf pentru hrănire — montaj aproape de marginea stufului",
+      "Necesită ancorare la barcă în buclele canalului",
+      "Activitate bună dimineața până la ora 14:00, după care se taie trăsăturile"
+    ],
+    pericole: [
+      "Cu apă crescută vine multă iarbă pe fir — pescuit dificil",
+      "Stuf dens pe maluri — risc de agățare la lansare"
+    ],
+    sfaturi: [
+      "Lansează montajul aproape de marginea stufului",
+      "Ancorează barca în buclele canalului pentru poziționare stabilă",
+      "Pescuiește prioritar dimineața până la ora 14:00"
+    ],
+    sursa: ["HLjnRrY_ijU"],
+    adapostitDeVant: true,
+    preferaCotaMica: true,
+  },
+  {
+    slug: "bratul-sulina-mila-8",
+    nume: "Brațul Sulina — Mila 8 (prag adânc)",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Sector pe Sulina cu adâncime ~12 m, plan B când canalele și zonele de 3-5 m nu produc.",
+    sezon: ["septembrie", "octombrie", "noiembrie", "decembrie", "ianuarie", "februarie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Adâncime de pescuit ~12 m",
+      "Se pescuiește pe plumb pierdut, minim 3 lansete",
+      "Bilă direct la cârlig (fără momitor) datorită adâncimii",
+      "Loc deja înădit recurent",
+      "Recomandat când peștele dispare de pe canalele înconjurătoare"
+    ],
+    pericole: [
+      "Adâncime mare îngreunează recuperarea peștelui",
+      "Trafic naval pe Sulina"
+    ],
+    sfaturi: [
+      "Folosește plumb pierdut pentru a evita pierderea montajului",
+      "Pune bila direct la cârlig fără momitor la adâncimea mare",
+      "Tratează locul ca plan B când zonele de 3-5 m nu produc"
+    ],
+    sursa: ["PFwNriYmmk4"],
+    preferaCotaMare: true,
+  },
+  {
+    slug: "bratul-sulina-mal-maliuc",
+    nume: "Brațul Sulina — mal Maliuc (dig de piatră)",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Pescuit de pe mal pe brațul Sulina în zona Maliuc, unde digul artificial de piatră creează profil specific cu praguri.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap"],
+    caracteristici: [
+      "Profil: mal → prag descendent până la 2.5-3.5m → platou de 5-15m lățime la 3m adâncime → al doilea prag până la 10-13m",
+      "Pe platoul de 3m se pot scoate peștii (1-2 kg)",
+      "Pe buza coborârii spre pragul al doilea se prind pești mai mari (3-4 kg)",
+      "Dig artificial de piatră creează structura pragurilor",
+      "Pietrele de pe fund zdrelesc firul"
+    ],
+    pericole: [
+      "Pe pragul adânc de 12m se taie firul în pietre la drill",
+      "Plumbul se blochează frecvent printre pietre",
+      "Fir vizibil zdrelit după fiecare lansare"
+    ],
+    sfaturi: [
+      "Folosește fir cămășuit la rig pentru a rezista la pietre",
+      "Plumb pierdut obligatoriu pentru a elibera blocajele",
+      "Pescuiește pe buza coborârii pentru exemplarele mari",
+      "Evită pragul adânc de 12m — pierzi peștii în pietre"
+    ],
+    sursa: ["PZOJbG8e92I"],
+  },
+  {
+    slug: "canal-tranzit-crisan-dunarea-veche",
+    nume: "Canal de tranzit lângă Crișan (Dunărea Veche)",
+    tip: "canal",
+    regiune: "delta",
+    scurt: "Canal de legătură între un lac și Dunărea principală, aproape de Crișan/Dunărea Veche, productiv pentru crap în noiembrie când apa este în scădere.",
+    sezon: ["septembrie", "octombrie", "noiembrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Canal de tranzit între lac și Dunăre — peștele circulă activ prin el",
+      "Funcționează cel mai bine când apa este în scădere",
+      "Curent suficient cât să justifice momitor + fir textil subțire 0.14-0.15",
+      "Trăsături rapide (sub 15-20 min) dacă peștele e prezent",
+      "Pescuit din barcă posibil până spre sfârșit de noiembrie (apă 8-13°C ziua)"
+    ],
+    pericole: [
+      "Cioate prezente — risc de pierdere a peștelui în lemn",
+      "Temperaturi scăzute în noiembrie"
+    ],
+    sfaturi: [
+      "Pescuiește când cota este în scădere (migrație din lac spre Dunăre)",
+      "Folosește fir textil subțire 0.14-0.15 cu momitor",
+      "Forțează peștele spre larg după înțepare pentru a evita cioatele"
+    ],
+    sursa: ["TpVCnpZiC5o"],
+    preferaCotaMica: true,
+  },
+  {
+    slug: "canalul-litcov-cioate",
+    nume: "Canalul Litcov — cioate decembrie",
+    tip: "canal",
+    regiune: "delta",
+    scurt: "Canal din Deltă unde crapul și carasul se cantonează în cioate adânci în decembrie, cu peștele băgat efectiv în lemn.",
+    sezon: ["decembrie", "ianuarie", "februarie"],
+    specii: ["crap", "caras"],
+    caracteristici: [
+      "Crapul stă cantonat în cioate, nu se plimbă",
+      "Carasul stă la un loc cu crapul în decembrie",
+      "Curent puternic în canal",
+      "Peștii ies din cioată pe șenal și se întorc — mișcări scurte",
+      "Necesită ancorare cu botul bărcii în cioată"
+    ],
+    pericole: [
+      "Mizerie/frunze tocate pe fir — necesită curățare frecventă",
+      "Risc mare de agățare în cioate"
+    ],
+    sfaturi: [
+      "Aruncă fix în lemn, nu plimba momeala",
+      "Folosește fir 0.35 mm (nu 0.13 textil, nu 0.55 mono)",
+      "Curăță firele la fiecare 40 minute",
+      "Ancorează cu botul bărcii direct în cioată"
+    ],
+    sursa: ["VkkAhdBEtaE"],
+  },
+  {
+    slug: "canalul-ingusta-plop-cazut",
+    nume: "Canalul Îngusta — cioate cu plop căzut",
+    tip: "canal",
+    regiune: "delta",
+    scurt: "Sector pe Îngusta cu plop răsturnat de pe mal și cioată secundară pe mijlocul canalului, unde peștele face naveta între cele două agățături.",
+    sezon: ["decembrie", "ianuarie", "februarie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Plop căzut pe mal creează cioată până spre mijlocul șenalului",
+      "Peștele face naveta între cioata de mal și cea din șenal",
+      "Densitate mare de pește vizibilă pe sonar live",
+      "Comportament iarnă: pește cu capul în jos pe substrat, fără hrănire activă",
+      "Posibil 2-3 zile fără trăsături urmate de explozie pe ziua 3-4"
+    ],
+    pericole: [
+      "Două zone majore de agățare (plop și cioată centrală)",
+      "Pește apatic — risc de pescuit lung fără rezultat"
+    ],
+    sfaturi: [
+      "Verifică zona cu sonar live înainte de lansare",
+      "Plasează montajul pe ruta de navetă între cele două cioate",
+      "Insistă 3-4 zile pe același loc — explozia vine întârziat"
+    ],
+    sursa: ["VkkAhdBEtaE"],
+  },
+  {
+    slug: "bratul-chilia-tatanir-prag-vertical",
+    nume: "Brațul Chilia — zona Tatanir, prag vertical 8-11m",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Zonă pe Chilia aproape de Tatanir cu un prag aproape vertical de la 8 la 11 metri, productiv pentru crap mare.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap"],
+    caracteristici: [
+      "Prag aproape vertical de la 8m la 11m",
+      "Crap mare cantonat pe prag",
+      "Activitate intensă în mijlocul zilei (12:30-19:00)",
+      "Se folosesc bile 24-32mm pentru pește mare",
+      "Există agățături (crengi) direct pe prag"
+    ],
+    pericole: [
+      "Agățături pe prag — se verifică cu sonarul înainte",
+      "Greu de ancorat larg pe vânt tare",
+      "Plumbul se agață frecvent când nu ai trăsătură"
+    ],
+    sfaturi: [
+      "Scanează pragul cu sonarul înainte de poziționare",
+      "Folosește bile 24-32mm pentru selectarea exemplarelor mari",
+      "Pescuiește prioritar între 12:30 și 19:00"
+    ],
+    sursa: ["WgqDiw13peo"],
+  },
+  {
+    slug: "bratul-chilia-bifurcatie-canal-36",
+    nume: "Brațul Chilia — bifurcația spre Canal 36 (frontiera ucraineană)",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Punctul unde Chilia se bifurcă — stânga e Ucraina, dreapta e România; obligatoriu să ții malul drept.",
+    sezon: ["martie", "aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie"],
+    specii: ["crap"],
+    caracteristici: [
+      "Bifurcație pe Chilia: stânga = Ucraina, dreapta = România",
+      "Ieșirea pe Canalul 36 trece prin zona de frontieră",
+      "Zonă supravegheată de Poliția de Frontieră",
+      "Polițiștii de frontieră sunt cooperanți dacă te anunți"
+    ],
+    pericole: [
+      "Trecere accidentală în apele ucrainene dacă mergi pe stânga",
+      "Probleme legale serioase la încălcare frontieră"
+    ],
+    sfaturi: [
+      "Oprește obligatoriu la Poliția de Frontieră pentru a anunța traseul",
+      "Ține mereu malul din DREAPTA la bifurcație",
+      "Verifică actele înainte de plecare pe brațul Chilia"
+    ],
+    sursa: ["WgqDiw13peo"],
+  },
+  {
+    slug: "bratul-chilia-obrize-varsare",
+    nume: "Brațul Chilia — zona Obrize (vărsare)",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Zona de vărsare a Chiliei spre Obrize, cu cioate și locuri de campare pe mal.",
+    sezon: ["iunie", "iulie", "august"],
+    specii: ["crap"],
+    caracteristici: [
+      "Bune locuri de campare pe mal pentru sesiuni multi-day",
+      "Cioate prezente — necesită ancorare corectă",
+      "Zonă cu presiune de pescari",
+      "Pragul trebuie verificat cu sondă înainte"
+    ],
+    pericole: [
+      "Ancorare proastă dacă scrii în spatele cioatei",
+      "Aglomerație — risc de conflicte cu alți pescari"
+    ],
+    sfaturi: [
+      "Sondează pragul înainte de a te poziționa",
+      "Respectă locurile altor pescari",
+      "Verifică unghiul de ancorare față de cioate"
+    ],
+    sursa: ["WgqDiw13peo"],
+  },
+  {
+    slug: "canal-lopatna-boda-proste-fortuna",
+    nume: "Canal Delta lângă Lopatna / Boda Proste / Lacul Fortuna",
+    tip: "canal",
+    regiune: "delta",
+    scurt: "Canal cu cioate dense în Delta, zonă unde crapul are culoar fix de trecere pe lângă stuf și cioată, pescuit înainte de prohibiție.",
+    sezon: ["martie", "aprilie", "mai"],
+    specii: ["crap"],
+    caracteristici: [
+      "Crapul trece pe un culoar bine definit între stuf și cioată",
+      "Cioata în fața bărcii forțează peștele să treacă prin spate",
+      "Apa curată permite vizualizarea peștilor săritori",
+      "Vremea schimbătoare (ploaie + grindină + soare) — activitate intensă după ploaie",
+      "Crapul mușcă în special după furtună / grindină"
+    ],
+    pericole: [
+      "Cioate dense — risc de agățare și pierdere pește",
+      "Vreme schimbătoare cu grindină primăvara"
+    ],
+    sfaturi: [
+      "Lansează din mână pe sub mână în spatele bărcii, pe culoar",
+      "Pescuiește activ după trecerea furtunii sau grindinii",
+      "Observă peștii săritori pentru a identifica zona activă"
+    ],
+    sursa: ["kjrGXYKOnH0"],
+  },
+  {
+    slug: "bratul-sulina-epiuri-crisan",
+    nume: "Brațul Sulina — Epi-uri zona Crișan",
+    tip: "brat",
+    regiune: "delta",
+    scurt: "Zonă pe Sulina cu epi-uri (pereți artificiali anti-colmatare) între cioate, productivă la sfârșit de octombrie - început de noiembrie.",
+    sezon: ["octombrie", "noiembrie"],
+    specii: ["crap", "caras"],
+    caracteristici: [
+      "Pescuit la baza epiului (perete artificial în apă)",
+      "Cioate dense în stânga și dreapta poziției",
+      "Adâncimi mari (peste 7m) productive pentru crapi mari",
+      "Pe prag în josul curentului vine peștele activ",
+      "Lansare pe larg cu bile semisolubile 24mm aduce crapi de bancuri"
+    ],
+    pericole: [
+      "Cioate dense pe ambele laturi — risc de agățare",
+      "Curent puternic lângă epi"
+    ],
+    sfaturi: [
+      "Pescuiește CONTRA curentului — strategie neconvențională care dă roade",
+      "Folosește bile semisolubile 24mm la lansare pe larg",
+      "Plasează o lansetă la intercepție pe pragul din josul curentului"
+    ],
+    sursa: ["o48pxAziGeY"],
+  }
 ];
 
 // Locuri noi adăugate din batch 2 (28 videouri analizate)

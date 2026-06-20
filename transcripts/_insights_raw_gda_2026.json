@@ -1,0 +1,1095 @@
+{
+  "locuri_noi": [
+    {
+      "nume": "Canalul Șontea (Delta Dunării)",
+      "regiune": "delta",
+      "tip": "canal",
+      "scurt": "Canal din Delta Dunării unde crapul se mișcă pe substrat aproape de stuf, ieșind din vegetație pentru hrănire.",
+      "caracteristici": [
+        "Peștele NU stă în mijlocul canalului, ci aproape de stuf",
+        "Se deplasează pe substrat, rar urcă în coloana de apă",
+        "Iese din stuf pentru hrănire — montaj aproape de marginea stufului",
+        "Necesită ancorare la barcă în buclele canalului",
+        "Cu apă crescută vine multă iarbă pe fir — pescuit dificil",
+        "Activitate bună dimineața până la ora 14:00, după care se taie trăsăturile"
+      ],
+      "specii": [
+        "crap",
+        "ciortan"
+      ],
+      "sezon": [
+        "primavara",
+        "vara"
+      ],
+      "adapostitDeVant": true,
+      "preferaCotaMica": true,
+      "preferaCotaMare": false,
+      "_sursa": "HLjnRrY_ijU"
+    },
+    {
+      "nume": "Brațul Sulina — Mila 8 (prag adânc)",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Sector pe Sulina cu adâncime ~12 m, plan B când canalele și zonele de 3-5 m nu produc.",
+      "caracteristici": [
+        "Adâncime de pescuit ~12 m",
+        "Se pescuiește pe plumb pierdut, minim 3 lansete",
+        "Bilă direct la cârlig (fără momitor) datorită adâncimii",
+        "Loc deja înădit recurent de echipa GDA",
+        "Recomandat când peștele dispare de pe canalele înconjurătoare"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "toamna",
+        "iarna"
+      ],
+      "preferaCotaMare": true,
+      "_sursa": "PFwNriYmmk4"
+    },
+    {
+      "nume": "Brațul Sulina — mal Maliuc (dig de piatră)",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Pescuit de pe mal pe brațul Sulina în zona Maliuc, unde digul artificial de piatră creează profil specific cu praguri.",
+      "caracteristici": [
+        "Profil tipic: mal → prag descendent până la 2.5-3.5m → platou de 5-15m lățime la 3m adâncime → al doilea prag până la 10-13m",
+        "Pe pragul adânc de 12m se taie firul în pietre la drill — nu se reușește scoaterea peștilor",
+        "Cele mai bune rezultate pe întinsura/platoul de 3m unde se pot scoate peștii",
+        "Pe buza coborârii (1m dincolo de platou, unde începe pragul al doilea) se prind pești mai mari (3-4 kg vs 1-2 kg pe platou)",
+        "Necesită fir cămășuit la rig — se zdrelește vizibil de pietre",
+        "Plumb pierdut obligatoriu pentru a putea elibera plumbul blocat în pietre la drill"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "vara"
+      ],
+      "preferaCotaMica": false,
+      "preferaCotaMare": false,
+      "_sursa": "PZOJbG8e92I"
+    },
+    {
+      "nume": "Canal de tranzit lângă Crișan (Dunărea Veche)",
+      "regiune": "delta",
+      "tip": "canal",
+      "scurt": "Canal de legătură între un lac și Dunărea principală, aproape de Crișan/Dunărea Veche, productiv pentru crap în noiembrie când apa este în scădere.",
+      "caracteristici": [
+        "Canal de tranzit între lac și Dunăre — peștele circulă activ prin el",
+        "Funcționează cel mai bine când apa este în scădere (peștele migrează din lac spre Dunăre)",
+        "Pescuit din barcă posibil până la mijloc-sfârșit de noiembrie (apă 8-13°C ziua)",
+        "Curent suficient cât să justifice momitor + fir textil subțire 0.14-0.15",
+        "Cioate prezente — peștele trebuie forțat spre larg după înțepare",
+        "Trăsături rapide (sub 15-20 min de la lansare) dacă peștele e prezent"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "toamna"
+      ],
+      "preferaCotaMica": true,
+      "_sursa": "TpVCnpZiC5o"
+    },
+    {
+      "nume": "Canalul Litcov — cioate decembrie",
+      "regiune": "delta",
+      "tip": "canal",
+      "scurt": "Canal din Deltă unde crapul și carasul se cantonează în cioate adânci în decembrie, cu peștele băgat efectiv în lemn.",
+      "caracteristici": [
+        "Crapul stă cantonat în cioate, nu se plimbă — trebuie aruncat fix în lemn",
+        "Carasul stă la un loc cu crapul în decembrie",
+        "Ancorare cu botul bărcii în cioată și lansare la fundul bărcii foarte aproape",
+        "Vine mizerie/frunze tocate pe fir — se curăță firele la 40 minute",
+        "Peștii ies din cioată pe șenal și se întorc — pattern de mișcare scurtă",
+        "Curent puternic — necesită fir 0.35 mm ideal (nu 0.13 textil, nu 0.55 mono)"
+      ],
+      "specii": [
+        "crap",
+        "caras"
+      ],
+      "sezon": [
+        "iarna"
+      ],
+      "_sursa": "VkkAhdBEtaE"
+    },
+    {
+      "nume": "Canalul Îngusta — cioate cu plop căzut",
+      "regiune": "delta",
+      "tip": "canal",
+      "scurt": "Sector pe Îngusta cu plop răsturnat de pe mal și cioată secundară pe mijlocul canalului, unde peștele face naveta între cele două agățături.",
+      "caracteristici": [
+        "Plop căzut pe mal creează cioată până spre mijlocul șenalului",
+        "Peștele face naveta între cioata de sub mal și cea din șenal",
+        "Densitate mare de pește vizibilă pe sonar live, dar peștele apatic iarna",
+        "Comportament tipic iarnă: pește cu capul în jos pe substrat, fără hrănire activă",
+        "Posibil 2-3 zile fără trăsături urmate de explozie pe ziua 3-4 pe același loc"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "iarna"
+      ],
+      "_sursa": "VkkAhdBEtaE"
+    },
+    {
+      "nume": "Brațul Chilia - zona Tatanir, prag vertical 8-11m",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Zonă pe Chilia aproape de Tatanir cu un prag aproape vertical de la 8 la 11 metri, productiv pentru crap mare.",
+      "caracteristici": [
+        "Prag aproape vertical de la 8m la 11m - se găsește crap mare pe acest prag",
+        "Există agățături (crengi) direct pe prag - se verifică cu sonarul înainte",
+        "Greu de ancorat larg când bate vânt tare",
+        "Greu de scos plumbul când nu ai trăsătură - se agață frecvent",
+        "Activitate intensă în mijlocul zilei (12:30-19:00) - 5 trăsături în acest interval",
+        "Se folosesc bile 24-32mm pentru pește mare"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "vara"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Brațul Chilia - bifurcația spre Canal 36 (frontiera ucraineană)",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Punctul unde Chilia se bifurcă - stânga e Ucraina, dreapta e România; obligatoriu să ții malul drept.",
+      "caracteristici": [
+        "Oprire obligatorie la Poliția de Frontieră pentru a anunța traseul",
+        "La bifurcație - ține mereu malul din DREAPTA (stânga = Ucraina, probleme)",
+        "Mulți pescari au pățit-o luând-o pe stânga din greșeală",
+        "Ieșirea pe Canalul 36 trece prin zona de frontieră",
+        "Polițiștii de frontieră sunt cooperanți dacă te anunți"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "vara",
+        "primavara",
+        "toamna"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Brațul Chilia - zona Obrize (vărsare)",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Zona de vărsare a Chiliei spre Obrize, cu cioate și locuri de campare pe mal.",
+      "caracteristici": [
+        "Bune locuri de campare pe mal pentru sesiuni multi-day",
+        "Atenție la cum te ancorezi - dacă scrii în spatele cioatei, ancorarea e proastă",
+        "Necesar sondat înainte - pragul trebuie să fie ce trebuie",
+        "Zonă cu presiune de pescari - se respectă locurile altora"
+      ],
+      "specii": [
+        "crap"
+      ],
+      "sezon": [
+        "vara"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Canal Delta lângă Lopatna / Boda Proste / Lacul Fortuna",
+      "regiune": "delta",
+      "tip": "canal",
+      "scurt": "Canal cu cioate dense în Delta, zonă unde crapul are culoar fix de trecere pe lângă stuf și cioată, pescuit înainte de prohibiție (martie-aprilie).",
+      "caracteristici": [
+        "Crapul trece pe un culoar bine definit între stuf și cioată — lansetele se dau din mână pe sub mână în spatele bărcii",
+        "Cioata în fața bărcii forțează peștele să treacă prin spate",
+        "Vremea schimbătoare (ploaie + grindină + soare în aceeași zi) — activitate intensă după trecerea ploii",
+        "Crapul mușcă în special după furtună / grindină",
+        "Apa curată permite vizualizarea peștilor săritori — indicator de zonă activă"
+      ],
+      "specii": [
+        "crap",
+        "ciortan"
+      ],
+      "sezon": [
+        "primavara"
+      ],
+      "preferaCotaMica": false,
+      "preferaCotaMare": false,
+      "_sursa": "kjrGXYKOnH0"
+    },
+    {
+      "nume": "Brațul Sulina - Epi-uri zona Crișan",
+      "regiune": "delta",
+      "tip": "brat",
+      "scurt": "Zonă pe Sulina cu epi-uri (pereți artificiali anti-colmatare) între cioate, productivă la sfârșit de octombrie - început de noiembrie.",
+      "caracteristici": [
+        "Pescuit la baza epiului (perete artificial în apă)",
+        "Cioate dense în stânga și dreapta poziției",
+        "Pescuit CONTRA curentului - strategie neconvențională care dă roade",
+        "Adâncimi mari (peste 7m) productive pentru crapi mari",
+        "Lansare pe larg cu bile semisolubile 24mm aduce crapi de bancuri",
+        "Pe prag în josul curentului (lansetă la intercepție) - vine peștele activ"
+      ],
+      "specii": [
+        "crap",
+        "caras",
+        "platica",
+        "rosioara"
+      ],
+      "sezon": [
+        "toamna"
+      ],
+      "adapostitDeVant": false,
+      "preferaCotaMica": false,
+      "preferaCotaMare": false,
+      "_sursa": "o48pxAziGeY"
+    }
+  ],
+  "tehnici_noi": [
+    {
+      "nume": "Ciortan post-prohibiție Mila 23 — cârlige mici + trăsătură liberă",
+      "specie": "crap/ciortan",
+      "scurt": "Strategie pentru pește apatic post-prohibiție când peștele suge peleta superficial fără să ia cârligul. Se folosesc cârlige mici și se lasă peștele să se înțepe singur.",
+      "metoda": "static",
+      "perioada": [
+        "iunie"
+      ],
+      "pasi": [
+        "Folosește cârlige mici (nr. fin) — NU cârlige măricele care dau rateuri",
+        "Lasă peștele pe trăsătură lungă, nu încerca să-l înțepi — el se înțepă singur",
+        "Pescuiește la momitor cu peletă solubilă 10-15 mm acoperită cu nadă",
+        "Dacă vrei să selectezi pește mai mare, treci de la momitor la plumb in-line + bilă 20-24 mm",
+        "Nădire țintită lângă cioate cu bile de nădit + boilies sparte în jumătate pentru a scoate peștele afară din cioată",
+        "Schimbă des locul (canale învecinate Mila 23) dacă intră doar ciortan"
+      ],
+      "_sursa": "GSwRz2tD1L8"
+    },
+    {
+      "nume": "crap-sondare-substrat-mila23",
+      "specie": "crap",
+      "scurt": "Înainte de a planta monturile, sondează substratul cu plumb de 250g pentru a evita zonele de mâl unde momitorul/plumbul de 80g se afundă complet și ascunde momeala.",
+      "metoda": "static",
+      "perioada": [
+        "primavara",
+        "vara",
+        "toamna"
+      ],
+      "pasi": [
+        "Folosește un plumb greu (200-250g) pe o lansetă de testare",
+        "Aruncă în zona vizată și trage încet pentru a simți rezistența substratului",
+        "Dacă plumbul se afundă 15-20cm în mâl, caută zonă cu fund tare",
+        "Salvează poziția pe sonar (Lawrence Live) doar după validarea substratului",
+        "Montează doar după ce ai confirmat fund tare + prezență pește pe sonar"
+      ],
+      "_sursa": "HLjnRrY_ijU"
+    },
+    {
+      "nume": "crap-fara-nada-ape-salbatice",
+      "specie": "crap",
+      "scurt": "Pe ape sălbatice, când vezi peștele pe sonar într-un loc, NU nădi — aruncă doar monturile. Nada creează concurență pentru cârlig și crapul alege boilies-urile libere mai puțin periculoase.",
+      "metoda": "static",
+      "perioada": [
+        "primavara",
+        "vara",
+        "toamna"
+      ],
+      "pasi": [
+        "Localizează peștele cu sonar live înainte de orice acțiune",
+        "NU arunca bile de nadă în primele 1-1.5 ore",
+        "Aruncă doar cele 2-4 monturi cu boilies/dumbells pe cârlig",
+        "Așteaptă trăsătura — peștele activ va lua momeala fără competiție",
+        "Doar dacă în 1-2 ore nu sunt trăsături, încearcă o nadă minimală"
+      ],
+      "_sursa": "HLjnRrY_ijU"
+    },
+    {
+      "nume": "crap-finete-ape-salbatice",
+      "specie": "crap",
+      "scurt": "Pe ape sălbatice cu pește mofturos, folosește monturi de finețe (cârlige 16-18) cu dumbells/boilies mai mici pentru a activa peștii suspicioși.",
+      "metoda": "static",
+      "perioada": [
+        "primavara",
+        "vara",
+        "toamna"
+      ],
+      "pasi": [
+        "Pregătește o lansetă de rezervă cu cârlig nr. 16-18",
+        "Folosește dumbells/boilies de diametru mic (10-12mm)",
+        "Aplică această montură când prezentările sunt rare, dar peștele e prezent pe sonar",
+        "Păstrează celelalte lansete cu monturi normale pentru a vedea ce funcționează",
+        "Combină cu sondare prealabilă pe sonar live"
+      ],
+      "_sursa": "HLjnRrY_ijU"
+    },
+    {
+      "nume": "Crap noiembrie Sulina — escaladare progresivă cârlig/momeală",
+      "specie": "crap",
+      "scurt": "Pornești fin cu cârlig 10 și peletă 10mm pe momitor pentru a provoca trăsături, apoi crești dimensiunea cârligului și momelii doar dacă apar scăpări sau vrei pește mai mare.",
+      "metoda": "feeder",
+      "perioada": [
+        "noiembrie",
+        "decembrie"
+      ],
+      "pasi": [
+        "Start: 2 lansete cu momitor + cârlig 10 + peletă 10mm sicilit/căpșună",
+        "1 lansetă cu cârlig mai mare și bilă pentru filtrare pește mare",
+        "Dacă scapă ciortanii, urcă pe cârlig 15",
+        "Dacă peștii se hrănesc apatic, treci pe plumb in-line cu bilă 20-24mm",
+        "Combinație: o lansetă cu bilă 24 Delta Active spre mal + una cu 2 bile 24 Delta Secret spre larg",
+        "Frână strânsă aproape la maxim când pescuiești lângă cioate"
+      ],
+      "_sursa": "PFwNriYmmk4"
+    },
+    {
+      "nume": "Nădire de întreținere oră-cu-oră",
+      "specie": "crap",
+      "scurt": "Protocol de nădire pentru sesiuni multi-zi pe Sulina: nădire inițială masivă + completări orare cu praștia.",
+      "metoda": "static",
+      "perioada": [
+        "toamna",
+        "iarna"
+      ],
+      "pasi": [
+        "La sosire: 2-3 kg bile 20mm (Delta Activ / Fish Meal / Birdfood)",
+        "La fiecare oră: 2 pumni de bile cu praștia",
+        "Lansează nădirea puțin în amonte față de poziția momelii",
+        "Ajustează după curent, prag, dacă pescuiești în afara curentului",
+        "După fiecare pește prins, completezi cu o nouă mână de bile"
+      ],
+      "_sursa": "PFwNriYmmk4"
+    },
+    {
+      "nume": "Crap pe Sulina — pescuit pe buza pragului cu înaintaș lung de somn",
+      "specie": "crap",
+      "scurt": "Tehnică de targetare a crapilor mai mari pe brațul Sulina, lansând fix pe buza pragului sau ușor sub, folosind înaintaș de monofilament de somn 0.90mm pe ~7m pentru rezistență la abraziune în pietre.",
+      "metoda": "static",
+      "perioada": [
+        "august",
+        "septembrie"
+      ],
+      "pasi": [
+        "Localizează platoul de 3m și buza pragului unde începe coborârea spre 12m",
+        "Montează înaintaș de monofilament de somn 0.90mm, lungime ~7m, ca shock leader anti-abraziune",
+        "Lansează exact pe buza pragului sau 1m mai jos, în zona de coborâre",
+        "Nădește masiv cu bile pe platoul de 3m, ușor în amonte (curentul aduce nada la momeli)",
+        "Folosește plumb pierdut cu opritor pentru eliberarea plumbului blocat",
+        "La drill, ridică imediat lanseta sus pentru a scoate firul de pe substratul de piatră"
+      ],
+      "_sursa": "PZOJbG8e92I"
+    },
+    {
+      "nume": "Nădire dublă 2kg dimineața + 2kg seara cu boilies tari",
+      "specie": "crap",
+      "scurt": "Strategie de nădit constant pe un singur loc cu boilies tari (nu solubile) pentru a păstra nada pe substrat ore în șir, iar la cârlig se folosesc dumbells solubile pentru atragere rapidă.",
+      "metoda": "static",
+      "perioada": [
+        "octombrie",
+        "noiembrie"
+      ],
+      "pasi": [
+        "Nădește dimineața 2 kg boilies tari pe locul ales",
+        "Nădește seara încă 2 kg boilies tari pe același loc",
+        "La cârlig folosește DOAR dumbells/boilies solubile (nu tari) pentru activare rapidă",
+        "Pe momitor pune nadă umedă GDA căpșună frământată",
+        "Verifică/schimbă boilul solubil la fiecare 30-40 min dacă nu ai trăsătură (se topește)",
+        "Localizează peștele întâi (informații de la localnici) înainte de a aplica strategia"
+      ],
+      "_sursa": "TpVCnpZiC5o"
+    },
+    {
+      "nume": "Fir textil 0.14-0.15 cu momitor pe Dunăre — anti-ridicare în curent",
+      "specie": "crap",
+      "scurt": "Folosirea de fir textil foarte subțire (0.14-0.15) pe Dunăre/Sulina pentru ca firul să nu pună rezistență în curent și să ridice momitorul de pe substrat.",
+      "metoda": "static",
+      "perioada": [
+        "toamna",
+        "primavara"
+      ],
+      "pasi": [
+        "Folosește fir textil de 0.14-0.15 mm (moale, tip Feeder) ca shock/main pe Dunăre",
+        "Indicat mai ales pe Sulina unde curentul e mare",
+        "Compensează lipsa elongației lucrând foarte atent din frână în drill",
+        "Strânge frâna mai slab decât ai face cu mono — altfel rupi buza peștelui",
+        "Folosește momitor 120g pentru a sta pe substrat în ciuda curentului"
+      ],
+      "_sursa": "TpVCnpZiC5o"
+    },
+    {
+      "nume": "Crap iarna — lansare direct în cioată cu ancorare în curent",
+      "specie": "crap",
+      "scurt": "Strategie de iarnă unde te ancorezi direct în curent cu botul bărcii spre cioată și lansezi efectiv în lemn, pentru că peștele apatic nu iese din agățătură.",
+      "metoda": "static",
+      "perioada": [
+        "decembrie",
+        "ianuarie",
+        "februarie"
+      ],
+      "pasi": [
+        "Sondează mai multe cioate cu sonar live până găsești peștele cantonat",
+        "Ancorează barca direct în curent, cu botul în cioată",
+        "Lansează din mână (nu cu lanseta) fix în lemn sau lângă cioată",
+        "Strânge frânele aproape complet — lasă doar puțin fir să poată ceda",
+        "Folosește fir 0.35 mono pentru canale cu curent (compromis între textil 0.13 fără elongație și 0.55 care vâjâie)",
+        "Dacă ai trăsături frecvente, schimbă pe plumb in-line pierdut cu cârlig 6 și fir cămășuit pentru a lansa în cioată"
+      ],
+      "_sursa": "VkkAhdBEtaE"
+    },
+    {
+      "nume": "Răbdare 3-4 zile pe același loc iarna",
+      "specie": "crap",
+      "scurt": "Tactică de iarnă bazată pe observația că peștele văzut pe sonar dar care nu se hrănește 2 zile, poate exploda în ziua 3-4 pe același loc cu nadit constant.",
+      "metoda": "static",
+      "perioada": [
+        "decembrie",
+        "ianuarie"
+      ],
+      "pasi": [
+        "Identifică loc cu densitate mare de pește pe sonar live",
+        "Aruncă câteva bile de nadă seara, chiar dacă nu ai prins, ca să dea de gust",
+        "Persistă pe același loc 3-4 zile chiar fără trăsături",
+        "Variază nada: începe fără fish meal, apoi adaugă progresiv fish meal",
+        "Verifică comportamentul peștelui pe sonar — capul în jos = caută, dar nu se hrănește încă"
+      ],
+      "_sursa": "VkkAhdBEtaE"
+    },
+    {
+      "nume": "Crap vara Chilia - mobil pe 6 zile cu sondare multiplă",
+      "specie": "crap",
+      "scurt": "Strategie de explorare pe 6 zile pe Chilia, cu mutarea taberei zilnic și nădire în mai multe locuri pentru a găsi peștele activ.",
+      "metoda": "static",
+      "perioada": [
+        "iulie",
+        "august"
+      ],
+      "pasi": [
+        "Sondează 2-3 locuri pe zi cu sonarul pentru praguri și agățături",
+        "Nădește 2-3 locuri în prima zi pentru a avea opțiuni de revenire",
+        "Mută tabăra aproape zilnic - cort minim, foc, fără bagaj greu",
+        "Folosește bile mari (24-32mm) - filtrează ciortanul, ținta e crapul mare",
+        "Pe praguri verticale ancorează aproape pentru a putea recupera plumbul",
+        "Dacă găsești tramvaie pe nadă, revii peste 2-3 zile când se taie"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Eliberare obligatorie vara în Delta - protocol",
+      "specie": "crap",
+      "scurt": "Protocol de eliberare pentru perioada de vară când apa caldă la suprafață nu permite păstrarea peștelui în sac.",
+      "metoda": "static",
+      "perioada": [
+        "iunie",
+        "iulie",
+        "august"
+      ],
+      "pasi": [
+        "Oprește doar peștele necesar pentru gătit imediat pe mal/barcă",
+        "Nu ține pește în sacul de păstrare - apa caldă neoxigenată îl omoară în mai puțin de o zi",
+        "Eliberare imediat după poză - ține peștele în apă să-și revină înainte de eliberare",
+        "Folosește minciog adaptat dimensiunii (cap mic pentru pește mic, cap mare pentru pește mare)",
+        "Evită saci de păstrare colectivi - se aruncă zeci de kg pe sezon"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Crap martie cioate - plumb în cap apă rece",
+      "specie": "crap",
+      "scurt": "În martie cu apă 6-7°C peștele e cantonat strâns pe cioate și nu caută mâncare; tehnica e să lansezi momitorul EXACT pe/lângă cioată unde e densitate mare de pește, nu să aștepți să iasă el.",
+      "metoda": "static",
+      "perioada": [
+        "martie",
+        "februarie"
+      ],
+      "pasi": [
+        "Sondează cu sonar 15-20 min să localizezi cioata cu densitate mare de pește",
+        "Alege canal îngust unde poți lansa pe sub mână pentru precizie",
+        "Ancorează cât mai aproape de cioată, eventual chiar pe ea",
+        "Folosește fir gros 0,55 ca să poți forța peștele din cioată",
+        "Lansează momitorul în cioată sau lipit de ea — nu mai departe",
+        "Mută-te după 1-2 pești prinși de pe un loc (peștii se sperie repede de clancul motorului)"
+      ],
+      "_sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "nume": "Momitor desfăcut rapid apă rece (nadă ediție specială + pelete 2mm)",
+      "specie": "crap",
+      "scurt": "Pentru apă de 6-7°C momitorul se umectează mai puțin și se strânge slab pe plumb ca să se desfacă rapid și să elibereze aroma fără să încarce stomacul peștelui apatic.",
+      "metoda": "feeder",
+      "perioada": [
+        "martie",
+        "februarie",
+        "decembrie"
+      ],
+      "pasi": [
+        "Folosește nadă ediție specială crap sălbatic + pelete 2 mm amestecate",
+        "Umectează puțin (mai puțină apă decât vara)",
+        "Strânge slab pe momitor ca să se desfacă în ~25-40 min",
+        "Pune pelete solubile 10 mm direct pe spin (nu pe firul de păr)",
+        "Pelete 15 mm se pun pe firul de păr clasic",
+        "Verifică după 40 min: peleta trebuie să fie activată complet"
+      ],
+      "_sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "nume": "Lansare din mână pe culoar îngust între stuf și cioată",
+      "specie": "crap",
+      "scurt": "Tehnică de plasare a momelii la 4-5 m de barcă, dată pe sub mână în spatele bărcii pentru a intercepta culoarul de trecere al crapului între obstacole.",
+      "metoda": "static",
+      "perioada": [
+        "martie",
+        "aprilie"
+      ],
+      "pasi": [
+        "Identifică cioata sau obstacolul din fața bărcii — peștele va ocoli prin spate",
+        "Dă 4 lansete din mână pe sub mână, plasate în spatele bărcii pe culoar",
+        "Folosește pelete de 15 mm căpșună (roșu) ca momeală principală",
+        "Alternează cu Secret Aroma galben pe alte lansete pentru a acoperi gusturi",
+        "Fii pregătit să ții lanseta — trăsăturile vin din zbor, imediat după lansare",
+        "Țepușă imediat la prima mișcare a vârfului — nu lăsa peștele 'să o ia bine' (o scuipă)"
+      ],
+      "_sursa": "kjrGXYKOnH0"
+    },
+    {
+      "nume": "Pescuit contra curentului la baza epiului - Sulina",
+      "specie": "crap",
+      "scurt": "Tehnică neconvențională de pescuit pe brațul Sulina, lansând împotriva curgerii apei la baza epi-urilor, cu nădire repetată la interval de 1-1.5 ore.",
+      "metoda": "static",
+      "perioada": [
+        "octombrie",
+        "noiembrie"
+      ],
+      "pasi": [
+        "Sondare loc cu o zi înainte și nădire baza epiului cu praștia",
+        "Lansare contra curentului către baza peretelui artificial",
+        "Folosire bile solubile 20mm cu plumb pierdut pe adâncime",
+        "În paralel - momitor cu pelete pe partea opusă pe 6-7m",
+        "Re-nădire la interval de 1-1.5 ore cu bile semisolubile (stau pe substrat)",
+        "După prima captură, trecere de pe momitor pe bilă simplă 24mm semisolubilă"
+      ],
+      "_sursa": "o48pxAziGeY"
+    },
+    {
+      "nume": "Strategie mixtă solubile/semisolubile Delta Activ în deltă rece",
+      "specie": "crap",
+      "scurt": "Combinație de bile solubile (activare rapidă) și semisolubile (rezistență pe substrat) pe brațul Sulina în noiembrie când peștele e mofturos.",
+      "metoda": "static",
+      "perioada": [
+        "octombrie",
+        "noiembrie"
+      ],
+      "pasi": [
+        "Început partidă: TOATE pe solubile pentru activare rapidă a peștelui",
+        "2 lansete cu cârlig nr. 6 + bilă 20mm solubilă",
+        "2 lansete cu cârlig nr. 4 + bilă 24mm solubilă",
+        "După prima captură semnal de bancuri pe larg - trecere pe 24mm semisolubile",
+        "Nădire suplimentară cu Delta Secret biletari pentru atragere lungă durată"
+      ],
+      "_sursa": "o48pxAziGeY"
+    },
+    {
+      "nume": "Lansare peste cioată din stuf - canale Delta",
+      "specie": "crap",
+      "scurt": "Tehnică de poziționare a bărcii lipit de stuf și lansare direct peste cioată/obstacol pentru a forța trăsătura când peștii sunt apatici pe canale.",
+      "metoda": "static",
+      "perioada": [
+        "toamna",
+        "iarna"
+      ],
+      "pasi": [
+        "Poziționezi barca lipită de stuf, nu în mijlocul canalului",
+        "Lansezi peste cioată/lemn căzut, nu în zone curate",
+        "Folosești cârlige subțiri de 8 cu pelete 15 mm",
+        "Verifici OBLIGATORIU vârful cârligului între lansări (cioata îndoaie vârful)",
+        "Schimbi cârligul după fiecare pește pentru că se îndreaptă la forțare"
+      ],
+      "_sursa": "tog8SODDgpI"
+    },
+    {
+      "nume": "Pelete căpșună ciopârțită pe apă rece",
+      "specie": "crap",
+      "scurt": "Pe apă rece, peleta de 15 mm GDA căpșună se taie/zgârâie cu cutter pe toate părțile pentru a elibera mai rapid aromele și a activa peștele apatic.",
+      "metoda": "static",
+      "perioada": [
+        "octombrie",
+        "noiembrie",
+        "decembrie"
+      ],
+      "pasi": [
+        "Iei peleta de 15 mm căpșună GDA",
+        "O ciopârțești cu cutter/cuțit pe toate părțile, lași strat zgrunțuros deasupra",
+        "Faci gaură mică cu degetul în nada de pe momitor",
+        "Bagi peleta superficial în nadă (nu adânc) ca să poată fi trasă ușor de pește",
+        "Strângi nodul la ochiul cârligului doar cât să reziste impactul cu apa"
+      ],
+      "_sursa": "tog8SODDgpI"
+    },
+    {
+      "nume": "Momitor în două straturi - strat compact + strat superficial",
+      "specie": "crap",
+      "scurt": "Tehnică de încărcare a momitorului în două etape pentru eliberare rapidă de particule pe substrat, util pe canale Delta când peștele trece rar.",
+      "metoda": "feeder",
+      "perioada": [
+        "toata perioada"
+      ],
+      "pasi": [
+        "Frămânți o cantitate de nadă bine și o presezi compact pe momitor (baza rezistentă)",
+        "Iei o cantitate mai mică de nadă și o aplici superficial deasupra",
+        "Stratul superficial trebuie să reziste la impact dar să se desfacă rapid pe substrat",
+        "Faci gaură pentru pelete și o bagi puțin în nadă",
+        "Lansezi delicat ca să nu se desfacă în aer"
+      ],
+      "_sursa": "tog8SODDgpI"
+    }
+  ],
+  "monturi_noi": [
+    {
+      "nume": "Momitor GDA cu peletă solubilă semi-îngropată — Delta post-prohibiție",
+      "specie": "crap/ciortan",
+      "scurt": "Montură cu momitor în care peleta de cârlig este introdusă parțial în nadă (lăsată deasupra), iar cârligul este acoperit cu nadă pentru a evita încurcarea firului.",
+      "componente": [
+        "Momitor method-feeder",
+        "Nadă GDA Fishing (căpșună / usturoi / Secret Aroma)",
+        "Peletă solubilă 10 mm sau 15 mm pe cârlig",
+        "Cârlige mici (pentru ciortan apatic)",
+        "Bile de nădit 20-24 mm (căpșună / Secret Aroma) pentru nădire suplimentară",
+        "Bile solubile Secret Aroma din borcan (pentru pește mai mare)"
+      ],
+      "pasi": [
+        "Pune nada pe momitor",
+        "Introdu peleta în nadă fără s-o îngropi complet — las-o deasupra vizibilă",
+        "Acoperă cârligul cu puțină nadă pentru a evita încurcarea pe fir principal când cade",
+        "Lansează — momitorul atrage peștele care va lua peleta cu cârlig",
+        "Nădește suplimentar cu sac de bile + câteva boilies întregi în afara cioatei"
+      ],
+      "_sursa": "GSwRz2tD1L8"
+    },
+    {
+      "nume": "Momitor fin iarnă — peletă single 10mm sicilit/căpșună",
+      "specie": "crap",
+      "scurt": "Prezentare finețe pentru crap apatic în noiembrie, cu momitor încărcat cu nadă GDA + pelete 5mm și cârlig mic.",
+      "componente": [
+        "Momitor method-feeder",
+        "Cârlig nr. 10",
+        "Nadă GDA Fishing + pelete fish meal 5mm pentru încărcat momitorul",
+        "Peletă 10mm sicilit aromă căpșună la cârlig",
+        "Opțional: peletă 15mm sau 2x15mm dacă apar scăpări"
+      ],
+      "pasi": [
+        "Umezești nada GDA cu pelete 5mm fish meal",
+        "Presezi pe momitor în jurul cârligului",
+        "Pui peleta 10mm sicilit pe păr",
+        "Lansezi fin pe locul nădit, frână ușor strânsă",
+        "Crești la 15mm sau cârlig 15 dacă peștele e mai activ/mai mare"
+      ],
+      "_sursa": "PFwNriYmmk4"
+    },
+    {
+      "nume": "Combo plumb in-line + bile 24mm Delta Active / Delta Secret",
+      "specie": "crap",
+      "scurt": "Setup paralel pentru pește mare pe Sulina: o lansetă spre mal cu Delta Active, una spre larg cu dublă Delta Secret.",
+      "componente": [
+        "Plumb in-line",
+        "1x bilă 24mm Delta Active (spre mal)",
+        "2x bile 24mm Delta Secret (spre larg)",
+        "Cârlig mai mare adaptat bilei",
+        "Frână strânsă aproape la maxim (cioate)"
+      ],
+      "pasi": [
+        "Lansezi lanseta Delta Active aproape de mal/cioate",
+        "Lansezi lanseta Delta Secret cu dublă bilă spre larg",
+        "Strângi frânele aproape la maxim pentru a opri peștele din cioate",
+        "Întreții nădirea cu bile 20mm la fiecare oră"
+      ],
+      "_sursa": "PFwNriYmmk4"
+    },
+    {
+      "nume": "Rig crap Sulina cu fir cămășuit anti-abraziune pe piatră",
+      "specie": "crap",
+      "scurt": "Rig destinat pescuitului pe digul de piatră al brațului Sulina, cu fir cămășuit pentru a evita ruperea forfacului în pietre.",
+      "componente": [
+        "Fir cămășuit pentru forfac (rezistă la frecare cu pietrele digului)",
+        "Cârlig nr. 6 pentru bile boilies",
+        "Cârlig nr. 8 pentru pelete solubile 15mm",
+        "Sistem plumb pierdut cu opritor",
+        "Înaintaș monofilament somn 0.90mm, lungime ~7m"
+      ],
+      "pasi": [
+        "Alege mărimea cârligului raportată vizual la momeală, nu doar după numărul producătorului (variază între branduri)",
+        "Montează forfac din fir cămășuit (nu textil simplu — se rupe la rig pe piatră)",
+        "Atașează sistemul plumb pierdut cu opritor pentru a permite eliberarea plumbului blocat",
+        "Folosește shock leader monofilament somn 0.90mm de ~7m între fir principal și montura",
+        "Pentru momitor: pelete solubile 15mm pe cârlig 8; pentru lansetă plumb: bilă solubilă/biletar pe cârlig 6"
+      ],
+      "_sursa": "PZOJbG8e92I"
+    },
+    {
+      "nume": "Montură momitor cu opritoare pentru auto-înțepare (rig 8-9 cm)",
+      "specie": "crap",
+      "scurt": "Montură de tip momitor 120g cu două opritoare pe firul principal care fixează momitorul și forțează auto-înțeparea când peștele dă din cap.",
+      "componente": [
+        "Momitor (method spod) de 120g",
+        "Cârlig nr. 8 toamnă/iarnă (nr. 6 vara), subțire",
+        "Rig 8-9 cm",
+        "Dumbell solubil GDA Fishing pe păr",
+        "2 opritoare de cauciuc pe firul principal (unul în fața momitorului, unul în spate)",
+        "Quick change pentru schimbat rapid cârligul",
+        "Vârtej de rezervă (alternativă la quick change defect)"
+      ],
+      "pasi": [
+        "Leagă cârligele de acasă (câte 4 din fiecare mărime) cu păr și opritor pentru dumbell",
+        "Pune un opritor pe firul principal înainte și după momitor pentru a-l fixa",
+        "Înfige dumbell-ul solubil pe părul de 8-9 cm",
+        "Frământă nada GDA căpșună umedă și aplic-o pe momitor (textura să se lipească)",
+        "Verifică vârful cârligului DUPĂ FIECARE PEȘTE (testează pe unghie) — schimbă imediat dacă s-a strâmbat"
+      ],
+      "_sursa": "TpVCnpZiC5o"
+    },
+    {
+      "nume": "Momitor cu peletă în interior + nadă neîndesată pentru dâră în curent",
+      "specie": "crap",
+      "scurt": "Schemă de încărcare momitor pentru iarnă în curent — nada deasupra peletei se desface rapid și creează dâră de atragere.",
+      "componente": [
+        "Momitor method-feeder",
+        "Pelete în interior (cireașa principală)",
+        "Nadă pudră deasupra, pusă fără îndesare",
+        "Cârlig 10 cu fir textil 0.13 pentru finețe iarnă"
+      ],
+      "pasi": [
+        "Umple momitorul cu pelete în interior (cantitate normală)",
+        "Adaugă nadă deasupra fără să strângi/îndeși",
+        "Lansează — nada se desface în coloana de apă",
+        "Creează dâră în curent care activează mai rapid zona",
+        "Dacă peștele apare dar nu mușcă, schimbă pe plumb in-line cu rig 6 lângă cioată"
+      ],
+      "_sursa": "VkkAhdBEtaE"
+    },
+    {
+      "nume": "Bile Fishmeal Delta Secret 24mm pentru crap mare Chilia",
+      "specie": "crap",
+      "scurt": "Bile fishmeal dezvoltate de Mihai Manea (GDA) pe 10 ani, folosite în dimensiunea 24mm (și 32mm) pentru a filtra ciortanul pe Chilia.",
+      "componente": [
+        "Boilies Fishmeal Delta Secret 24mm (standard)",
+        "Boilies Fishmeal Delta Secret 32mm (pentru pește foarte mare)",
+        "Lansete tip Trabuco Max Deep 3m / calibre 4",
+        "Montura cu 3 lansete pe barcă per pescar"
+      ],
+      "pasi": [
+        "Montează bila 24mm pe forfac standard pentru crap",
+        "Pe o lansetă pune bilă 32mm ca filtru extrem pentru pește record",
+        "Lansează 3 lansete de pe barcă în evantai pe prag",
+        "Acceptă rata mică de trăsături - target = pește 10kg+"
+      ],
+      "_sursa": "WgqDiw13peo"
+    },
+    {
+      "nume": "Pelete 10mm pe spin direct (nu pe păr)",
+      "specie": "crap",
+      "scurt": "Observație practică: peletele solubile de 10 mm pot fi montate direct pe spinul cârligului, nu necesită fir de păr — fixează mai bine peleta pe apă rece.",
+      "componente": [
+        "Pelete solubile 10 mm (căpșună, secret aroma, usturoi)",
+        "Cârlig cu spin",
+        "Pelete 15 mm pentru firul de păr — separat"
+      ],
+      "pasi": [
+        "Pentru pelete 10 mm: înfige direct pe spinul cârligului",
+        "Pentru pelete 15 mm: folosește firul de păr clasic",
+        "Schimbă cârligul și peleta după fiecare trăsătură/ratare",
+        "Combină cu momitor nadă ediție specială + pelete 2 mm"
+      ],
+      "_sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "nume": "Peletă 15 mm căpșună roșu GDA — single hookbait pe culoar",
+      "specie": "crap",
+      "scurt": "Peletă solubilă din gama 'Cireasa de pe Tort' montată single pentru crap primăvara în Delta.",
+      "componente": [
+        "Peletă solubilă 15 mm aromă căpșună (roșu) — GDA Cireasa de pe Tort",
+        "Alternativ: peletă 10 mm Secret Aroma galben",
+        "Forfac standard crap",
+        "Nadă ediție specială GDA pentru pre-momire culoar"
+      ],
+      "pasi": [
+        "Pre-momește culoarul îngust dintre cioată și stuf cu nadă specială",
+        "Montează peleta 15 mm căpșună pe forfac scurt",
+        "Plasează lansetele pe același culoar — peștii vin în serie (3 trăsături în 30 min)",
+        "Dacă activitatea scade, schimbă pe una din lansete cu peletă 10 mm galben",
+        "Reîmprospătează momeala la fiecare pește prins — ritmul scade altfel"
+      ],
+      "_sursa": "kjrGXYKOnH0"
+    },
+    {
+      "nume": "Plumb pierdut cu eliberare pentru epi-uri Sulina",
+      "specie": "crap",
+      "scurt": "Sistem cu plumb pierdut esențial când lansezi la baza epiurilor și cioatelor - dacă sistemul nu eliberează plumbul, peștele se agață și se pierde.",
+      "componente": [
+        "Plumb pierdut cu clip rapid de eliberare",
+        "Cârlig nr. 6 pentru bilă 20mm solubilă Delta Activ",
+        "Cârlig nr. 4 pentru bilă 24mm semisolubilă Delta Activ",
+        "Forfac care permite eliberarea plumbului la prima opritură"
+      ],
+      "pasi": [
+        "Verificare obligatorie funcționare clip eliberare înainte de lansare",
+        "Lansare la baza peretelui de epi",
+        "La trăsătură - plumbul TREBUIE să se elibereze imediat",
+        "Dacă plumbul rămâne prins → peștele intră în cioată și se pierde"
+      ],
+      "_sursa": "o48pxAziGeY"
+    }
+  ],
+  "alte_observatii": [
+    {
+      "txt": "Imediat post-prohibiție (iunie) în Delta Dunării crapul mare este încă în lacuri pentru reproducere — confirmat de pescarii comerciali cu plase. Pe canalele din jurul Mila 23 se prinde aproape exclusiv ciortan (1-2 kg, rar 3-4 kg).",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "Semnal clar de pește apatic: trăsături anemice de 5-10 minute (țăcăneli din vârf de lansetă) înainte de plecare reală — peștele suge peleta fără să o ia.",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "Indicator de hrănire slabă: peștii sunt prinși de buza de sus / buza de jos (înțepare superficială), nu din interiorul gurii — semn că trebuie reduse imediat dimensiunile cârligului.",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "În iunie post-prohibiție, Dunărea principală este încă tulbure și nepescuibilă pentru crap — alternativa sunt canalele limpezi din jurul Mila 23.",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "Trecere strategică în timpul partidei: începi cu momitor (atrage tot) și dacă intră prea mulți ciortani treci la plumb in-line + bilă singură 20-24 mm pentru a selecta pește mai mare.",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "Bilele Secret Aroma solubile din borcan se activează vizibil după ~20 minute în apă și par să selecteze pește ușor mai mare decât peletele.",
+      "sursa": "GSwRz2tD1L8"
+    },
+    {
+      "txt": "Pe canalele Mila 23 cu apă crescută (primăvara), iarba plutitoare se prinde pe fir, vibrează și sperie peștele — pescuit foarte dificil",
+      "sursa": "HLjnRrY_ijU"
+    },
+    {
+      "txt": "Localnicii din Mila 23 (ex. Marian Mincu - Gigant Fish) confirmă că la apă crescută crapul este 'zăpăcit' și greu de localizat",
+      "sursa": "HLjnRrY_ijU"
+    },
+    {
+      "txt": "Validare: prezența altor pescari experimentați pe o buclă de canal este indiciu sigur de pește în zonă",
+      "sursa": "HLjnRrY_ijU"
+    },
+    {
+      "txt": "Fundamentele pescuitului la crap pe ape private (sondare, localizare, prezentare) se transferă pe ape sălbatice, dar densitatea de pește e mult mai mică",
+      "sursa": "HLjnRrY_ijU"
+    },
+    {
+      "txt": "Activitatea pe canalele Delta scade brusc după ora 14:00 — fereastra optimă e 10:00-14:00 când apa e crescută",
+      "sursa": "HLjnRrY_ijU"
+    },
+    {
+      "txt": "Sfârșit de noiembrie pe Sulina: crapul devine apatic, multe trăsături se eliberează după 3-4 secunde — nu te grăbi cu înțepătura, lasă peștele să plece cu momeala.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Pe canalele din jurul Mila 23 ritm bun raportat în noiembrie: 6 crapi 2-5 kg într-o oră (Harry), în timp ce Sulina dă pește puțin dar potențial mare.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Strategia echipei GDA: pescuit paralel pe canale (Mila 23) pentru numeric + Sulina înădită pentru pește mare; decizia se ia seara în funcție de raportările partenerilor.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Pescuit de noapte/plecare pe întuneric folosit pentru a maximiza orele efective de pescuit în zilele scurte de noiembrie.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Ceața dimineața blochează deplasarea — rămâi pe locul curent până se ridică, apoi te muți spre Mila 8 dacă nu sunt trăsături.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Bilele Delta Active GDA au fost lansate oficial pe site între octombrie și noiembrie 2025.",
+      "sursa": "PFwNriYmmk4"
+    },
+    {
+      "txt": "Pe Sulina firul se rupe sistematic la rig (forfac) când e textil simplu — soluția testată: fir cămășuit care se zdrelește dar nu cedează",
+      "sursa": "PZOJbG8e92I"
+    },
+    {
+      "txt": "Pe Chilia și Sfântu Gheorghe pragurile sunt mult mai prietenoase decât pe Sulina — chiar dacă firul se blochează, peștele poate fi scos de cele mai multe ori",
+      "sursa": "PZOJbG8e92I"
+    },
+    {
+      "txt": "Strategie GDA pe Sulina august: nădire masivă bile pe platoul 3m + 2 lansete momitor (pelete solubile 15mm) + 2 lansete plumb in-line cu bilă; noaptea toate 4 pe biletari Delta Secret",
+      "sursa": "PZOJbG8e92I"
+    },
+    {
+      "txt": "Avertisment branding: postările cu capturi creează așteptare falsă — nada e doar o variabilă; cota apei, presiunea atmosferică, alegerea locului și strategia contează mai mult",
+      "sursa": "PZOJbG8e92I"
+    },
+    {
+      "txt": "Logica momitorului pe Dunăre: momitorul cade contracurent, nada se desface și creează o dâră în aval; cârligul cu dumbell e prins de curent și ajunge pe acea dâră — peștele găsește cârligul mâncând pe traseul de nadă.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Contraindicat momitorul când ai pește mic pe vad (plătică, caras) — vara se renunță la momitor și se trece pe plumb inline cu boilies.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Apa în scădere de peste o săptămână pe Deltă (noiembrie) face peștele să tranziteze canalele dinspre lacuri spre Dunăre — focus pe canalele de legătură.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Quick change-urile ieftine din magazin au defect de fabrică: muchia ascuțită unde se prinde cârligul taie rigul în drill — alternativă: vârteje simple.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Cârlige GDA nr. 8 pentru toamnă-iarnă, nr. 6 pentru vară — regulă generală pe crap în Deltă.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Mit dezmințit: opritoarele pe fir NU sunt o capcană mortală dacă se rupe firul — când peștele dă din cap, momitorul alunecă în spate și se eliberează.",
+      "sursa": "TpVCnpZiC5o"
+    },
+    {
+      "txt": "Decembrie 2025 Deltă: dimineți cu îngheț pe lansete, mizerie/frunze tocate pe canale (Litcov, Îngusta) care umplu firul în prima zi dar se diminuează în zilele următoare",
+      "sursa": "VkkAhdBEtaE"
+    },
+    {
+      "txt": "Pe sonar live, crapul iarna apare cu capul în jos pe substrat — semn că examinează nada dar nu se hrănește activ; trebuie persistență 2-3 zile",
+      "sursa": "VkkAhdBEtaE"
+    },
+    {
+      "txt": "Carasul mare (la peletă/momitor) coabitează cu crapul în cioate de Litcov în decembrie — bycatch frecvent",
+      "sursa": "VkkAhdBEtaE"
+    },
+    {
+      "txt": "Compromis fir pentru canale Delta cu curent iarna: 0.35 mono ideal — 0.13 textil e prea rigid (rupe cârligul/buza), 0.55 vâjâie în curent puternic",
+      "sursa": "VkkAhdBEtaE"
+    },
+    {
+      "txt": "Iarna, peștele NU se plimbă — este 100% cantonat în cioate; degeaba cauți pe șenal, trebuie să lansezi efectiv în lemn cu rig rezistent",
+      "sursa": "VkkAhdBEtaE"
+    },
+    {
+      "txt": "În iulie-august 2024 cotele Dunării erau în scădere pe Chilia, iar presiunea atmosferică instabilă a făcut peștele greu de prins - 6 zile pentru un crap de 13kg și câțiva de 2-7kg",
+      "sursa": "WgqDiw13peo"
+    },
+    {
+      "txt": "Pe brațul Chilia pragurile verticale (8m→11m) au crengi/agățături direct pe prag - obligatoriu sondaj cu sonar înainte de a planta",
+      "sursa": "WgqDiw13peo"
+    },
+    {
+      "txt": "Activitatea de mușcare pe Chilia vara poate fi concentrată la prânz-după-amiază (12:30-19:00), nu doar dimineața",
+      "sursa": "WgqDiw13peo"
+    },
+    {
+      "txt": "Vara apa de suprafață în Deltă e atât de caldă și neoxigenată încât crapul moare în sac în mai puțin de 24h - protocol strict catch & release",
+      "sursa": "WgqDiw13peo"
+    },
+    {
+      "txt": "Etichetă în Deltă: nu împărtăși locul de pescuit al altcuiva dacă ești invitat - vei avea nevoie de informații data viitoare",
+      "sursa": "WgqDiw13peo"
+    },
+    {
+      "txt": "Mila 23 martie 2025: apă 6-7°C, ceață densă dimineața care împiedică ieșirea pe lacuri/canale deschise — pescuit obligat pe canale lângă sat",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Comportament diferit al peștelui pe canale diferite în aceeași zonă — sonarul confirmă: pe unele canale peștii se plimbă, pe altele sunt cantonați strict pe cioate",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Line bite-urile multiple pe vârf în martie indică pește prezent care se plimbă printre fire — nu confunda cu mizerie pe fir",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Trăsăturile pe apă rece sunt violente (după Harry), nu delicate cum s-ar aștepta — peștele se lasă pe momeală",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Râme de pământ găsite pe fundul Deltei în martie — explică de ce momelile naturale uneori nu performează (concurență naturală)",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Clancul motorului la pornire sperie peștii de pe cioată — manevrează cu grijă la ancorare",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Stuf pe ambele maluri = greu de luat repere vizuale pentru lansare precisă; preferabil canal cu repere clare",
+      "sursa": "ZrOR8n9VeEU"
+    },
+    {
+      "txt": "Înainte de prohibiție (martie), crapul este foarte mofturos în Delta — pot fi necesare 2-3 zile de căutare/plimbare (Fortuna → Boda Proste → Lopatna) pentru a-l localiza",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Activitatea explodează imediat după ce încetează ploaia/grindina — furtuna pare să declanșeze hrănirea",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Pe canal îngust cu cioate, peștele are culoar precis — toate trăsăturile vin pe aceeași lansetă (cea de pe culoar), nu pe celelalte",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Greșeala clasică la țepușă: lăsarea peștelui 'să o ia' — crapul absoarbe/expiră momeala, iar când vezi mișcarea vârfului oprindu-se, deja a scuipat-o; țepușa trebuie dată la prima mișcare",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Statistică partidă reușită pre-prohibiție: ~10 trăsături / 8 scoși într-o zi cu vreme schimbătoare — frecvență bună după 2 zile fără pește",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Peștii devin progresiv mai mici pe parcursul zilei dacă rămâi în același spot — semn că banc-ul de crapi mari a trecut, urmează ciortanii",
+      "sursa": "kjrGXYKOnH0"
+    },
+    {
+      "txt": "Sfârșit octombrie - început noiembrie 2024: 4 săptămâni fără capturi semnificative în Delta Dunării din cauza variațiilor de cotă și apei tulburi - chiar pescari de top (Silvan) au scos doar 2 pești în 4 zile",
+      "sursa": "o48pxAziGeY"
+    },
+    {
+      "txt": "În perioade de inactivitate în deltă, lansarea CONTRA curentului la baza epi-urilor pe Sulina poate sparge tiparul - tehnică riscantă dar productivă",
+      "sursa": "o48pxAziGeY"
+    },
+    {
+      "txt": "Tipar de mușcătură observat la crap în apă rece pe Sulina: ciupitură ușoară urmată de run puternic - dacă nu apuci la run, intră în cioată și pierzi peștele",
+      "sursa": "o48pxAziGeY"
+    },
+    {
+      "txt": "Când pescari vecini prind pe linia ta de lansare, mută-te pe distanțele/liniile lor - strategie de adaptare ca pe baltă",
+      "sursa": "o48pxAziGeY"
+    },
+    {
+      "txt": "Crapii mari de 11kg pe Sulina iau cârlig mic (nr. 6) cu bilă 20mm - nu necesită montură supradimensionată",
+      "sursa": "o48pxAziGeY"
+    },
+    {
+      "txt": "Pe canale Delta în condiții de vânt puternic 70 km/h timp de 4 zile, peștele devine extrem de apatic - se hrănește foarte puțin, doar 1-2 trăsături pe zi chiar și pentru pescari experimentați",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Record personal crap pe canale Delta: 11 kg (raritate pe canale, nu pe brațe principale)",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Regulă în barcă echipă: trăsăturile se alternează strict între parteneri (unul pe unul) indiferent de mărimea peștelui - peștele aparține echipei",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Greșeală tipică: nu verifici vârful cârligului după prinderea unui pește mare - se îndoaie/îndreaptă și ratezi următoarea trăsătură",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Iarba curgătoare adusă de vânt pe canale Delta face pescuitul aproape imposibil - acoperă montura constant",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Practica eliberării crapilor mari (11 kg) ca exemplu pentru ceilalți pescari - rar întâlnită în Delta",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Locația cazare/bază operațiuni pentru pescari crap canale Delta: Pensiunea Gigant Fish a lui Marian Mincu",
+      "sursa": "tog8SODDgpI"
+    },
+    {
+      "txt": "Punct de oprire/cafea pentru pescari pe Sulina: Gorgova (la Costeluș)",
+      "sursa": "tog8SODDgpI"
+    }
+  ]
+}
