@@ -473,11 +473,36 @@ function generaSemantic(
     };
   }
 
+  // Pattern de impact mediu (Bate norocul, Era begului, Lockdown, Crap iese)
+  const mediumPattern = patterns.find((p) => p.bonus >= 1.10 && p.bonus < 1.18);
+  if (mediumPattern && scor >= 70) {
+    return {
+      verdict: "du-te",
+      motiv: `${mediumPattern.nume} activ + scor ${scor}/100. ${mediumPattern.descriere.slice(0, 80)}...`,
+      fereastra: "partidă întreagă",
+    };
+  }
+
   if (scor >= 75 && trend.pressureStable) {
     return {
       verdict: "du-te",
       motiv: "Condiții excelente + trend stabil 3 zile = partidă lungă justificată.",
       fereastra: "2-3 zile",
+    };
+  }
+
+  // Scor mare fără pattern major — construim motivul din forecast concret
+  if (scor >= 80) {
+    const apa = forecast.waterTempDeep != null ? `apă ${Math.round(forecast.waterTempDeep)}°C` : null;
+    const vant = `vânt ${forecast.windMax} km/h`;
+    const presiune = forecast.pressureTrend === "stable" ? "presiune stabilă"
+      : forecast.pressureTrend === "rising" ? "presiune în creștere"
+      : "presiune în scădere";
+    const parts = [apa, vant, presiune].filter(Boolean).join(", ");
+    return {
+      verdict: "du-te",
+      motiv: `Scor ${scor}/100 — ${parts}. Pune câteva ore deoparte.`,
+      fereastra: "partidă completă",
     };
   }
 
