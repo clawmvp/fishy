@@ -10,6 +10,7 @@ import { fetchWeather, getWeatherIcon, getWindDirection } from "@/lib/weather";
 import { getMoonPhase } from "@/lib/moon";
 import { getWaterLevel } from "@/lib/conditii-live";
 import { getCotaHistory } from "@/lib/cota-history";
+import { getChiliaDebit } from "@/lib/chilia-debit";
 import { toateSemnalele } from "@/lib/beacon-query";
 import { calculeazaScor, estimateWaterTemp } from "@/lib/recomandari";
 import { CANALE } from "@/lib/beacon-channels";
@@ -36,10 +37,12 @@ export default async function Home() {
   const moon = getMoonPhase(now);
 
   // Fetch everything in parallel
-  const [forecasts, waterTulcea, waterSulina, cotaHistory, semnaleAll] = await Promise.all([
+  const [forecasts, waterTulcea, waterIsaccea, waterBraila, chiliaDebit, cotaHistory, semnaleAll] = await Promise.all([
     fetchWeather(REF_LAT, REF_LON, 1).catch(() => []),
     getWaterLevel("tulcea"),
-    getWaterLevel("sulina"),
+    getWaterLevel("isaccea"),
+    getWaterLevel("braila"),
+    getChiliaDebit(),
     getCotaHistory("tulcea", 7),
     toateSemnalele().then((s) => s.slice(0, 6)).catch(() => []),
   ]);
@@ -97,7 +100,10 @@ export default async function Home() {
           Pescuit în <span className="text-amber-glow">Delta Dunării</span> — live.
         </h1>
         <p className="text-base md:text-lg text-fog/75 max-w-2xl leading-relaxed mb-4">
-          Cota Tulcea acum: <strong className="text-amber-glow">{waterTulcea?.level ?? "?"} cm</strong>.
+          Tulcea <strong className="text-amber-glow">{waterTulcea?.level ?? "?"} cm</strong>
+          {waterIsaccea && <> · Isaccea <strong className="text-fog">{waterIsaccea.level} cm</strong></>}
+          {chiliaDebit.todayM3s != null && <> · Chilia <strong className="text-fog">{chiliaDebit.todayM3s.toLocaleString("ro-RO")} m³/s</strong></>}
+          .
           {todaysForecast && <> Vânt <strong className="text-fog">{todaysForecast.windMax} km/h {getWindDirection(todaysForecast.windDirection)}</strong>.</>}
           {todaysForecast?.waterTempDeep != null && <> Apa <strong className="text-fog">{Math.round(todaysForecast.waterTempDeep)}°C</strong>.</>}
           {" "}
@@ -114,9 +120,35 @@ export default async function Home() {
           <h2 className="text-xl md:text-2xl font-display text-amber-glow">🌡️ Pulse de azi</h2>
           <span className="text-xs text-fog/40">condiții live + trend 30 zile</span>
         </div>
-        <div className="grid sm:grid-cols-2 gap-3 mb-3">
-          <CotaTrendSparkline stationSlug="tulcea" stationName="Tulcea" currentLevel={waterTulcea?.level} />
-          <CotaTrendSparkline stationSlug="sulina" stationName="Sulina" currentLevel={waterSulina?.level} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
+          <CotaTrendSparkline
+            stationSlug="tulcea"
+            stationName="Tulcea"
+            currentLevel={waterTulcea?.level}
+            unit="cm"
+            hint="braț principal Deltă"
+          />
+          <CotaTrendSparkline
+            stationSlug="isaccea"
+            stationName="Isaccea"
+            currentLevel={waterIsaccea?.level}
+            unit="cm"
+            hint="amonte — prevede Tulcea cu 12-24h"
+          />
+          <CotaTrendSparkline
+            stationSlug="braila"
+            stationName="Brăila"
+            currentLevel={waterBraila?.level}
+            unit="cm"
+            hint="context regional Dunăre"
+          />
+          <CotaTrendSparkline
+            stationSlug="chilia"
+            stationName="Brațul Chilia"
+            currentLevel={chiliaDebit.todayM3s ?? undefined}
+            unit="m3s"
+            hint="debit (Open-Meteo flood)"
+          />
         </div>
         <div className="grid grid-cols-3 gap-3">
           {todaysForecast && (
