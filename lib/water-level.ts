@@ -34,16 +34,20 @@ export const DANUBE_STATIONS: WaterLevelStation[] = [
   { city: "Giurgiu",     slug: "giurgiu",      rkm: 493,  lat: 43.897, lon: 25.972, ldc: 80,  hdc: 700 },
 ];
 
+// IDs verificate live pe hidro.ro iunie 2026
 export const HIDRO_IDS: Record<string, number> = {
-  sulina: 9149,
-  tulcea: 42057,
-  isaccea: 42050,
-  galati: 42052,
-  braila: 42051,
-  harsova: 42045,
-  cernavoda: 42043,
-  calarasi: 42040,
-  giurgiu: 42022,
+  sulina: 9149,        // ABANDONAT din dec 2022 — empty state "indisponibil"
+  tulcea: 42057,       // S.H. TULCEA R. BR.TULCEA
+  isaccea: 42055,      // S.H. ISACCEA R. DUNARE (corectat: era 42050)
+  galati: 42052,       // S.H. GALATI R. DUNARE
+  grindu: 42053,       // S.H. GRINDU R. DUNARE
+  braila: 42051,       // S.H. BRAILA R. DUNARE
+  harsova: 42039,      // S.H. HARSOVA R. DUNARE (corectat: era 42045)
+  cernavoda: 42038,    // S.H. CERNAVODA R. DUNARE (corectat: era 42043)
+  calarasi: 42034,     // S.H. CALARASI CHICIU R. DUNARE (corectat: era 42040)
+  oltenita: 42031,     // S.H. OLTENITA R. DUNARE
+  giurgiu: 42027,      // S.H. GIURGIU R. DUNARE (corectat: era 42022)
+  zimnicea: 42025,     // S.H. ZIMNICEA R. DUNARE
 };
 
 function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
