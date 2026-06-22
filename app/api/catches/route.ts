@@ -26,6 +26,9 @@ export async function POST(req: NextRequest) {
     tehnica: body.tehnica ?? null,
     note: body.note ?? null,
     released: body.released ?? true,
+    public: body.public ?? false,
+    hide_exact_location: body.hide_exact_location ?? true,
+    photos: Array.isArray(body.photos) ? body.photos : [],
   });
 
   return NextResponse.json({ ok: true, id });

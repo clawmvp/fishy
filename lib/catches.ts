@@ -15,7 +15,16 @@ export type Catch = {
   tehnica: string | null;
   note: string | null;
   released: boolean;
+  public: boolean;
+  hide_exact_location: boolean;
+  photos: string[];
   created_at: string;
+};
+
+export type CatchWithUser = Catch & {
+  user_name: string | null;
+  user_nickname: string | null;
+  user_avatar: string | null;
 };
 
 export async function listCatches(userId: number): Promise<Catch[]> {
@@ -32,15 +41,28 @@ export async function getCatch(userId: number, id: number): Promise<Catch | null
   return (rows[0] as Catch) ?? null;
 }
 
+export async function listPublicCatches(limit: number = 50): Promise<CatchWithUser[]> {
+  const rows = await sql`
+    SELECT c.*, u.name as user_name, u.nickname as user_nickname, u.avatar_url as user_avatar
+    FROM fishy_beacon.catches c
+    JOIN fishy_beacon.users u ON u.id = c.user_id
+    WHERE c.public = TRUE
+    ORDER BY c.caught_at DESC
+    LIMIT ${limit}
+  `;
+  return rows as CatchWithUser[];
+}
+
 export async function insertCatch(userId: number, c: Omit<Catch, "id" | "user_id" | "created_at">): Promise<number> {
   const rows = await sql`
     INSERT INTO fishy_beacon.catches (
       user_id, specie, weight_kg, length_cm, locatie_slug, locatie_text,
-      lat, lng, caught_at, nada, tehnica, note, released
+      lat, lng, caught_at, nada, tehnica, note, released, public, hide_exact_location, photos
     ) VALUES (
       ${userId}, ${c.specie}, ${c.weight_kg}, ${c.length_cm},
       ${c.locatie_slug}, ${c.locatie_text}, ${c.lat}, ${c.lng},
-      ${c.caught_at}, ${c.nada}, ${c.tehnica}, ${c.note}, ${c.released}
+      ${c.caught_at}, ${c.nada}, ${c.tehnica}, ${c.note}, ${c.released},
+      ${c.public}, ${c.hide_exact_location}, ${JSON.stringify(c.photos ?? [])}
     )
     RETURNING id
   `;
@@ -57,7 +79,7 @@ export type CatchStats = {
   totalKg: number;
   bigest: { specie: string; weight_kg: number; caught_at: string } | null;
   perSpecie: Record<string, { count: number; kgTotal: number; bigest: number }>;
-  perLuna: Record<string, number>; // YYYY-MM → count
+  perLuna: Record<string, number>;
   topLocuri: Array<{ locatie: string; count: number }>;
 };
 

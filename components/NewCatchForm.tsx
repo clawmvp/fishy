@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const SPECII = [
   { val: "crap", label: "Crap" },
@@ -16,9 +16,63 @@ const SPECII = [
 export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string; nume: string }> }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [photos, setPhotos] = useState<string[]>([]);
+  const [isPublic, setIsPublic] = useState(false);
+  const [hideExact, setHideExact] = useState(true);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const today = new Date().toISOString().slice(0, 10);
+
+  async function getGPS() {
+    if (!navigator.geolocation) {
+      setError("Browserul tău nu suportă geolocation");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      (err) => setError(`GPS: ${err.message}`),
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  }
+
+  async function handlePhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    if (photos.length + files.length > 3) {
+      setError("Max 3 poze per captură");
+      return;
+    }
+    setUploading(true);
+    setError(null);
+    const newPhotos: string[] = [];
+    for (const file of Array.from(files)) {
+      if (!file.type.startsWith("image/")) continue;
+      if (file.size > 8 * 1024 * 1024) {
+        setError(`${file.name} e prea mare (max 8MB)`);
+        continue;
+      }
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        const resp = await fetch("/api/upload", { method: "POST", body: formData });
+        const data = await resp.json();
+        if (data.url) newPhotos.push(data.url);
+        else setError(data.error ?? "Eroare upload");
+      } catch (e) {
+        setError(`Upload: ${(e as Error).message}`);
+      }
+    }
+    setPhotos([...photos, ...newPhotos]);
+    setUploading(false);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }
+
+  function removePhoto(idx: number) {
+    setPhotos(photos.filter((_, i) => i !== idx));
+  }
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,11 +85,16 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
       length_cm: fd.get("length_cm") ? parseInt(fd.get("length_cm") as string, 10) : null,
       locatie_slug: (fd.get("locatie_slug") as string) || null,
       locatie_text: (fd.get("locatie_text") as string)?.trim() || null,
+      lat: coords?.lat ?? null,
+      lng: coords?.lng ?? null,
       caught_at: fd.get("caught_at") as string,
       nada: (fd.get("nada") as string)?.trim() || null,
       tehnica: (fd.get("tehnica") as string)?.trim() || null,
       note: (fd.get("note") as string)?.trim() || null,
       released: fd.get("released") === "on",
+      public: isPublic,
+      hide_exact_location: hideExact,
+      photos,
     };
     try {
       const resp = await fetch("/api/catches", {
@@ -96,6 +155,21 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
         <input type="text" name="locatie_text" placeholder="ex: Brațul Sulina, mila 12, cot stâng" className="w-full px-3 py-2 bg-water-2/40 border border-amber-glow/20 rounded-md text-fog placeholder:text-fog/40 focus:outline-none focus:border-amber-glow/50" />
       </div>
 
+      {/* GPS */}
+      <div>
+        <label className="block text-xs uppercase tracking-widest text-moss mb-1">Coordonate GPS</label>
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={getGPS} className="text-sm px-3 py-2 rounded-md border border-amber-glow/30 hover:border-amber-glow/60 text-amber-glow transition-colors">
+            📍 Ia locația mea acum
+          </button>
+          {coords && (
+            <span className="text-xs text-fog/70 font-mono">
+              {coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}
+            </span>
+          )}
+        </div>
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-3">
         <div>
           <label className="block text-xs uppercase tracking-widest text-moss mb-1">Nadă/momeală</label>
@@ -112,15 +186,65 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
         <textarea name="note" rows={3} placeholder="ex: cota 95cm, vânt 12km/h N, cap-uri rare dar mari" className="w-full px-3 py-2 bg-water-2/40 border border-amber-glow/20 rounded-md text-fog placeholder:text-fog/40 focus:outline-none focus:border-amber-glow/50 resize-y"></textarea>
       </div>
 
+      {/* Photos */}
+      <div>
+        <label className="block text-xs uppercase tracking-widest text-moss mb-2">Poze ({photos.length}/3)</label>
+        {photos.length < 3 && (
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handlePhotoUpload}
+            disabled={uploading}
+            className="block text-sm text-fog/80 file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-sm file:bg-amber-glow/15 file:text-amber-glow file:hover:bg-amber-glow/25 file:cursor-pointer"
+          />
+        )}
+        {uploading && <p className="text-xs text-fog/55 mt-1">Se încarcă...</p>}
+        {photos.length > 0 && (
+          <div className="flex gap-2 mt-3 flex-wrap">
+            {photos.map((url, i) => (
+              <div key={i} className="relative">
+                <img src={url} alt={`Captură ${i + 1}`} className="h-20 w-20 object-cover rounded-md border border-amber-glow/30" />
+                <button type="button" onClick={() => removePhoto(i)} className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">×</button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <label className="flex items-center gap-2 text-sm text-fog/85 cursor-pointer">
         <input type="checkbox" name="released" defaultChecked className="accent-amber-glow w-4 h-4" />
         Eliberat (catch &amp; release)
       </label>
 
+      <div className="pt-3 border-t border-amber-glow/15 space-y-2">
+        <label className="flex items-center gap-2 text-sm text-fog/85 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={isPublic}
+            onChange={(e) => setIsPublic(e.target.checked)}
+            className="accent-amber-glow w-4 h-4"
+          />
+          📡 <strong className="text-amber-glow">Share pe feed public</strong> (vor vedea toți pescarii)
+        </label>
+        {isPublic && (
+          <label className="flex items-center gap-2 text-xs text-fog/70 cursor-pointer ml-6">
+            <input
+              type="checkbox"
+              checked={hideExact}
+              onChange={(e) => setHideExact(e.target.checked)}
+              className="accent-amber-glow w-3.5 h-3.5"
+            />
+            🌫️ Ascunde locația exactă (afișează doar regiunea — recomandat)
+          </label>
+        )}
+      </div>
+
       {error && <p className="text-sm text-red-400">{error}</p>}
 
       <div className="flex gap-2 pt-2">
-        <button type="submit" disabled={loading} className="flex-1 py-2.5 rounded-md bg-amber-glow/15 hover:bg-amber-glow/25 border border-amber-glow/40 text-amber-glow font-medium transition-colors">
+        <button type="submit" disabled={loading || uploading} className="flex-1 py-2.5 rounded-md bg-amber-glow/15 hover:bg-amber-glow/25 border border-amber-glow/40 text-amber-glow font-medium transition-colors">
           {loading ? "Se salvează..." : "✓ Salvează captura"}
         </button>
         <a href="/capturi" className="py-2.5 px-4 rounded-md border border-amber-glow/15 text-fog/55 hover:text-fog hover:border-amber-glow/30 transition-colors">
