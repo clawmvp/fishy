@@ -105,9 +105,9 @@ export default async function PartidaPage({
   }
   const todaysForecast = forecasts[ziuaIdx];
 
-  const [waterTulcea, waterSulina] = await Promise.all([
+  const [waterTulcea, waterIsaccea] = await Promise.all([
     getWaterLevel("tulcea"),
-    getWaterLevel("sulina"),
+    getWaterLevel("isaccea"),
   ]);
 
   // Istoric cota Tulcea pentru patterns multi-zi (Crap iese din canale / Retragere pe brațe / Lockdown la cioate)
@@ -278,16 +278,16 @@ export default async function PartidaPage({
             <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterTulcea.relativeLevel)}</p>
           </div>
         )}
-        {waterSulina && (
+        {waterIsaccea && (
           <div className="card-hero rounded-xl p-4">
-            <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Sulina</p>
+            <p className="text-xs uppercase tracking-widest text-moss mb-1">Cota Isaccea</p>
             <p className="text-3xl font-light text-amber-glow mb-1">
-              {waterSulina.level}<span className="text-sm text-fog/55 ml-1">cm</span>
+              {waterIsaccea.level}<span className="text-sm text-fog/55 ml-1">cm</span>
             </p>
             <p className="text-xs text-fog/55">
-              {waterSulina.variation > 0 ? "↑" : waterSulina.variation < 0 ? "↓" : "→"} {Math.abs(waterSulina.variation)} cm
+              {waterIsaccea.variation > 0 ? "↑" : waterIsaccea.variation < 0 ? "↓" : "→"} {Math.abs(waterIsaccea.variation)} cm
             </p>
-            <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterSulina.relativeLevel)}</p>
+            <p className="text-xs text-amber-soft mt-1.5">lead indicator — prevede Tulcea 12-24h</p>
           </div>
         )}
         {todaysForecast && (
@@ -353,7 +353,7 @@ export default async function PartidaPage({
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           <CotaTrendSparkline stationSlug="tulcea" stationName="Tulcea" currentLevel={waterTulcea?.level} />
-          <CotaTrendSparkline stationSlug="sulina" stationName="Sulina" currentLevel={waterSulina?.level} />
+          <CotaTrendSparkline stationSlug="isaccea" stationName="Isaccea" currentLevel={waterIsaccea?.level} hint="amonte 32km — prevede Tulcea cu 12-24h" />
         </div>
       </section>
 
@@ -574,42 +574,51 @@ export default async function PartidaPage({
               </p>
 
               {locuriRec.length > 0 && (
-                <div className="mb-3">
-                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Locuri recomandate</p>
-                  <div className="flex flex-wrap gap-2">
+                <details className="mb-2 group">
+                  <summary className="text-xs uppercase tracking-widest text-moss cursor-pointer hover:text-amber-glow transition-colors py-1 flex items-center gap-1.5 list-none">
+                    <span className="inline-block transition-transform group-open:rotate-90">▸</span>
+                    Locuri recomandate <span className="text-fog/40 normal-case">({locuriRec.length})</span>
+                  </summary>
+                  <div className="flex flex-wrap gap-2 mt-2 pl-4">
                     {locuriRec.map((l) => (
                       <Link key={l.slug} href={`/locuri/${l.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-amber-glow/20 text-fog hover:border-amber-glow/50">
                         {l.nume} →
                       </Link>
                     ))}
                   </div>
-                </div>
+                </details>
               )}
 
               {tehniciRec.length > 0 && (
-                <div className="mb-3">
-                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Tehnici</p>
-                  <div className="flex flex-wrap gap-2">
+                <details className="mb-2 group">
+                  <summary className="text-xs uppercase tracking-widest text-moss cursor-pointer hover:text-amber-glow transition-colors py-1 flex items-center gap-1.5 list-none">
+                    <span className="inline-block transition-transform group-open:rotate-90">▸</span>
+                    Tehnici <span className="text-fog/40 normal-case">({tehniciRec.length})</span>
+                  </summary>
+                  <div className="flex flex-wrap gap-2 mt-2 pl-4">
                     {tehniciRec.map((t) => (
                       <Link key={t.slug} href={`/tehnici/${t.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-moss/30 text-fog hover:border-moss/60">
                         {t.titlu} →
                       </Link>
                     ))}
                   </div>
-                </div>
+                </details>
               )}
 
               {monturiRec.length > 0 && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-moss mb-2">Monturi</p>
-                  <div className="flex flex-wrap gap-2">
+                <details className="mb-1 group">
+                  <summary className="text-xs uppercase tracking-widest text-moss cursor-pointer hover:text-amber-glow transition-colors py-1 flex items-center gap-1.5 list-none">
+                    <span className="inline-block transition-transform group-open:rotate-90">▸</span>
+                    Monturi <span className="text-fog/40 normal-case">({monturiRec.length})</span>
+                  </summary>
+                  <div className="flex flex-wrap gap-2 mt-2 pl-4">
                     {monturiRec.map((m) => (
                       <Link key={m.slug} href={`/monturi/${m.slug}`} className="text-xs px-2 py-1 rounded-md bg-water-2/50 border border-amber-soft/40 text-fog hover:border-amber-soft/70">
                         {m.nume} →
                       </Link>
                     ))}
                   </div>
-                </div>
+                </details>
               )}
 
               {locuriRec.length === 0 && tehniciRec.length === 0 && (
