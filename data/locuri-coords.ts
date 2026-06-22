@@ -1,71 +1,55 @@
 // Coordonate aproximative pentru locurile Delta (lat, lng)
-// Sursă: INHGA stations + Wikipedia + cunoștințe locale
+// Sourcing: INHGA stations + cunoștințe locale + Wikipedia
 // Format: slug → [lat, lng]
+// SLUG-urile sunt EXACT cele din data/locuri.ts
 
 export const LOC_COORDS: Record<string, [number, number]> = {
-  // Brațe Delta — markeri la mijloc
+  // Brațe Delta — markere la mijlocul brațului
   "bratul-chilia": [45.35, 29.10],
   "bratul-sulina": [45.18, 29.20],
   "bratul-sfantu-gheorghe": [45.00, 29.30],
-  "bratul-tulcea": [45.18, 28.85],
+  "bratul-tataru": [45.40, 29.15],
+  "bratul-babina": [45.30, 29.30],
+  "bratul-cernovca": [45.40, 29.40],
+  "bratul-valciu-braila": [45.10, 27.90],
+  "chilia-deasupra-veche": [45.43, 29.20],
+  "musura-frontiera-ucraina": [45.30, 29.75],
 
   // Sate / așezări
   "mila-23": [45.2300, 29.2486],
-  "crisan": [45.1756, 29.3720],
   "chilia-veche": [45.4129, 29.2813],
-  "sulina": [45.1575, 29.6611],
-  "sf-gheorghe": [44.8951, 29.5855],
-  "sfantu-gheorghe": [44.8951, 29.5855],
-  "periprava": [45.4084, 29.5494],
-  "pardina": [45.3037, 28.9559],
-  "mahmudia": [45.0917, 29.0910],
-  "murighiol": [45.0306, 29.1542],
-  "maliuc": [45.1842, 29.0950],
-  "caraorman": [45.0747, 29.4164],
-  "letea": [45.2679, 29.5271],
-  "tatanir": [45.330, 29.10],
 
-  // Canale & Lacuri
-  "canal-sontea": [45.205, 29.215],
+  // Brațe — puncte specifice (GDA insights)
+  "bratul-sulina-mila-8": [45.16, 29.05],
+  "bratul-sulina-mal-maliuc": [45.184, 29.095],
+  "bratul-sulina-epiuri-crisan": [45.175, 29.370],
+  "epiuri-sulina-gorgova-crisan": [45.175, 29.310],
+  "sulina-maliuc-vulturul": [45.185, 28.940],
+  "bratul-chilia-tatanir-prag-vertical": [45.330, 29.105],
+  "bratul-chilia-bifurcatie-canal-36": [45.42, 29.30],
+  "bratul-chilia-obrize-varsare": [45.41, 29.55],
+  "chilia-veche-pragul-22m": [45.41, 29.27],
+  "groapa-25m-chilia-tatanir": [45.330, 29.110],
+  "gura-canalului-erenciuc": [44.95, 29.45],
+
+  // Canale Delta
   "canalul-sontea": [45.205, 29.215],
   "canalul-litcov": [45.13, 29.21],
+  "canalul-litcov-cioate": [45.13, 29.21],
   "canalul-ingusta": [45.15, 29.18],
-  "canal-litcov": [45.13, 29.21],
-  "lacul-fortuna": [45.160, 29.450],
-  "fortuna": [45.160, 29.450],
-  "lacul-rosu": [45.047, 29.515],
-  "rosu": [45.047, 29.515],
-  "lacul-puiu": [45.080, 29.510],
-  "puiu": [45.080, 29.510],
-  "lacul-matita": [45.270, 29.380],
-  "matita": [45.270, 29.380],
-  "lopatna": [45.190, 29.350],
-  "boda-proste": [45.180, 29.310],
-  "boda": [45.180, 29.310],
-  "bogdaproste": [45.180, 29.310],
-  "lacul-tatanir": [45.330, 29.105],
-  "lacul-obretin": [45.220, 29.295],
-  "obretin": [45.220, 29.295],
-  "lacul-saon": [45.260, 28.890],
-  "saon": [45.260, 28.890],
-  "lacul-erenciuc": [45.060, 29.420],
-  "lacul-isac": [45.155, 29.240],
+  "canalul-ingusta-plop-cazut": [45.15, 29.18],
+  "canalul-iacub": [45.10, 29.40],
+  "canal-tranzit-crisan-dunarea-veche": [45.180, 29.350],
+  "canal-lopatna-boda-proste-fortuna": [45.175, 29.380],
+  "dunarea-veche": [45.20, 29.30],
+  "dunarea-veche-mila23-lopatna": [45.215, 29.275],
+  "boda-proste-lopatna": [45.190, 29.350],
 
-  // Inserții noi GDA insights
-  "bratul-sulina-mila-8": [45.16, 29.05],
-  "bratul-sulina-maliuc": [45.184, 29.095],
-  "bratul-chilia-tatanir": [45.330, 29.105],
-  "bratul-chilia-canal-36": [45.42, 29.30],
-  "bratul-chilia-obrize": [45.41, 29.55],
-  "bratul-sulina-crisan-epi": [45.175, 29.370],
-  "canal-tranzit-crisan": [45.180, 29.350],
-  "lopatna-boda-proste-fortuna": [45.175, 29.380],
-
-  // Locații Dunăre din afara Deltei (regiune dunare-larga) — au lat/lng dar nu sunt afișate pe hartă filtrată Delta
-  "isaccea": [45.288, 28.453],
-  "braila": [45.270, 27.970],
-  "galati": [45.435, 28.046],
-  "tulcea": [45.182, 28.799],
+  // Lacuri Delta
+  "lacul-babina": [45.27, 29.27],
+  "lacuri-mila23-nord": [45.250, 29.250],
+  "lacul-babadag": [44.875, 28.700],
+  "statia-11-delta": [45.10, 29.50],
 };
 
 // Cota stations cu coords
