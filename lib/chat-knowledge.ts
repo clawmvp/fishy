@@ -23,7 +23,7 @@ export function buildKnowledgeBase(): string {
 
   const speciiStr = specii.map((s) => {
     const opt = s.optimalConditions;
-    return `- **${s.nume}** (${s.latin}): apă optimă ${opt.waterTempMin}-${opt.waterTempMax}°C, cota ${opt.cotaMin}-${opt.cotaMax}cm, lună ${opt.moonPreference}, metoda dominantă ${s.metoda}.`;
+    return `- **${s.nume}** (${s.latin}): apă optimă ${opt.waterTempMin}-${opt.waterTempMax}°C, cota ${opt.cotaOptima.min}-${opt.cotaOptima.max}cm (${opt.cotaOptima.nota}), lună ${opt.moonPreference}, metoda dominantă ${s.metoda}.`;
   }).join("\n");
 
   const articoleStr = articole.map((a) => {
