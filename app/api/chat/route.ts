@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
 import { buildKnowledgeBase } from "@/lib/chat-knowledge";
 import { getSession } from "@/lib/auth";
 import { createConversation, appendMessage, getConversationMessages } from "@/lib/chat-storage";
@@ -7,7 +7,10 @@ import { createConversation, appendMessage, getConversationMessages } from "@/li
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-const client = new Anthropic();
+const client = new OpenAI({
+  apiKey: process.env.DEEPSEEK_API_KEY,
+  baseURL: "https://api.deepseek.com/v1",
+});
 
 let cachedKB: string | null = null;
 function kb(): string {
@@ -29,14 +32,12 @@ export async function POST(req: NextRequest) {
   const user = await getSession();
   const inputConvId = typeof body.conversationId === "number" ? body.conversationId : null;
 
-  // Build full message list with persisted history if conversation exists
   let messages = clientMessages;
   let conversationId = inputConvId;
   const lastUserMsg = clientMessages[clientMessages.length - 1];
 
   if (user && lastUserMsg?.role === "user") {
     if (inputConvId) {
-      // Load history from DB for context
       const history = await getConversationMessages(user.id, inputConvId);
       if (history.length > 0) {
         messages = [
@@ -56,28 +57,26 @@ export async function POST(req: NextRequest) {
 
   const stream = new ReadableStream({
     async start(controller) {
-      // Emit metadata first (conversation id for client)
       if (conversationId) {
         controller.enqueue(encoder.encode(`__META__${JSON.stringify({ conversationId })}__END__`));
       }
       try {
-        const response = await client.messages.stream({
-          model: "claude-haiku-4-5-20251001",
+        const completion = await client.chat.completions.create({
+          model: "deepseek-chat",
+          stream: true,
+          temperature: 0.4,
           max_tokens: 1500,
-          system: [
-            {
-              type: "text",
-              text: kb(),
-              cache_control: { type: "ephemeral" },
-            },
+          messages: [
+            { role: "system", content: kb() },
+            ...messages.map((m) => ({ role: m.role, content: m.content })),
           ],
-          messages: messages.map((m) => ({ role: m.role, content: m.content })),
         });
 
-        for await (const event of response) {
-          if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-            assistantAccum += event.delta.text;
-            controller.enqueue(encoder.encode(event.delta.text));
+        for await (const chunk of completion) {
+          const delta = chunk.choices[0]?.delta?.content;
+          if (delta) {
+            assistantAccum += delta;
+            controller.enqueue(encoder.encode(delta));
           }
         }
 
