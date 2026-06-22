@@ -34,11 +34,16 @@ export default async function ContPage() {
           <h1 className="text-3xl md:text-4xl font-display text-fog mb-1">{user.name ?? user.email}</h1>
           <p className="text-sm text-fog/55">{user.email}</p>
         </div>
-        <form action="/api/auth/logout" method="post">
-          <button type="submit" className="text-xs text-fog/50 hover:text-amber-glow border border-amber-glow/20 hover:border-amber-glow/50 rounded-md px-3 py-1.5 transition-colors">
-            ieșire
-          </button>
-        </form>
+        <div className="flex items-center gap-2">
+          <Link href="/cont/edit" className="text-xs text-fog/65 hover:text-amber-glow border border-amber-glow/20 hover:border-amber-glow/50 rounded-md px-3 py-1.5 transition-colors">
+            ✎ editează profil
+          </Link>
+          <form action="/api/auth/logout" method="post">
+            <button type="submit" className="text-xs text-fog/50 hover:text-amber-glow border border-amber-glow/20 hover:border-amber-glow/50 rounded-md px-3 py-1.5 transition-colors">
+              ieșire
+            </button>
+          </form>
+        </div>
       </header>
 
       {/* Stats top */}
