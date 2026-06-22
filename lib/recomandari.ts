@@ -288,8 +288,8 @@ function detecteazaPatterns(
     }
   }
 
-  // 2. Fereastra de pre-depunere (crap)
-  if (specie.id === "crap") {
+  // 2. Fereastra de pre-depunere (crap, martie-iunie când reproducerea e activă)
+  if (specie.id === "crap" && month >= 3 && month <= 6) {
     const lunaIdeala = moon.illumination < 15 || moon.illumination > 85;
     const cotaOK = water && water.level >= 150 && water.level <= 200;
     const presStable = isPrev3 && forecastsPrev.every((f) => Math.abs(f.pressure - forecast.pressure) <= 3);
@@ -298,7 +298,7 @@ function detecteazaPatterns(
         id: "fereastra-pre-depunere",
         nume: "Fereastra de pre-depunere",
         emoji: "🎯",
-        descriere: "Lună ±2 zile + cotă 150-200 + presiune stabilă 3 zile = momentul ideal pe Dunărea Veche și canalele de tranzit.",
+        descriere: "Lună ±2 zile + cotă 150-200 + presiune stabilă 3 zile + sezon pre-depunere = momentul ideal pe Dunărea Veche și canalele de tranzit.",
         bonus: 1.18,
       });
     }
@@ -357,17 +357,17 @@ function detecteazaPatterns(
     new Date(a.measured_at).getTime() - new Date(b.measured_at).getTime()
   );
 
-  // 7. "Crap iese din canale" — cota crescut +30cm în 3 zile + apă peste 16°C
+  // 7. "Crap pe maluri inundate" — cota crescut +30cm în 3 zile + apă peste 16°C
   if (specie.id === "crap" && sortedCota.length >= 3 && waterTemp >= 16) {
     const last = sortedCota[sortedCota.length - 1].level_cm;
     const treiZileInUrma = sortedCota[Math.max(0, sortedCota.length - 4)].level_cm;
     const crestere = last - treiZileInUrma;
     if (crestere >= 30) {
       patterns.push({
-        id: "iesire-din-canale",
-        nume: "Crap iese din canale",
+        id: "crap-maluri-inundate",
+        nume: "Crap pe maluri inundate",
         emoji: "🌊",
-        descriere: `Cota +${crestere}cm în 3 zile + apă ${Math.round(waterTemp)}°C. Crapii migrează din lacuri spre brațe/canale, descoperă mâncarea pe malurile inundate.`,
+        descriere: `Cota +${crestere}cm în 3 zile + apă ${Math.round(waterTemp)}°C. Apa proaspăt inundă malurile cu vegetație + lacurile umflate — peștii migrează SPRE acele zone noi (maluri brațe + intrări în lacuri prin canale conectate). Static cu nadă pe maluri unde apa abia a urcat.`,
         bonus: 1.15,
       });
     }
@@ -441,7 +441,7 @@ function detecteazaPatterns(
 
   // 11. Frenezia șalău post-prohibiție (iunie-iulie, după 7 iunie)
   if (specie.id === "salau" && ((month === 6 && date.getDate() >= 8) || month === 7)) {
-    const apaOK = waterTemp >= 14 && waterTemp <= 20;
+    const apaOK = waterTemp >= 14 && waterTemp <= 22;
     if (apaOK) {
       patterns.push({
         id: "frenezie-salau-post-prohibitie",
@@ -551,7 +551,7 @@ function detecteazaPatterns(
     }
   }
 
-  // 18. Frenezia bobului de grâu (iul-aug, recoltă cereale)
+  // 18. Frenezia bobului de grâu (iul-aug, recoltă cereale) — bonus mic, condiții DIFICILE
   if (specie.id === "crap" && (month === 7 || month === 8)) {
     const apaCalda = waterTemp >= 19;
     if (apaCalda) {
@@ -559,34 +559,31 @@ function detecteazaPatterns(
         id: "frenezia-graului",
         nume: "Frenezia bobului de grâu",
         emoji: "🌾",
-        descriere: `Iulie-august: recolta de cereale = boabe căzute pe maluri + buruieni date pe ape. Carași/babușcă activi, dar crapul mare se cuibărește pe nadă tare. Nadă cu porumb fiert/grâu lângă boilies — singura combinație care ține peștele alb la distanță.`,
-        bonus: 1.12,
+        descriere: `Iulie-august: recolta de cereale = boabe căzute, buruieni pe ape. Carași/babușcă INVADEAZĂ nada în minute — perioada cea mai grea pe Dunăre. Bonus DOAR dacă ai boilies tari (Sticky Krill / Delta Activ / Delta Secret 18-24mm) + porumb fiert pe firul de păr. Altfel albitura te omoară.`,
+        bonus: 1.05,
       });
     }
   }
 
-  // 19. Frunzișul căzut (anti-pattern oct-nov, tanin în apă)
+  // 19. Frunzișul căzut (anti-pattern oct-nov, tanin în apă) — atenuat: aplicabil mai mult pe canale interior cu copaci
   if ((month === 10 || month === 11) && waterTemp < 14) {
     patterns.push({
       id: "frunzis-cazut",
       nume: "Frunzișul căzut",
       emoji: "🌲",
-      descriere: `Octombrie-noiembrie + apă ${Math.round(waterTemp)}°C: frunzele căzute infectează apa cu tanin. Peștii caută zone curate, evită canale înguste cu vegetație. Du-te pe brațe principale unde curentul curăță.`,
-      bonus: 0.92,
+      descriere: `Octombrie-noiembrie + apă ${Math.round(waterTemp)}°C: frunze căzute în canale înguste cu sălcii/plopi → tanin în apă, peștii pe brațe principale unde curentul curăță. Pe Dunăre/Sulina/Chilia neutră, doar pe canale interior cu vegetație. Cioc/feeder pe șenal curent.`,
+      bonus: 0.95,
     });
   }
 
   // 20. Pre-îngheț (toate speciile, oct-nov, înainte de prima noapte cu îngheț)
-  // Trigger: temp min azi >2°C dar mâine (prev?) sau prognoză temp min ≤2°C
-  if ((month === 10 || month === 11) && forecast.tempMin > 2 && forecastsPrev.length === 0) {
-    // verificăm dacă forecast indică schimbare bruscă (zi caldă + vânt rece prognozat)
-    const tempIngheataApropiat = forecast.tempMin < 5; // proximitate la îngheț
-    if (tempIngheataApropiat && waterTemp >= 8 && waterTemp <= 14) {
+  if ((month === 10 || month === 11) && forecast.tempMin < 5 && forecast.tempMin > -3) {
+    if (waterTemp >= 8 && waterTemp <= 14) {
       patterns.push({
         id: "pre-inghet",
         nume: "Pre-îngheț — pescuit voraz",
         emoji: "🥶",
-        descriere: `Octombrie-noiembrie + temp min ${forecast.tempMin}°C + apă ${Math.round(waterTemp)}°C. Peștii mănâncă voracios cu o zi înainte de prim îngheț — comportament documentat. Nadă densă, momeli proteine mari.`,
+        descriere: `Octombrie-noiembrie + temp min noapte ${forecast.tempMin}°C + apă ${Math.round(waterTemp)}°C. Peștii mănâncă voracios cu 24-48h înainte de prim îngheț — documentat la crap, somn, șalău, biban. Nadă densă cu proteine, momeli mari, plante fragile (pâine/porumb evită carasul).`,
         bonus: 1.15,
       });
     }
