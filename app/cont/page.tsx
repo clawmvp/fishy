@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { getStats, listCatches } from "@/lib/catches";
+import { listConversations } from "@/lib/chat-storage";
 
 export const dynamic = "force-dynamic";
 
@@ -19,9 +20,10 @@ export default async function ContPage() {
   const user = await getSession();
   if (!user) redirect("/login");
 
-  const [stats, capturi] = await Promise.all([
+  const [stats, capturi, conversations] = await Promise.all([
     getStats(user.id),
     listCatches(user.id),
+    listConversations(user.id, 5),
   ]);
 
   const recente = capturi.slice(0, 5);
@@ -140,6 +142,31 @@ export default async function ContPage() {
               </Link>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* Conversații chat */}
+      {conversations.length > 0 && (
+        <section className="mt-8">
+          <div className="flex items-baseline justify-between mb-3">
+            <h2 className="text-xl font-display text-amber-glow">🐟 Conversații fishy chat</h2>
+            <p className="text-xs text-fog/40">{conversations.length} recente</p>
+          </div>
+          <div className="space-y-2">
+            {conversations.map((c) => (
+              <div key={c.id} className="card rounded-lg p-3">
+                <div className="flex items-baseline justify-between gap-2 mb-1">
+                  <p className="text-sm font-medium text-fog truncate flex-1">{c.title ?? "Conversație"}</p>
+                  <p className="text-xs text-fog/45 flex-shrink-0">{new Date(c.updated_at).toLocaleDateString("ro-RO", { day: "numeric", month: "short" })}</p>
+                </div>
+                <p className="text-xs text-fog/55 line-clamp-1">{c.preview?.slice(0, 120) ?? ""}</p>
+                <p className="text-[10px] text-fog/40 mt-1">{c.message_count} mesaje</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-fog/50 mt-3 text-center">
+            Deschide chat-ul cu peștișorul aurit din colț pentru istoric complet 🐟
+          </p>
         </section>
       )}
 
