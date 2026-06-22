@@ -2,10 +2,50 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 
+const DESC =
+  "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării — cote hidro live, prognoză mușcătură și experiența pescarilor extrasă din transcripte YouTube.";
+
 export const metadata: Metadata = {
-  title: "fishy — pescuit în Delta Dunării",
-  description:
-    "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării — extras din experiența pescarilor de pe YouTube",
+  metadataBase: new URL("https://fishy.n01.app"),
+  title: {
+    default: "fishy — pescuit în Delta Dunării",
+    template: "%s · fishy",
+  },
+  description: DESC,
+  applicationName: "fishy",
+  keywords: [
+    "pescuit Delta Dunării",
+    "locuri pescuit Delta",
+    "tehnici pescuit",
+    "prohibiție pescuit 2026",
+    "crap",
+    "știucă",
+    "șalău",
+    "somn",
+    "avat",
+    "biban",
+    "cote hidro Tulcea",
+    "spinning Delta",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    siteName: "fishy",
+    url: "https://fishy.n01.app",
+    title: "fishy — pescuit în Delta Dunării",
+    description: DESC,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "fishy — pescuit în Delta Dunării",
+    description: DESC,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export const viewport: Viewport = {

@@ -7,6 +7,7 @@ const nav = [
   { href: "/azi", label: "partidă" },
   { href: "/beacon", label: "beacon" },
   { href: "/prognoza", label: "prognoză" },
+  { href: "/specii", label: "specii" },
   { href: "/locuri", label: "locuri" },
   { href: "/tehnici", label: "tehnici" },
   { href: "/monturi", label: "monturi" },

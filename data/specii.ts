@@ -155,6 +155,10 @@ export function getSpecie(id: Specie["id"]) {
   return specii.find((s) => s.id === id);
 }
 
+export function getSpecieBySlug(slug: string) {
+  return specii.find((s) => s.id === slug);
+}
+
 export function isInProhibitie(specie: Specie, date: Date): boolean {
   const m = date.getMonth() + 1;
   const d = date.getDate();
