@@ -467,16 +467,30 @@ function detecteazaPatterns(
     }
   }
 
-  // 13. Crap pe vetre baltă (mai-iunie, cota scăzută, apă caldă, lacuri Delta)
-  if (specie.id === "crap" && (month === 5 || month === 6) && waterTemp >= 18) {
-    const cotaScazuta = water && water.level < 130;
-    if (cotaScazuta) {
+  // 13. Crap pe vetre de baltă (lacuri inundate, mai-iulie, cota MARE + apă caldă)
+  if (specie.id === "crap" && month >= 5 && month <= 7 && waterTemp >= 17) {
+    const cotaMare = water && water.level >= 150;
+    if (cotaMare) {
       patterns.push({
         id: "crap-vetre-balta",
         nume: "Crap pe vetre de baltă",
         emoji: "🏞️",
-        descriere: `Cotă ${water.level} (sub 130) + apă ${Math.round(waterTemp)}°C. Crapul activ în lacurile Delta (Fortuna, Puiu, Roșu, Matița), nu pe brațe. Static cu boilies fishmeal pe maluri cu stuf.`,
+        descriere: `Cotă ${water.level}cm (≥150 ridicată) + apă ${Math.round(waterTemp)}°C. Lacurile Delta (Fortuna, Puiu, Roșu, Matița) inundate proaspăt, vegetație accesibilă, oxigen bun. Crapul activ pe maluri cu stuf inundat — boilies fishmeal sau pâine la 1-2m adâncime.`,
         bonus: 1.15,
+      });
+    }
+  }
+
+  // 13b. Crap pe brațe adânci (anti-vetre: cota foarte scăzută, retragere)
+  if (specie.id === "crap" && month >= 5 && month <= 9 && waterTemp >= 18) {
+    const cotaFoarteScazuta = water && water.level < 100;
+    if (cotaFoarteScazuta) {
+      patterns.push({
+        id: "crap-brate-adanci-cota-mica",
+        nume: "Crap retras pe brațe adânci",
+        emoji: "🌊",
+        descriere: `Cotă ${water.level}cm (sub 100) + apă ${Math.round(waterTemp)}°C — lacurile slab oxigenate/izolate. Crapul s-a retras pe brațele principale (Chilia 10-15m, Sulina Mila 8). Pescuit pe gropi adânci, sub umbra cioate.`,
+        bonus: 1.08,
       });
     }
   }
