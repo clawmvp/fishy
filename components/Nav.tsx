@@ -4,7 +4,6 @@ import { useState } from "react";
 import FishIcon from "./FishIcon";
 
 const nav = [
-  { href: "/", label: "acasă" },
   { href: "/azi", label: "partidă" },
   { href: "/harta", label: "hartă" },
   { href: "/beacon", label: "beacon" },
