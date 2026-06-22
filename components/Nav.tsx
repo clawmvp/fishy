@@ -17,6 +17,7 @@ const nav = [
   { href: "/articole", label: "articole" },
   { href: "/glosar", label: "glosar" },
   { href: "/provizii", label: "provizii" },
+  { href: "/cont", label: "cont" },
 ];
 
 export default function Nav() {
