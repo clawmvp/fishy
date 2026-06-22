@@ -366,9 +366,10 @@ export default async function PartidaPage({
 
         <div className="space-y-4">
           {speciiActive.map(({ specie, scor, ghid, locuri: locuriRec, tehnici: tehniciRec, monturi: monturiRec, beaconSemnale }) => (
-            <div key={specie.id} className="card rounded-xl p-5">
-              <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+            <details key={specie.id} className="card rounded-xl group">
+              <summary className="p-5 cursor-pointer list-none flex items-baseline justify-between flex-wrap gap-2 hover:bg-water-2/20 rounded-xl transition-colors">
                 <div className="flex items-baseline gap-3">
+                  <span className="inline-block text-fog/55 transition-transform group-open:rotate-90 mr-1">▸</span>
                   <span className="text-amber-soft mt-1">
                     <SpeciesIcon specie={specie.id} size={28} />
                   </span>
@@ -377,11 +378,26 @@ export default async function PartidaPage({
                     <p className="text-xs text-fog/40">{specie.latin} • {specie.metoda}</p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className={`text-2xl font-light ${scor.cssColor}`}>{scor.total}<span className="text-sm text-fog/40">/100</span></p>
-                  <p className={`text-xs uppercase tracking-wider ${scor.cssColor}`}>{scor.label}</p>
+                <div className="flex items-baseline gap-3">
+                  <div className="text-right">
+                    <p className={`text-2xl font-light ${scor.cssColor}`}>{scor.total}<span className="text-sm text-fog/40">/100</span></p>
+                    <p className={`text-xs uppercase tracking-wider ${scor.cssColor}`}>{scor.label}</p>
+                  </div>
+                  <span className={`text-xs uppercase tracking-wider px-2 py-1 rounded-md font-semibold ${
+                    scor.semantic.verdict === "du-te" ? "text-emerald-400 bg-emerald-400/10 border border-emerald-400/30" :
+                    scor.semantic.verdict === "du-te-scurt" ? "text-amber-glow bg-amber-glow/10 border border-amber-glow/30" :
+                    scor.semantic.verdict === "muta-te" || scor.semantic.verdict === "schimba-specia" ? "text-orange-400 bg-orange-400/10 border border-orange-400/30" :
+                    "text-red-400 bg-red-400/10 border border-red-400/30"
+                  }`}>
+                    {scor.semantic.verdict === "du-te" ? "✓ du-te" :
+                     scor.semantic.verdict === "du-te-scurt" ? "→ scurt" :
+                     scor.semantic.verdict === "muta-te" ? "↻ mută" :
+                     scor.semantic.verdict === "schimba-specia" ? "🔄 altă" :
+                     "✕ acasă"}
+                  </span>
                 </div>
-              </div>
+              </summary>
+              <div className="px-5 pb-5 pt-1">
 
               {/* Verdict semantic — recomandare clară */}
               <div className="mb-4 p-3 rounded-lg" style={{
@@ -628,7 +644,8 @@ export default async function PartidaPage({
                   <Link href="/locuri" className="text-moss hover:text-amber-glow">locurile</Link>.
                 </p>
               )}
-            </div>
+              </div>
+            </details>
           ))}
         </div>
       </section>
