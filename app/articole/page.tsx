@@ -12,7 +12,7 @@ export default function ArticolePage() {
           Lecții și principii
         </h1>
         <p className="text-fog/75 max-w-2xl">
-          Sinteze din partidele documentate — filozofia Vișoianu, săptămâna magică
+          Sinteze din partidele documentate — strategii pe termen lung, săptămâna magică
           de primăvară, capcane comune. Lecturi de 5-10 minute fiecare.
         </p>
       </header>

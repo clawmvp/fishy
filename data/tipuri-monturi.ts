@@ -51,7 +51,7 @@ export const tipuriMonturi: TipMontura[] = [
     ],
     evitati:
       "NU folosi plumb in-line pe cioate dense — la agățare nu se eliberează → rupere garantată. Folosește plumb pierdut.",
-    monturiAsociate: ["inline-clasic-barca", "n-trap-visoianu"],
+    monturiAsociate: ["inline-clasic-barca", "n-trap-mono-sulina"],
   },
   {
     slug: "plumb-pierdut",
@@ -249,7 +249,7 @@ export const tipuriMonturi: TipMontura[] = [
     ],
     evitati:
       "Părul de păr LUNG (peste 3 cm decojit) — atrage caras / rateuri.",
-    monturiAsociate: ["inline-clasic-barca", "momitor-method-feeder", "n-trap-visoianu"],
+    monturiAsociate: ["inline-clasic-barca", "momitor-method-feeder", "n-trap-mono-sulina"],
   },
   {
     slug: "pva-bag",

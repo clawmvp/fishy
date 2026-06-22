@@ -74,10 +74,10 @@ Standard Baltacul:
 `,
   },
   {
-    slug: "filozofia-visoianu",
-    titlu: "Filozofia Călin Vișoianu — masterclass pentru crap capital",
-    scurt: "30+ ani experiență, record personal 22 kg pe Dunărea Veche. Ce face diferit față de toată lumea.",
-    tags: ["crap", "expert", "delta"],
+    slug: "strategia-partidei-lungi",
+    titlu: "Strategia partidei lungi — masterclass pentru crap capital",
+    scurt: "Filozofia partidei de 7-10 zile pentru crapi mari pe Dunărea Veche și Sulina — sinteză din experiența pescarilor documentați (Vișoianu, Baltacul, Mihai Manea).",
+    tags: ["crap", "expert", "delta", "multi-day"],
     body: `## Cele cinci principii contraintuitive
 
 ### 1. Niciodată partidă scurtă
@@ -89,7 +89,7 @@ Minim **7-10 zile**. Crapul devine dependent de mixul tău în 4-5 zile, abia du
 - Ultimele 2-3 zile: doar **20 boilies/lansetă** la plantare — cele mai prolifice
 
 ### 2. NICIODATĂ boilies cerealiere cu aromă mare
-Bune doar pentru weekend rapid. Pentru partide lungi → **fishmeal** (Sticky Krill = standardul lui pe Sulina). Krill + arahide = combinație care creează dependență.
+Bune doar pentru weekend rapid. Pentru partide lungi → **fishmeal** (Sticky Krill, Delta Activ și echivalente sunt standardul pe Sulina). Krill + arahide = combinație care creează dependență.
 
 ### 3. Mono > împletit pentru crap pe Dunăre
 **Berkley Trilene XT Hi-Vis Gold 0.46 mm** (sau Evo ca alternativă). Elongația naturală a mono împiedică ruperea când peștele e proptit în butur. Frânele strânse la maxim funcționează DOAR cu mono + lansetă elastică.
@@ -110,7 +110,7 @@ Pe apă <7 m, locurile bune sunt **sălcii scufundate ancorate cu dale de beton 
 - Crapul stă **AVAL de butur la curent mic**; **AMONTE la curent puternic** (vară)
 - Marchează pe GPS (eroare 1-2 m) + verifică sonar la fiecare partidă (putrefacția le mută)
 
-## Cota Tulcea — clasificarea Vișoianu
+## Cota Tulcea — clasificarea comună la pescarii Delta
 
 | Cotă | Stare | Strategie |
 |---|---|---|

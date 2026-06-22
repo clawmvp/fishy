@@ -74,7 +74,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "lanseta",
-    note: "Carbon compozit + vârf fibră sticlă plină. Foarte elastică — esențială pentru tehnica Vișoianu cu mono.",
+    note: "Carbon compozit + vârf fibră sticlă plină. Foarte elastică — esențială pentru tehnica mono pe Dunăre.",
   },
   {
     nume: "Trabucco Astore ISO Hunter",
@@ -119,7 +119,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "mulineta",
-    note: "Recomandarea Vișoianu. 'Mai bună decât Daiwa/Shimano la același preț'. Tambur mare în caz că-ți taie cineva firul cu motorul.",
+    note: "Recomandare consens pescari Sulina. 'Mai bună decât Daiwa/Shimano la același preț'. Tambur mare în caz că-ți taie cineva firul cu motorul.",
   },
   {
     nume: "Daiwa BG 6000",
@@ -190,7 +190,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "fir",
-    note: "Standardul Vișoianu — mono pentru elasticitate, esențial cu lansetă elastică Colmic.",
+    note: "Standard pe Dunăre — mono pentru elasticitate, esențial cu lansetă elastică Colmic.",
   },
   {
     nume: "Corda Subline",
@@ -266,7 +266,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "carlige",
-    note: "Wide gape, ochet drept, vârf drept. Recomandarea Vișoianu.",
+    note: "Wide gape, ochet drept, vârf drept. Standard la crapul de pe Dunăre.",
   },
 
   // === NALUCI STIUCA ===
@@ -470,7 +470,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "boilies",
-    note: "Recomandare Vișoianu. 'Cea mai bună bilă pe Sulina, ia capturile cele mai mari'. Krill + arahide.",
+    note: "Reputație pe Sulina. 'Cea mai bună bilă pe Sulina, ia capturile cele mai mari'. Krill + arahide.",
   },
   {
     nume: "Wild Carp Strong dumbbells",
@@ -531,7 +531,7 @@ export const echipament: Item[] = [
     prioritate: "expert",
     pentru: ["crap"],
     categoria: "montura",
-    note: "Semi-Stiff iarna / Soft vara. Lungime 30-35-40 cm. Recomandarea Vișoianu.",
+    note: "Semi-Stiff iarna / Soft vara. Lungime 30-35-40 cm. Standardul pentru Dunăre.",
   },
   {
     nume: "Plumb plat",
@@ -916,7 +916,7 @@ echipament.push(
   // ============ MOTOARE ============
   { nume: "Honda 40 CP 4 timpi", marca: "Honda", specific: "40 CP, 4 timpi", prioritate: "expert", pentru: ["crap", "salau", "stiuca"], categoria: "motoare", note: "Folosit pe Gobbi 5m (PCS). Și pentru Marea Neagră (stavrid). Standard pentru cabinate medii. ~30.000-40.000 RON nou." },
   { nume: "Suzuki 40 CP cu trim electric", marca: "Suzuki", specific: "40 CP, trim electric", prioritate: "expert", pentru: ["crap"], categoria: "motoare", note: "Trim electric = manevrare ușoară pe șenale înguste. Setup Gobbi 5m PCS." },
-  { nume: "Honda 6 CP", marca: "Honda", specific: "6 CP, 4 timpi", prioritate: "must", pentru: ["crap"], categoria: "motoare", note: "Pentru bărci mici / podine 3-4 m. Economic, fiabil — recomandare Vișoianu. ~5000-7000 RON." },
+  { nume: "Honda 6 CP", marca: "Honda", specific: "6 CP, 4 timpi", prioritate: "must", pentru: ["crap"], categoria: "motoare", note: "Pentru bărci mici / podine 3-4 m. Economic, fiabil — recomandare comună. ~5000-7000 RON." },
   { nume: "Motor electric Quest cu GPS-anchor lock", marca: "Quest", specific: "Electric, GPS-anchor lock integrat", prioritate: "expert", pentru: ["crap", "somn"], categoria: "motoare", note: "ESENȚIAL cu sondă live (LVS34). Repoziționare precisă fără să muți barca cu ancora. Setup GFT pe Finval. ~15.000-20.000 RON." },
   { nume: "Baterie LiFePO4 36V/100Ah", specific: "Fosfat de fier-litiu, ciclu lung", prioritate: "expert", pentru: ["crap", "somn"], categoria: "motoare", note: "Pentru motor electric Quest — autonomie zile întregi pe partidă. Folosit de GFT pe Finval 595. ~5000-8000 RON." },
 

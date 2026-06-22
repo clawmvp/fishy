@@ -29,7 +29,7 @@ export const glosar: Termen[] = [
   { termen: "Leadcore", categorie: "montura", definitie: "Fir împletit cu miez de plumb — se așază pe fund, ascunde firul la baza monturii. 0.5-1 m lungime tipică." },
   { termen: "Snowman", categorie: "montura", definitie: "Combo de boilie tare + pop-up pe același fir de păr. Pop-up-ul ridică ușor boilia tare — prezentare 'om de zăpadă'." },
   { termen: "Anti-tangle sleeve", categorie: "montura", definitie: "Tub de cauciuc moale între forfac și swivel — previne încurcarea la lansare." },
-  { termen: "Dublu lagăr", categorie: "montura", definitie: "Vârtej cu rulment dublu — nu se înțepenește pe curent puternic. OBLIGATORIU pe Dunăre după Vișoianu." },
+  { termen: "Dublu lagăr", categorie: "montura", definitie: "Vârtej cu rulment dublu — nu se înțepenește pe curent puternic. OBLIGATORIU pe Dunăre — standard între pescarii experimentați." },
 
   // ECHIPAMENT
   { termen: "Big pit", categorie: "echipament", definitie: "Mulinetă cu tambur foarte mare (8000-10000+) pentru lansări lungi — capacitate 400-500+ m de fir." },
@@ -52,7 +52,7 @@ export const glosar: Termen[] = [
   { termen: "Brațul Chilia", categorie: "locuri", definitie: "Brațul nordic al Deltei, frontiera cu Ucraina. Apă adâncă cu cioate. Vară-toamnă = crap mare." },
   { termen: "Brațul Sulina", categorie: "locuri", definitie: "Brațul navigabil. Trafic intens — 'autostradă'. Pietre + scoică la mal, dificil de pe mal." },
   { termen: "Brațul Sfântu Gheorghe", categorie: "locuri", definitie: "Brațul sudic. Apă adâncă cu cioate, tradițional pentru pești mari (record cunoscut 27 kg)." },
-  { termen: "Dunărea Veche", categorie: "locuri", definitie: "Brațul vechi între Mila 23 și Crișan. Apă <7 m. Loc istoric pentru crapi capitali — vezi strategia Vișoianu." },
+  { termen: "Dunărea Veche", categorie: "locuri", definitie: "Brațul vechi între Mila 23 și Crișan. Apă <7 m. Loc istoric pentru crapi capitali — vezi strategia partidei lungi." },
   { termen: "Mila 23", categorie: "locuri", definitie: "Sat în Deltă, hub pentru pensiuni (Gigant Fish, etc.). Acces la canale interioare și Dunărea Veche." },
   { termen: "Crișan", categorie: "locuri", definitie: "Localitate pe brațul Sulina, lângă hotelul Lebăda. Punct de plecare pentru canalul Îngusta." },
   { termen: "Periprava", categorie: "locuri", definitie: "Sat în nordul Deltei, pe brațul Chilia. Cunoscut pentru pescuit crap cu Marian Mincu." },
@@ -89,7 +89,7 @@ export const glosar: Termen[] = [
   { termen: "Coropișniță", categorie: "general", definitie: "Insectă subterană (Gryllotalpa) — momeală excelentă pentru somn, combinată cu vier de salcie. Tulcea, piață." },
   { termen: "Spomb", categorie: "echipament", definitie: "Rachetă plutitoare pentru nadă — se aruncă cu lanseta la distanță, se deschide pe apă și eliberează nada. Folosit pe lacuri mari (ex: Corbu)." },
   { termen: "Som / Somn", categorie: "pesti", definitie: "Silurus glanis. Cel mai mare răpitor european. Atacă de jos în sus (mandibula inferioară proeminentă). Aude prin vezica înotătoare ca prin difuzor. Pescuit cu clonc (chemare prin vibrație) sau staționar." },
-  { termen: "Cotă Tulcea", categorie: "locuri", definitie: "Înălțimea apei Dunării la Tulcea. Clasificare Vișoianu: 150-200 = optim crap pe canale; sub 45 = doar ciortani; 270-300 = ape mari, crapul în lacuri; pe Iacub 150-170 cotă ideală." },
+  { termen: "Cotă Tulcea", categorie: "locuri", definitie: "Înălțimea apei Dunării la Tulcea. Clasificare comună la pescari Delta: 150-200 = optim crap pe canale; sub 45 = doar ciortani; 270-300 = ape mari, crapul în lacuri; pe Iacub 150-170 cotă ideală." },
   { termen: "Rest stopper", categorie: "montura", definitie: "Opritor de cauciuc sub shrink tube pe linia principală. Esențial când vântul + valurile scufundă firul, pentru a evita ca plumbul să cadă cu totul." },
   { termen: "Vezica înotătoare", categorie: "pesti", definitie: "Organ al peștelui care servește la flotabilitate + AMPLIFICARE A SUNETULUI ca o membrană de difuzor. De aceea crapul + somnul aud foarte bine vibrații (spomb, motor, atv pe mal)." },
 ];

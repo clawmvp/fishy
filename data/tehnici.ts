@@ -321,11 +321,11 @@ export const tehnici: Tehnica[] = [
     ],
   },
   {
-    slug: "crap-strategie-visoianu",
+    slug: "crap-strategie-partida-lunga",
     specie: "crap",
     metoda: "static",
-    titlu: "Strategia Vișoianu — partide lungi 7-10 zile pentru crap mare",
-    scurt: "Filozofia 'Doctor Fishing' — record personal 22 kg pe Dunărea Veche.",
+    titlu: "Strategie partidă lungă 7-10 zile pentru crap mare",
+    scurt: "Filozofia partidei multi-day, validată de Vișoianu, Baltacul și alți pescari Delta — record cunoscut 22 kg pe Dunărea Veche.",
     perioada: "Mai - octombrie",
     pasi: [
       "Sonar zilnic + GPS pentru buturi lipovenești ancorate cu dale de beton (cele de 1-2 ani sunt cele bune)",

@@ -267,7 +267,7 @@ export const monturi: Montura[] = [
     nume: "Korda N-Trap 30 lbs cu Solar wide gape — strategia Vișoianu",
     pentru: ["crap"],
     metoda: "static",
-    scop: "Montura recomandării 'Doctor Fishing' — pentru partide lungi 7-10 zile pe Dunărea Veche cu crapi 22+ kg.",
+    scop: "Montura clasică mono+textil pentru partide lungi 7-10 zile pe Dunărea Veche cu crapi 22+ kg.",
     cand: "Mai-octombrie pe Dunărea Veche / Sulina cu buturi lipovenești",
     luni: [5, 6, 7, 8, 9, 10],
     components: [
@@ -306,7 +306,7 @@ export const monturi: Montura[] = [
       "Boilie fishmeal 20 mm (vara) sau 16 mm (octombrie)",
     ],
     sfaturi: [
-      "NICIODATĂ partidă scurtă cu strategia Vișoianu — minim 7-10 zile",
+      "NICIODATĂ partidă scurtă cu această strategie — minim 7-10 zile",
       "MONO 0.46 mm (Berkley Trilene XT Hi-Vis Gold) + lansetă elastică Colmic Calibra = combo unic, frânele strânse la maxim funcționează DOAR cu mono+elasticitate",
       "Pe gropi (brațe mari) — plumb pierdut greu + textil simplu necămășuit (curentul așază firul, NU se încurcă fără cămașă)",
       "Pe buturi lipovenești — crapul stă AVAL de butur la curent mic; AMONTE la curent puternic (vară)",

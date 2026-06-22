@@ -105,7 +105,7 @@ export default function AlgoritmPage() {
         <h3 className="text-xl font-display text-fog mt-6 mb-2">Apa = 28-35% (factor primar)</h3>
         <p className="text-fog/75 mb-3 leading-relaxed">
           Metabolismul peștelui depinde DIRECT de temperatura apei. Sub temperatura optimă, peștele e apatic;
-          peste, intră în zone adânci. Toți pescarii documentați (Vișoianu, Baltacul, DPD, GFT) confirmă
+          peste, intră în zone adânci. Pescarii documentați (Baltacul, GDA, DPD, Vișoianu, GFT, Claumar) confirmă
           temperatura apei ca factor #1.
         </p>
 
@@ -120,7 +120,7 @@ export default function AlgoritmPage() {
         <p className="text-fog/75 mb-3 leading-relaxed">
           Presiunea afectează poziția hidrostatică a peștelui în coloana de apă. Presiune mare în creștere =
           peștii intră în repaus. Presiune stabilă sau în scădere ușoară = activitate maximă.
-          Trei pescari independenți (Vișoianu, GDA, Mihai Manea) menționează tabelul Excel cu presiune.
+          Mai mulți pescari independenți (GDA, Mihai Manea, Vișoianu) menționează tabelul Excel cu presiune.
         </p>
 
         <h3 className="text-xl font-display text-fog mt-6 mb-2">Vânt = 8-18% (variabil)</h3>

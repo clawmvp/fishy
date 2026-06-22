@@ -16,10 +16,10 @@ import { isInProhibitie } from "@/data/specii";
 // - Cota = important pentru Delta/Dunăre (15-25%) — afectează migrația și hrana
 // - Vânt = important pt răpitori (oxigenare + val), secundar pt static (10-18%)
 // - Precipitații = modifier (7-12%)
-// - Lună = controversat — Vișoianu jură pe ea pt crap, GFT zice "any" pe răpitori (7-12%)
+// - Lună = controversat — unii pescari jură pe ea pt crap (12%), GFT zice "any" pe răpitori (7-12%)
 // ============================================================
 export const PONDERI: Record<Specie["id"], Record<string, number>> = {
-  // Crap: cota cea mai importantă (canale Delta), lună 12% (Vișoianu)
+  // Crap: cota cea mai importantă (canale Delta), lună 12% (consens între pescari)
   crap:   { apa: 28, cota: 25, presiune: 18, vant: 10, precip: 7,  luna: 12 },
   // Somn: apa și presiune cele mai importante, cota secundară
   somn:   { apa: 35, cota: 15, presiune: 22, vant: 8,  precip: 12, luna: 8 },
@@ -192,7 +192,7 @@ function scoreLuna(illum: number, preference: "new" | "full" | "new_or_full" | "
     sub = 75;
     etich = `${illum}% iluminată — neutru`;
   } else if (preference === "new") {
-    if (illum < 15) { sub = 100; etich = `Lună nouă (${illum}%) — ideal (Vișoianu: ±2 zile)`; }
+    if (illum < 15) { sub = 100; etich = `Lună nouă (${illum}%) — ideal (±2 zile pre-depunere)`; }
     else if (illum < 30) { sub = 80; etich = `Aproape de lună nouă (${illum}%)`; }
     else if (illum < 60) { sub = 55; etich = `Pătrar (${illum}%)`; positive = false; }
     else { sub = 30; etich = `Prea multă lumină (${illum}%) — peștii pe suprafață`; positive = false; }
@@ -272,7 +272,7 @@ function detecteazaPatterns(
   const isPrev3 = forecastsPrev.length >= 3;
   const noStorm3Days = isPrev3 && forecastsPrev.every((f) => f.precipitation < 5 && f.windMax < 25);
 
-  // 1. Săptămâna magică primăvară (Vișoianu/Baltacul)
+  // 1. Săptămâna magică primăvară (consens multi-pescari documentat)
   if (specie.id === "crap" && month >= 3 && month <= 5) {
     const airWarm = forecast.tempMax > 20;
     const waterWarm = waterTemp >= 10;
@@ -282,23 +282,23 @@ function detecteazaPatterns(
         id: "saptamana-magica",
         nume: "Săptămâna magică",
         emoji: "🌸",
-        descriere: "Apă >10°C + aer >20°C + cotă bună + 3 zile stabile = pre-depunere activă. Vișoianu/Baltacul confirmă.",
+        descriere: "Apă >10°C + aer >20°C + cotă bună + 3 zile stabile = pre-depunere activă. Documentat de mulți pescari Delta.",
         bonus: 1.20,
       });
     }
   }
 
-  // 2. Fereastra Vișoianu (crap)
+  // 2. Fereastra de pre-depunere (crap)
   if (specie.id === "crap") {
     const lunaIdeala = moon.illumination < 15 || moon.illumination > 85;
     const cotaOK = water && water.level >= 150 && water.level <= 200;
     const presStable = isPrev3 && forecastsPrev.every((f) => Math.abs(f.pressure - forecast.pressure) <= 3);
     if (lunaIdeala && cotaOK && presStable) {
       patterns.push({
-        id: "fereastra-visoianu",
-        nume: "Fereastra Vișoianu",
+        id: "fereastra-pre-depunere",
+        nume: "Fereastra de pre-depunere",
         emoji: "🎯",
-        descriere: "Lună ±2 zile + cotă 150-200 + presiune stabilă 3 zile = momentul ideal pe Dunărea Veche.",
+        descriere: "Lună ±2 zile + cotă 150-200 + presiune stabilă 3 zile = momentul ideal pe Dunărea Veche și canalele de tranzit.",
         bonus: 1.18,
       });
     }
@@ -693,7 +693,7 @@ export type RecomandareContext = {
 // Pattern-uri și locurile pe care le activează
 const PATTERN_LOCURI: Record<string, string[]> = {
   "saptamana-magica": ["bratul-tataru", "canalul-iacub", "mila-23", "boda-proste-lopatna"],
-  "fereastra-visoianu": ["dunarea-veche", "mila-23", "canalul-ingusta"],
+  "fereastra-pre-depunere": ["dunarea-veche", "mila-23", "canalul-ingusta"],
   "bate-norocul": ["canalul-litcov", "mila-23", "canalul-ingusta", "dunarea-veche-mila23-lopatna"],
   "era-begului": ["boda-proste-lopatna", "canalul-ingusta", "mila-23"],
   "front-activator": ["bratul-chilia", "bratul-sfantu-gheorghe", "groapa-25m-chilia-tatanir", "chilia-veche-pragul-22m"],
@@ -884,7 +884,7 @@ function _genereazaGhidInternal(specie: Specie, ctx: RecomandareContext): GhidSp
     if (cota !== undefined && cota >= 150 && cota <= 200) {
       return {
         unde: "Pe canale Delta + Dunărea Veche",
-        deCe: `Cota ${cota} cm = OPTIMĂ (regula Vișoianu). Crapul circulă pe canalele de tranzit între brațe — momentul ideal pe Dunărea Veche, Mila 23, Crișan-Îngusta.`,
+        deCe: `Cota ${cota} cm = OPTIMĂ. Crapul circulă pe canalele de tranzit între brațe — momentul ideal pe Dunărea Veche, Mila 23, Crișan-Îngusta.`,
         detalii: [
           "Dunărea Veche (Mila 23 → Crișan) = șansa la crap capital",
           "Canalele Boda Proste, Lopatna, Litcov — peștii migrează",
@@ -1088,7 +1088,7 @@ function _genereazaGhidInternal(specie: Specie, ctx: RecomandareContext): GhidSp
 // Pattern → tehnici activate (cele mai relevante când pattern e activ)
 const PATTERN_TEHNICI: Record<string, string[]> = {
   "saptamana-magica": ["crap-primavara-momitor", "porumb-fermentat-vs-fiert", "ritm-activitate-canale-primavara"],
-  "fereastra-visoianu": ["crap-strategie-visoianu", "crap-vara-boilies"],
+  "fereastra-pre-depunere": ["crap-strategie-partida-lunga", "crap-vara-boilies"],
   "bate-norocul": ["crap-strategie-bate-norocul", "crap-iarna-canale-alegere"],
   "era-begului": ["pva-plumb-greu-2026", "crap-pva-navomodel"],
   "front-activator": ["somn-clonc-chilia", "clonc-sonar-live-modern", "clonc-sonar-citire", "somn-stationar-chilia-veche"],
@@ -1098,7 +1098,7 @@ const PATTERN_TEHNICI: Record<string, string[]> = {
 // Pattern → monturi activate
 const PATTERN_MONTURI: Record<string, string[]> = {
   "saptamana-magica": ["momitor-method-feeder"],
-  "fereastra-visoianu": ["n-trap-visoianu", "inline-clasic-barca"],
+  "fereastra-pre-depunere": ["n-trap-mono-sulina", "inline-clasic-barca"],
   "bate-norocul": ["plumb-pierdut-cioata", "fluorocarbon-rigid-iarna"],
   "era-begului": [], // PVA cu plumb greu — tehnică nu montură separată în baza
   "front-activator": ["clonc-somn", "clonc-ancori-owner", "somn-stationar"],
