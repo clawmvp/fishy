@@ -10,6 +10,8 @@ import {
 import { tehnici } from "@/data/tehnici";
 import { locuri } from "@/data/locuri";
 import { articole } from "@/data/articole";
+import { monturi } from "@/data/monturi";
+import { echipament } from "@/data/echipament";
 
 const LUNI = ["", "ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie"];
 const metodaLabel: Record<string, string> = { spinning: "spinning", static: "la fund / static" };
@@ -74,7 +76,9 @@ export default async function SpeciePage({
   const oc = s.optimalConditions;
 
   const tehniciSpecie = tehnici.filter((t) => t.specie === s.id);
+  const monturiSpecie = monturi.filter((m) => m.pentru.includes(s.id));
   const locuriSpecie = locuri.filter((l) => l.specii.includes(s.id));
+  const echipamentSpecie = echipament.filter((e) => e.pentru.includes(s.id));
   const articoleSpecie = articole.filter((a) => a.tags.includes(s.id));
 
   return (
@@ -88,7 +92,8 @@ export default async function SpeciePage({
           {metodaLabel[s.metoda] ?? s.metoda}
         </p>
         <h1 className="text-4xl md:text-5xl font-display text-amber-glow mb-2">{s.nume}</h1>
-        <p className="text-lg italic text-fog/55">{s.latin}</p>
+        <p className="text-lg italic text-fog/55 mb-4">{s.latin}</p>
+        <p className="text-lg text-fog/80 leading-relaxed">{s.descriere}</p>
       </header>
 
       {/* Status prohibiție */}
@@ -136,6 +141,25 @@ export default async function SpeciePage({
         <p className="text-fog leading-relaxed">{s.sezonScurt}</p>
       </section>
 
+      {/* Comportament */}
+      <section className="mb-8">
+        <h2 className="text-xl font-display text-amber-glow mb-3">Comportament</h2>
+        <p className="text-fog leading-relaxed">{s.comportament}</p>
+      </section>
+
+      {/* Momeli */}
+      <section className="mb-8">
+        <h2 className="text-xl font-display text-amber-glow mb-3">Momeli și năluci</h2>
+        <ul className="space-y-2">
+          {s.momeli.map((m, i) => (
+            <li key={i} className="flex gap-3 text-fog leading-relaxed">
+              <span className="text-amber-glow flex-shrink-0">→</span>
+              <span>{m}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Condiții optime */}
       <section className="mb-8">
         <h2 className="text-xl font-display text-amber-glow mb-3">Condiții optime</h2>
@@ -170,6 +194,18 @@ export default async function SpeciePage({
         </CrossSection>
       )}
 
+      {/* Monturi */}
+      {monturiSpecie.length > 0 && (
+        <CrossSection title={`Monturi pentru ${s.nume.toLowerCase()}`} count={monturiSpecie.length}>
+          {monturiSpecie.map((m) => (
+            <Link key={m.slug} href={`/monturi/${m.slug}`} className="card rounded-lg p-4">
+              <h3 className="text-base font-display text-fog mb-1">{m.nume}</h3>
+              <p className="text-sm text-fog/55">{m.scop}</p>
+            </Link>
+          ))}
+        </CrossSection>
+      )}
+
       {/* Locuri */}
       {locuriSpecie.length > 0 && (
         <CrossSection title={`Locuri pentru ${s.nume.toLowerCase()}`} count={locuriSpecie.length}>
@@ -180,6 +216,35 @@ export default async function SpeciePage({
             </Link>
           ))}
         </CrossSection>
+      )}
+
+      {/* Echipament */}
+      {echipamentSpecie.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-display text-amber-glow mb-3">
+            Echipament recomandat
+            <span className="text-fog/40 text-base ml-2">({echipamentSpecie.length})</span>
+          </h2>
+          <div className="card rounded-lg p-5">
+            <ul className="space-y-2.5">
+              {echipamentSpecie.map((e, i) => (
+                <li key={i} className="flex gap-3 text-fog leading-relaxed">
+                  <span className="text-moss flex-shrink-0">•</span>
+                  <span>
+                    <span className="text-fog">{e.nume}</span>
+                    {e.specific && <span className="text-fog/50"> — {e.specific}</span>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/echipament"
+              className="inline-block mt-4 text-sm text-moss hover:text-amber-glow"
+            >
+              vezi tot echipamentul →
+            </Link>
+          </div>
+        </section>
       )}
 
       {/* Articole */}
