@@ -537,7 +537,78 @@ function detecteazaPatterns(
     }
   }
 
+  // 18. Frenezia bobului de grâu (iul-aug, recoltă cereale)
+  if (specie.id === "crap" && (month === 7 || month === 8)) {
+    const apaCalda = waterTemp >= 19;
+    if (apaCalda) {
+      patterns.push({
+        id: "frenezia-graului",
+        nume: "Frenezia bobului de grâu",
+        emoji: "🌾",
+        descriere: `Iulie-august: recolta de cereale = boabe căzute pe maluri + buruieni date pe ape. Carași/babușcă activi, dar crapul mare se cuibărește pe nadă tare. Nadă cu porumb fiert/grâu lângă boilies — singura combinație care ține peștele alb la distanță.`,
+        bonus: 1.12,
+      });
+    }
+  }
+
+  // 19. Frunzișul căzut (anti-pattern oct-nov, tanin în apă)
+  if ((month === 10 || month === 11) && waterTemp < 14) {
+    patterns.push({
+      id: "frunzis-cazut",
+      nume: "Frunzișul căzut",
+      emoji: "🌲",
+      descriere: `Octombrie-noiembrie + apă ${Math.round(waterTemp)}°C: frunzele căzute infectează apa cu tanin. Peștii caută zone curate, evită canale înguste cu vegetație. Du-te pe brațe principale unde curentul curăță.`,
+      bonus: 0.92,
+    });
+  }
+
+  // 20. Pre-îngheț (toate speciile, oct-nov, înainte de prima noapte cu îngheț)
+  // Trigger: temp min azi >2°C dar mâine (prev?) sau prognoză temp min ≤2°C
+  if ((month === 10 || month === 11) && forecast.tempMin > 2 && forecastsPrev.length === 0) {
+    // verificăm dacă forecast indică schimbare bruscă (zi caldă + vânt rece prognozat)
+    const tempIngheataApropiat = forecast.tempMin < 5; // proximitate la îngheț
+    if (tempIngheataApropiat && waterTemp >= 8 && waterTemp <= 14) {
+      patterns.push({
+        id: "pre-inghet",
+        nume: "Pre-îngheț — pescuit voraz",
+        emoji: "🥶",
+        descriere: `Octombrie-noiembrie + temp min ${forecast.tempMin}°C + apă ${Math.round(waterTemp)}°C. Peștii mănâncă voracios cu o zi înainte de prim îngheț — comportament documentat. Nadă densă, momeli proteine mari.`,
+        bonus: 1.15,
+      });
+    }
+  }
+
+  // 21. Ora magică (zi senină, vânt slab, vreme bună — bonus generic dimineață/seară)
+  const weatherClear = forecast.cloudCover < 50 && forecast.precipitation < 1;
+  const ventModerat = forecast.windMax >= 3 && forecast.windMax <= 12;
+  const apaActiva = waterTemp >= 12 && waterTemp <= 24;
+  if (weatherClear && ventModerat && apaActiva) {
+    patterns.push({
+      id: "ora-magica",
+      nume: "Ora magică — crepuscul productiv",
+      emoji: "🌅",
+      descriere: `Cer ${Math.round(forecast.cloudCover)}% senin + vânt ${forecast.windMax}km/h + apă ${Math.round(waterTemp)}°C = condiții ideale pentru atac. Activitate max 30min înainte răsărit + 30min după apus. Plănuiește partida pe ferestrele acelea.`,
+      bonus: 1.08,
+    });
+  }
+
+  // 22. Vânt favorabil — moderat 8-18 km/h, orice direcție (oxigenare optimă)
+  if (forecast.windMax >= 8 && forecast.windMax <= 18 && forecast.precipitation < 3) {
+    patterns.push({
+      id: "vant-favorabil",
+      nume: "Vânt favorabil",
+      emoji: "💨",
+      descriere: `Vânt ${forecast.windMax} km/h ${getWindDirection(forecast.windDirection)} — gamă optimă pentru oxigenare. Val ridică sedimentele pe malul opus, atrage albitura, apoi răpitorii și crapul. Poziționează-te pe malul DE UNDE bate vântul.`,
+      bonus: 1.06,
+    });
+  }
+
   return patterns;
+}
+
+function getWindDirection(deg: number): string {
+  const dirs = ["N", "NE", "E", "SE", "S", "SV", "V", "NV"];
+  return dirs[Math.round(deg / 45) % 8];
 }
 
 // Calculează stabilitatea trendului ultimelor 3 zile
