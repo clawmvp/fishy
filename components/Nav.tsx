@@ -5,6 +5,7 @@ import { useState } from "react";
 const nav = [
   { href: "/", label: "acasă" },
   { href: "/azi", label: "partidă" },
+  { href: "/chat", label: "🤖 chat" },
   { href: "/harta", label: "hartă" },
   { href: "/beacon", label: "beacon" },
   { href: "/prognoza", label: "prognoză" },
