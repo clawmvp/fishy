@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import FishIcon from "./FishIcon";
 
 const nav = [
   { href: "/", label: "acasă" },
@@ -27,11 +28,14 @@ export default function Nav() {
   return (
     <header className="border-b border-amber-glow/15 backdrop-blur-sm sticky top-0 z-50 bg-water/80">
       <div className="max-w-6xl mx-auto px-4 md:px-5 py-3 md:py-4 flex items-center justify-between gap-3">
-        <Link href="/" onClick={() => setOpen(false)} className="flex items-baseline gap-2 group flex-shrink-0">
-          <span className="text-xl font-semibold tracking-tight text-amber-glow group-hover:text-amber-soft transition-colors">
+        <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2 group flex-shrink-0">
+          <span className="text-amber-glow group-hover:text-amber-soft transition-colors">
+            <FishIcon size={28} />
+          </span>
+          <span className="text-xl font-semibold tracking-tight text-amber-glow group-hover:text-amber-soft transition-colors leading-none">
             fishy
           </span>
-          <span className="hidden sm:inline text-xs text-fog/55 uppercase tracking-widest">
+          <span className="hidden sm:inline text-xs text-fog/55 uppercase tracking-widest leading-none">
             delta dunării
           </span>
         </Link>
