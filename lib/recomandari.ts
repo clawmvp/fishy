@@ -416,7 +416,7 @@ function detecteazaPatterns(
         id: "era-begului",
         nume: "Era begului",
         emoji: "💪",
-        descriere: "Post-prohibiție + apă optimă + pre-depunere terminat = PVA cu plumb greu (Costache) = capturi active.",
+        descriere: "Post-prohibiție + apă optimă + pre-depunere terminat = PVA cu plumb greu (Vișoianu) = capturi active.",
         bonus: 1.10,
       });
     }
@@ -1131,11 +1131,12 @@ function _genereazaGhidInternal(specie: Specie, ctx: RecomandareContext): GhidSp
     if (apa !== undefined && apa < 14) {
       return {
         unde: "Aproape inactiv pe Dunăre",
-        deCe: `Apa ${apa}°C = somn în repaus metabolic. Singura excepție: canalele cu apă caldă (CNE Cernavodă).`,
-        evitati: "Cloncul pe Chilia/Sf. Gheorghe = pierdere de timp.",
+        deCe: `Apa ${apa}°C = somn în repaus metabolic. În Delta, perioada e moartă pentru clonc.`,
+        evitati: "Cloncul pe Chilia/Sf. Gheorghe sub 14°C = pierdere de timp.",
         detalii: [
-          "Așteaptă apa să urce peste 16°C",
-          "SAU mergi pe canalul de evacuare CNE Cernavodă (apă caldă constantă)",
+          "Așteaptă apa să urce peste 16°C pentru clonc productiv",
+          "Excepție regională: canalul de evacuare CNE Cernavodă (apă caldă constantă) — dar e în afara Deltei",
+          "Iarna: somn doar pe gher static cu vier mare pe gropi adânci",
         ],
       };
     }
@@ -1236,8 +1237,8 @@ function _genereazaGhidInternal(specie: Specie, ctx: RecomandareContext): GhidSp
       deCe: "Condiții normale. Șalău pe primul prag (3-6m de mal), nu departe.",
       detalii: [
         "Lansare paralel cu malul",
-        "Lacul Babadag — singur loc Delta validat",
-        "Apoi treptat spre larg",
+        "Brațul Sulina + Chilia (canale adânci) și lacurile sistemului Razim-Sinoe (Babadag, Goloviță) = locurile bune Delta",
+        "Apoi treptat spre larg dacă nu prinde la mal",
       ],
     };
   }
