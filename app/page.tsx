@@ -6,6 +6,7 @@ import { glosar } from "@/data/glosar";
 import { specii, isInProhibitie } from "@/data/specii";
 import SpeciesIcon from "@/components/SpeciesIcon";
 import { CotaTrendSparkline } from "@/components/CotaTrendSparkline";
+import { ChiliaDebitCard } from "@/components/ChiliaDebitCard";
 import { fetchWeather, getWeatherIcon, getWindDirection } from "@/lib/weather";
 import { getMoonPhase } from "@/lib/moon";
 import { getWaterLevel } from "@/lib/conditii-live";
@@ -37,11 +38,10 @@ export default async function Home() {
   const moon = getMoonPhase(now);
 
   // Fetch everything in parallel
-  const [forecasts, waterTulcea, waterIsaccea, waterBraila, chiliaDebit, cotaHistory, semnaleAll] = await Promise.all([
+  const [forecasts, waterTulcea, waterIsaccea, chiliaDebit, cotaHistory, semnaleAll] = await Promise.all([
     fetchWeather(REF_LAT, REF_LON, 1).catch(() => []),
     getWaterLevel("tulcea"),
     getWaterLevel("isaccea"),
-    getWaterLevel("braila"),
     getChiliaDebit(),
     getCotaHistory("tulcea", 7),
     toateSemnalele().then((s) => s.slice(0, 6)).catch(() => []),
@@ -101,7 +101,7 @@ export default async function Home() {
         </h1>
         <p className="text-base md:text-lg text-fog/75 max-w-2xl leading-relaxed mb-4">
           Tulcea <strong className="text-amber-glow">{waterTulcea?.level ?? "?"} cm</strong>
-          {waterIsaccea && <> · Isaccea <strong className="text-fog">{waterIsaccea.level} cm</strong></>}
+          {waterIsaccea && <> · Isaccea <strong className="text-fog">{waterIsaccea.level} cm</strong> {waterIsaccea.variation > 0 ? "↑" : waterIsaccea.variation < 0 ? "↓" : "→"}</>}
           {chiliaDebit.todayM3s != null && <> · Chilia <strong className="text-fog">{chiliaDebit.todayM3s.toLocaleString("ro-RO")} m³/s</strong></>}
           .
           {todaysForecast && <> Vânt <strong className="text-fog">{todaysForecast.windMax} km/h {getWindDirection(todaysForecast.windDirection)}</strong>.</>}
@@ -126,29 +126,16 @@ export default async function Home() {
             stationName="Tulcea"
             currentLevel={waterTulcea?.level}
             unit="cm"
-            hint="braț principal Deltă"
+            hint="referință Delta — sub 100 = scăzut, peste 200 = ridicat"
           />
           <CotaTrendSparkline
             stationSlug="isaccea"
             stationName="Isaccea"
             currentLevel={waterIsaccea?.level}
             unit="cm"
-            hint="amonte — prevede Tulcea cu 12-24h"
+            hint="amonte 32km — prevede Tulcea cu 12-24h"
           />
-          <CotaTrendSparkline
-            stationSlug="braila"
-            stationName="Brăila"
-            currentLevel={waterBraila?.level}
-            unit="cm"
-            hint="context regional Dunăre"
-          />
-          <CotaTrendSparkline
-            stationSlug="chilia"
-            stationName="Brațul Chilia"
-            currentLevel={chiliaDebit.todayM3s ?? undefined}
-            unit="m3s"
-            hint="debit (Open-Meteo flood)"
-          />
+          <ChiliaDebitCard currentDebit={chiliaDebit.todayM3s ?? undefined} />
         </div>
         <div className="grid grid-cols-3 gap-3">
           {todaysForecast && (

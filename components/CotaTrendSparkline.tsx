@@ -36,7 +36,7 @@ export async function CotaTrendSparkline({
             <p className="text-3xl font-light text-amber-glow mb-1">
               {formatValue(currentLevel!, unit)}<span className="text-sm text-fog/55 ml-1">{unitLabel(unit)}</span>
             </p>
-            {hint && <p className="text-xs text-fog/55 mb-1">{hint}</p>}
+            {hint && <p className="text-xs text-fog/65 mb-2 leading-snug">{hint}</p>}
             <p className="text-xs text-fog/50 mt-1">
               {history.length === 0
                 ? "Trendul se construiește — primul snapshot mâine la 6:30"
@@ -91,7 +91,7 @@ export async function CotaTrendSparkline({
       <p className="text-3xl font-light text-amber-glow mb-1">
         {formatValue(last, unit)}<span className="text-sm text-fog/55 ml-1">{unitLabel(unit)}</span>
       </p>
-      {hint && <p className="text-xs text-fog/55 mb-1">{hint}</p>}
+      {hint && <p className="text-xs text-fog/65 mb-2 leading-snug">{hint}</p>}
       <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-12 mb-1">
         <defs>
           <linearGradient id={`grad-${stationSlug}`} x1="0" x2="0" y1="0" y2="1">
