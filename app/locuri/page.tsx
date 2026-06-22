@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { locuri } from "@/data/locuri";
+import { getAllLocuri } from "@/lib/data-combined";
+
+export const dynamic = "force-dynamic";
 
 const tipLabel: Record<string, string> = {
   brat: "braț",
@@ -9,7 +11,8 @@ const tipLabel: Record<string, string> = {
   balastiera: "balastieră",
 };
 
-export default function LocuriPage() {
+export default async function LocuriPage() {
+  const locuri = await getAllLocuri();
   const grupuri = ["brat", "canal", "rau", "lac", "balastiera"] as const;
 
   return (
