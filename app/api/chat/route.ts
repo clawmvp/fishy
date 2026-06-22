@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import { buildKnowledgeBase } from "@/lib/chat-knowledge";
+import { buildLiveContext } from "@/lib/chat-live-context";
 import { getSession } from "@/lib/auth";
 import { createConversation, appendMessage, getConversationMessages } from "@/lib/chat-storage";
 
@@ -62,6 +63,7 @@ export async function POST(req: NextRequest) {
         controller.enqueue(encoder.encode(`__META__${JSON.stringify({ conversationId })}__END__`));
       }
       try {
+        const liveCtx = await buildLiveContext();
         const completion = await getClient().chat.completions.create({
           model: "deepseek-chat",
           stream: true,
@@ -69,6 +71,7 @@ export async function POST(req: NextRequest) {
           max_tokens: 1500,
           messages: [
             { role: "system", content: kb() },
+            { role: "system", content: liveCtx },
             ...messages.map((m) => ({ role: m.role, content: m.content })),
           ],
         });
