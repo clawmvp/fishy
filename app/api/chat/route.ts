@@ -7,10 +7,11 @@ import { createConversation, appendMessage, getConversationMessages } from "@/li
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-const client = new OpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  baseURL: "https://api.deepseek.com/v1",
-});
+function getClient(): OpenAI {
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey) throw new Error("DEEPSEEK_API_KEY not set");
+  return new OpenAI({ apiKey, baseURL: "https://api.deepseek.com/v1" });
+}
 
 let cachedKB: string | null = null;
 function kb(): string {
@@ -61,7 +62,7 @@ export async function POST(req: NextRequest) {
         controller.enqueue(encoder.encode(`__META__${JSON.stringify({ conversationId })}__END__`));
       }
       try {
-        const completion = await client.chat.completions.create({
+        const completion = await getClient().chat.completions.create({
           model: "deepseek-chat",
           stream: true,
           temperature: 0.4,
