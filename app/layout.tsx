@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import ServiceWorker from "@/components/ServiceWorker";
+import FloatingChat from "@/components/FloatingChat";
 
 const DESC =
   "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării — cote hidro live, prognoză mușcătură și experiența pescarilor extrasă din transcripte YouTube.";
@@ -72,6 +73,8 @@ export default function RootLayout({
         <Nav />
 
         <main id="content" className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-10">{children}</main>
+
+        <FloatingChat />
 
         <footer className="border-t border-amber-glow/10 mt-12 md:mt-20">
           <div className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-8 text-sm text-fog/40 flex flex-col md:flex-row justify-between gap-2">
