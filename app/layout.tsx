@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import ServiceWorker from "@/components/ServiceWorker";
 
 const DESC =
   "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării — cote hidro live, prognoză mușcătură și experiența pescarilor extrasă din transcripte YouTube.";
@@ -67,6 +68,7 @@ export default function RootLayout({
         >
           Sări la conținut
         </a>
+        <ServiceWorker />
         <Nav />
 
         <main id="content" className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-10">{children}</main>
