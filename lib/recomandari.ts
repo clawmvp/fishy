@@ -422,6 +422,121 @@ function detecteazaPatterns(
     }
   }
 
+  // ============ PATTERNS PE SPECII NON-CRAP + UNIVERSALE ============
+
+  // 10. Bătaia știucii (pre-depunere februarie-martie)
+  if (specie.id === "stiuca" && (month === 2 || month === 3)) {
+    const apaPreDep = waterTemp >= 6 && waterTemp <= 12;
+    const presIn = forecast.pressure >= 1015; // anticiclonic
+    if (apaPreDep && presIn) {
+      patterns.push({
+        id: "bataia-stiucii",
+        nume: "Bătaia știucii",
+        emoji: "🌸",
+        descriere: `Februarie-martie + apă ${Math.round(waterTemp)}°C (6-12°C optim pre-depunere) + presiune ridicată. Știuca atacă agresiv la BUZA stufului. Lansaje SCURTE din barcă, jig 6-8 cm.`,
+        bonus: 1.22,
+      });
+    }
+  }
+
+  // 11. Frenezia șalău post-prohibiție (iunie-iulie, după 7 iunie)
+  if (specie.id === "salau" && ((month === 6 && date.getDate() >= 8) || month === 7)) {
+    const apaOK = waterTemp >= 14 && waterTemp <= 20;
+    if (apaOK) {
+      patterns.push({
+        id: "frenezie-salau-post-prohibitie",
+        nume: "Frenezie șalău post-prohibiție",
+        emoji: "⚡",
+        descriere: `Șalău flămând după prohibiția feb-iun + apă ${Math.round(waterTemp)}°C optimă. Crepuscul dimineață/seară pe canale adânci. Jigging vertical 8-12cm shad, banc activ.`,
+        bonus: 1.18,
+      });
+    }
+  }
+
+  // 12. Bibanul de toamnă (bancuri masive octombrie)
+  if (specie.id === "biban" && month === 10) {
+    const apaTomna = waterTemp >= 11 && waterTemp <= 16;
+    if (apaTomna) {
+      patterns.push({
+        id: "biban-toamna",
+        nume: "Bibanul de toamnă",
+        emoji: "🍂",
+        descriere: `Octombrie + apă ${Math.round(waterTemp)}°C = bancuri masive de bibani la vânătoare. Atacă tot — micro-jig 3-5g, năluci 4-6cm, drop-shot pe maluri stuf.`,
+        bonus: 1.18,
+      });
+    }
+  }
+
+  // 13. Crap pe vetre baltă (mai-iunie, cota scăzută, apă caldă, lacuri Delta)
+  if (specie.id === "crap" && (month === 5 || month === 6) && waterTemp >= 18) {
+    const cotaScazuta = water && water.level < 130;
+    if (cotaScazuta) {
+      patterns.push({
+        id: "crap-vetre-balta",
+        nume: "Crap pe vetre de baltă",
+        emoji: "🏞️",
+        descriere: `Cotă ${water.level} (sub 130) + apă ${Math.round(waterTemp)}°C. Crapul activ în lacurile Delta (Fortuna, Puiu, Roșu, Matița), nu pe brațe. Static cu boilies fishmeal pe maluri cu stuf.`,
+        bonus: 1.15,
+      });
+    }
+  }
+
+  // 14. Caniculă pe adânc (iulie-august, apă peste 24°C)
+  if (specie.id === "crap" && (month === 7 || month === 8) && waterTemp >= 24) {
+    patterns.push({
+      id: "canicula-adanc",
+      nume: "Caniculă pe adânc",
+      emoji: "🌞",
+      descriere: `Apă ${Math.round(waterTemp)}°C — caniculă. Crap mare doar pe brațe profunde (Chilia 10-15m, Sulina Mila 8) la umbra cioate. Activ DOAR dimineață 5-9 AM și seară 19-22.`,
+      bonus: 1.10,
+    });
+  }
+
+  // 15. Somn clonc nocturn (vara, apă caldă, lună extremă, presiune stabilă)
+  if (specie.id === "somn" && month >= 5 && month <= 9) {
+    const apaCalda = waterTemp >= 20 && waterTemp <= 26;
+    const lunaExtrema = moon.illumination < 15 || moon.illumination > 85;
+    const presStable = isPrev3 && forecastsPrev.every((f) => Math.abs(f.pressure - forecast.pressure) <= 3);
+    if (apaCalda && lunaExtrema && presStable) {
+      patterns.push({
+        id: "somn-clonc-nocturn",
+        nume: "Somn clonc nocturn",
+        emoji: "🌙",
+        descriere: `Apă ${Math.round(waterTemp)}°C + lună ${moon.illumination}% (extremă) + presiune stabilă. Clonc la 22:00-04:00 pe șenal Dunăre profund, sub cioate.`,
+        bonus: 1.18,
+      });
+    }
+  }
+
+  // 16. Front rece (anti-pattern toate speciile — presiune urcă rapid)
+  if (forecastsPrev.length >= 1) {
+    const presCrestere = forecast.pressure - forecastsPrev[0].pressure >= 6;
+    const tempScadere = forecastsPrev[0].tempMax - forecast.tempMax >= 5;
+    if (presCrestere && tempScadere) {
+      patterns.push({
+        id: "front-rece",
+        nume: "Front rece",
+        emoji: "❄️",
+        descriere: `Presiune +${Math.round(forecast.pressure - forecastsPrev[0].pressure)} hPa + temperatură -${Math.round(forecastsPrev[0].tempMax - forecast.tempMax)}°C = front rece. Peștii apatici 24-48h. Așteaptă stabilizare.`,
+        bonus: 0.85,
+      });
+    }
+  }
+
+  // 17. Apă tulbure post-ploaie (carnasiere + somn = bonus, crap = neutru)
+  if (forecastsPrev.length >= 1 && forecastsPrev[0].precipitation > 10) {
+    const acumLinistit = forecast.precipitation < 3;
+    if (acumLinistit && (specie.id === "salau" || specie.id === "stiuca" || specie.id === "biban" || specie.id === "somn")) {
+      patterns.push({
+        id: "apa-tulbure-post-ploaie",
+        nume: "Apă tulbure post-ploaie",
+        emoji: "💧",
+        descriere: `Ploaie ${Math.round(forecastsPrev[0].precipitation)}mm ieri, calm azi. Vizibilitate redusă = vânătoare ușoară pentru carnasiere. Năluci vibrante/colorate, somn pe mal.`,
+        bonus: 1.13,
+      });
+    }
+  }
+
   return patterns;
 }
 
