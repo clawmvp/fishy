@@ -13,6 +13,7 @@ import { getWaterLevel } from "@/lib/conditii-live";
 import { getCotaHistory } from "@/lib/cota-history";
 import { getChiliaDebit } from "@/lib/chilia-debit";
 import { toateSemnalele } from "@/lib/beacon-query";
+import { listPublicCatches } from "@/lib/catches";
 import { calculeazaScor, estimateWaterTemp } from "@/lib/recomandari";
 import { CANALE } from "@/lib/beacon-channels";
 
@@ -38,13 +39,14 @@ export default async function Home() {
   const moon = getMoonPhase(now);
 
   // Fetch everything in parallel
-  const [forecasts, waterTulcea, waterIsaccea, chiliaDebit, cotaHistory, semnaleAll] = await Promise.all([
+  const [forecasts, waterTulcea, waterIsaccea, chiliaDebit, cotaHistory, semnaleAll, capturiRecente] = await Promise.all([
     fetchWeather(REF_LAT, REF_LON, 1).catch(() => []),
     getWaterLevel("tulcea"),
     getWaterLevel("isaccea"),
     getChiliaDebit(),
     getCotaHistory("tulcea", 7),
     toateSemnalele().then((s) => s.slice(0, 6)).catch(() => []),
+    listPublicCatches(8).catch(() => []),
   ]);
 
   const todaysForecast = forecasts[0];
@@ -280,6 +282,59 @@ export default async function Home() {
                 </div>
               </a>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* CAPTURI RECENTE DIN COMUNITATE */}
+      {capturiRecente.length > 0 && (
+        <section className="mb-10">
+          <div className="flex items-baseline justify-between mb-3">
+            <h2 className="text-xl md:text-2xl font-display text-amber-glow">🐟 Capturi recente din comunitate</h2>
+            <Link href="/feed" className="text-sm text-moss hover:text-amber-glow">toate →</Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {capturiRecente.slice(0, 8).map((c) => {
+              const photos = (c.photos as string[]) ?? [];
+              const isRecent = (Date.now() - new Date(c.caught_at).getTime()) < 12 * 60 * 60 * 1000;
+              const specieLabel: Record<string, string> = {
+                crap: "Crap", somn: "Somn", stiuca: "Știucă", salau: "Șalău", biban: "Biban", avat: "Avat", caras: "Caras",
+              };
+              const days = Math.floor((Date.now() - new Date(c.caught_at).getTime()) / 86400000);
+              const ago = days === 0 ? "azi" : days === 1 ? "ieri" : `${days}z`;
+              const userName = c.user_nickname || c.user_name || "pescar";
+              return (
+                <article key={c.id} className="card rounded-lg overflow-hidden group">
+                  {photos[0] ? (
+                    <Link href="/feed" className="block h-32 w-full overflow-hidden">
+                      <img src={photos[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    </Link>
+                  ) : (
+                    <div className="h-32 w-full bg-water-2/40 flex items-center justify-center text-4xl">
+                      {c.specie === "crap" ? "🎣" : c.specie === "somn" ? "🐊" : c.specie === "stiuca" ? "🦈" : c.specie === "salau" ? "🐠" : "🐟"}
+                    </div>
+                  )}
+                  <div className="p-3">
+                    <div className="flex items-baseline justify-between gap-1.5 mb-1">
+                      <p className="text-sm font-display text-amber-glow flex items-center gap-1">
+                        {specieLabel[c.specie] ?? c.specie}
+                        {c.weight_kg != null && <span className="text-fog">{c.weight_kg}kg</span>}
+                      </p>
+                      {isRecent && (
+                        <span className="text-[10px] px-1 py-0.5 rounded bg-moss/15 text-moss border border-moss/30 flex items-center gap-0.5">
+                          <span className="w-1 h-1 rounded-full bg-moss animate-pulse"></span>
+                          live
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-fog/55 truncate">
+                      {userName} · {ago}
+                      {c.locatie_text && ` · ${c.locatie_text.slice(0, 20)}`}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
       )}
