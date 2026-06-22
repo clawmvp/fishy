@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { monturi } from "@/data/monturi";
+import { getAllMonturi } from "@/lib/data-combined";
+
+export const dynamic = "force-dynamic";
 
 const specieLabel: Record<string, string> = {
   crap: "Crap",
@@ -10,7 +12,8 @@ const specieLabel: Record<string, string> = {
   somn: "Somn",
 };
 
-export default function MonturiPage() {
+export default async function MonturiPage() {
+  const monturi = await getAllMonturi();
   const grupate = monturi.reduce((acc, m) => {
     const sp = m.pentru[0];
     if (!acc[sp]) acc[sp] = [];

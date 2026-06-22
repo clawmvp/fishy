@@ -1,10 +1,8 @@
-import { monturi, getMontura } from "@/data/monturi";
+import { getMonturaBySlug } from "@/lib/data-combined";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return monturi.map((m) => ({ slug: m.slug }));
-}
+export const dynamic = "force-dynamic";
 
 const specieLabel: Record<string, string> = {
   crap: "Crap",
@@ -21,7 +19,7 @@ export default async function MonturaPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const m = getMontura(slug);
+  const m = await getMonturaBySlug(slug);
   if (!m) notFound();
 
   return (

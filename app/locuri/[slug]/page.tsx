@@ -1,10 +1,8 @@
-import { locuri, getLoc } from "@/data/locuri";
+import { getLocBySlug } from "@/lib/data-combined";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return locuri.map((l) => ({ slug: l.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function LocPage({
   params,
@@ -12,7 +10,7 @@ export default async function LocPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const loc = getLoc(slug);
+  const loc = await getLocBySlug(slug);
   if (!loc) notFound();
 
   return (

@@ -19,12 +19,12 @@ export default async function PropuneriPage() {
   return (
     <div>
       <header className="mb-8">
-        <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">review · autonomy</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">admin · review</p>
         <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Propuneri din videoclipuri noi</h1>
         <p className="text-fog/75 max-w-3xl leading-relaxed">
-          Cron-ul zilnic extrage cunoștințe noi (locuri, tehnici, monturi, observații) din semnalele Beacon
-          cu scor &ge; 60 din ultimele 7 zile. Le poți accepta sau respinge — acceptate ajung în următorul
-          deploy al data files.
+          Cron-ul zilnic la 7:30 AM extrage cunoștințe noi (locuri, tehnici, monturi, observații) din
+          semnalele Beacon cu scor &ge; 60 din ultimele 7 zile. <strong className="text-amber-glow">Acceptarea
+          publică instantaneu</strong> entry-ul pe /locuri, /tehnici sau /monturi.
         </p>
       </header>
 

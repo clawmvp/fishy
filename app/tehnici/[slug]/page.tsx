@@ -1,11 +1,9 @@
-import { tehnici, getTehnica } from "@/data/tehnici";
+import { getTehnicaBySlug } from "@/lib/data-combined";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SpeciesIcon from "@/components/SpeciesIcon";
 
-export function generateStaticParams() {
-  return tehnici.map((t) => ({ slug: t.slug }));
-}
+export const dynamic = "force-dynamic";
 
 const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
@@ -22,7 +20,7 @@ export default async function TehnicaPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const t = getTehnica(slug);
+  const t = await getTehnicaBySlug(slug);
   if (!t) notFound();
 
   return (

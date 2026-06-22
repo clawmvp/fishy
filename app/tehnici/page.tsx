@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { tehnici } from "@/data/tehnici";
+import { getAllTehnici } from "@/lib/data-combined";
 import SpeciesIcon from "@/components/SpeciesIcon";
+
+export const dynamic = "force-dynamic";
 
 const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
@@ -11,7 +13,8 @@ const specieLabel: Record<string, string> = {
   somn: "Somn",
 };
 
-export default function TehniciPage() {
+export default async function TehniciPage() {
+  const tehnici = await getAllTehnici();
   const speciiOrdine: Array<"stiuca" | "salau" | "avat" | "biban" | "crap" | "somn"> = [
     "stiuca",
     "salau",
