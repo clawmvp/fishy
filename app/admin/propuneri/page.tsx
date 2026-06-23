@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getPending } from "@/lib/insights-pending";
 import { PropunereCard } from "@/components/PropunereCard";
+import PropuneriBulkBar from "@/components/PropuneriBulkBar";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,9 @@ export default async function PropuneriPage() {
         <Stat label="Echipament" n={counts.echipament} color="#8cc7d1" />
         <Stat label="Observații" n={counts.obs} color="#9bb5a3" />
       </section>
+
+      {/* Bulk action bar */}
+      <PropuneriBulkBar pendingIds={pending.map((p) => p.id)} />
 
       {/* Pending */}
       <section className="mb-10">

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { sql } from "@/lib/db";
 import { insertPending, alreadyProcessed } from "@/lib/insights-pending";
+import { startCronLog, endCronLog } from "@/lib/cron-log";
 import { locuri } from "@/data/locuri";
 import { tehnici } from "@/data/tehnici";
 import { monturi } from "@/data/monturi";
@@ -62,6 +63,8 @@ export async function GET(req: NextRequest) {
   if (auth !== `Bearer ${secret}` && token !== secret) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
+
+  const logId = await startCronLog("extract-insights");
 
   // ?zile=N (default 7); ?min=N (default 60)
   const zile = parseInt(req.nextUrl.searchParams.get("zile") ?? "7", 10);
@@ -154,10 +157,11 @@ Date extrase anterior:
     }
   }
 
-  return NextResponse.json({
-    ok: true,
+  const result = {
     signals_processed: signals.length,
     totals: { locuri: totalLocuri, tehnici: totalTehnici, monturi: totalMonturi, echipament: totalEchip, obs: totalObs },
     log,
-  });
+  };
+  await endCronLog(logId, "ok", result);
+  return NextResponse.json({ ok: true, ...result });
 }

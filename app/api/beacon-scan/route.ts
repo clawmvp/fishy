@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sql } from "@/lib/db";
 import { CANALE } from "@/lib/beacon-channels";
+import { getActiveChannels } from "@/lib/admin-channels";
 import { videosRecente } from "@/lib/beacon-youtube";
 import { extractSignal } from "@/lib/beacon-extract";
+import { startCronLog, endCronLog } from "@/lib/cron-log";
 
 export const maxDuration = 300; // 5 min — Vercel cron Pro tier; fallback la timeout default dacă Hobby
 export const dynamic = "force-dynamic";
@@ -17,6 +19,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
+  const logId = await startCronLog("beacon-scan");
   const log: string[] = [];
   let processed = 0;
   let inserted = 0;
@@ -25,7 +28,9 @@ export async function GET(req: NextRequest) {
   // ?zile=N pentru a controla cutoff (default 14)
   const zile = parseInt(req.nextUrl.searchParams.get("zile") ?? "14", 10);
 
-  for (const canal of CANALE) {
+  const canale = await getActiveChannels().catch(() => CANALE);
+
+  for (const canal of canale) {
     try {
       const videos = await videosRecente(canal, zile);
       log.push(`${canal.slug}: ${videos.length} relevante`);
@@ -70,12 +75,13 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  return NextResponse.json({
-    ok: true,
-    canale: CANALE.length,
+  const result = {
+    canale: canale.length,
     processed,
     inserted,
     skipped,
     log,
-  });
+  };
+  await endCronLog(logId, "ok", result);
+  return NextResponse.json({ ok: true, ...result });
 }

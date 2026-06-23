@@ -29,6 +29,15 @@ export default async function AdminDashboard() {
         <Link href="/admin/propuneri" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
           ⏳ propuneri ({s.pending.total})
         </Link>
+        <Link href="/admin/users" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
+          👤 useri ({s.users.total})
+        </Link>
+        <Link href="/admin/channels" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
+          📺 canale
+        </Link>
+        <Link href="/admin/logs" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
+          📋 logs
+        </Link>
       </nav>
 
       {/* Stats grid */}

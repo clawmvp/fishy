@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveCotaSnapshot } from "@/lib/cota-history";
 import { HIDRO_IDS } from "@/lib/water-level";
+import { startCronLog, endCronLog } from "@/lib/cron-log";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +13,8 @@ export async function GET(req: NextRequest) {
   if (auth !== `Bearer ${secret}` && token !== secret) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
+
+  const logId = await startCronLog("cota-snapshot");
 
   // Tulcea + Isaccea (lead indicator amonte) + Brăila (regional context). Sulina stația lipsă pe hidro.ro.
   const monitoredHidro = ["tulcea", "isaccea", "braila"];
@@ -70,5 +73,6 @@ export async function GET(req: NextRequest) {
     log.push({ station: "chilia", unit: "m3s", value: 0, variation: null, date: "err", saved: false });
   }
 
+  await endCronLog(logId, "ok", { snapshots: log });
   return NextResponse.json({ ok: true, snapshots: log });
 }

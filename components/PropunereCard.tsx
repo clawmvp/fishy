@@ -47,11 +47,26 @@ export function PropunereCard({ p }: { p: InsightPending }) {
       opacity: isHandled ? 0.55 : 1,
     }}>
       <div className="flex items-baseline justify-between gap-2 mb-2 flex-wrap">
-        <div>
-          <p className="text-xs uppercase tracking-widest" style={{ color }}>
-            {TYPE_LABEL[p.type]} · confidence {p.confidence}
-          </p>
-          <h3 className="text-base font-display text-fog mt-0.5">{nume}</h3>
+        <div className="flex items-baseline gap-2 flex-1 min-w-0">
+          {!isHandled && (
+            <input
+              type="checkbox"
+              id={`propunere-cb-${p.id}`}
+              className="accent-amber-glow w-4 h-4 mt-1 cursor-pointer flex-shrink-0"
+              onChange={(e) => {
+                if (typeof window !== "undefined") {
+                  const w = window as unknown as { __propuneriToggle?: (id: number, on: boolean) => void };
+                  w.__propuneriToggle?.(p.id, e.target.checked);
+                }
+              }}
+            />
+          )}
+          <div className="min-w-0 flex-1">
+            <p className="text-xs uppercase tracking-widest" style={{ color }}>
+              {TYPE_LABEL[p.type]} · confidence {p.confidence}
+            </p>
+            <h3 className="text-base font-display text-fog mt-0.5">{nume}</h3>
+          </div>
         </div>
         {isHandled ? (
           <span className="text-xs px-2 py-1 rounded-md" style={{
