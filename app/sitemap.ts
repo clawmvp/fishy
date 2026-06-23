@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: [string, number][] = [
     ["", 1],
     ["/azi", 0.9],
+    ["/harta", 0.8],
+    ["/feed", 0.7],
+    ["/about", 0.5],
     ["/specii", 0.9],
     ["/locuri", 0.9],
     ["/tehnici", 0.9],

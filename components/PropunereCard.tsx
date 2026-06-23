@@ -26,7 +26,7 @@ export function PropunereCard({ p }: { p: InsightPending }) {
 
   async function act(action: "accept" | "reject") {
     setLoading(true);
-    const resp = await fetch(`/api/propuneri/${p.id}`, {
+    const resp = await fetch(`/api/admin/propuneri/${p.id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action }),

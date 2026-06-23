@@ -47,6 +47,13 @@ const prioritateClass: Record<Item["prioritate"], string> = {
   expert: "tag-red",
 };
 
+export const metadata = {
+  title: "Echipament de pescuit recomandat",
+  description:
+    "Lansete, mulinete, fire, năluci, bărci, sonare și accesorii recomandate pe specie pentru pescuit în Delta Dunării.",
+  alternates: { canonical: "/echipament" },
+};
+
 export default async function EchipamentPage() {
   const echipament = await getAllEchipament();
   return (

@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { articole } from "@/data/articole";
 
+export const metadata = {
+  title: "Articole de pescuit în Delta Dunării",
+  description:
+    "Lecții de teren, filozofii de pescuit și analize extrase din experiența pescarilor din Delta Dunării.",
+  alternates: { canonical: "/articole" },
+};
+
 export default function ArticolePage() {
   return (
     <div>

@@ -2,8 +2,9 @@ import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import { buildKnowledgeBase } from "@/lib/chat-knowledge";
 import { buildLiveContext } from "@/lib/chat-live-context";
-import { getSession } from "@/lib/auth";
+import { getActiveSession } from "@/lib/auth";
 import { createConversation, appendMessage, getConversationMessages } from "@/lib/chat-storage";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -23,6 +24,9 @@ function kb(): string {
 type Message = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(`chat:${clientIp(req)}`, 20, 60 * 1000)) {
+    return new Response(JSON.stringify({ error: "Prea multe mesaje. Așteaptă un minut." }), { status: 429 });
+  }
   const body = await req.json().catch(() => null);
   if (!body || !Array.isArray(body.messages)) {
     return new Response(JSON.stringify({ error: "messages required" }), { status: 400 });
@@ -31,7 +35,7 @@ export async function POST(req: NextRequest) {
   if (clientMessages.length === 0 || clientMessages.length > 100) {
     return new Response(JSON.stringify({ error: "messages 1-100" }), { status: 400 });
   }
-  const user = await getSession();
+  const user = await getActiveSession();
   const inputConvId = typeof body.conversationId === "number" ? body.conversationId : null;
 
   let messages = clientMessages;

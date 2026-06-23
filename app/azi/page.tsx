@@ -11,6 +11,7 @@ import { semnaleRecentePerSpecie } from "@/lib/beacon-query";
 import { SemnaleBeacon } from "@/components/SemnaleBeacon";
 import { CotaTrendSparkline } from "@/components/CotaTrendSparkline";
 import { getCotaHistory } from "@/lib/cota-history";
+import FreshnessBadge from "@/components/FreshnessBadge";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 1800;
@@ -276,6 +277,7 @@ export default async function PartidaPage({
               {waterTulcea.trend === "rising" ? "în creștere" : waterTulcea.trend === "falling" ? "în scădere" : "stabilă"}
             </p>
             <p className="text-xs text-amber-soft mt-1.5">{getLevelLabel(waterTulcea.relativeLevel)}</p>
+            <FreshnessBadge date={waterTulcea.date} />
           </div>
         )}
         {waterIsaccea && (
@@ -288,6 +290,7 @@ export default async function PartidaPage({
               {waterIsaccea.variation > 0 ? "↑" : waterIsaccea.variation < 0 ? "↓" : "→"} {Math.abs(waterIsaccea.variation)} cm
             </p>
             <p className="text-xs text-amber-soft mt-1.5">lead indicator — prevede Tulcea 12-24h</p>
+            <FreshnessBadge date={waterIsaccea.date} />
           </div>
         )}
         {todaysForecast && (

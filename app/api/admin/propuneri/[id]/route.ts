@@ -3,6 +3,7 @@ import { updatePendingStatus } from "@/lib/insights-pending";
 
 export const dynamic = "force-dynamic";
 
+// Protejat de middleware.ts (matcher /api/admin/:path*, Basic Auth).
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id: idStr } = await params;
   const id = parseInt(idStr, 10);

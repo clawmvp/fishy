@@ -22,14 +22,18 @@ export async function POST(req: NextRequest) {
   if (!secret) return NextResponse.json({ error: "CRON_SECRET missing" }, { status: 500 });
 
   const origin = new URL(req.url).origin;
-  const params = new URLSearchParams({ token: secret });
+  const params = new URLSearchParams();
   if (typeof body.zile === "number") params.set("zile", String(body.zile));
   if (typeof body.min === "number") params.set("min", String(body.min));
 
-  const target = `${origin}${ALLOWED[action]}?${params.toString()}`;
+  const qs = params.toString();
+  const target = `${origin}${ALLOWED[action]}${qs ? `?${qs}` : ""}`;
 
   try {
-    const resp = await fetch(target, { method: "GET" });
+    const resp = await fetch(target, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${secret}` },
+    });
     const data = await resp.json().catch(() => ({}));
     return NextResponse.json({ ok: true, action, result: data, http: resp.status });
   } catch (e) {

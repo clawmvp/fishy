@@ -1,9 +1,27 @@
 import { getTehnicaBySlug } from "@/lib/data-combined";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SpeciesIcon from "@/components/SpeciesIcon";
+import JsonLd, { breadcrumb } from "@/components/JsonLd";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const t = await getTehnicaBySlug(slug);
+  if (!t) return {};
+  return {
+    title: t.titlu,
+    description: t.scurt,
+    alternates: { canonical: `/tehnici/${t.slug}` },
+    openGraph: { type: "article", title: t.titlu, description: t.scurt },
+  };
+}
 
 const specieLabel: Record<string, string> = {
   stiuca: "Știucă",
@@ -23,8 +41,29 @@ export default async function TehnicaPage({
   const t = await getTehnicaBySlug(slug);
   if (!t) notFound();
 
+  const howToLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: t.titlu,
+    description: t.scurt,
+    inLanguage: "ro-RO",
+    step: (t.pasi ?? []).map((p: string, i: number) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      text: p,
+    })),
+  };
+
   return (
     <article className="max-w-3xl">
+      <JsonLd data={howToLd} />
+      <JsonLd
+        data={breadcrumb([
+          { name: "Acasă", path: "/" },
+          { name: "Tehnici", path: "/tehnici" },
+          { name: t.titlu, path: `/tehnici/${t.slug}` },
+        ])}
+      />
       <Link href="/tehnici" className="text-sm text-moss hover:text-amber-glow">
         ← toate tehnicile
       </Link>

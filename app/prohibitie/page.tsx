@@ -31,6 +31,13 @@ function generateProhibitionMarks(specie: typeof specii[number], year: number) {
   return cells;
 }
 
+export const metadata = {
+  title: "Prohibiție pescuit 2026 — calendar și mărimi minime",
+  description:
+    "Calendarul prohibiției pe specie în 2026, mărimile minime legale și regulile pe zone pentru Delta Dunării și Dunăre.",
+  alternates: { canonical: "/prohibitie" },
+};
+
 export default function ProhibitionPage() {
   const today = new Date();
   const year = today.getFullYear();

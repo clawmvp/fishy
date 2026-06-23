@@ -57,10 +57,9 @@ Reguli stricte:
 
 export async function GET(req: NextRequest) {
   const auth = req.headers.get("authorization");
-  const token = req.nextUrl.searchParams.get("token");
   const secret = process.env.CRON_SECRET;
   if (!secret) return NextResponse.json({ error: "no secret" }, { status: 500 });
-  if (auth !== `Bearer ${secret}` && token !== secret) {
+  if (!secret || auth !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

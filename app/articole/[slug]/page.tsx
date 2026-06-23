@@ -1,10 +1,29 @@
 import { articole, getArticol } from "@/data/articole";
 import { renderMd } from "@/lib/md";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import JsonLd, { breadcrumb } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return articole.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const a = getArticol(slug);
+  if (!a) return {};
+  return {
+    title: a.titlu,
+    description: a.scurt,
+    keywords: a.tags,
+    alternates: { canonical: `/articole/${a.slug}` },
+    openGraph: { type: "article", title: a.titlu, description: a.scurt },
+  };
 }
 
 export default async function ArticolPage({
@@ -18,8 +37,31 @@ export default async function ArticolPage({
 
   const html = renderMd(a.body);
 
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.titlu,
+    description: a.scurt,
+    inLanguage: "ro-RO",
+    keywords: a.tags.join(", "),
+    mainEntityOfPage: `https://fishy.n01.app/articole/${a.slug}`,
+    publisher: {
+      "@type": "Organization",
+      name: "fishy",
+      logo: { "@type": "ImageObject", url: "https://fishy.n01.app/icon-512" },
+    },
+  };
+
   return (
     <article className="max-w-3xl">
+      <JsonLd data={articleLd} />
+      <JsonLd
+        data={breadcrumb([
+          { name: "Acasă", path: "/" },
+          { name: "Articole", path: "/articole" },
+          { name: a.titlu, path: `/articole/${a.slug}` },
+        ])}
+      />
       <Link href="/articole" className="text-sm text-moss hover:text-amber-glow">
         ← toate articolele
       </Link>

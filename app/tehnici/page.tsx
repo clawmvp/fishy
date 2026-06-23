@@ -13,6 +13,13 @@ const specieLabel: Record<string, string> = {
   somn: "Somn",
 };
 
+export const metadata = {
+  title: "Tehnici de pescuit — spinning, feeder, static",
+  description:
+    "Tehnici pas-cu-pas pentru crap, știucă, șalău, somn, avat și biban în Delta Dunării — perioadă, pași, echipament și sfaturi de la experți.",
+  alternates: { canonical: "/tehnici" },
+};
+
 export default async function TehniciPage() {
   const tehnici = await getAllTehnici();
   const speciiOrdine: Array<"stiuca" | "salau" | "avat" | "biban" | "crap" | "somn"> = [

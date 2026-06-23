@@ -34,6 +34,23 @@ export async function getSession(): Promise<SessionUser | null> {
   }
 }
 
+// Ca getSession, dar respinge userii suspendați (verifică în DB). Pentru
+// acțiuni de scriere (chat, capturi, upload). Fail-open dacă DB pică (suspendarea e rară).
+export async function getActiveSession(): Promise<SessionUser | null> {
+  const user = await getSession();
+  if (!user) return null;
+  try {
+    const rows = await sql`
+      SELECT COALESCE(suspended, FALSE) AS suspended
+      FROM fishy_beacon.users WHERE id = ${user.id} LIMIT 1
+    `;
+    if (rows.length === 0 || rows[0].suspended) return null;
+  } catch {
+    return user;
+  }
+  return user;
+}
+
 export async function createSession(user: SessionUser): Promise<void> {
   const token = await new SignJWT({ uid: user.id, email: user.email, name: user.name })
     .setProtectedHeader({ alg: "HS256" })

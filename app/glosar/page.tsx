@@ -1,5 +1,12 @@
 import { glosar, categorii } from "@/data/glosar";
 
+export const metadata = {
+  title: "Glosar de termeni de pescuit",
+  description:
+    "Termeni de pescuit explicați — tehnici, monturi, echipament, pești și locuri din Delta Dunării.",
+  alternates: { canonical: "/glosar" },
+};
+
 export default function GlosarPage() {
   return (
     <div>

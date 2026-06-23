@@ -11,6 +11,13 @@ const tipLabel: Record<string, string> = {
   balastiera: "balastieră",
 };
 
+export const metadata = {
+  title: "Locuri de pescuit în Delta Dunării",
+  description:
+    "Spoturi pe brațele, canalele, râurile și lacurile Deltei — sezon, specii țintă, pericole și sfaturi de la pescarii care merg acolo.",
+  alternates: { canonical: "/locuri" },
+};
+
 export default async function LocuriPage() {
   const locuri = await getAllLocuri();
   const grupuri = ["brat", "canal", "rau", "lac", "balastiera"] as const;

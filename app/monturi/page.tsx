@@ -12,6 +12,13 @@ const specieLabel: Record<string, string> = {
   somn: "Somn",
 };
 
+export const metadata = {
+  title: "Monturi și montaje de pescuit pe specie",
+  description:
+    "Montaje pe specie cu componente, diagrame și pași de asamblare — inline, helicopter, method feeder, dropshot, jighead și altele pentru Delta Dunării.",
+  alternates: { canonical: "/monturi" },
+};
+
 export default async function MonturiPage() {
   const monturi = await getAllMonturi();
   const grupate = monturi.reduce((acc, m) => {

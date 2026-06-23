@@ -1,8 +1,27 @@
 import { getLocBySlug } from "@/lib/data-combined";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import JsonLd, { breadcrumb } from "@/components/JsonLd";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const loc = await getLocBySlug(slug);
+  if (!loc) return {};
+  const desc = `${loc.scurt} Specii: ${loc.specii.join(", ")}. Sezon: ${loc.sezon.join(", ")}.`;
+  return {
+    title: `${loc.nume} — pescuit, sezon și sfaturi`,
+    description: desc,
+    alternates: { canonical: `/locuri/${loc.slug}` },
+    openGraph: { type: "article", title: `${loc.nume} · fishy`, description: desc },
+  };
+}
 
 export default async function LocPage({
   params,
@@ -15,6 +34,13 @@ export default async function LocPage({
 
   return (
     <article className="max-w-3xl">
+      <JsonLd
+        data={breadcrumb([
+          { name: "Acasă", path: "/" },
+          { name: "Locuri", path: "/locuri" },
+          { name: loc.nume, path: `/locuri/${loc.slug}` },
+        ])}
+      />
       <Link href="/locuri" className="text-sm text-moss hover:text-amber-glow">
         ← toate locurile
       </Link>

@@ -3,6 +3,31 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import ServiceWorker from "@/components/ServiceWorker";
 import FloatingChat from "@/components/FloatingChat";
+import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://fishy.n01.app/#website",
+      url: "https://fishy.n01.app",
+      name: "fishy",
+      description:
+        "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării, cu cote hidro live și prognoză mușcătură.",
+      inLanguage: "ro-RO",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://fishy.n01.app/#org",
+      name: "fishy",
+      url: "https://fishy.n01.app",
+      logo: "https://fishy.n01.app/icon-512",
+    },
+  ],
+};
 
 const DESC =
   "Glosar, locuri, tehnici și echipament pentru pescuit în Delta Dunării — cote hidro live, prognoză mușcătură și experiența pescarilor extrasă din transcripte YouTube.";
@@ -69,6 +94,7 @@ export default function RootLayout({
         >
           Sări la conținut
         </a>
+        <JsonLd data={siteJsonLd} />
         <ServiceWorker />
         <Nav />
 
@@ -79,7 +105,10 @@ export default function RootLayout({
         <footer className="border-t border-amber-glow/10 mt-12 md:mt-20">
           <div className="max-w-6xl mx-auto px-4 md:px-5 py-6 md:py-8 text-sm text-fog/40 flex flex-col md:flex-row justify-between gap-2">
             <p>fishy · informații extrase din transcripte YouTube · nu garantăm acuratețea</p>
-            <p>
+            <p className="flex gap-4">
+              <a href="/about" className="hover:text-amber-glow transition-colors">
+                despre
+              </a>
               <a
                 href="https://n01.app"
                 className="hover:text-amber-glow transition-colors"
@@ -89,6 +118,8 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -1,8 +1,26 @@
 import { getMonturaBySlug } from "@/lib/data-combined";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import JsonLd, { breadcrumb } from "@/components/JsonLd";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const m = await getMonturaBySlug(slug);
+  if (!m) return {};
+  return {
+    title: m.nume,
+    description: m.scop,
+    alternates: { canonical: `/monturi/${m.slug}` },
+    openGraph: { type: "article", title: m.nume, description: m.scop },
+  };
+}
 
 const specieLabel: Record<string, string> = {
   crap: "Crap",
@@ -24,6 +42,13 @@ export default async function MonturaPage({
 
   return (
     <article className="max-w-4xl">
+      <JsonLd
+        data={breadcrumb([
+          { name: "Acasă", path: "/" },
+          { name: "Monturi", path: "/monturi" },
+          { name: m.nume, path: `/monturi/${m.slug}` },
+        ])}
+      />
       <Link href="/monturi" className="text-sm text-moss hover:text-amber-glow">
         ← toate monturile
       </Link>
