@@ -18,6 +18,7 @@ export type Catch = {
   public: boolean;
   hide_exact_location: boolean;
   photos: string[];
+  conditions_snapshot: Record<string, unknown> | null;
   created_at: string;
 };
 
@@ -57,12 +58,13 @@ export async function insertCatch(userId: number, c: Omit<Catch, "id" | "user_id
   const rows = await sql`
     INSERT INTO fishy_beacon.catches (
       user_id, specie, weight_kg, length_cm, locatie_slug, locatie_text,
-      lat, lng, caught_at, nada, tehnica, note, released, public, hide_exact_location, photos
+      lat, lng, caught_at, nada, tehnica, note, released, public, hide_exact_location, photos, conditions_snapshot
     ) VALUES (
       ${userId}, ${c.specie}, ${c.weight_kg}, ${c.length_cm},
       ${c.locatie_slug}, ${c.locatie_text}, ${c.lat}, ${c.lng},
       ${c.caught_at}, ${c.nada}, ${c.tehnica}, ${c.note}, ${c.released},
-      ${c.public}, ${c.hide_exact_location}, ${JSON.stringify(c.photos ?? [])}
+      ${c.public}, ${c.hide_exact_location}, ${JSON.stringify(c.photos ?? [])},
+      ${c.conditions_snapshot ? JSON.stringify(c.conditions_snapshot) : null}
     )
     RETURNING id
   `;

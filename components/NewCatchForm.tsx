@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SPECII = [
   { val: "crap", label: "Crap" },
@@ -12,6 +12,20 @@ const SPECII = [
   { val: "avat", label: "Avat" },
   { val: "caras", label: "Caras" },
 ];
+
+type Conditions = {
+  date: string;
+  cota: { tulcea: number | null; isaccea: number | null; variation: number | null } | null;
+  weather: { tempMax: number | null; tempMin: number | null; windMax: number | null; windDirection: number | null; pressure: number | null; precipitation: number | null; waterTemp: number | null } | null;
+  moon: { illumination: number; phase: string } | null;
+  patternsHint: string[];
+};
+
+function windDir(deg: number | null): string {
+  if (deg == null) return "";
+  const dirs = ["N","NE","E","SE","S","SV","V","NV"];
+  return dirs[Math.round(deg / 45) % 8];
+}
 
 export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string; nume: string }> }) {
   const router = useRouter();
@@ -25,6 +39,22 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const today = new Date().toISOString().slice(0, 10);
+  const [selectedDate, setSelectedDate] = useState(today);
+  const [conditions, setConditions] = useState<Conditions | null>(null);
+  const [loadingCtx, setLoadingCtx] = useState(false);
+  const [saveContext, setSaveContext] = useState(true);
+
+  // Auto-fetch context when date changes
+  useEffect(() => {
+    if (!selectedDate || !/^\d{4}-\d{2}-\d{2}$/.test(selectedDate)) return;
+    setLoadingCtx(true);
+    setConditions(null);
+    fetch(`/api/catch-context?date=${selectedDate}`)
+      .then((r) => r.json())
+      .then((data) => { if (!data.error) setConditions(data); })
+      .catch(() => { /* swallow */ })
+      .finally(() => setLoadingCtx(false));
+  }, [selectedDate]);
 
   async function getGPS() {
     if (!navigator.geolocation) {
@@ -95,6 +125,7 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
       public: isPublic,
       hide_exact_location: hideExact,
       photos,
+      conditions_snapshot: saveContext && conditions ? conditions : null,
     };
     try {
       const resp = await fetch("/api/catches", {
@@ -127,9 +158,64 @@ export default function NewCatchForm({ locuri }: { locuri: Array<{ slug: string;
         </div>
         <div>
           <label className="block text-xs uppercase tracking-widest text-moss mb-1">Data *</label>
-          <input type="date" name="caught_at" required defaultValue={today} className="w-full px-3 py-2 bg-water-2/40 border border-amber-glow/20 rounded-md text-fog focus:outline-none focus:border-amber-glow/50" />
+          <input
+            type="date"
+            name="caught_at"
+            required
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            className="w-full px-3 py-2 bg-water-2/40 border border-amber-glow/20 rounded-md text-fog focus:outline-none focus:border-amber-glow/50"
+          />
         </div>
       </div>
+
+      {/* Auto-detected conditions */}
+      {(loadingCtx || conditions) && (
+        <div className="card rounded-lg p-3" style={{ background: "linear-gradient(135deg, rgba(168,200,122,0.06), rgba(212,166,87,0.03))", borderColor: "rgba(168,200,122,0.20)" }}>
+          {loadingCtx ? (
+            <p className="text-xs text-fog/65">⏳ Detectează condițiile la {selectedDate}...</p>
+          ) : conditions ? (
+            <>
+              <div className="flex items-baseline justify-between mb-2">
+                <p className="text-xs uppercase tracking-widest text-moss">📊 Condiții detectate</p>
+                <label className="flex items-center gap-1.5 text-xs text-fog/75 cursor-pointer">
+                  <input type="checkbox" checked={saveContext} onChange={(e) => setSaveContext(e.target.checked)} className="accent-amber-glow w-3.5 h-3.5" />
+                  salvează cu captura
+                </label>
+              </div>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-fog/85">
+                {conditions.cota?.tulcea != null && (
+                  <span>💧 Tulcea <strong className="text-amber-glow">{conditions.cota.tulcea}cm</strong>{conditions.cota.variation != null && <span className="text-fog/55"> ({conditions.cota.variation > 0 ? "+" : ""}{conditions.cota.variation}/zi)</span>}</span>
+                )}
+                {conditions.cota?.isaccea != null && (
+                  <span>Isaccea <strong className="text-fog">{conditions.cota.isaccea}cm</strong></span>
+                )}
+                {conditions.weather?.waterTemp != null && (
+                  <span>🌡️ Apa <strong className="text-amber-glow">{Math.round(conditions.weather.waterTemp)}°C</strong></span>
+                )}
+                {conditions.weather?.tempMax != null && conditions.weather?.tempMin != null && (
+                  <span>🌤️ {conditions.weather.tempMax}°/{conditions.weather.tempMin}°</span>
+                )}
+                {conditions.weather?.windMax != null && (
+                  <span>💨 {conditions.weather.windMax}km/h {windDir(conditions.weather.windDirection)}</span>
+                )}
+                {conditions.weather?.pressure != null && (
+                  <span>{Math.round(conditions.weather.pressure)}hPa</span>
+                )}
+                {conditions.moon && (
+                  <span>🌙 {conditions.moon.illumination}% {conditions.moon.phase}</span>
+                )}
+              </div>
+              {conditions.patternsHint.length > 0 && (
+                <p className="text-xs text-amber-glow mt-2"><strong className="text-fog/55">Patterns posibile:</strong> {conditions.patternsHint.join(" · ")}</p>
+              )}
+              {!conditions.cota?.tulcea && !conditions.weather?.tempMax && (
+                <p className="text-xs text-fog/55 italic">Pentru date foarte vechi (înainte de iunie 2026) avem doar luna calculată. Cota și vremea istorice nu sunt cached.</p>
+              )}
+            </>
+          ) : null}
+        </div>
+      )}
 
       <div className="grid sm:grid-cols-2 gap-3">
         <div>
