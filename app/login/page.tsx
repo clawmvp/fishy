@@ -38,10 +38,23 @@ export default function LoginPage() {
         <h1 className="text-3xl font-display text-fog mb-3">Conectează-te la fishy</h1>
         <p className="text-fog/70 leading-relaxed">
           Trimitem un link de conectare pe email. Fără parolă, valabil 15 minute.
-          <br />
-          Cu cont poți să-ți ții jurnal de capturi și să vezi statistici personale.
         </p>
       </header>
+
+      <div className="grid grid-cols-2 gap-2.5 mb-6">
+        {[
+          { icon: "🎣", t: "Jurnal de capturi", d: "cu poze, GPS și condițiile din ziua aia" },
+          { icon: "📊", t: "Statistici personale", d: "total, recorduri, locuri productive" },
+          { icon: "🤖", t: "Chat AI cu istoric", d: "salvează conversațiile" },
+          { icon: "🌊", t: "Feed comunitate", d: "împarte capturile cu ceilalți" },
+        ].map((b) => (
+          <div key={b.t} className="card rounded-lg p-3">
+            <p className="text-lg mb-0.5">{b.icon}</p>
+            <p className="text-sm text-fog font-medium leading-tight">{b.t}</p>
+            <p className="text-xs text-fog/50 leading-tight mt-0.5">{b.d}</p>
+          </div>
+        ))}
+      </div>
 
       {!sent ? (
         <div className="card rounded-xl p-6">

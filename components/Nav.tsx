@@ -18,6 +18,7 @@ const nav = [
   { href: "/glosar", label: "glosar" },
   { href: "/provizii", label: "provizii" },
   { href: "/feed", label: "feed" },
+  { href: "/clasament", label: "clasament" },
   { href: "/cont", label: "cont" },
 ];
 
@@ -51,6 +52,17 @@ export default function Nav() {
             </Link>
           ))}
         </nav>
+
+        <Link
+          href="/cauta"
+          aria-label="Caută"
+          className="inline-flex items-center justify-center w-10 h-10 rounded-md text-fog/75 hover:text-amber-glow hover:bg-water-2/40 transition-all flex-shrink-0"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </Link>
 
         {/* Mobile hamburger */}
         <button

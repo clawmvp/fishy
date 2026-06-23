@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/azi", 0.9],
     ["/harta", 0.8],
     ["/feed", 0.7],
+    ["/clasament", 0.6],
     ["/about", 0.5],
     ["/specii", 0.9],
     ["/locuri", 0.9],
