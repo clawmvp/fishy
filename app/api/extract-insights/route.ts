@@ -5,6 +5,7 @@ import { insertPending, alreadyProcessed } from "@/lib/insights-pending";
 import { locuri } from "@/data/locuri";
 import { tehnici } from "@/data/tehnici";
 import { monturi } from "@/data/monturi";
+import { echipament } from "@/data/echipament";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -15,6 +16,7 @@ const client = new Anthropic();
 const locuriSlugs = locuri.map((l) => l.slug);
 const tehniciSlugs = tehnici.map((t) => t.slug);
 const monturiSlugs = monturi.map((m) => m.slug);
+const echipamentNames = echipament.map((e) => e.nume);
 
 const SYSTEM = `Ești un expert pescar care extrage cunoștințe NOI din semnale YouTube despre pescuit în Delta Dunării.
 
@@ -23,6 +25,7 @@ Primești titlu + descriere + un rezumat structurat extras anterior dintr-un vid
 LOCURI deja cunoscute (slug): ${locuriSlugs.join(", ")}
 TEHNICI deja cunoscute (slug): ${tehniciSlugs.join(", ")}
 MONTURI deja cunoscute (slug): ${monturiSlugs.join(", ")}
+ECHIPAMENT deja cunoscut (nume): ${echipamentNames.slice(0, 80).join(", ")}${echipamentNames.length > 80 ? ` ... (+${echipamentNames.length - 80})` : ""}
 
 Extrage DOAR cunoștințe care NU sunt deja în liste:
 
@@ -35,6 +38,9 @@ Extrage DOAR cunoștințe care NU sunt deja în liste:
   ],
   "monturi_noi": [
     { "nume": "...", "specie": "crap|...", "scurt": "...", "components": [{"item":"...","spec":"...","nota":"..."}], "pasi": ["3-5"], "sfaturi": ["2-4"], "luni": [1-12], "confidence": 0-100 }
+  ],
+  "echipament_noi": [
+    { "nume": "...", "marca": "...", "specific": "ex: '2.7m / 70-300g'", "pret": "ex: '~500 RON'", "prioritate": "must|nice|expert", "pentru": ["crap","stiuca",...], "categoria": "lanseta|mulineta|fir|naluca|boilies|nada|montura|carlige|accesorii|somn-specific|barci|motoare|sonare", "note": "1-2 propoziții cu de ce e bun", "confidence": 0-100 }
   ],
   "observatii": [
     { "txt": "insight teren neîncadrabil în categoriile de mai sus, ex 'Cota Tulcea scăzută în noiembrie a deplasat crapul spre brațul Chilia'", "confidence": 0-100 }
@@ -75,8 +81,8 @@ export async function GET(req: NextRequest) {
     LIMIT 12
   `;
 
-  let totalLocuri = 0, totalTehnici = 0, totalMonturi = 0, totalObs = 0;
-  const log: { vid: string; locuri: number; tehnici: number; monturi: number; obs: number; err?: string }[] = [];
+  let totalLocuri = 0, totalTehnici = 0, totalMonturi = 0, totalEchip = 0, totalObs = 0;
+  const log: { vid: string; locuri: number; tehnici: number; monturi: number; echipament: number; obs: number; err?: string }[] = [];
 
   for (const sig of signals as Array<Record<string, unknown>>) {
     const vid = sig.video_id as string;
@@ -112,6 +118,7 @@ Date extrase anterior:
         locuri_noi?: Array<{ confidence?: number } & Record<string, unknown>>;
         tehnici_noi?: Array<{ confidence?: number } & Record<string, unknown>>;
         monturi_noi?: Array<{ confidence?: number } & Record<string, unknown>>;
+        echipament_noi?: Array<{ confidence?: number } & Record<string, unknown>>;
         observatii?: Array<{ txt: string; confidence?: number }>;
       };
 
@@ -125,23 +132,32 @@ Date extrase anterior:
       (parsed.monturi_noi ?? []).filter((x) => (x.confidence ?? 0) >= 50).forEach((p) => {
         items.push({ type: "montura", payload: p, source_video_id: vid, source_title: sig.title as string, source_url: sig.video_url as string, confidence: p.confidence ?? 50 });
       });
+      (parsed.echipament_noi ?? []).filter((x) => (x.confidence ?? 0) >= 50).forEach((p) => {
+        items.push({ type: "echipament", payload: p, source_video_id: vid, source_title: sig.title as string, source_url: sig.video_url as string, confidence: p.confidence ?? 50 });
+      });
       (parsed.observatii ?? []).filter((x) => (x.confidence ?? 0) >= 60).forEach((p) => {
         items.push({ type: "obs", payload: p, source_video_id: vid, source_title: sig.title as string, source_url: sig.video_url as string, confidence: p.confidence ?? 60 });
       });
 
       await insertPending(items);
-      const c = { l: (parsed.locuri_noi ?? []).length, t: (parsed.tehnici_noi ?? []).length, m: (parsed.monturi_noi ?? []).length, o: (parsed.observatii ?? []).length };
-      totalLocuri += c.l; totalTehnici += c.t; totalMonturi += c.m; totalObs += c.o;
-      log.push({ vid, locuri: c.l, tehnici: c.t, monturi: c.m, obs: c.o });
+      const c = {
+        l: (parsed.locuri_noi ?? []).length,
+        t: (parsed.tehnici_noi ?? []).length,
+        m: (parsed.monturi_noi ?? []).length,
+        e: (parsed.echipament_noi ?? []).length,
+        o: (parsed.observatii ?? []).length,
+      };
+      totalLocuri += c.l; totalTehnici += c.t; totalMonturi += c.m; totalEchip += c.e; totalObs += c.o;
+      log.push({ vid, locuri: c.l, tehnici: c.t, monturi: c.m, echipament: c.e, obs: c.o });
     } catch (e) {
-      log.push({ vid, locuri: 0, tehnici: 0, monturi: 0, obs: 0, err: (e as Error).message.slice(0, 100) });
+      log.push({ vid, locuri: 0, tehnici: 0, monturi: 0, echipament: 0, obs: 0, err: (e as Error).message.slice(0, 100) });
     }
   }
 
   return NextResponse.json({
     ok: true,
     signals_processed: signals.length,
-    totals: { locuri: totalLocuri, tehnici: totalTehnici, monturi: totalMonturi, obs: totalObs },
+    totals: { locuri: totalLocuri, tehnici: totalTehnici, monturi: totalMonturi, echipament: totalEchip, obs: totalObs },
     log,
   });
 }

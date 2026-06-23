@@ -4,9 +4,11 @@
 import { locuri as locuriStatic } from "@/data/locuri";
 import { tehnici as tehniciStatic } from "@/data/tehnici";
 import { monturi as monturiStatic } from "@/data/monturi";
+import { echipament as echipamentStatic } from "@/data/echipament";
 import type { Loc } from "@/data/locuri";
 import type { Tehnica } from "@/data/tehnici";
 import type { Montura } from "@/data/monturi";
+import type { Item as Echipament } from "@/data/echipament";
 import { sql } from "./db";
 
 type AcceptedRow = {
@@ -15,7 +17,7 @@ type AcceptedRow = {
   source_video_id: string;
 };
 
-async function getAccepted(type: "loc" | "tehnica" | "montura"): Promise<AcceptedRow[]> {
+async function getAccepted(type: "loc" | "tehnica" | "montura" | "echipament"): Promise<AcceptedRow[]> {
   try {
     const rows = await sql`
       SELECT id, payload, source_video_id
@@ -127,6 +129,24 @@ export async function getAllMonturi(): Promise<Montura[]> {
     } as Montura;
   });
   return [...monturiStatic, ...mapped];
+}
+
+export async function getAllEchipament(): Promise<Echipament[]> {
+  const accepted = await getAccepted("echipament");
+  const mapped = accepted.map((row) => {
+    const p = row.payload;
+    return {
+      nume: (p.nume as string) || "Item fără nume",
+      marca: (p.marca as string) ?? undefined,
+      specific: (p.specific as string) ?? undefined,
+      pret: (p.pret as string) ?? undefined,
+      prioritate: (p.prioritate as Echipament["prioritate"]) || "nice",
+      pentru: Array.isArray(p.pentru) ? (p.pentru as Echipament["pentru"]) : [],
+      categoria: (p.categoria as Echipament["categoria"]) || "accesorii",
+      note: (p.note as string) ?? undefined,
+    } as Echipament;
+  });
+  return [...echipamentStatic, ...mapped];
 }
 
 export async function getLocBySlug(slug: string): Promise<Loc | null> {

@@ -2,7 +2,7 @@ import { sql } from "./db";
 
 export type InsightPending = {
   id: number;
-  type: "loc" | "tehnica" | "montura" | "obs";
+  type: "loc" | "tehnica" | "montura" | "echipament" | "obs";
   payload: Record<string, unknown>;
   source_video_id: string;
   source_title: string | null;

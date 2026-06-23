@@ -1,4 +1,7 @@
-import { echipament, type Item } from "@/data/echipament";
+import { type Item } from "@/data/echipament";
+import { getAllEchipament } from "@/lib/data-combined";
+
+export const dynamic = "force-dynamic";
 
 const categoriiOrdine: Item["categoria"][] = [
   "barci",
@@ -44,7 +47,8 @@ const prioritateClass: Record<Item["prioritate"], string> = {
   expert: "tag-red",
 };
 
-export default function EchipamentPage() {
+export default async function EchipamentPage() {
+  const echipament = await getAllEchipament();
   return (
     <div>
       <header className="mb-10">

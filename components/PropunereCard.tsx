@@ -7,6 +7,7 @@ const TYPE_LABEL: Record<InsightPending["type"], string> = {
   loc: "📍 Loc nou",
   tehnica: "🎣 Tehnică nouă",
   montura: "🪱 Montură nouă",
+  echipament: "🎣 Echipament nou",
   obs: "💡 Observație",
 };
 
@@ -14,6 +15,7 @@ const TYPE_COLOR: Record<InsightPending["type"], string> = {
   loc: "#a8c87a",
   tehnica: "#d4a657",
   montura: "#e89844",
+  echipament: "#8cc7d1",
   obs: "#9bb5a3",
 };
 
