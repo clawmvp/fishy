@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPending } from "@/lib/insights-pending";
 import { PropunereCard } from "@/components/PropunereCard";
 
@@ -19,6 +20,12 @@ export default async function PropuneriPage() {
 
   return (
     <div>
+      <nav className="flex flex-wrap gap-2 mb-6">
+        <Link href="/admin" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
+          ← dashboard
+        </Link>
+      </nav>
+
       <header className="mb-8">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-3">admin · review</p>
         <h1 className="text-4xl md:text-5xl font-display text-fog mb-3">Propuneri din videoclipuri noi</h1>

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
-  if (!req.nextUrl.pathname.startsWith("/admin")) return NextResponse.next();
+  const path = req.nextUrl.pathname;
+  if (!path.startsWith("/admin") && !path.startsWith("/api/admin")) return NextResponse.next();
 
   const auth = req.headers.get("authorization");
   const expected = process.env.ADMIN_PASSWORD;
@@ -33,5 +34,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: "/admin/:path*",
+  matcher: ["/admin/:path*", "/api/admin/:path*"],
 };
