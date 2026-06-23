@@ -254,38 +254,6 @@ export default async function Home() {
         </section>
       )}
 
-      {/* SEMNALE BEACON RECENTE */}
-      {semnaleAll.length > 0 && (
-        <section className="mb-10">
-          <div className="flex items-baseline justify-between mb-3">
-            <h2 className="text-xl md:text-2xl font-display text-amber-glow">📡 Ultimele semnale din Delta</h2>
-            <Link href="/beacon" className="text-sm text-moss hover:text-amber-glow">toate →</Link>
-          </div>
-          <div className="grid md:grid-cols-2 gap-3">
-            {semnaleAll.slice(0, 6).map((s) => (
-              <a key={s.id} href={s.video_url} target="_blank" rel="noopener noreferrer" className="card rounded-lg p-4 group">
-                <div className="flex items-baseline justify-between gap-2 mb-1">
-                  <p className="text-xs text-amber-glow uppercase tracking-widest">
-                    {CANAL_LABEL[s.channel] ?? s.channel} · acum {timeAgo(s.upload_date)}
-                  </p>
-                  <span className="text-xs text-fog/40">{s.relevant_score}</span>
-                </div>
-                <h3 className="text-base font-display text-fog mb-1.5 group-hover:text-amber-glow leading-snug">
-                  {s.title.length > 90 ? s.title.slice(0, 90) + "…" : s.title}
-                </h3>
-                {s.rezumat && (
-                  <p className="text-sm text-fog/80 leading-relaxed mb-2 line-clamp-2">{s.rezumat}</p>
-                )}
-                <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs">
-                  {s.locatie && <span className="text-fog/70">📍 <span className="text-fog">{s.locatie.length > 45 ? s.locatie.slice(0, 45) + "…" : s.locatie}</span></span>}
-                  {s.specii && s.specii.length > 0 && <span className="text-fog/70">🐟 <span className="text-fog">{s.specii.join(", ")}</span></span>}
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* CAPTURI RECENTE DIN COMUNITATE */}
       {capturiRecente.length > 0 && (
         <section className="mb-10">
@@ -335,6 +303,38 @@ export default async function Home() {
                 </article>
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* SEMNALE BEACON RECENTE */}
+      {semnaleAll.length > 0 && (
+        <section className="mb-10">
+          <div className="flex items-baseline justify-between mb-3">
+            <h2 className="text-xl md:text-2xl font-display text-amber-glow">📡 Ultimele semnale din Delta</h2>
+            <Link href="/beacon" className="text-sm text-moss hover:text-amber-glow">toate →</Link>
+          </div>
+          <div className="grid md:grid-cols-2 gap-3">
+            {semnaleAll.slice(0, 6).map((s) => (
+              <a key={s.id} href={s.video_url} target="_blank" rel="noopener noreferrer" className="card rounded-lg p-4 group">
+                <div className="flex items-baseline justify-between gap-2 mb-1">
+                  <p className="text-xs text-amber-glow uppercase tracking-widest">
+                    {CANAL_LABEL[s.channel] ?? s.channel} · acum {timeAgo(s.upload_date)}
+                  </p>
+                  <span className="text-xs text-fog/40">{s.relevant_score}</span>
+                </div>
+                <h3 className="text-base font-display text-fog mb-1.5 group-hover:text-amber-glow leading-snug">
+                  {s.title.length > 90 ? s.title.slice(0, 90) + "…" : s.title}
+                </h3>
+                {s.rezumat && (
+                  <p className="text-sm text-fog/80 leading-relaxed mb-2 line-clamp-2">{s.rezumat}</p>
+                )}
+                <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs">
+                  {s.locatie && <span className="text-fog/70">📍 <span className="text-fog">{s.locatie.length > 45 ? s.locatie.slice(0, 45) + "…" : s.locatie}</span></span>}
+                  {s.specii && s.specii.length > 0 && <span className="text-fog/70">🐟 <span className="text-fog">{s.specii.join(", ")}</span></span>}
+                </div>
+              </a>
+            ))}
           </div>
         </section>
       )}
