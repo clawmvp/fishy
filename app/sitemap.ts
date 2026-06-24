@@ -4,6 +4,7 @@ import { tehnici } from "@/data/tehnici";
 import { monturi } from "@/data/monturi";
 import { articole } from "@/data/articole";
 import { specii } from "@/data/specii";
+import { ghiduri } from "@/data/ghiduri";
 
 const BASE = "https://fishy.n01.app";
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/clasament", 0.6],
     ["/about", 0.5],
     ["/specii", 0.9],
+    ["/ghiduri", 0.8],
     ["/locuri", 0.9],
     ["/tehnici", 0.9],
     ["/prognoza", 0.8],
@@ -55,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    ...dynamic(ghiduri, "/ghiduri", 0.7),
     ...dynamic(locuri, "/locuri", 0.7),
     ...dynamic(tehnici, "/tehnici", 0.7),
     ...dynamic(monturi, "/monturi", 0.6),

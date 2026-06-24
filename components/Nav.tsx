@@ -15,6 +15,7 @@ const nav = [
   { href: "/prohibitie", label: "prohibiție" },
   { href: "/echipament", label: "echipament" },
   { href: "/articole", label: "articole" },
+  { href: "/ghiduri", label: "ghiduri" },
   { href: "/glosar", label: "glosar" },
   { href: "/provizii", label: "provizii" },
   { href: "/feed", label: "feed" },
