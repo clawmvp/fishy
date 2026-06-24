@@ -76,6 +76,47 @@ export async function deleteCatch(userId: number, id: number): Promise<boolean> 
   return rows.length > 0;
 }
 
+export type CatchEdit = {
+  specie: string;
+  weight_kg: number | null;
+  length_cm: number | null;
+  locatie_slug: string | null;
+  locatie_text: string | null;
+  caught_at: string;
+  nada: string | null;
+  tehnica: string | null;
+  note: string | null;
+  released: boolean;
+  public: boolean;
+  hide_exact_location: boolean;
+};
+
+export async function updateCatch(userId: number, id: number, c: CatchEdit): Promise<boolean> {
+  const rows = await sql`
+    UPDATE fishy_beacon.catches SET
+      specie = ${c.specie}, weight_kg = ${c.weight_kg}, length_cm = ${c.length_cm},
+      locatie_slug = ${c.locatie_slug}, locatie_text = ${c.locatie_text},
+      caught_at = ${c.caught_at}, nada = ${c.nada}, tehnica = ${c.tehnica},
+      note = ${c.note}, released = ${c.released}, public = ${c.public},
+      hide_exact_location = ${c.hide_exact_location}
+    WHERE user_id = ${userId} AND id = ${id}
+    RETURNING id
+  `;
+  return rows.length > 0;
+}
+
+// Captură publică (pentru share — fără auth). Doar dacă public = TRUE.
+export async function getPublicCatch(id: number): Promise<CatchWithUser | null> {
+  const rows = await sql`
+    SELECT c.*, u.name as user_name, u.nickname as user_nickname, u.avatar_url as user_avatar
+    FROM fishy_beacon.catches c
+    JOIN fishy_beacon.users u ON u.id = c.user_id
+    WHERE c.id = ${id} AND c.public = TRUE
+    LIMIT 1
+  `;
+  return (rows[0] as CatchWithUser) ?? null;
+}
+
 export type CatchStats = {
   total: number;
   totalKg: number;
