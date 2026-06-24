@@ -149,11 +149,11 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                       {/* Timeline dot */}
                       <div className="absolute left-3 top-5 w-2 h-2 rounded-full bg-amber-glow border-2 border-water -ml-1 hidden md:block z-10"></div>
 
-                      <article className="md:ml-10 card rounded-xl p-4">
+                      <article className="md:ml-10 card rounded-xl p-4 relative transition-colors hover:border-amber-glow/40">
                         <header className="flex items-baseline justify-between gap-2 mb-2 flex-wrap">
                           <div className="flex items-baseline gap-2 flex-wrap">
                             <span className="text-lg">{SPECIE_ICON[c.specie] ?? "🐟"}</span>
-                            <span className="text-base font-display text-amber-glow">{SPECIE_LABEL[c.specie] ?? c.specie}</span>
+                            <Link href={`/captura/${c.id}`} className="text-base font-display text-amber-glow hover:text-amber-soft after:absolute after:inset-0 after:content-['']">{SPECIE_LABEL[c.specie] ?? c.specie}</Link>
                             {c.weight_kg != null && <span className="text-base text-fog">{c.weight_kg}kg</span>}
                             {c.length_cm != null && <span className="text-xs text-fog/55">{c.length_cm}cm</span>}
                             {isRecent && (
@@ -164,7 +164,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                             )}
                           </div>
                           <p className="text-xs text-fog/55 flex items-center gap-1.5">
-                            <UserPopover userId={c.user_id} displayName={c.user_nickname || c.user_name || "pescar"} avatar={c.user_avatar} />
+                            <span className="relative z-[1]"><UserPopover userId={c.user_id} displayName={c.user_nickname || c.user_name || "pescar"} avatar={c.user_avatar} /></span>
                             · {timeAgo(c.caught_at)}
                             {c.released && <> · ↩</>}
                           </p>
@@ -172,7 +172,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
 
                         {/* Photos */}
                         {photos.length > 0 && (
-                          <div className="flex gap-2 mb-3 overflow-x-auto">
+                          <div className="flex gap-2 mb-3 overflow-x-auto relative z-[1]">
                             {photos.map((url, i) => (
                               <a key={i} href={url} target="_blank" rel="noopener noreferrer">
                                 <img src={url} alt="" className="h-40 rounded-md object-cover border border-amber-glow/20 hover:border-amber-glow/60 transition-colors" />
@@ -188,7 +188,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                               href={`https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lng}&zoom=14`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="block w-20 h-20 rounded-md overflow-hidden border border-amber-glow/30 flex-shrink-0 relative group"
+                              className="block w-20 h-20 rounded-md overflow-hidden border border-amber-glow/30 flex-shrink-0 relative z-[1] group"
                             >
                               <img src={staticMapUrl(c.lat!, c.lng!, 13)} alt="" className="w-full h-full object-cover" />
                               <div className="absolute inset-0 flex items-center justify-center text-2xl">📍</div>
@@ -222,7 +222,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                           {locStr && (
                             <span>
                               {c.locatie_slug && !c.hide_exact_location ? (
-                                <Link href={`/locuri/${c.locatie_slug}`} className="text-fog hover:text-amber-glow">{locStr}</Link>
+                                <Link href={`/locuri/${c.locatie_slug}`} className="relative z-[1] text-fog hover:text-amber-glow">{locStr}</Link>
                               ) : (
                                 <span className="text-fog">{locStr}</span>
                               )}
@@ -237,7 +237,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                         )}
 
                         {/* Reactions + share */}
-                        <div className="flex items-center justify-between gap-3 mt-1">
+                        <div className="flex items-center justify-between gap-3 mt-1 relative z-[1]">
                           <div className="min-w-0">
                             {reactions && (
                               <ReactionsBar

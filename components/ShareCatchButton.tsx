@@ -25,9 +25,9 @@ export default function ShareCatchButton({ id, compact }: { id: number; compact?
         type="button"
         onClick={share}
         aria-label="Share captură"
-        className="text-xs text-fog/55 hover:text-amber-glow flex items-center gap-1 transition-colors flex-shrink-0"
+        className="relative z-[1] text-xs px-2.5 py-1 rounded-md border border-amber-glow/40 text-amber-glow hover:bg-amber-glow/15 flex items-center gap-1 transition-colors flex-shrink-0"
       >
-        {copied ? "✓ copiat" : "↗ share"}
+        {copied ? "✓ copiat" : "↗ Share"}
       </button>
     );
   }
