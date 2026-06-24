@@ -21,10 +21,16 @@ export async function POST(req: NextRequest) {
   const origin = new URL(req.url).origin;
   const magicLink = `${origin}/api/auth/callback?token=${encodeURIComponent(token)}`;
 
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: "RESEND_API_KEY lipsește" }, { status: 500 });
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY);
+  const from = process.env.RESEND_FROM || "fishy.n01.app <noreply@n01.app>";
   try {
-    await resend.emails.send({
-      from: "fishy.n01.app <noreply@n01.app>",
+    // Resend NU aruncă pe eroare de API — întoarce { data, error }. Trebuie verificat.
+    const { data, error } = await resend.emails.send({
+      from,
       to: email,
       subject: "🎣 Conectează-te la fishy",
       html: `
@@ -38,9 +44,11 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     });
+    if (error) {
+      return NextResponse.json({ error: "Email send failed", details: error.message, name: error.name }, { status: 502 });
+    }
+    return NextResponse.json({ ok: true, message: "Verifică emailul", id: data?.id });
   } catch (e) {
-    return NextResponse.json({ error: "Email send failed", details: (e as Error).message }, { status: 500 });
+    return NextResponse.json({ error: "Email send exception", details: (e as Error).message }, { status: 500 });
   }
-
-  return NextResponse.json({ ok: true, message: "Verifică emailul" });
 }
