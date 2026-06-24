@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function ShareCatchButton({ id }: { id: number }) {
+export default function ShareCatchButton({ id, compact }: { id: number; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
 
   async function share() {
@@ -17,6 +17,19 @@ export default function ShareCatchButton({ id }: { id: number }) {
     } catch {
       /* user cancelled / no clipboard */
     }
+  }
+
+  if (compact) {
+    return (
+      <button
+        type="button"
+        onClick={share}
+        aria-label="Share captură"
+        className="text-xs text-fog/55 hover:text-amber-glow flex items-center gap-1 transition-colors flex-shrink-0"
+      >
+        {copied ? "✓ copiat" : "↗ share"}
+      </button>
+    );
   }
 
   return (

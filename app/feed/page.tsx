@@ -8,6 +8,7 @@ import { getCatchContextsForDates, formatDateLabel } from "@/lib/catch-context";
 import { ReactionsBar } from "@/components/ReactionsBar";
 import { UserPopover } from "@/components/UserPopover";
 import { FeedFilters } from "@/components/FeedFilters";
+import ShareCatchButton from "@/components/ShareCatchButton";
 
 export const dynamic = "force-dynamic";
 
@@ -235,15 +236,20 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                           <p className="text-sm text-fog/75 mt-2 leading-relaxed italic line-clamp-2">{c.note}</p>
                         )}
 
-                        {/* Reactions */}
-                        {reactions && (
-                          <ReactionsBar
-                            catchId={c.id}
-                            initialCounts={reactions.counts}
-                            initialMyEmojis={reactions.my_emojis}
-                            isAuthed={!!session}
-                          />
-                        )}
+                        {/* Reactions + share */}
+                        <div className="flex items-center justify-between gap-3 mt-1">
+                          <div className="min-w-0">
+                            {reactions && (
+                              <ReactionsBar
+                                catchId={c.id}
+                                initialCounts={reactions.counts}
+                                initialMyEmojis={reactions.my_emojis}
+                                isAuthed={!!session}
+                              />
+                            )}
+                          </div>
+                          <ShareCatchButton id={c.id} compact />
+                        </div>
                       </article>
 
                       {showInsight && (
