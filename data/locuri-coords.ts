@@ -50,6 +50,25 @@ export const LOC_COORDS: Record<string, [number, number]> = {
   "lacuri-mila23-nord": [45.250, 29.250],
   "lacul-babadag": [44.875, 28.700],
   "statia-11-delta": [45.10, 29.50],
+
+  // Interior + Dunărea largă (aproximative, nivel localitate/segment râu — iunie 2026)
+  "port-oltenita": [44.0833, 26.6333],          // Oltenița, port Dunăre
+  "canal-apa-calda-cernavoda": [44.345, 28.030], // CNE Cernavodă
+  "gostinu-giurgiu-canal": [43.930, 26.070],     // Gostinu, Giurgiu
+  "olt-cainenii-mari": [45.510, 24.310],         // Câinenii Mari, Vâlcea (Olt)
+  "crapologia-fulga": [44.905, 26.460],          // Fulga, Prahova (lac privat)
+  "balta-valea-argovei-2": [44.470, 26.700],     // Valea Argovei, Călărași
+  "lacul-corbu": [44.360, 28.660],               // Corbu, Constanța
+  "groapa-cu-caramizi-calarasi": [44.190, 27.330], // Călărași
+  "insula-albina-calarasi": [44.140, 27.270],    // Insula Albina, Călărași (Dunăre)
+  "raul-arges": [44.230, 26.460],                // segment Argeș, zona Budești (Călărași)
+  "raul-neajlov": [44.175, 25.960],              // Neajlov, zona Comana (Giurgiu)
+  "ostrovul-nebuna-dolj": [43.790, 23.960],      // Dolj, Dunăre frontieră BG (zona Bechet)
+  "boldesti-gradistea": [45.100, 27.050],        // Grădiștea, Buzău
+  "balta-gagu-2": [44.620, 26.580],              // Gagu, Ialomița (aprox.)
+  "bazinul-candesti": [45.050, 25.420],          // Cândești, Dâmbovița (aprox. — verifică)
+  "iannis-lake-bihor": [47.050, 21.920],         // Bihor, zona Oradea (aprox. — verifică)
+  // "goldfish-lake": lac privat fără regiune specificată — necunoscut, de completat manual
 };
 
 // Cota stations cu coords
