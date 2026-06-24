@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 
-export default function ShareCatchButton({ id, compact }: { id: number; compact?: boolean }) {
+export default function ShareCatchButton({ path, compact }: { path: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
 
   async function share() {
-    const url = `https://fishy.n01.app/captura/${id}`;
+    const url = `https://fishy.n01.app${path}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: "Captură pe fishy", url });

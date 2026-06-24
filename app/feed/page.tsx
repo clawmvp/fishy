@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listPublicCatches } from "@/lib/catches";
+import { listPublicCatches, catchSlug } from "@/lib/catches";
 import type { CatchWithUser } from "@/lib/catches";
 import { getAllLocuri } from "@/lib/data-combined";
 import { getSession } from "@/lib/auth";
@@ -153,7 +153,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                         <header className="flex items-baseline justify-between gap-2 mb-2 flex-wrap">
                           <div className="flex items-baseline gap-2 flex-wrap">
                             <span className="text-lg">{SPECIE_ICON[c.specie] ?? "🐟"}</span>
-                            <Link href={`/captura/${c.id}`} className="text-base font-display text-amber-glow hover:text-amber-soft after:absolute after:inset-0 after:content-['']">{SPECIE_LABEL[c.specie] ?? c.specie}</Link>
+                            <Link href={catchSlug(c, c.user_nickname || c.user_name)} className="text-base font-display text-amber-glow hover:text-amber-soft after:absolute after:inset-0 after:content-['']">{SPECIE_LABEL[c.specie] ?? c.specie}</Link>
                             {c.weight_kg != null && <span className="text-base text-fog">{c.weight_kg}kg</span>}
                             {c.length_cm != null && <span className="text-xs text-fog/55">{c.length_cm}cm</span>}
                             {isRecent && (
@@ -248,7 +248,7 @@ export default async function FeedPage({ searchParams }: { searchParams: Promise
                               />
                             )}
                           </div>
-                          <ShareCatchButton id={c.id} compact />
+                          <ShareCatchButton path={catchSlug(c, c.user_nickname || c.user_name)} compact />
                         </div>
                       </article>
 

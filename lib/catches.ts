@@ -76,6 +76,19 @@ export async function deleteCatch(userId: number, id: number): Promise<boolean> 
   return rows.length > 0;
 }
 
+// URL SEO-friendly: /captura/5-crap-12kg-clawmvp. Ruta parsează id-ul cu
+// parseInt (se oprește la prima literă), deci slug-ul decorativ nu strică lookup-ul.
+function slugPart(s: string): string {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+export function catchSlug(c: { id: number; specie: string; weight_kg?: number | null }, who?: string | null): string {
+  const parts = [String(c.id), slugPart(c.specie)];
+  if (c.weight_kg != null) parts.push(`${String(c.weight_kg).replace(".", "-")}kg`);
+  if (who) parts.push(slugPart(who));
+  return `/captura/${parts.filter(Boolean).join("-")}`;
+}
+
 export type CatchEdit = {
   specie: string;
   weight_kg: number | null;

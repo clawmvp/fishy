@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPublicCatch } from "@/lib/catches";
+import { getPublicCatch, catchSlug } from "@/lib/catches";
 import { displayName } from "@/lib/profile";
 import CatchConditions from "@/components/CatchConditions";
 
@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title,
     description: desc,
+    alternates: { canonical: catchSlug(c, who) },
     openGraph: {
       type: "article",
       title,

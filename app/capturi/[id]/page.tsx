@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
-import { getCatch } from "@/lib/catches";
+import { getCatch, catchSlug } from "@/lib/catches";
 import DeleteButton from "@/components/DeleteCatchButton";
 import ShareCatchButton from "@/components/ShareCatchButton";
 import CatchConditions from "@/components/CatchConditions";
@@ -99,7 +99,7 @@ export default async function CatchDetailPage({ params }: { params: Promise<{ id
         >
           ✎ Editează
         </Link>
-        {c.public && <ShareCatchButton id={c.id} />}
+        {c.public && <ShareCatchButton path={catchSlug(c, user.name)} />}
         <div className="ml-auto">
           <DeleteButton id={c.id} />
         </div>
