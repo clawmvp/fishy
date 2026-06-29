@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: [string, number][] = [
     ["", 1],
     ["/azi", 0.9],
+    ["/cota-azi", 0.5],
     ["/harta", 0.8],
     ["/feed", 0.7],
     ["/clasament", 0.6],

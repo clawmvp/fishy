@@ -191,7 +191,7 @@ export default async function PartidaPage({
       <header className="mb-6">
         <p className="text-xs uppercase tracking-[0.3em] text-moss mb-2">partidă în Deltă</p>
         <h1 className="text-3xl md:text-4xl font-display text-fog mb-1">{dataLunga}</h1>
-        <p className="text-fog/55 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>.</p>
+        <p className="text-fog/55 text-sm">Prognoză {ORIZONT_ZILE} zile — alege ziua pentru recomandări detaliate. Pentru overview cu ferestre recomandate vezi <Link href="/prognoza" className="text-amber-glow hover:underline">prognoză</Link>. <Link href="/cota-azi" className="text-amber-glow hover:underline">📷 imagine de share cu cota azi</Link></p>
       </header>
 
       {/* SELECTOR ZIUA — scroll horizontal pe mobile, grid pe desktop */}

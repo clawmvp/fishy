@@ -28,7 +28,11 @@ import FishIcon from "./FishIcon";
 
 export default function FloatingChat() {
   const [open, setOpen] = useState(false);
-  const [view, setView] = useState<"chat" | "history">("chat");
+  const [view, setView] = useState<"chat" | "history" | "feedback">("chat");
+  const [fbText, setFbText] = useState("");
+  const [fbEmail, setFbEmail] = useState("");
+  const [fbSending, setFbSending] = useState(false);
+  const [fbSent, setFbSent] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [input, setInput] = useState("");
@@ -146,6 +150,29 @@ export default function FloatingChat() {
     setStreaming(false);
   }
 
+  async function sendFeedback() {
+    const msg = fbText.trim();
+    if (!msg || fbSending) return;
+    setFbSending(true);
+    try {
+      await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: msg,
+          email: fbEmail.trim() || undefined,
+          context: messages.slice(-6),
+          page: typeof window !== "undefined" ? window.location.pathname : undefined,
+        }),
+      });
+      setFbSent(true);
+      setFbText("");
+    } catch {
+      /* ignore */
+    }
+    setFbSending(false);
+  }
+
   function onKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -199,7 +226,7 @@ export default function FloatingChat() {
             <span className="text-amber-glow"><FishIcon size={24} /></span>
             <div className="flex-1">
               <h3 className="text-sm font-display text-fog">fishy <span className="text-amber-glow">chat</span></h3>
-              <p className="text-[10px] text-fog/55">{view === "history" ? "istoric" : "asistent Delta"}</p>
+              <p className="text-[10px] text-fog/55">{view === "history" ? "istoric" : view === "feedback" ? "feedback" : "asistent Delta"}</p>
             </div>
             <div className="flex gap-1">
               {view === "chat" && (
@@ -210,13 +237,18 @@ export default function FloatingChat() {
                     className="text-xs px-2 py-1 rounded-md border border-amber-glow/20 hover:border-amber-glow/50 text-fog/75 hover:text-amber-glow transition-colors"
                   >+ nou</button>
                   <button
+                    onClick={() => { setView("feedback"); setFbSent(false); }}
+                    title="Trimite feedback"
+                    className="text-xs px-2 py-1 rounded-md border border-amber-glow/20 hover:border-amber-glow/50 text-fog/75 hover:text-amber-glow transition-colors"
+                  >📣</button>
+                  <button
                     onClick={() => { setView("history"); loadConversations(); }}
                     title="Istoric"
                     className="text-xs px-2 py-1 rounded-md border border-amber-glow/20 hover:border-amber-glow/50 text-fog/75 hover:text-amber-glow transition-colors"
                   >📜</button>
                 </>
               )}
-              {view === "history" && (
+              {(view === "history" || view === "feedback") && (
                 <button
                   onClick={() => setView("chat")}
                   className="text-xs px-2 py-1 rounded-md border border-amber-glow/20 hover:border-amber-glow/50 text-fog/75 hover:text-amber-glow transition-colors"
@@ -260,6 +292,45 @@ export default function FloatingChat() {
                       </div>
                     </button>
                   ))}
+                </div>
+              )}
+            </div>
+          ) : view === "feedback" ? (
+            <div className="flex-1 overflow-y-auto p-4">
+              {fbSent ? (
+                <div className="h-full flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl mb-2">🙏</p>
+                  <h4 className="text-base font-display text-fog mb-1">Mulțumim!</h4>
+                  <p className="text-xs text-fog/65 max-w-xs mb-4">Feedback-ul tău a ajuns la noi. Contează enorm la început.</p>
+                  <button onClick={() => setView("chat")} className="text-xs px-3 py-1.5 rounded-md border border-amber-glow/30 text-amber-glow hover:bg-amber-glow/10">← înapoi la chat</button>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-base font-display text-fog mb-1">📣 Lasă-ne feedback</h4>
+                    <p className="text-xs text-fog/65 leading-relaxed">Ce-ți place, ce lipsește, ce nu merge? Orice idee contează. Atașăm și ultimele mesaje din chat ca context.</p>
+                  </div>
+                  <textarea
+                    value={fbText}
+                    onChange={(e) => setFbText(e.target.value)}
+                    placeholder="Sugestia sau problema ta..."
+                    rows={5}
+                    className="w-full bg-water-2/40 border border-amber-glow/20 rounded-md px-3 py-2 text-sm text-fog placeholder:text-fog/40 focus:outline-none focus:border-amber-glow/50 resize-none"
+                  />
+                  <input
+                    type="email"
+                    value={fbEmail}
+                    onChange={(e) => setFbEmail(e.target.value)}
+                    placeholder="Email (opțional — dacă vrei răspuns)"
+                    className="w-full bg-water-2/40 border border-amber-glow/20 rounded-md px-3 py-2 text-sm text-fog placeholder:text-fog/40 focus:outline-none focus:border-amber-glow/50"
+                  />
+                  <button
+                    onClick={sendFeedback}
+                    disabled={fbSending || fbText.trim().length < 3}
+                    className="w-full py-2 rounded-md bg-amber-glow/15 hover:bg-amber-glow/25 border border-amber-glow/40 text-amber-glow font-medium transition-colors disabled:opacity-40"
+                  >
+                    {fbSending ? "Se trimite..." : "Trimite feedback"}
+                  </button>
                 </div>
               )}
             </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAdminStats } from "@/lib/admin-stats";
+import { feedbackCounts } from "@/lib/feedback";
 import AdminTriggers from "@/components/AdminTriggers";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +15,7 @@ function timeAgo(iso: string | null): string {
 
 export default async function AdminDashboard() {
   const s = await getAdminStats();
+  const fb = await feedbackCounts();
 
   return (
     <div>
@@ -37,6 +39,9 @@ export default async function AdminDashboard() {
         </Link>
         <Link href="/admin/logs" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
           📋 logs
+        </Link>
+        <Link href="/admin/feedback" className="text-xs uppercase tracking-widest text-fog/70 hover:text-amber-glow border border-amber-glow/15 hover:border-amber-glow/40 rounded-md px-3 py-1.5 transition-colors">
+          📣 feedback{fb.new > 0 ? ` (${fb.new})` : ""}
         </Link>
       </nav>
 
@@ -79,7 +84,7 @@ export default async function AdminDashboard() {
       <section>
         <h2 className="text-xl font-display text-amber-glow mb-4">⚙️ Configurare sistem</h2>
         <div className="card rounded-xl p-5 space-y-2 text-sm">
-          <Row label="Crons" value="beacon-scan 05:00 · cota-snapshot 06:30 · extract-insights 07:30 (zilnic)" />
+          <Row label="Crons" value="beacon-scan 05:00 · cota-snapshot 10:30 · extract-insights 07:30 (zilnic)" />
           <Row label="Model chat" value="DeepSeek V3 (deepseek-chat) cu prompt caching" />
           <Row label="Model extract" value="Claude Opus 4.7 (deduplicare vs entries existente)" />
           <Row label="Model beacon" value="Claude Haiku 4.5 (extracție rapidă)" />
